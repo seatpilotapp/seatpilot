@@ -1,0 +1,404 @@
+{
+  "$id": "https://schemas.seatpilot.app/events/safety.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Seatpilot Safety Events",
+  "oneOf": [
+    {
+      "title": "safety.zone_capacity_update",
+      "allOf": [
+        {
+          "$ref": "../envelope.v1.1.0.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event_name": {
+              "const": "safety.zone_capacity_update"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "zone_id",
+                "occupancy",
+                "design_capacity"
+              ],
+              "properties": {
+                "zone_id": {
+                  "type": "string"
+                },
+                "occupancy": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "design_capacity": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "safety.aisle_clearance_violation",
+      "allOf": [
+        {
+          "$ref": "../envelope.v1.1.0.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event_name": {
+              "const": "safety.aisle_clearance_violation"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "aisle_id",
+                "measured_in",
+                "width_value"
+              ],
+              "properties": {
+                "aisle_id": {
+                  "type": "string"
+                },
+                "measured_in": {
+                  "type": "string",
+                  "enum": [
+                    "in",
+                    "cm"
+                  ]
+                },
+                "width_value": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "safety.exit_status_update",
+      "allOf": [
+        {
+          "$ref": "../envelope.v1.1.0.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event_name": {
+              "const": "safety.exit_status_update"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "exit_id",
+                "status"
+              ],
+              "properties": {
+                "exit_id": {
+                  "type": "string"
+                },
+                "status": {
+                  "$ref": "../enums.json#/$defs/status_exit"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "safety.emergency_tone_alert",
+      "allOf": [
+        {
+          "$ref": "../envelope.v1.1.0.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event_name": {
+              "const": "safety.emergency_tone_alert"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "tone",
+                "source"
+              ],
+              "properties": {
+                "tone": {
+                  "type": "string",
+                  "enum": [
+                    "alert",
+                    "evacuation"
+                  ]
+                },
+                "source": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "safety.incident_opened",
+      "allOf": [
+        {
+          "$ref": "../envelope.v1.1.0.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event_name": {
+              "const": "safety.incident_opened"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "incident_id",
+                "category",
+                "priority"
+              ],
+              "properties": {
+                "incident_id": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "category": {
+                  "type": "string"
+                },
+                "priority": {
+                  "$ref": "../enums.json#/$defs/ops_severity"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "safety.incident_acknowledged",
+      "allOf": [
+        {
+          "$ref": "../envelope.v1.1.0.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event_name": {
+              "const": "safety.incident_acknowledged"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "incident_id",
+                "role_ack"
+              ],
+              "properties": {
+                "incident_id": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "role_ack": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "safety.incident_resolved",
+      "allOf": [
+        {
+          "$ref": "../envelope.v1.1.0.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event_name": {
+              "const": "safety.incident_resolved"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "incident_id",
+                "resolution_code"
+              ],
+              "properties": {
+                "incident_id": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "resolution_code": {
+                  "type": "string",
+                  "enum": [
+                    "false_alarm",
+                    "handled",
+                    "outsourced",
+                    "other"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "safety.evacuation_started",
+      "allOf": [
+        {
+          "$ref": "../envelope.v1.1.0.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event_name": {
+              "const": "safety.evacuation_started"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "evacuation_id",
+                "initial_headcount"
+              ],
+              "properties": {
+                "evacuation_id": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "initial_headcount": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "safety.evacuation_ended",
+      "allOf": [
+        {
+          "$ref": "../envelope.v1.1.0.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event_name": {
+              "const": "safety.evacuation_ended"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "evacuation_id",
+                "cleared_headcount"
+              ],
+              "properties": {
+                "evacuation_id": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "cleared_headcount": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "safety.muster_point_status_update",
+      "allOf": [
+        {
+          "$ref": "../envelope.v1.1.0.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event_name": {
+              "const": "safety.muster_point_status_update"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "muster_point_id",
+                "headcount_total"
+              ],
+              "properties": {
+                "muster_point_id": {
+                  "type": "string"
+                },
+                "headcount_total": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "safety.announcement_published",
+      "allOf": [
+        {
+          "$ref": "../envelope.v1.1.0.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event_name": {
+              "const": "safety.announcement_published"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "template_id",
+                "channels",
+                "priority"
+              ],
+              "properties": {
+                "template_id": {
+                  "type": "string"
+                },
+                "channels": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "../enums.json#/$defs/broadcast_channel"
+                  },
+                  "minItems": 1
+                },
+                "priority": {
+                  "$ref": "../enums.json#/$defs/ops_severity"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

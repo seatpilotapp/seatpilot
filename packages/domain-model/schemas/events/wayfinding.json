@@ -1,0 +1,189 @@
+{
+  "$id": "https://schemas.seatpilot.app/events/wayfinding.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Seatpilot Wayfinding Events",
+  "oneOf": [
+    {
+      "title": "wayfinding.search_made",
+      "allOf": [
+        {
+          "$ref": "../envelope.v1.1.0.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event_name": {
+              "const": "wayfinding.search_made"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "query",
+                "results_count"
+              ],
+              "properties": {
+                "query": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "results_count": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "wayfinding.search_not_found",
+      "allOf": [
+        {
+          "$ref": "../envelope.v1.1.0.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event_name": {
+              "const": "wayfinding.search_not_found"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "query"
+              ],
+              "properties": {
+                "query": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "wayfinding.route_started",
+      "allOf": [
+        {
+          "$ref": "../envelope.v1.1.0.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event_name": {
+              "const": "wayfinding.route_started"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "route_id",
+                "origin_zone",
+                "target_table"
+              ],
+              "properties": {
+                "route_id": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "origin_zone": {
+                  "type": "string"
+                },
+                "target_table": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "wayfinding.reroute",
+      "allOf": [
+        {
+          "$ref": "../envelope.v1.1.0.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event_name": {
+              "const": "wayfinding.reroute"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "route_id",
+                "cause"
+              ],
+              "properties": {
+                "route_id": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "cause": {
+                  "type": "string",
+                  "enum": [
+                    "staff_override",
+                    "blockage"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "wayfinding.arrive_table",
+      "allOf": [
+        {
+          "$ref": "../envelope.v1.1.0.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event_name": {
+              "const": "wayfinding.arrive_table"
+            },
+            "correlation": {
+              "allOf": [
+                {
+                  "$ref": "../envelope.v1.1.0.json#/$defs/correlation"
+                },
+                {
+                  "type": "object",
+                  "required": [
+                    "door_to_seat_id"
+                  ]
+                }
+              ]
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "table_id",
+                "confirm_mode"
+              ],
+              "properties": {
+                "table_id": {
+                  "type": "string"
+                },
+                "confirm_mode": {
+                  "$ref": "../enums.json#/$defs/confirm_mode"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

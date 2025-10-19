@@ -1,0 +1,94 @@
+{
+  "$id": "https://schemas.seatpilot.app/enums.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Seatpilot Enumerations",
+  "$defs": {
+    "app_channel": {
+      "title": "Application channel",
+      "type": "string",
+      "enum": [
+        "kiosk",
+        "ops",
+        "guest",
+        "tv"
+      ]
+    },
+    "source": {
+      "title": "Data source",
+      "type": "string",
+      "enum": [
+        "cache",
+        "net"
+      ]
+    },
+    "confirm_mode": {
+      "title": "Confirmation mode",
+      "type": "string",
+      "enum": [
+        "qr",
+        "tap"
+      ]
+    },
+    "mode": {
+      "title": "Assignment mode",
+      "type": "string",
+      "enum": [
+        "auto",
+        "manual"
+      ]
+    },
+    "status_exit": {
+      "title": "Exit status",
+      "type": "string",
+      "enum": [
+        "OPEN",
+        "CLOSED",
+        "BLOCKED"
+      ]
+    },
+    "reason_code_reassign": {
+      "title": "Reassign reason code",
+      "type": "string",
+      "enum": [
+        "vip",
+        "mobility",
+        "group_cohesion",
+        "late_arrival",
+        "capacity_balance",
+        "staff_override"
+      ]
+    },
+    "a11y_rule": {
+      "title": "Accessibility rule",
+      "type": "string",
+      "enum": [
+        "contrast_ratio",
+        "focus_trap",
+        "hit_target",
+        "aria_label",
+        "tab_order"
+      ]
+    },
+    "ops_severity": {
+      "title": "Operational severity",
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ]
+    },
+    "broadcast_channel": {
+      "title": "Announcement broadcast channel",
+      "type": "string",
+      "enum": [
+        "pa",
+        "screen",
+        "push",
+        "sms",
+        "email"
+      ]
+    }
+  }
+}

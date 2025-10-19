@@ -1,0 +1,73 @@
+{
+  "$id": "https://schemas.seatpilot.app/events/ops.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Seatpilot Ops Metrics Events",
+  "oneOf": [
+    {
+      "title": "ops.ws_client_latency",
+      "allOf": [
+        {
+          "$ref": "../envelope.v1.1.0.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event_name": {
+              "const": "ops.ws_client_latency"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "client_id",
+                "rtt_ms"
+              ],
+              "properties": {
+                "client_id": {
+                  "type": "string"
+                },
+                "rtt_ms": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "ops.mv_refreshed",
+      "allOf": [
+        {
+          "$ref": "../envelope.v1.1.0.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event_name": {
+              "const": "ops.mv_refreshed"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "view",
+                "lag_ms"
+              ],
+              "properties": {
+                "view": {
+                  "type": "string"
+                },
+                "lag_ms": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

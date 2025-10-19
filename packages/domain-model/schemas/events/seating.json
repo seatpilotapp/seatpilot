@@ -1,0 +1,220 @@
+{
+  "$id": "https://schemas.seatpilot.app/events/seating.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Seatpilot Seating Events",
+  "oneOf": [
+    {
+      "title": "seating.seat_assign_suggested",
+      "allOf": [
+        {
+          "$ref": "../envelope.v1.1.0.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event_name": {
+              "const": "seating.seat_assign_suggested"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "guest_id_hash",
+                "solver_version",
+                "score"
+              ],
+              "properties": {
+                "guest_id_hash": {
+                  "type": "string"
+                },
+                "solver_version": {
+                  "type": "string"
+                },
+                "score": {
+                  "type": "number",
+                  "minimum": 0
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "seating.seat_assigned",
+      "allOf": [
+        {
+          "$ref": "../envelope.v1.1.0.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event_name": {
+              "const": "seating.seat_assigned"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "guest_id_hash",
+                "mode",
+                "table_id"
+              ],
+              "properties": {
+                "guest_id_hash": {
+                  "type": "string"
+                },
+                "mode": {
+                  "$ref": "../enums.json#/$defs/mode"
+                },
+                "table_id": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "seating.reassign",
+      "allOf": [
+        {
+          "$ref": "../envelope.v1.1.0.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event_name": {
+              "const": "seating.reassign"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "from_table",
+                "to_table",
+                "reason_code"
+              ],
+              "properties": {
+                "from_table": {
+                  "type": "string"
+                },
+                "to_table": {
+                  "type": "string"
+                },
+                "reason_code": {
+                  "$ref": "../enums.json#/$defs/reason_code_reassign"
+                },
+                "role": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "seating.seat_released",
+      "allOf": [
+        {
+          "$ref": "../envelope.v1.1.0.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event_name": {
+              "const": "seating.seat_released"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "seat_id"
+              ],
+              "properties": {
+                "seat_id": {
+                  "type": "string"
+                },
+                "reason_code": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "seating.seat_locked",
+      "allOf": [
+        {
+          "$ref": "../envelope.v1.1.0.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event_name": {
+              "const": "seating.seat_locked"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "seat_id",
+                "locked_by"
+              ],
+              "properties": {
+                "seat_id": {
+                  "type": "string"
+                },
+                "locked_by": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "seating.vip_lock_set",
+      "allOf": [
+        {
+          "$ref": "../envelope.v1.1.0.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event_name": {
+              "const": "seating.vip_lock_set"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "seat_id",
+                "policy"
+              ],
+              "properties": {
+                "seat_id": {
+                  "type": "string"
+                },
+                "policy": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

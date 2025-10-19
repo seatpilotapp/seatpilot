@@ -1,0 +1,23 @@
+{
+  admin off
+}
+
+:8081 {
+  @metrics {
+    path /metrics
+  }
+
+  route @metrics {
+    header_up Authorization "Bearer {env.SUPABASE_SERVICE_ROLE_JWT}"
+    header_up apikey "{env.SUPABASE_SERVICE_ROLE_JWT}"
+    reverse_proxy https://qfwptupwrqdhxegxueuc.supabase.co {
+      header_up Host qfwptupwrqdhxegxueuc.supabase.co
+      transport http {
+        tls_server_name qfwptupwrqdhxegxueuc.supabase.co
+      }
+      uri /customer/v1/privileged/metrics
+    }
+  }
+
+  respond /healthz 200
+}

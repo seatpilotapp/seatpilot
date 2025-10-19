@@ -1,0 +1,68 @@
+{
+  "$id": "https://schemas.seatpilot.app/events/ux.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Seatpilot UX & Accessibility Events",
+  "oneOf": [
+    {
+      "title": "ux.locale_selected",
+      "allOf": [
+        {
+          "$ref": "../envelope.v1.1.0.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event_name": {
+              "const": "ux.locale_selected"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "locale"
+              ],
+              "properties": {
+                "locale": {
+                  "type": "string",
+                  "pattern": "^[a-z]{2}(-[A-Z]{2})?$"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "ux.a11y_pref_set",
+      "allOf": [
+        {
+          "$ref": "../envelope.v1.1.0.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event_name": {
+              "const": "ux.a11y_pref_set"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "rule",
+                "enabled"
+              ],
+              "properties": {
+                "rule": {
+                  "$ref": "../enums.json#/$defs/a11y_rule"
+                },
+                "enabled": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

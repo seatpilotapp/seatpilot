@@ -1,0 +1,106 @@
+services:
+  alertmanager:
+    image: prom/alertmanager:latest
+    command:
+      - --config.file=/etc/alertmanager/alertmanager.yml
+    volumes:
+      - ./alertmanager.yml:/etc/alertmanager/alertmanager.yml:ro
+    networks:
+      metricsnet:
+        aliases:
+          - seatpilot-alertmanager
+    ports:
+      - "9093:9093"
+
+  telemetry-ingest:
+    build:
+      context: .
+      dockerfile: services/telemetry-ingest/Dockerfile
+    environment:
+      - PORT=3001
+      - NODE_ENV=production
+      - METRICS_API_BASE_URL=http://metrics-api:8080
+      - HMAC_TENANT_SECRET=dev-metrics-secret
+    depends_on:
+      metrics-api:
+        condition: service_started
+    networks:
+      metricsnet:
+        aliases:
+          - telemetry-ingest
+
+  metrics-api:
+    build:
+      context: ./apps/metrics-api
+    image: seatpilot/metrics-api:latest
+    environment:
+      - SERVICE_NAME=seatpilot-metrics
+      - METRICS_TENANT=${METRICS_TENANT:-default}
+      - PORT=8080
+    networks:
+      metricsnet:
+        aliases:
+          - seatpilot-metrics-api
+
+  kpi-refresher:
+    build:
+      context: ./services/kpi-refresher
+    image: seatpilot/kpi-refresher:latest
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=${DATABASE_URL}
+      - METRICS_API_BASE_URL=http://metrics-api:8080
+    depends_on:
+      telemetry-ingest:
+        condition: service_started
+      metrics-api:
+        condition: service_started
+    networks:
+      metricsnet:
+        aliases:
+          - seatpilot-kpi-refresher
+
+  metrics-proxy:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      SUPABASE_HOST: ${SUPABASE_HOST:-qfwptupwrqdhxegxueuc.supabase.co}
+    volumes:
+      - ./.runtime/secrets/supabase_service_role.jwt:/run/secrets/supabase_service_role.jwt:ro
+    ports:
+      - "8081:8081"
+    networks:
+      metricsnet:
+        aliases:
+          - seatpilot-metrics-proxy
+
+  prometheus:
+    image: prom/prometheus:latest
+    depends_on:
+      - metrics-api
+      - metrics-proxy
+      - alertmanager
+      - telemetry-ingest
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --web.enable-lifecycle
+      - --storage.tsdb.path=/prometheus
+      - --storage.tsdb.retention.time=15d
+      - --alertmanager.url=http://seatpilot-alertmanager:9093
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - ./seatpilot.rules.yml:/etc/prometheus/seatpilot.rules.yml:ro
+      - prometheus-data:/prometheus
+    networks:
+      metricsnet:
+        aliases:
+          - seatpilot-prometheus
+    ports:
+      - "${PROM_PORT:-9090}:9090"
+
+networks:
+  metricsnet:
+
+volumes:
+  prometheus-data:

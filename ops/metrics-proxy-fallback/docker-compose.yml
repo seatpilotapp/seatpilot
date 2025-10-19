@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  metrics-proxy-fallback:
+    build: .
+    image: metrics-proxy-fallback:local
+    ports:
+      - "8082:8081"
+    environment:
+      SUPABASE_HOST: ${SUPABASE_HOST}
+      SB_SECRET: ${SB_SECRET}

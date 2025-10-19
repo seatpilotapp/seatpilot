@@ -1,0 +1,28 @@
+{
+  "name": "@seatpilot/domain-model",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "npm run clean && npm run build:esm && npm run build:cjs && npm run build:bundle",
+    "build:esm": "tsc -p tsconfig.build.json",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:bundle": "node scripts/postbuild.cjs",
+    "clean": "rm -rf dist dist-cjs tsconfig.build.tsbuildinfo tsconfig.cjs.tsbuildinfo"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  }
+}

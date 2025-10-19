@@ -1,0 +1,35 @@
+groups:
+  - name: seatpilot.rules
+    rules:
+      - alert: SeatPilotCheckinP95Fast
+        expr: avg_over_time(seatpilot_checkin_latency_ms{quantile="0.95"}[5m]) > 0.40
+        for: 5m
+        labels:
+          severity: page
+        annotations:
+          summary: "p95 check-in > 400 ms (ventana corta)"
+          description: "Tenant {{ $labels.tenant }} supera 400 ms en los últimos 5 minutos."
+
+      - alert: SeatPilotCheckinP95Slow
+        expr: avg_over_time(seatpilot_checkin_latency_ms{quantile="0.95"}[6h]) > 0.35
+        for: 10m
+        labels:
+          severity: warn
+        annotations:
+          summary: "p95 check-in > 350 ms (ventana larga)"
+          description: "Tenant {{ $labels.tenant }} supera 350 ms sostenido."
+
+      - alert: SeatPilotDoorToSeatP95
+        expr: histogram_quantile(0.95, sum by (le, tenant) (rate(seatpilot_door_to_seat_seconds_bucket[5m]))) > 60
+        for: 10m
+        labels:
+          severity: warn
+        annotations:
+          summary: "Door→Seat p95 > 60 s"
+          description: "Tiempo puerta→asiento p95 sobre 60 s (tenant {{ $labels.tenant }})."
+
+      - record: seatpilot:checkin_p95_5m
+        expr: avg_over_time(seatpilot_checkin_latency_ms{quantile="0.95"}[5m])
+
+      - record: seatpilot:door2seat_p95_5m
+        expr: histogram_quantile(0.95, sum by (le, tenant) (rate(seatpilot_door_to_seat_seconds_bucket[5m])))

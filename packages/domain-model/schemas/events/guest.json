@@ -1,0 +1,87 @@
+{
+  "$id": "https://schemas.seatpilot.app/events/guest.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Seatpilot Guest & Assignment Events",
+  "oneOf": [
+    {
+      "title": "guest.profile_updated",
+      "allOf": [
+        {
+          "$ref": "../envelope.v1.1.0.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event_name": {
+              "const": "guest.profile_updated"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "guest_id_hash"
+              ],
+              "properties": {
+                "guest_id_hash": {
+                  "type": "string"
+                },
+                "pmr": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "diet": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "assign.constraint_violation",
+      "allOf": [
+        {
+          "$ref": "../envelope.v1.1.0.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event_name": {
+              "const": "assign.constraint_violation"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "type"
+              ],
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "pmr",
+                    "diet",
+                    "vip_lock",
+                    "capacity"
+                  ]
+                },
+                "details": {
+                  "type": [
+                    "object",
+                    "null"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

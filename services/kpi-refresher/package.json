@@ -1,0 +1,14 @@
+{
+  "name": "@seatpilot/kpi-refresher",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx src/jobs/refresh-mvs.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/src/jobs/refresh-mvs.js"
+  },
+  "dependencies": {
+    "pg-promise": "^11.6.1"
+  }
+}

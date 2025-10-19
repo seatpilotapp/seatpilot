@@ -1,0 +1,171 @@
+{
+  "$id": "https://schemas.seatpilot.app/envelope.v1.1.0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Seatpilot Telemetry Envelope v1.1.0",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "event_id",
+    "event_name",
+    "ts_ms",
+    "tenant_id",
+    "session_id",
+    "event_meta",
+    "payload"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.1.0"
+    },
+    "event_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "event_name": {
+      "type": "string",
+      "pattern": "^[a-z]+\\.[a-z0-9_]+$"
+    },
+    "ts_ms": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "tenant_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "session_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "guest_id_hash": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "correlation": {
+      "$ref": "#/$defs/correlation"
+    },
+    "event_meta": {
+      "$ref": "#/$defs/event_meta"
+    },
+    "payload": {
+      "type": "object"
+    }
+  },
+  "$defs": {
+    "correlation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "door_to_seat_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uuid"
+        },
+        "event_id_src": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uuid"
+        },
+        "event_id_route": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "event_id_assign": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uuid"
+        },
+        "correlation_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uuid"
+        }
+      }
+    },
+    "event_meta": {
+      "type": "object",
+      "required": [
+        "app_channel",
+        "platform",
+        "app_version",
+        "sdk_version"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "app_channel": {
+          "$ref": "enums.json#/$defs/app_channel"
+        },
+        "platform": {
+          "enum": [
+            "web",
+            "android",
+            "ios",
+            "kiosk"
+          ]
+        },
+        "app_version": {
+          "type": "string"
+        },
+        "sdk_version": {
+          "type": "string"
+        },
+        "kiosk_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "device_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "locale": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[a-z]{2}(-[A-Z]{2})?$"
+        },
+        "timezone": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^UTC[+-](0\\d|1[0-2]):[0-5]\\d$"
+        },
+        "net_rtt_ms": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "battery": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    }
+  }
+}

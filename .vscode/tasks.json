@@ -1,0 +1,25 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build:domain-model",
+      "type": "shell",
+      "command": "npm run build --workspace @seatpilot/domain-model"
+    },
+    {
+      "label": "build:sdk-js",
+      "type": "shell",
+      "command": "npm run build --workspace @seatpilot/sdk-js"
+    },
+    {
+      "label": "build:sdk-server",
+      "type": "shell",
+      "command": "npm run build --workspace @seatpilot/sdk-server"
+    },
+    {
+      "label": "test:ingest",
+      "type": "shell",
+      "command": "npm run test --workspace @seatpilot/telemetry-ingest"
+    }
+  ]
+}

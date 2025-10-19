@@ -1,0 +1,143 @@
+{
+  "$id": "https://schemas.seatpilot.app/events/session.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Seatpilot Session & Attendance Events",
+  "oneOf": [
+    {
+      "title": "session.start",
+      "allOf": [
+        {
+          "$ref": "../envelope.v1.1.0.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event_name": {
+              "const": "session.start"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "session_code",
+                "track_id"
+              ],
+              "properties": {
+                "session_code": {
+                  "type": "string"
+                },
+                "track_id": {
+                  "type": "string"
+                },
+                "room": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "session.end",
+      "allOf": [
+        {
+          "$ref": "../envelope.v1.1.0.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event_name": {
+              "const": "session.end"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "session_code"
+              ],
+              "properties": {
+                "session_code": {
+                  "type": "string"
+                },
+                "track_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "attendance.enter_room",
+      "allOf": [
+        {
+          "$ref": "../envelope.v1.1.0.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event_name": {
+              "const": "attendance.enter_room"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "session_code",
+                "room"
+              ],
+              "properties": {
+                "session_code": {
+                  "type": "string"
+                },
+                "room": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "attendance.leave_room",
+      "allOf": [
+        {
+          "$ref": "../envelope.v1.1.0.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event_name": {
+              "const": "attendance.leave_room"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "session_code",
+                "room"
+              ],
+              "properties": {
+                "session_code": {
+                  "type": "string"
+                },
+                "room": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,240 @@
+{
+  "$id": "https://schemas.seatpilot.app/events/checkin.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Seatpilot Check-in Events",
+  "oneOf": [
+    {
+      "title": "checkin.success",
+      "allOf": [
+        {
+          "$ref": "../envelope.v1.1.0.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event_name": {
+              "const": "checkin.success"
+            },
+            "correlation": {
+              "allOf": [
+                {
+                  "$ref": "../envelope.v1.1.0.json#/$defs/correlation"
+                },
+                {
+                  "type": "object",
+                  "required": [
+                    "door_to_seat_id"
+                  ]
+                }
+              ]
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "guest_id_hash"
+              ],
+              "properties": {
+                "guest_id_hash": {
+                  "type": "string"
+                },
+                "table_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "event_id_src": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "uuid"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "checkin.error_scan_invalid_qr",
+      "allOf": [
+        {
+          "$ref": "../envelope.v1.1.0.json"
+        },
+        {
+          "$ref": "#/$defs/checkin_error_base"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event_name": {
+              "const": "checkin.error_scan_invalid_qr"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "kiosk_id",
+                "error_code"
+              ],
+              "properties": {
+                "kiosk_id": {
+                  "type": "string"
+                },
+                "error_code": {
+                  "type": "string",
+                  "enum": [
+                    "EXPIRED",
+                    "TAMPERED"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "checkin.error_guest_not_found",
+      "allOf": [
+        {
+          "$ref": "../envelope.v1.1.0.json"
+        },
+        {
+          "$ref": "#/$defs/checkin_error_base"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event_name": {
+              "const": "checkin.error_guest_not_found"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "barcode_hash",
+                "kiosk_id",
+                "error_code"
+              ],
+              "properties": {
+                "barcode_hash": {
+                  "type": "string"
+                },
+                "kiosk_id": {
+                  "type": "string"
+                },
+                "error_code": {
+                  "type": "string",
+                  "const": "GUEST_NOT_FOUND"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "checkin.error_rate_limited",
+      "allOf": [
+        {
+          "$ref": "../envelope.v1.1.0.json"
+        },
+        {
+          "$ref": "#/$defs/checkin_error_base"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event_name": {
+              "const": "checkin.error_rate_limited"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "kiosk_id",
+                "limit_bucket",
+                "error_code"
+              ],
+              "properties": {
+                "kiosk_id": {
+                  "type": "string"
+                },
+                "limit_bucket": {
+                  "type": "string"
+                },
+                "error_code": {
+                  "type": "string",
+                  "const": "RATE_LIMITED"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "checkin.error_network",
+      "allOf": [
+        {
+          "$ref": "../envelope.v1.1.0.json"
+        },
+        {
+          "$ref": "#/$defs/checkin_error_base"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event_name": {
+              "const": "checkin.error_network"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "kiosk_id",
+                "last_rtt_ms",
+                "error_code"
+              ],
+              "properties": {
+                "kiosk_id": {
+                  "type": "string"
+                },
+                "last_rtt_ms": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "error_code": {
+                  "type": "string",
+                  "const": "NETWORK_FAILURE"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "$defs": {
+    "checkin_error_base": {
+      "type": "object",
+      "properties": {
+        "event_name": {
+          "pattern": "^checkin\\.error_"
+        },
+        "payload": {
+          "type": "object",
+          "properties": {
+            "error_family": {
+              "type": "string",
+              "const": "checkin"
+            }
+          }
+        }
+      }
+    }
+  }
+}

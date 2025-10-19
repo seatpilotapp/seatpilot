@@ -1,0 +1,15 @@
+{
+  "name": "metrics-proxy-fallback",
+  "version": "0.1.0",
+  "description": "Small fallback proxy to forward Prometheus scrape to Supabase privileged metrics while injecting a secret key",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

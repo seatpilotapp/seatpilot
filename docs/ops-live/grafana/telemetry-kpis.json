@@ -1,0 +1,245 @@
+{
+  "annotations": { "list": [] },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": null,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "id": 1,
+      "type": "timeseries",
+      "title": "Accepted / min (última hora)",
+      "datasource": { "type": "postgres", "uid": "__REPLACE_WITH_YOUR_POSTGRES_UID__" },
+      "gridPos": { "h": 10, "w": 12, "x": 0, "y": 0 },
+      "targets": [
+        {
+          "refId": "A",
+          "format": "time_series",
+          "rawSql": "SELECT\n  date_trunc('minute', to_timestamp(ts_ms/1000.0)) AS \"time\",\n  count(*)::bigint AS \"value\"\nFROM telemetry.events_raw\nWHERE to_timestamp(ts_ms/1000.0) > now() - interval '1 hour'\nGROUP BY 1\nORDER BY 1 ASC;",
+          "interval": ""
+        }
+      ],
+      "fieldConfig": { "defaults": { "unit": "short" }, "overrides": [] },
+      "options": { "legend": { "showLegend": false }, "tooltip": { "mode": "single" } }
+    },
+    {
+      "id": 2,
+      "type": "timeseries",
+      "title": "Rejected / min por motivo (última hora)",
+      "datasource": { "type": "postgres", "uid": "__REPLACE_WITH_YOUR_POSTGRES_UID__" },
+      "gridPos": { "h": 10, "w": 12, "x": 12, "y": 0 },
+      "targets": [
+        {
+          "refId": "A",
+          "format": "time_series",
+          "rawSql": "SELECT\n  date_trunc('minute', received_at) AS \"time\",\n  reason AS \"metric\",\n  count(*)::bigint AS \"value\"\nFROM telemetry.events_dlq\nWHERE received_at > now() - interval '1 hour'\nGROUP BY 1,2\nORDER BY 1 ASC;",
+          "interval": ""
+        }
+      ],
+      "fieldConfig": { "defaults": { "unit": "short" }, "overrides": [] },
+      "options": {
+        "legend": { "showLegend": true, "placement": "bottom" },
+        "tooltip": { "mode": "multi" }
+      }
+    },
+    {
+      "id": 5,
+      "type": "stat",
+      "title": "Reject ratio (últimos 5 min)",
+      "datasource": { "type": "postgres", "uid": "__REPLACE_WITH_YOUR_POSTGRES_UID__" },
+      "gridPos": { "h": 8, "w": 6, "x": 0, "y": 10 },
+      "targets": [
+        {
+          "refId": "A",
+          "format": "table",
+          "rawSql": "WITH a AS (\n  SELECT count(*)::numeric AS accepted\n  FROM telemetry.events_raw\n  WHERE to_timestamp(ts_ms/1000.0) > now() - interval '5 minutes'\n), r AS (\n  SELECT count(*)::numeric AS rejected\n  FROM telemetry.events_dlq\n  WHERE received_at > now() - interval '5 minutes'\n)\nSELECT coalesce(r.rejected / nullif(a.accepted + r.rejected, 0), 0) AS value\nFROM a CROSS JOIN r;"
+        }
+      ],
+      "options": {
+        "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false },
+        "orientation": "horizontal",
+        "textMode": "auto",
+        "colorMode": "value",
+        "graphMode": "none"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percentunit",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "green", "value": null },
+              { "color": "yellow", "value": 0.01 },
+              { "color": "red", "value": 0.05 }
+            ]
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 4,
+      "type": "stat",
+      "title": "Staleness (lag máximo de MVs, s)",
+      "datasource": { "type": "postgres", "uid": "__REPLACE_WITH_YOUR_POSTGRES_UID__" },
+      "gridPos": { "h": 8, "w": 6, "x": 6, "y": 10 },
+      "targets": [
+        { "refId": "A", "format": "table", "rawSql": "SELECT max(lag_sec)::bigint AS value\nFROM telemetry.v_mv_staleness;" }
+      ],
+      "options": {
+        "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false },
+        "orientation": "horizontal",
+        "textMode": "auto",
+        "colorMode": "value",
+        "graphMode": "none"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "s",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "green", "value": null },
+              { "color": "yellow", "value": 30 },
+              { "color": "red", "value": 60 }
+            ]
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 6,
+      "type": "stat",
+      "title": "Check-in p95 (ms) — KPI",
+      "datasource": { "type": "postgres", "uid": "__REPLACE_WITH_YOUR_POSTGRES_UID__" },
+      "gridPos": { "h": 8, "w": 6, "x": 12, "y": 10 },
+      "targets": [
+        {
+          "refId": "A",
+          "format": "table",
+          "rawSql": "SELECT p95_checkin_ms AS value\nFROM telemetry.mv_kpi_checkin\nORDER BY ts_min DESC\nLIMIT 1;"
+        }
+      ],
+      "options": {
+        "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false },
+        "orientation": "horizontal",
+        "textMode": "auto",
+        "colorMode": "value",
+        "graphMode": "none"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "ms",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "green", "value": null },
+              { "color": "yellow", "value": 300 },
+              { "color": "red", "value": 400 }
+            ]
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 7,
+      "type": "stat",
+      "title": "Door→Seat p50 (s) — KPI",
+      "datasource": { "type": "postgres", "uid": "__REPLACE_WITH_YOUR_POSTGRES_UID__" },
+      "gridPos": { "h": 8, "w": 6, "x": 18, "y": 10 },
+      "targets": [
+        {
+          "refId": "A",
+          "format": "table",
+          "rawSql": "SELECT (p50_ms/1000.0) AS value\nFROM telemetry.mv_kpi_door2seat\nORDER BY ts_min DESC\nLIMIT 1;"
+        }
+      ],
+      "options": {
+        "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false },
+        "orientation": "horizontal",
+        "textMode": "auto",
+        "colorMode": "value",
+        "graphMode": "none"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "s",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "green", "value": null },
+              { "color": "yellow", "value": 30 },
+              { "color": "red", "value": 60 }
+            ]
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 8,
+      "type": "stat",
+      "title": "Door→Seat p95 (s) — KPI",
+      "datasource": { "type": "postgres", "uid": "__REPLACE_WITH_YOUR_POSTGRES_UID__" },
+      "gridPos": { "h": 8, "w": 6, "x": 0, "y": 18 },
+      "targets": [
+        {
+          "refId": "A",
+          "format": "table",
+          "rawSql": "SELECT (p95_ms/1000.0) AS value\nFROM telemetry.mv_kpi_door2seat\nORDER BY ts_min DESC\nLIMIT 1;"
+        }
+      ],
+      "options": {
+        "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false },
+        "orientation": "horizontal",
+        "textMode": "auto",
+        "colorMode": "value",
+        "graphMode": "none"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "s",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "green", "value": null },
+              { "color": "yellow", "value": 60 },
+              { "color": "red", "value": 90 }
+            ]
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 3,
+      "type": "table",
+      "title": "Alias usage (legacy → canonical)",
+      "datasource": { "type": "postgres", "uid": "__REPLACE_WITH_YOUR_POSTGRES_UID__" },
+      "gridPos": { "h": 8, "w": 18, "x": 6, "y": 18 },
+      "targets": [
+        {
+          "refId": "A",
+          "format": "table",
+          "rawSql": "SELECT\n  legacy_name,\n  canonical_name,\n  count(*)::bigint AS uses,\n  max(used_at)     AS last_used\nFROM telemetry.event_alias_usage\nGROUP BY 1,2\nORDER BY uses DESC, last_used DESC;"
+        }
+      ],
+      "options": { "showHeader": true, "footer": { "show": false } },
+      "fieldConfig": { "defaults": {}, "overrides": [] }
+    }
+  ],
+  "schemaVersion": 38,
+  "style": "dark",
+  "tags": ["seatpilot", "telemetry", "ops-live"],
+  "templating": { "list": [] },
+  "time": { "from": "now-1h", "to": "now" },
+  "timepicker": { "refresh_intervals": ["10s", "30s", "1m", "5m"] },
+  "timezone": "",
+  "title": "SeatPilot — Telemetry (Ops Live + KPIs)",
+  "version": 1,
+  "weekStart": ""
+}

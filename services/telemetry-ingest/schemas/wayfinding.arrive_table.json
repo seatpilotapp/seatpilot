@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "event_id",
+    "event_name",
+    "ts_ms",
+    "tenant_id",
+    "session_id",
+    "event_meta",
+    "payload"
+  ],
+  "properties": {
+    "schema_version": { "type": "string" },
+    "event_id": { "type": "string", "format": "uuid" },
+    "event_name": { "const": "wayfinding.arrive_table" },
+    "ts_ms": { "type": "integer", "minimum": 1 },
+    "tenant_id": { "type": "string", "format": "uuid" },
+    "session_id": { "type": "string" },
+    "event_meta": { "type": "object" },
+    "payload": {
+      "type": "object",
+      "required": ["table_id", "confirm_mode"],
+      "properties": {
+        "table_id": { "type": "string" },
+        "confirm_mode": { "type": "string", "enum": ["qr", "tap"] }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

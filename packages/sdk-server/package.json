@@ -1,0 +1,30 @@
+{
+  "name": "@seatpilot/sdk-server",
+  "version": "0.1.0",
+  "type": "module",
+  "dependencies": {
+    "@seatpilot/domain-model": "workspace:*"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "npm run clean && npm run build:esm && npm run build:cjs && npm run build:bundle",
+    "build:esm": "tsc -p tsconfig.build.json",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:bundle": "node scripts/postbuild.cjs",
+    "clean": "rm -rf dist dist-cjs tsconfig.build.tsbuildinfo tsconfig.cjs.tsbuildinfo",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "vitest": "^1.3.0"
+  }
+}

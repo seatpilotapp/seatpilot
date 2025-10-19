@@ -1,0 +1,109 @@
+{
+  "$id": "https://schemas.seatpilot.app/events/operations.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Seatpilot Timeline, Vendor, and Ops Events",
+  "oneOf": [
+    {
+      "title": "timeline.block_deleted",
+      "allOf": [
+        {
+          "$ref": "../envelope.v1.1.0.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event_name": {
+              "const": "timeline.block_deleted"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "block_id",
+                "deleted_by"
+              ],
+              "properties": {
+                "block_id": {
+                  "type": "string"
+                },
+                "deleted_by": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "vendor.ack",
+      "allOf": [
+        {
+          "$ref": "../envelope.v1.1.0.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event_name": {
+              "const": "vendor.ack"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "vendor_id",
+                "request_id"
+              ],
+              "properties": {
+                "vendor_id": {
+                  "type": "string"
+                },
+                "request_id": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "ops.rule_cleared",
+      "allOf": [
+        {
+          "$ref": "../envelope.v1.1.0.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event_name": {
+              "const": "ops.rule_cleared"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "rule_id",
+                "severity"
+              ],
+              "properties": {
+                "rule_id": {
+                  "type": "string"
+                },
+                "severity": {
+                  "$ref": "../enums.json#/$defs/ops_severity"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

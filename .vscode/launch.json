@@ -1,0 +1,24 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Telemetry Ingest (dev)",
+      "program": "${workspaceFolder}/services/telemetry-ingest/src/server.js",
+      "env": {
+        "SUPABASE_URL": "https://qfwptupwrqdhxegxueuc.supabase.co",
+        "SUPABASE_SERVICE_ROLE": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFmd3B0dXB3cnFkaHhlZ3h1ZXVjIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2MDM3MTQ5MywiZXhwIjoyMDc1OTQ3NDkzfQ.xYvirOR4XrpdgYF5wwBS7qtVv41pCJZ_Tlk5eTz7NQI",
+        "PORT": "3001",
+        "NODE_ENV": "development"
+      },
+      "runtimeArgs": [
+        "--loader",
+        "ts-node/esm"
+      ],
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    }
+  ]
+}

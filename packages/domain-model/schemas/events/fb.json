@@ -1,0 +1,121 @@
+{
+  "$id": "https://schemas.seatpilot.app/events/fb.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Seatpilot Food & Beverage Events",
+  "oneOf": [
+    {
+      "title": "fb.order_cancelled",
+      "allOf": [
+        {
+          "$ref": "../envelope.v1.1.0.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event_name": {
+              "const": "fb.order_cancelled"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "order_id"
+              ],
+              "properties": {
+                "order_id": {
+                  "type": "string"
+                },
+                "reason_code": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "fb.payment_captured",
+      "allOf": [
+        {
+          "$ref": "../envelope.v1.1.0.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event_name": {
+              "const": "fb.payment_captured"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "order_id",
+                "amount",
+                "currency"
+              ],
+              "properties": {
+                "order_id": {
+                  "type": "string"
+                },
+                "amount": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                "currency": {
+                  "type": "string",
+                  "pattern": "^[A-Z]{3}$"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "fb.payment_failed",
+      "allOf": [
+        {
+          "$ref": "../envelope.v1.1.0.json"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event_name": {
+              "const": "fb.payment_failed"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "order_id",
+                "amount",
+                "currency",
+                "error_code"
+              ],
+              "properties": {
+                "order_id": {
+                  "type": "string"
+                },
+                "amount": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                "currency": {
+                  "type": "string",
+                  "pattern": "^[A-Z]{3}$"
+                },
+                "error_code": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
