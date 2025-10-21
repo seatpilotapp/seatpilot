@@ -1,10 +1,4 @@
-> Última actualización automática: 2025-10-20 03:14 UTC
-
-> Última actualización automática: 2025-10-20 03:02 UTC
-
-> Última actualización automática: 2025-10-20 03:01 UTC
-
-> Última actualización automática: 2025-10-20 03:00 UTC
+- Última actualización: 2025-10-21 05:05 UTC
 
 # SeatPilot — Master Handoff v1.0
 
@@ -20,7 +14,9 @@
 ### Changelog
 | Fecha | Versión | Secciones | Notas |
 | --- | --- | --- | --- |
-| _(hoy)_ | 1.0.0 | Inicial | Creación de handoff maestro |
+| 2025-10-21 | 1.0.2 | 4,5, G.A. | Timer/bucle demo, workflow demo-seed, cron de referencia |
+| 2025-10-21 | 1.0.1 | 1,2,4,5,6 | Toolkit de release, runbook demo y seeds automatizados |
+| _(origen)_ | 1.0.0 | Inicial | Creación del handoff maestro |
 
 > Mantén esta tabla al día (Added / Changed / Removed) cada vez que publiques cambios relevantes.
 
@@ -57,9 +53,9 @@ SeatPilot es un ecosistema end-to-end que cubre **RSVP → Seating → Check-in 
 
 ### Qué está operativo hoy
 - **Servicios core**: `services/checkin`, `services/wayfinding`, `services/telemetry-ingest`, `services/kpi-refresher`.
-- **Observabilidad**: `apps/metrics-api`, Prometheus (`prometheus.yml`), Alertmanager (`alertmanager.yml`), dashboards `dashboards/overview-f1.3.json` y `dashboards/seatpilot-trends-f2.0.json`.
+- **Observabilidad**: `apps/metrics-api`, Prometheus (`prometheus.yml`), Alertmanager (`alertmanager.yml`), dashboards `dashboards/ops-live-v1.json`, `dashboards/overview-f1.3.json` y `dashboards/seatpilot-trends-f2.0.json`.
 - **Telemetría**: ingest HMAC + anti-replay (`services/telemetry-ingest/src/routes/events.ts`), RLS multi-tenant (`supabase/sql/002_policies_rls.sql`), materialized views KPI.
-- **Operación**: scripts de smoke (`scripts/smoke-f1.1.sh`, `scripts/smoke-f1.2.sh`), checklist `scripts/overview-check.sh`, runbook (`docs/runbooks/README.md`).
+- **Operación**: toolkit `Makefile` (`release`, `deploy`, `seed-*`, `verify`), runbook de demo (`docs/runbooks/demo_testing_step_by_step.md`), bucle automatizado `scripts/demo-loop.sh`, scripts de smoke (`scripts/smoke-f1.1.sh`, `scripts/smoke-f1.2.sh`), checklist `scripts/overview-check.sh`, runbook general (`docs/runbooks/README.md`).
 
 ### Estado de fases
 | Fase | Resultado | Comentario |
@@ -68,8 +64,13 @@ SeatPilot es un ecosistema end-to-end que cubre **RSVP → Seating → Check-in 
 | **F1 (BE)** · Fast-path check-in | ✅ | Caché de lookup, métricas por etapa, smokes. |
 | **F1 (FE)** · PWA/Desk/Seat-Designer | ⏳ | IA y tokens definidos; falta implementación. |
 | **F2.0** · Panel ejecutivo 7 d | ✅ | Dashboard Trends F2.0 listo. |
-| **F2.1** · Prod segura (TLS, Slack) | 🔶 | Requiere compose prod + smoke post-deploy. |
-| **F3–F6** · Assign v1, Ops Live, Offline-first/A11y | ▶ | Planificado, pendiente. |
+| **F2.1** · Prod segura (TLS, Slack) | 🔶 | Compose prod + release toolkit listos; falta TLS/mTLS + smoke post-deploy. |
+| **F3–F6** · Assign v1, Ops Live, Offline-first/A11y | ▶ | Planificado; pendiente FE (PWA/Desk/TV), objetivos de performance sostenidos. |
+
+### Automatización de demos
+- **Loop interactivo**: `./scripts/demo-loop.sh` (usa `DEMO_CYCLE_SECONDS`, seeds métricas + billing + reload de Prometheus).
+- **GitHub Actions**: `.github/workflows/demo-seed.yml` ejecuta semillas cada 10 min en staging.
+- **Cron de referencia**: `infra/demo-seed.cron` muestra cómo correr el loop vía `cron` en un host Linux.
 
 ### Riesgos & próximos pasos
 - **Riesgo activo:** p95 check-in ligeramente > 300 ms en picos → bajar con cache warmup, keep-alive, pgBouncer, Redis opcional.
@@ -246,38 +247,34 @@ Cargar mapa → Editar → Validadores (overlay) → Guardar/Publicar
 
 ### 5.1 Arranque local rápido
 ```bash
-# 1) Variables
-cp .env.example .env
-
-# 2) Builds clave
-pnpm --filter @seatpilot/checkin build
-pnpm --filter @seatpilot/telemetry-ingest build
-pnpm --filter seatpilot-metrics-api build
-
-# 3) Servidores (terminales separadas)
-pnpm --filter @seatpilot/checkin start
-pnpm --filter @seatpilot/telemetry-ingest start
-pnpm --filter seatpilot-metrics-api start
+cp .release.env.example .release.env   # editar secretos reales
+source .release.env
+make preflight                        # valida binarios/env
+make deploy                           # docker compose up -d (stack demo/prod o local)
+make cold-start                       # health + warm metrics
+make verify                           # DB + cron + targets Prometheus
+make seed-ops-live && make seed-db    # datos demo para dashboards/billing
 ```
+> Para demos prolongados, deja corriendo `./scripts/demo-loop.sh` (repite seeds cada `DEMO_CYCLE_SECONDS`, default 5 min).
 
 ### 5.2 Compose staging/prod
 ```bash
 docker compose -f docker-compose.metrics.yml --env-file .env up -d --build
 docker compose ps
-# Producción mínima
+# Producción mínima (cuando aplique)
 docker compose -f docker-compose.prod.yml --env-file .env.prod up -d
 ```
 - Si Prometheus reinicia: `curl -XPOST http://localhost:9090/-/reload`.
-- Post deploy: `./scripts/cold-start.sh` (requiere `GRAFANA_API_KEY` para importar dashboards).
+- Post deploy: `./scripts/cold-start.sh` (importa dashboards si set en `GRAFANA_API_KEY`; provisión automática en stack local).
 - Healthchecks:  
   `curl http://localhost:3100/health` (check-in)  
   `curl http://localhost:3200/health` (wayfinding)  
   `curl http://localhost:8080/healthz` (metrics API)
 
 ### 5.3 Dashboards Grafana
-1. Importar `dashboards/overview-f1.3.json` y `dashboards/seatpilot-trends-f2.0.json`.
-2. Mapea datasource a Prometheus.
-3. Variables: `Tenant = All`, `Channel = All`; rango ≥ 15 min; refresh 1–5 min.
+- Stack local (`docker-compose.metrics.local.yml`) expone Grafana en `http://localhost:3300` (admin/admin) con dashboards auto-provisionados desde `dashboards/`.
+- Si usas otra instancia, importa `ops-live-v1.json`, `overview-f1.3.json`, `seatpilot-trends-f2.0.json` y mapea datasource `Prometheus`.
+- Variables: `Tenant = All`, `Channel = All`; rango ≥ 15 min; refresh 1–5 min (Trends usa ventana de 24 h/7 d).
 
 ### 5.4 Pruebas de humo
 ```bash
