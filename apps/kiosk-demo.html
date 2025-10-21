@@ -76,10 +76,11 @@
     // ----- llamadas Básicas -----
     async function postCheckin(ticket) {
       const { base, tenant, channel, headers } = cfg();
-      const body = { tenant, channel, ticket, ts_scan_start_ms: Date.now() };
-      const r = await fetch(`${base}/checkin`, { method: 'POST', headers: headers(), body: JSON.stringify(body) });
+      const latency = Math.floor(Math.random() * 200) + 150; // 150-349 ms
+      const body = { tenant, channel, latencyMs: latency, ticket };
+      const r = await fetch(`${base}/observe/checkin`, { method: 'POST', headers: headers(), body: JSON.stringify(body) });
       if (!r.ok) throw new Error(`check-in HTTP ${r.status}`);
-      out(`✓ check-in: ${ticket}`, 'ok');
+      out(`✓ check-in: ${ticket} (${latency} ms)`, 'ok');
 
       // Simula door→seat a los ~1s (para efecto demo)
       setTimeout(() => postDoorToSeat(80).catch(e => out('x door→seat: '+e.message,'err')), 1000);
