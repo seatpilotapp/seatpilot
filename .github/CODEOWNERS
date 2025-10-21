@@ -1,0 +1,14 @@
+# Diseño / Brand
+brand/**            @seatpilotapp/design
+
+# SQL y Supabase
+supabase/sql/**     @seatpilotapp/platform
+
+# Frontend apps
+apps/**             @seatpilotapp/frontend
+
+# Servicios backend
+services/**         @seatpilotapp/backend
+
+# Handoffs, ADRs y Docs
+docs/**             @seatpilotapp/docs

@@ -1,5 +1,5 @@
 import type { Request, Response } from 'express';
-import { recordCheckinLatency, recordIngestAccepted } from '../../telemetry-ingest/src/lib/metrics-sink.js';
+import { recordCheckinLatency, recordIngestAccepted } from '../../../telemetry-ingest/src/lib/metrics-sink.js';
 import { db } from '../lib/db.js';
 
 const UPSERT_SESSION_SQL = `
@@ -32,6 +32,7 @@ export async function checkinSuccess(req: Request, res: Response) {
   const tsSuccessMs = Date.now();
   const latencyMs = Math.max(0, tsSuccessMs - tsScanStartMs);
 
+  // TODO: obtener ts_scan_start_ms real del payload/session
   await recordCheckinLatency(latencyMs, channel);
   await recordIngestAccepted();
 

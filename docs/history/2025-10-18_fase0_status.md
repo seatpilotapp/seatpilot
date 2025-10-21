@@ -34,7 +34,7 @@ Este documento resume los entregables acordados en la Fase 0 (ver `conver.txt:62
 ## Próximos pasos sugeridos
 
 1. Ir a Supabase → Project Settings → API y copiar el `service_role` real (formato JWT). Reemplazarlo en `.env.prometheus` y relanzar `./scripts/run-prometheus.sh` hasta que el target `supabase-seatpilot` figure `UP`.
-2. Ejecutar los scripts SQL en Supabase (`001_schema_core.sql`, `002_policies_rls.sql`, `003_views_kpi.sql`) y documentar pruebas RLS.
+2. Ejecutar los scripts SQL en Supabase (`001_schema_core.sql`, `002_policies_rls.sql`, `003_views_kpi.sql`) y documentar pruebas RLS. Para desarrollos locales se puede usar el stack `docker-compose.metrics.local.yml` que aplica automáticamente 001–003 y expone Grafana/Prometheus (`docs/runbooks/metrics_local_stack.md`).
 3. Migrar decisiones, RACI y artefactos de discovery existentes al repositorio bajo `docs/history/`.
 4. Publicar wireframes/prototipos y la checklist de Safety.
 5. Registrar resultados del primer piloto controlado.

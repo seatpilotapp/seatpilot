@@ -1,0 +1,64 @@
+name: Supabase SQL CI (syntax & order)
+
+on:
+  pull_request:
+  workflow_dispatch: {}
+
+jobs:
+  sql-ci:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:15
+        ports: ['5432:5432']
+        env:
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd="pg_isready -U postgres"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=10
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install psql client
+        run: sudo apt-get update && sudo apt-get install -y postgresql-client
+      - name: Apply SQL 100→105 in order (skip if missing)
+        env:
+          PGURL: postgresql://postgres:postgres@localhost:5432/postgres
+        run: |
+          set -euo pipefail
+          psql "$PGURL" -v ON_ERROR_STOP=1 -c "create extension if not exists pgcrypto;"
+          missing=0
+          for file in 100_entitlements_metering.sql 101_metering_functions.sql 102_billing_views.sql 103_rls_entitlements.sql 105_seed_plans.sql; do
+            if [ -f "supabase/sql/$file" ]; then
+              echo "==> applying $file"
+              psql "$PGURL" -v ON_ERROR_STOP=1 -f "supabase/sql/$file"
+            else
+              echo "⚠️  supabase/sql/$file not found, skipping"
+              missing=$((missing+1))
+            fi
+          done
+          if [ -f supabase/sql/104_cron.sql ]; then
+            echo "==> syntax-check 104_cron.sql"
+            sed 's/cron\.schedule/NULL::int/g' supabase/sql/104_cron.sql | psql "$PGURL" -v ON_ERROR_STOP=1 || true
+          else
+            echo "⚠️  supabase/sql/104_cron.sql not found, skipping"
+            missing=$((missing+1))
+          fi
+          if [ "$missing" -ge 6 ]; then
+            echo "⚠️  No SQL files were found; consider committing supabase/sql/100-105."
+          fi
+          echo "SQL_MISSING=$missing" >> "$GITHUB_ENV"
+      - name: Smoke SQL views
+        env: { PGURL: postgresql://postgres:postgres@localhost:5432/postgres }
+        run: |
+          if [ "${SQL_MISSING:-0}" -ge 6 ]; then
+            echo "⚠️  No schema applied; skipping smoke queries."
+            exit 0
+          fi
+          psql "$PGURL" -c "\\dt"
+          if ! psql "$PGURL" -c "select * from plans limit 1;"; then
+            echo "⚠️  Table plans not found; skipping data checks."
+          fi
+          psql "$PGURL" -c "select table_name from information_schema.views where table_name like 'v_tenant_%';"

@@ -1,0 +1,28 @@
+name: Ops – Metering Daily Seed (manual)
+
+on:
+  workflow_dispatch:
+    inputs:
+      events:
+        description: 'Eventos a crear por tenant (demo)'
+        required: true
+        default: '2'
+      checkins:
+        description: 'Check-ins por tenant (demo)'
+        required: true
+        default: '25'
+
+jobs:
+  seed:
+    runs-on: ubuntu-latest
+    environment: production  # exige aprobación
+    steps:
+      - name: Install psql client
+        run: sudo apt-get update && sudo apt-get install -y postgresql-client
+      - name: Run seed function in PROD
+        env:
+          DATABASE_URL: ${{ secrets.PROD_DATABASE_URL }}
+          EVENTS: ${{ github.event.inputs.events }}
+          CHECKINS: ${{ github.event.inputs.checkins }}
+        run: |
+          psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -c "select app.seed_metering_demo($EVENTS::int, $CHECKINS::int);"

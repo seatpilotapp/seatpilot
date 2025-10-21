@@ -17,22 +17,22 @@ alter table telemetry.events_dlq enable row level security;
 alter materialized view telemetry.mv_kpi_checkin owner to postgres;
 alter materialized view telemetry.mv_kpi_door2seat owner to postgres;
 
-create policy if not exists events_raw_tenant_isolation_select
+create policy events_raw_tenant_isolation_select
   on telemetry.events_raw
   for select
   using (tenant_id is not distinct from telemetry.claim_tenant_id());
 
-create policy if not exists events_raw_tenant_isolation_insert
+create policy events_raw_tenant_isolation_insert
   on telemetry.events_raw
   for insert
   with check (tenant_id is not distinct from telemetry.claim_tenant_id());
 
-create policy if not exists events_dlq_tenant_isolation_select
+create policy events_dlq_tenant_isolation_select
   on telemetry.events_dlq
   for select
   using (tenant_id is null or tenant_id is not distinct from telemetry.claim_tenant_id());
 
-create policy if not exists events_dlq_tenant_isolation_insert
+create policy events_dlq_tenant_isolation_insert
   on telemetry.events_dlq
   for insert
   with check (tenant_id is null or tenant_id is not distinct from telemetry.claim_tenant_id());
