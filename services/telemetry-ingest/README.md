@@ -162,4 +162,4 @@ select view, lag_sec from telemetry.v_mv_staleness;
 - Inspeccionar métricas desde `metrics-api`:  
   `docker exec seatpilot-metrics-api-1 node -e "fetch('http://localhost:8080/metrics').then(r=>r.text()).then(console.log)"`
 - Refrescar MVs + lag manualmente:  
-  `docker exec seatpilot-kpi-refresher-1 node dist/src/jobs/refresh-mvs.js`
+`docker exec seatpilot-kpi-refresher-1 node dist/kpi-refresher/src/jobs/refresh-mvs.js`

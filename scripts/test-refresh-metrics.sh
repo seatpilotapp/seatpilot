@@ -5,7 +5,7 @@ echo "[SeatPilot] Pushing sample metrics via telemetry-ingest sink…"
 docker exec seatpilot-telemetry-ingest-1 node scripts/push-metrics.js
 
 echo "[SeatPilot] Refreshing materialized views via kpi-refresher…"
-docker exec seatpilot-kpi-refresher-1 node dist/src/jobs/refresh-mvs.js
+docker exec seatpilot-kpi-refresher-1 node dist/kpi-refresher/src/jobs/refresh-mvs.js
 
 echo "[SeatPilot] Waiting for Prometheus scrape…"
 sleep 10

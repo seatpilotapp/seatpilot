@@ -5,6 +5,9 @@ services:
       - --config.file=/etc/alertmanager/alertmanager.yml
     volumes:
       - ./alertmanager.yml:/etc/alertmanager/alertmanager.yml:ro
+    environment:
+      - ALERT_SLACK_WEBHOOK=${ALERT_SLACK_WEBHOOK:-http://alert-echo:8081/}
+      - ALERT_SLACK_CHANNEL=${ALERT_SLACK_CHANNEL:-#seatpilot-alerts}
     networks:
       metricsnet:
         aliases:
@@ -20,7 +23,9 @@ services:
       - PORT=3001
       - NODE_ENV=production
       - METRICS_API_BASE_URL=http://metrics-api:8080
+      - METRICS_API_KEY=${METRICS_INGEST_KEY:-dev-metrics-key}
       - HMAC_TENANT_SECRET=dev-metrics-secret
+      - NODE_OPTIONS=--dns-result-order=ipv4first
     depends_on:
       metrics-api:
         condition: service_started
@@ -37,6 +42,11 @@ services:
       - SERVICE_NAME=seatpilot-metrics
       - METRICS_TENANT=${METRICS_TENANT:-default}
       - PORT=8080
+      - METRICS_INGEST_KEY=${METRICS_INGEST_KEY:-dev-metrics-key}
+      - METRICS_TLS_CERT_FILE=${METRICS_TLS_CERT_FILE:-}
+      - METRICS_TLS_KEY_FILE=${METRICS_TLS_KEY_FILE:-}
+      - METRICS_TLS_CA_FILE=${METRICS_TLS_CA_FILE:-}
+      - METRICS_TLS_CLIENT_AUTH=${METRICS_TLS_CLIENT_AUTH:-require}
     networks:
       metricsnet:
         aliases:
@@ -44,12 +54,16 @@ services:
 
   kpi-refresher:
     build:
-      context: ./services/kpi-refresher
+      context: .
+      dockerfile: services/kpi-refresher/Dockerfile
     image: seatpilot/kpi-refresher:latest
     environment:
       - NODE_ENV=production
       - DATABASE_URL=${DATABASE_URL}
       - METRICS_API_BASE_URL=http://metrics-api:8080
+      - METRICS_API_KEY=${METRICS_INGEST_KEY:-dev-metrics-key}
+      - NODE_OPTIONS=--dns-result-order=ipv4first
+      - REFRESH_EVERY_SEC=60
     depends_on:
       telemetry-ingest:
         condition: service_started
@@ -59,6 +73,8 @@ services:
       metricsnet:
         aliases:
           - seatpilot-kpi-refresher
+    restart: always
+    command: ['node', 'dist/kpi-refresher/src/jobs/refresh-mvs.js']
 
   metrics-proxy:
     build:
@@ -75,8 +91,64 @@ services:
         aliases:
           - seatpilot-metrics-proxy
 
+  checkin:
+    build:
+      context: .
+      dockerfile: services/checkin/Dockerfile
+    image: seatpilot-checkin:latest
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - DATABASE_URL=${DATABASE_URL}
+      - METRICS_API_BASE_URL=http://metrics-api:8080
+      - METRICS_API_KEY=${METRICS_INGEST_KEY}
+      - NODE_OPTIONS=--dns-result-order=ipv4first
+    depends_on:
+      metrics-api:
+        condition: service_started
+    networks:
+      metricsnet:
+        aliases:
+          - seatpilot-checkin
+    ports:
+      - "3100:3000"
+    restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 15s
+      timeout: 3s
+      retries: 5
+
+  wayfinding:
+    build:
+      context: .
+      dockerfile: services/wayfinding/Dockerfile
+    image: seatpilot-wayfinding:latest
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - DATABASE_URL=${DATABASE_URL}
+      - METRICS_API_BASE_URL=http://metrics-api:8080
+      - METRICS_API_KEY=${METRICS_INGEST_KEY}
+      - NODE_OPTIONS=--dns-result-order=ipv4first
+    depends_on:
+      metrics-api:
+        condition: service_started
+    networks:
+      metricsnet:
+        aliases:
+          - seatpilot-wayfinding
+    ports:
+      - "3200:3000"
+    restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 15s
+      timeout: 3s
+      retries: 5
+
   prometheus:
-    image: prom/prometheus:latest
+    image: prom/prometheus:v2.54.1
     depends_on:
       - metrics-api
       - metrics-proxy
@@ -87,7 +159,6 @@ services:
       - --web.enable-lifecycle
       - --storage.tsdb.path=/prometheus
       - --storage.tsdb.retention.time=15d
-      - --alertmanager.url=http://seatpilot-alertmanager:9093
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
       - ./seatpilot.rules.yml:/etc/prometheus/seatpilot.rules.yml:ro

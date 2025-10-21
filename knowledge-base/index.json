@@ -1,0 +1,11 @@
+{
+  "version": "1.0.0",
+  "buckets": ["inputs", "processed", "synthesis"],
+  "indexes": {
+    "events": ["checkin", "arrive_table", "assign", "mv_refresh"],
+    "kpi": ["checkin_p95", "door_to_seat_p95", "reject_rate_24h", "mv_lag_24h", "linens_coverage"],
+    "runbooks": ["bringup_15m", "reload_rules", "alert_stage_p95"],
+    "linens": ["clips_skirting", "overlay_runner", "drop_levels"]
+  },
+  "notes": "Agregar archivos con prefijos KB-XXX-* en cada bucket y referenciarlos aquí."
+}

@@ -1,0 +1,139 @@
+openapi: 3.1.0
+info:
+  title: SeatPilot Internal API
+  version: 1.2.0
+  description: >
+    Rutas internas de check-in, wayfinding y métricas para monitoreo (Fase 1.2).
+servers:
+  - url: http://localhost:3100
+    description: Check-in service (local)
+  - url: http://localhost:3200
+    description: Wayfinding service (local)
+  - url: http://localhost:8080
+    description: Metrics API (internal network)
+paths:
+  /api/checkin/success:
+    post:
+      summary: Confirmación de check-in
+      tags: [checkin]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CheckinSuccessRequest'
+      responses:
+        '200':
+          description: Check-in registrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CheckinSuccessResponse'
+        '400':
+          description: Petición inválida
+        '500':
+          description: Error interno
+  /api/wayfinding/arrive-table:
+    post:
+      summary: Registro de llegada a la mesa
+      tags: [wayfinding]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ArriveTableRequest'
+      responses:
+        '200':
+          description: Door-to-seat registrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArriveTableResponse'
+        '400':
+          description: Petición inválida
+        '404':
+          description: Sesión no encontrada
+  /observe/mv-lag:
+    post:
+      summary: Publicar lag de materialized view
+      tags: [metrics]
+      security:
+        - metricsKey: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MvLagRequest'
+      responses:
+        '202':
+          description: Métrica aceptada
+        '401':
+          description: No autorizado (API key inválida)
+components:
+  securitySchemes:
+    metricsKey:
+      type: apiKey
+      in: header
+      name: x-metrics-key
+  schemas:
+    CheckinSuccessRequest:
+      type: object
+      required: [session_id, tenant_id, channel, ts_scan_start_ms]
+      properties:
+        session_id:
+          type: string
+          example: "sess-001"
+        tenant_id:
+          type: string
+          format: uuid
+        channel:
+          type: string
+          enum: [kiosk, ops, guest]
+        ts_scan_start_ms:
+          type: integer
+          description: timestamp del escaneo QR (hot path, fallback solo para compatibilidad)
+    CheckinSuccessResponse:
+      type: object
+      properties:
+        ok:
+          type: boolean
+        latency_ms:
+          type: integer
+        session_id:
+          type: string
+    ArriveTableRequest:
+      type: object
+      required: [session_id, tenant_id]
+      properties:
+        session_id:
+          type: string
+        tenant_id:
+          type: string
+          format: uuid
+        channel:
+          type: string
+          enum: [kiosk, ops, guest]
+        ts_arrive_ms:
+          type: integer
+    ArriveTableResponse:
+      type: object
+      properties:
+        ok:
+          type: boolean
+        door_to_seat_sec:
+          type: number
+          format: float
+    MvLagRequest:
+      type: object
+      required: [view, lagSeconds]
+      properties:
+        view:
+          type: string
+          example: "mv_kpi_checkin"
+        lagSeconds:
+          type: number
+          format: float
+        tenant:
+          type: string

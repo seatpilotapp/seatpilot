@@ -1,35 +1,80 @@
 groups:
   - name: seatpilot.rules
     rules:
+      - record: seatpilot_checkin_p95_5m
+        expr: avg_over_time(seatpilot_checkin_latency_ms{quantile="0.95"}[5m])
+
+      - record: seatpilot_checkin_p95_1h
+        expr: avg_over_time(seatpilot_checkin_latency_ms{quantile="0.95"}[1h])
+
+      - record: seatpilot:assign_p95_5m
+        expr: histogram_quantile(0.95, sum by (le, tenant, channel) (rate(seatpilot_assign_duration_ms_histogram_bucket[5m])))
+
+      - record: seatpilot_door2seat_p95_15m
+        expr: histogram_quantile(0.95, sum by (le, tenant) (rate(seatpilot_door_to_seat_seconds_bucket[15m])))
+
+      - record: seatpilot_mv_lag_avg_5m
+        expr: avg_over_time(seatpilot_mv_lag_seconds[5m])
+
+      - record: seatpilot_ingest_rate_5m
+        expr: increase(seatpilot_ingest_accepted_total[5m]) + increase(seatpilot_ingest_rejected_total[5m])
+
+      - record: seatpilot_ingest_reject_rate_5m
+        expr: increase(seatpilot_ingest_rejected_total[5m])
+
+      - record: seatpilot:checkin_stage_p95_24h
+        expr: histogram_quantile(0.95, sum by (le, stage, tenant, channel) (rate(seatpilot_checkin_stage_seconds_bucket[24h])))
+
       - alert: SeatPilotCheckinP95Fast
-        expr: avg_over_time(seatpilot_checkin_latency_ms{quantile="0.95"}[5m]) > 0.40
-        for: 5m
+        expr: seatpilot_checkin_p95_5m > 0.35
+        for: 10m
         labels:
           severity: page
         annotations:
-          summary: "p95 check-in > 400 ms (ventana corta)"
-          description: "Tenant {{ $labels.tenant }} supera 400 ms en los últimos 5 minutos."
+          summary: "Check-in p95 > 350 ms (ventana corta)"
+          description: "p95 de check-in supera 350 ms en los últimos 10 minutos (channel={{ $labels.channel }}, tenant={{ $labels.tenant }})."
 
       - alert: SeatPilotCheckinP95Slow
-        expr: avg_over_time(seatpilot_checkin_latency_ms{quantile="0.95"}[6h]) > 0.35
-        for: 10m
+        expr: seatpilot_checkin_p95_1h > 0.30
+        for: 1h
         labels:
           severity: warn
         annotations:
-          summary: "p95 check-in > 350 ms (ventana larga)"
-          description: "Tenant {{ $labels.tenant }} supera 350 ms sostenido."
+          summary: "Check-in p95 sostenido > 300 ms"
+          description: "p95 de check-in supera 300 ms de forma sostenida en la última hora (channel={{ $labels.channel }}, tenant={{ $labels.tenant }})."
 
       - alert: SeatPilotDoorToSeatP95
-        expr: histogram_quantile(0.95, sum by (le, tenant) (rate(seatpilot_door_to_seat_seconds_bucket[5m]))) > 60
-        for: 10m
+        expr: seatpilot_door2seat_p95_15m > 60
+        for: 30m
         labels:
           severity: warn
         annotations:
           summary: "Door→Seat p95 > 60 s"
-          description: "Tiempo puerta→asiento p95 sobre 60 s (tenant {{ $labels.tenant }})."
+          description: "Tiempo puerta→asiento por encima de 60 s en los últimos 30 minutos (tenant={{ $labels.tenant }})."
 
-      - record: seatpilot:checkin_p95_5m
-        expr: avg_over_time(seatpilot_checkin_latency_ms{quantile="0.95"}[5m])
+      - alert: SeatPilotMvLagHigh
+        expr: seatpilot_mv_lag_seconds > 10
+        for: 5m
+        labels:
+          severity: warn
+        annotations:
+          summary: "MV lag > 10s ({{ $labels.view }})"
+          description: "Lag sostenido de la MV {{ $labels.view }} por más de 5 minutos (tenant={{ $labels.tenant }})."
 
-      - record: seatpilot:door2seat_p95_5m
-        expr: histogram_quantile(0.95, sum by (le, tenant) (rate(seatpilot_door_to_seat_seconds_bucket[5m])))
+      - alert: SeatPilotIngestRejectRateHigh
+        expr: seatpilot_ingest_reject_rate_5m / ignoring(reason) seatpilot_ingest_rate_5m > 0.01
+        for: 15m
+        labels:
+          severity: warn
+        annotations:
+          summary: "Rechazos de ingest > 1%"
+          description: "La tasa de rechazos supera el 1% en los últimos 15 minutos (tenant={{ $labels.tenant }})."
+
+      - alert: SeatPilotCheckinStageP95High
+        expr: histogram_quantile(0.95, sum by (le, stage, tenant, channel) (rate(seatpilot_checkin_stage_seconds_bucket[24h]))) > 0.12
+        for: 30m
+        labels:
+          severity: warn
+        annotations:
+          summary: "Check-in stage p95 > 120 ms ({{ $labels.stage }})"
+          description: "El tramo {{ $labels.stage }} del check-in supera 120 ms p95 durante 30 minutos (tenant={{ $labels.tenant }}, channel={{ $labels.channel }})."

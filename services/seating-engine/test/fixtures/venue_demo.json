@@ -1,0 +1,22 @@
+{
+  "guests": [
+    { "id": "g1", "group": "A", "confirmed": true, "vip": true, "accessibility": ["pmr"] },
+    { "id": "g2", "group": "A", "confirmed": true },
+    { "id": "g3", "group": "B", "confirmed": true },
+    { "id": "g4", "group": "B", "confirmed": true },
+    { "id": "g5", "group": "C", "confirmed": false }
+  ],
+  "seats": [
+    { "id": "T01-01", "table": "T01", "attrs": ["near_stage", "near_access"] },
+    { "id": "T01-02", "table": "T01", "attrs": ["near_stage", "near_access"] },
+    { "id": "T02-01", "table": "T02", "attrs": [] },
+    { "id": "T02-02", "table": "T02", "attrs": [] }
+  ],
+  "locks": [
+    { "guestId": "g2", "seatId": "T01-02" }
+  ],
+  "constraints": {
+    "hard": ["pmr_must_near_access"],
+    "soft": ["group_together", "vip_near_stage"]
+  }
+}
