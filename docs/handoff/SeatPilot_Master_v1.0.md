@@ -14,6 +14,7 @@
 ### Changelog
 | Fecha | Versión | Secciones | Notas |
 | --- | --- | --- | --- |
+| 2025-10-21 | 1.0.2 | 4,5, G.A. | Timer/bucle demo, workflow demo-seed, cron de referencia |
 | 2025-10-21 | 1.0.1 | 1,2,4,5,6 | Toolkit de release, runbook demo y seeds automatizados |
 | _(origen)_ | 1.0.0 | Inicial | Creación del handoff maestro |
 
@@ -65,6 +66,11 @@ SeatPilot es un ecosistema end-to-end que cubre **RSVP → Seating → Check-in 
 | **F2.0** · Panel ejecutivo 7 d | ✅ | Dashboard Trends F2.0 listo. |
 | **F2.1** · Prod segura (TLS, Slack) | 🔶 | Compose prod + release toolkit listos; falta TLS/mTLS + smoke post-deploy. |
 | **F3–F6** · Assign v1, Ops Live, Offline-first/A11y | ▶ | Planificado; pendiente FE (PWA/Desk/TV), objetivos de performance sostenidos. |
+
+### Automatización de demos
+- **Loop interactivo**: `./scripts/demo-loop.sh` (usa `DEMO_CYCLE_SECONDS`, seeds métricas + billing + reload de Prometheus).
+- **GitHub Actions**: `.github/workflows/demo-seed.yml` ejecuta semillas cada 10 min en staging.
+- **Cron de referencia**: `infra/demo-seed.cron` muestra cómo correr el loop vía `cron` en un host Linux.
 
 ### Riesgos & próximos pasos
 - **Riesgo activo:** p95 check-in ligeramente > 300 ms en picos → bajar con cache warmup, keep-alive, pgBouncer, Redis opcional.
