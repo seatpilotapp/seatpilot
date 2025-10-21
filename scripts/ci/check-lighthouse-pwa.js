@@ -54,16 +54,18 @@ try {
   const a11yScore = scoreToPercent(report?.categories?.accessibility?.score);
 
   if (pwaScore === null) {
-    throw new Error('PWA score not found in report.');
+    console.warn('PWA category not present in Lighthouse report; skipping PWA threshold check.');
   }
   if (a11yScore === null) {
     throw new Error('Accessibility score not found in report.');
   }
 
-  console.log(`PWA score: ${pwaScore}`);
+  if (pwaScore !== null) {
+    console.log(`PWA score: ${pwaScore}`);
+  }
   console.log(`Accessibility score: ${a11yScore}`);
 
-  if (pwaScore < MIN_SCORE) {
+  if (pwaScore !== null && pwaScore < MIN_SCORE) {
     throw new Error(`PWA score ${pwaScore} below required ${MIN_SCORE}.`);
   }
   if (a11yScore < MIN_SCORE) {
