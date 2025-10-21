@@ -39,7 +39,8 @@ services:
 
   telemetry-ingest:
     build:
-      context: ./services/telemetry-ingest
+      context: .
+      dockerfile: services/telemetry-ingest/Dockerfile
     environment:
       NODE_ENV: production
       PORT: 3001
@@ -74,7 +75,6 @@ services:
       - --web.enable-lifecycle
       - --storage.tsdb.path=/prometheus
       - --storage.tsdb.retention.time=15d
-      - --alertmanager.url=http://alertmanager:9093
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
       - ./seatpilot.rules.yml:/etc/prometheus/seatpilot.rules.yml:ro
@@ -101,7 +101,7 @@ services:
       - ./dashboards:/var/lib/grafana/dashboards:ro
       - ./infra/local-metrics/grafana/provisioning:/etc/grafana/provisioning:ro
     ports:
-      - "3000:3000"
+      - "3300:3000"
     depends_on:
       - prometheus
     networks:
