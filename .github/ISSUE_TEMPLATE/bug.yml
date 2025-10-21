@@ -1,0 +1,20 @@
+name: 🐞 Bug report
+description: Reportar un bug
+title: "[BUG] "
+labels: ["bug"]
+body:
+  - type: textarea
+    attributes:
+      label: Descripción
+      description: ¿Qué está pasando?
+    validations: { required: true }
+  - type: textarea
+    attributes:
+      label: Pasos para reproducir
+    validations: { required: true }
+  - type: textarea
+    attributes:
+      label: Evidencia (logs, capturas)
+  - type: input
+    attributes:
+      label: Versión/commit
