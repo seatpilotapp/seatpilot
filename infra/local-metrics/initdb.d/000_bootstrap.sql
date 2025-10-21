@@ -12,6 +12,9 @@ DO $$ BEGIN
   IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname = 'service_role') THEN
     CREATE ROLE service_role NOLOGIN;
   END IF;
+  IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname = 'grafana_ro') THEN
+    CREATE ROLE grafana_ro NOLOGIN;
+  END IF;
 END $$;
 
 \echo '⏳ Applying core SeatPilot schema (001–003)'
