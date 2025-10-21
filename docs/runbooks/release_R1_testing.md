@@ -41,7 +41,7 @@ Edita `.release.env` con valores reales (no lo subas al repo):
 ```env
 PR_NUMBER=4
 RELEASE_TAG=v1.0.0-prod-r1
-COMPOSE=docker-compose.prod.yml
+COMPOSE=docker-compose.metrics.yml
 
 SUPABASE_DB_URL='postgresql://postgres:<PASSWORD>@db.<PROJECT_REF>.supabase.co:5432/postgres?sslmode=require'
 
