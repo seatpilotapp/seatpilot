@@ -3,7 +3,7 @@ SHELL := /usr/bin/env bash
 .PHONY: help release deploy cold-start verify seed-db seed-ops-live tag rollback env preflight
 
 # Rutas / config (puedes override en CLI: make release PR_NUMBER=4 ...)
-COMPOSE           ?= docker-compose.prod.yml
+COMPOSE           ?= docker-compose.metrics.yml
 PR_NUMBER         ?= 4
 RELEASE_TAG       ?= v1.0.0-prod-r1
 SUPABASE_DB_URL   ?=
