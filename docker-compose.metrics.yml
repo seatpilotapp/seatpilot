@@ -28,6 +28,8 @@ services:
       metricsnet:
         aliases:
           - telemetry-ingest
+    ports:
+      - "3001:3001"
 
   metrics-api:
     build:
@@ -41,6 +43,8 @@ services:
       metricsnet:
         aliases:
           - seatpilot-metrics-api
+    ports:
+      - "8080:8080"
 
   kpi-refresher:
     build:
@@ -87,7 +91,6 @@ services:
       - --web.enable-lifecycle
       - --storage.tsdb.path=/prometheus
       - --storage.tsdb.retention.time=15d
-      - --alertmanager.url=http://seatpilot-alertmanager:9093
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
       - ./seatpilot.rules.yml:/etc/prometheus/seatpilot.rules.yml:ro
