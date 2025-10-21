@@ -1,0 +1,134 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:15
+    container_name: seatpilot-metrics-db
+    environment:
+      POSTGRES_USER: seatpilot
+      POSTGRES_PASSWORD: seatpilot
+      POSTGRES_DB: seatpilot
+    volumes:
+      - metrics-db:/var/lib/postgresql/data
+      - ./infra/local-metrics/initdb.d:/docker-entrypoint-initdb.d
+      - ./supabase/sql:/docker-entrypoint-initdb.d/sql:ro
+    networks:
+      - metricsnet
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U seatpilot"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  metrics-api:
+    build:
+      context: ./apps/metrics-api
+    environment:
+      NODE_ENV: production
+      PORT: 8080
+      SERVICE_NAME: seatpilot-metrics
+      METRICS_TENANT: demo
+      DATABASE_URL: postgresql://seatpilot:seatpilot@db:5432/seatpilot
+    ports:
+      - "8080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - metricsnet
+
+  telemetry-ingest:
+    build:
+      context: ./services/telemetry-ingest
+    environment:
+      NODE_ENV: production
+      PORT: 3001
+      DATABASE_URL: postgresql://seatpilot:seatpilot@db:5432/seatpilot
+      HMAC_TENANT_SECRET: dev-metrics-secret
+      METRICS_API_BASE_URL: http://metrics-api:8080
+    ports:
+      - "3001:3001"
+    depends_on:
+      db:
+        condition: service_healthy
+      metrics-api:
+        condition: service_started
+    networks:
+      - metricsnet
+
+  alertmanager:
+    image: prom/alertmanager:latest
+    command:
+      - --config.file=/etc/alertmanager/alertmanager.yml
+    volumes:
+      - ./alertmanager.yml:/etc/alertmanager/alertmanager.yml:ro
+    ports:
+      - "9093:9093"
+    networks:
+      - metricsnet
+
+  prometheus:
+    image: prom/prometheus:latest
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --web.enable-lifecycle
+      - --storage.tsdb.path=/prometheus
+      - --storage.tsdb.retention.time=15d
+      - --alertmanager.url=http://alertmanager:9093
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - ./seatpilot.rules.yml:/etc/prometheus/seatpilot.rules.yml:ro
+      - prometheus-data:/prometheus
+    ports:
+      - "9090:9090"
+    depends_on:
+      - metrics-api
+      - telemetry-ingest
+      - alertmanager
+    networks:
+      - metricsnet
+
+  grafana:
+    image: grafana/grafana:10.4.1
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: admin
+      GF_USERS_ALLOW_SIGN_UP: "false"
+      GF_AUTH_ANONYMOUS_ENABLED: "true"
+      GF_AUTH_ANONYMOUS_ORG_ROLE: Viewer
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./dashboards:/var/lib/grafana/dashboards:ro
+      - ./infra/local-metrics/grafana/provisioning:/etc/grafana/provisioning:ro
+    ports:
+      - "3000:3000"
+    depends_on:
+      - prometheus
+    networks:
+      - metricsnet
+
+  metrics-fixture:
+    image: curlimages/curl:8.8.0
+    depends_on:
+      metrics-api:
+        condition: service_started
+    entrypoint: ["/bin/sh","-c"]
+    command: >
+      sleep 5 &&
+      curl -s -X POST http://metrics-api:8080/observe/checkin -H 'content-type: application/json' -d '{"latencyMs":185,"channel":"kiosk"}' &&
+      curl -s -X POST http://metrics-api:8080/observe/checkin -H 'content-type: application/json' -d '{"latencyMs":420,"channel":"ops"}' &&
+      curl -s -X POST http://metrics-api:8080/observe/door-to-seat -H 'content-type: application/json' -d '{"seconds":42}' &&
+      curl -s -X POST http://metrics-api:8080/observe/ingest -H 'content-type: application/json' -d '{"outcome":"accepted"}' &&
+      echo "Seeded demo metrics" || true
+    networks:
+      - metricsnet
+    restart: "no"
+
+volumes:
+  metrics-db:
+  prometheus-data:
+  grafana-data:
+
+networks:
+  metricsnet:
+    driver: bridge
