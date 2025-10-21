@@ -1,0 +1,30 @@
+name: Brand Icons & Tokens Lint
+
+on:
+  pull_request:
+  workflow_dispatch: {}
+
+jobs:
+  lint-brand:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v3
+        with: { version: 9 }
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+      - run: pnpm install --frozen-lockfile
+      - name: Lint icons/tokens
+        run: |
+          pnpm run brand:icons:lint
+      - name: Build icon previews (si aplica)
+        run: |
+          if [ -f scripts/brand/build-previews.sh ]; then bash scripts/brand/build-previews.sh; fi
+      - name: Upload previews
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: brand-previews
+          path: brand/icons/previews/**

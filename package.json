@@ -9,13 +9,20 @@
   ],
   "scripts": {
     "build": "pnpm -r run build",
-    "test": "pnpm -r run test"
+    "test": "pnpm -r run test",
+    "smoke:f1.1": "bash scripts/smoke-f1.1.sh",
+    "smoke:f1.2": "bash scripts/smoke-f1.2.sh",
+    "brand:icons:lint": "node scripts/brand/validate-icons.js",
+    "ci:check-a11y": "pa11y-ci",
+    "release:notes": "bash scripts/changelog/generate-release.sh"
   },
   "devDependencies": {
     "@types/node": "^20.11.30",
     "ts-node": "^10.9.2",
     "tsx": "^4.7.0",
     "typescript": "^5.6.3",
-    "vitest": "^1.5.0"
+    "vitest": "^1.5.0",
+    "wait-on": "^7.2.0",
+    "pa11y-ci": "^3.1.0"
   }
 }

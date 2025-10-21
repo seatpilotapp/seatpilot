@@ -1,5 +1,5 @@
+import { recordMvLag } from '../../../telemetry-ingest/src/lib/metrics-sink.js';
 import { db } from '../lib/db.js';
-import { recordMvLag } from '../../telemetry-ingest/src/lib/metrics-sink.js';
 
 async function refreshAndReport(view: string) {
   const startedAt = Date.now();

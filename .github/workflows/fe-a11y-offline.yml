@@ -1,0 +1,54 @@
+name: FE Accessibility & Offline
+
+on:
+  pull_request:
+  workflow_dispatch: {}
+
+jobs:
+  fe-a11y-offline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v3
+        with: { version: 9 }
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+      - run: pnpm install --frozen-lockfile
+
+      # 1) Levanta la UI (real o stub) en :3000
+      - name: Start FE stub/server
+        run: |
+          if [ -f scripts/ci/serve-stub.js ]; then
+            node scripts/ci/serve-stub.js & echo $! > /tmp/stub.pid
+          else
+            npx http-server -p 3000 . & echo $! > /tmp/stub.pid
+          fi
+
+      - name: Wait for http://localhost:3000
+        run: npx wait-on http://localhost:3000
+
+      # 2) Pa11y (AA)
+      - name: Run Pa11y (AA)
+        run: |
+          pnpm run ci:check-a11y || npx pa11y http://localhost:3000
+
+      # 3) Lighthouse PWA/offline
+      - name: Run Lighthouse PWA
+        run: |
+          if [ -f scripts/ci/check-lighthouse-pwa.js ]; then
+            node scripts/ci/check-lighthouse-pwa.js
+          else
+            npx lighthouse http://localhost:3000 --quiet --only-categories=pwa,accessibility --output=json --output-path=./lighthouse.json
+          fi
+      - name: Upload Lighthouse report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-report
+          path: lighthouse.json
+
+      - name: Stop server
+        if: always()
+        run: kill -9 $(cat /tmp/stub.pid) || true
