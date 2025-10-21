@@ -1,0 +1,628 @@
+{
+  "overwrite": false,
+  "inputs": [
+    {
+      "name": "DS_PROMETHEUS",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "value": "Prometheus"
+    }
+  ],
+  "dashboard": {
+    "uid": "seatpilot-overview-f13",
+    "title": "SeatPilot Overview F1.3",
+    "description": "Panel ejecutivo con SLOs: Check-in p95 <300 ms, Door\u2192Seat p95 <45 s, Rechazos <1 %, MV Lag <10 s. Selecciona Tenant/Channel y rango \u226515 min.",
+    "refresh": "1m",
+    "timezone": "browser",
+    "schemaVersion": 38,
+    "version": 0,
+    "templating": {
+      "list": [
+        {
+          "name": "Tenant",
+          "type": "query",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "definition": "label_values(seatpilot_checkin_latency_ms_count, tenant)",
+          "multi": true,
+          "includeAll": true,
+          "current": {
+            "selected": true,
+            "text": "All",
+            "value": "$__all"
+          },
+          "refresh": 2
+        },
+        {
+          "name": "Channel",
+          "type": "query",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "definition": "label_values(seatpilot_checkin_latency_ms_count, channel)",
+          "multi": true,
+          "includeAll": true,
+          "current": {
+            "selected": true,
+            "text": "All",
+            "value": "$__all"
+          },
+          "refresh": 2
+        }
+      ]
+    },
+    "time": {
+      "from": "now-24h",
+      "to": "now"
+    },
+    "panels": [
+      {
+        "id": 1,
+        "type": "stat",
+        "title": "Check-in p95 (5m)",
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${DS_PROMETHEUS}"
+        },
+        "targets": [
+          {
+            "refId": "A",
+            "expr": "histogram_quantile(0.95, sum by (le, tenant, channel) (rate(seatpilot_checkin_latency_ms_histogram_bucket{tenant=~\"$Tenant\",channel=~\"$Channel\"}[5m])))"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "ms",
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "value": null,
+                  "color": "green"
+                },
+                {
+                  "value": 300,
+                  "color": "yellow"
+                },
+                {
+                  "value": 350,
+                  "color": "red"
+                }
+              ]
+            },
+            "mappings": []
+          },
+          "overrides": []
+        },
+        "options": {
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "orientation": "horizontal",
+          "textMode": "auto"
+        },
+        "gridPos": {
+          "h": 6,
+          "w": 6,
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "id": 2,
+        "type": "stat",
+        "title": "Door\u2192Seat p95 (15m)",
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${DS_PROMETHEUS}"
+        },
+        "targets": [
+          {
+            "refId": "A",
+            "expr": "histogram_quantile(0.95, sum by (le, tenant) (rate(seatpilot_door_to_seat_seconds_bucket{tenant=~\"$Tenant\"}[15m])))"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "s",
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "value": null,
+                  "color": "green"
+                },
+                {
+                  "value": 45,
+                  "color": "yellow"
+                },
+                {
+                  "value": 60,
+                  "color": "red"
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "options": {
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "orientation": "horizontal"
+        },
+        "gridPos": {
+          "h": 6,
+          "w": 6,
+          "x": 6,
+          "y": 0
+        }
+      },
+      {
+        "id": 3,
+        "type": "stat",
+        "title": "Rechazos 5m (%)",
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${DS_PROMETHEUS}"
+        },
+        "targets": [
+          {
+            "refId": "A",
+            "expr": "(seatpilot:ingest_reject_rate_5m{tenant=~\"$Tenant\"}) / ignoring(reason) (seatpilot:ingest_rate_5m{tenant=~\"$Tenant\"})"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "percentunit",
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "value": null,
+                  "color": "green"
+                },
+                {
+                  "value": 0.01,
+                  "color": "red"
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "options": {
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "orientation": "horizontal"
+        },
+        "gridPos": {
+          "h": 6,
+          "w": 6,
+          "x": 12,
+          "y": 0
+        }
+      },
+      {
+        "id": 4,
+        "type": "stat",
+        "title": "MV Lag avg (5m)",
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${DS_PROMETHEUS}"
+        },
+        "targets": [
+          {
+            "refId": "A",
+            "expr": "seatpilot:mv_lag_avg_5m{tenant=~\"$Tenant\"}"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "s",
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "value": null,
+                  "color": "green"
+                },
+                {
+                  "value": 10,
+                  "color": "yellow"
+                },
+                {
+                  "value": 20,
+                  "color": "red"
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "options": {
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "orientation": "horizontal"
+        },
+        "gridPos": {
+          "h": 6,
+          "w": 6,
+          "x": 18,
+          "y": 0
+        }
+      },
+      {
+        "id": 5,
+        "type": "timeseries",
+        "title": "Tendencia 24h",
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${DS_PROMETHEUS}"
+        },
+        "targets": [
+          {
+            "refId": "A",
+            "expr": "histogram_quantile(0.95, sum by (le, tenant, channel) (rate(seatpilot_checkin_latency_ms_histogram_bucket{tenant=~\"$Tenant\",channel=~\"$Channel\"}[5m])))"
+          },
+          {
+            "refId": "B",
+            "expr": "histogram_quantile(0.95, sum by (le, tenant) (rate(seatpilot_door_to_seat_seconds_bucket{tenant=~\"$Tenant\"}[15m])))"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "value": null,
+                  "color": "green"
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "options": {
+          "legend": {
+            "displayMode": "table",
+            "placement": "right"
+          },
+          "tooltip": {
+            "mode": "multi"
+          }
+        },
+        "gridPos": {
+          "h": 9,
+          "w": 24,
+          "x": 0,
+          "y": 6
+        }
+      },
+      {
+        "id": 6,
+        "type": "text",
+        "title": "SLOs",
+        "gridPos": {
+          "h": 3,
+          "w": 24,
+          "x": 0,
+          "y": 21
+        },
+        "options": {
+          "mode": "markdown",
+          "content": "- **Check-in p95 (5m)** < 300 ms (warn 300\u2013350, cr\u00edtico > 350)\n- **Door\u2192Seat p95 (15m)** < 45 s (warn 45\u201360, cr\u00edtico > 60)\n- **Rechazos 5m** < 1 %\n- **MV Lag avg 5m** < 10 s"
+        }
+      },
+      {
+        "id": 7,
+        "type": "stat",
+        "title": "\u0394 Check-in p95 vs prev 7d",
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${DS_PROMETHEUS}"
+        },
+        "targets": [
+          {
+            "refId": "A",
+            "expr": "(histogram_quantile(0.95, sum by (le, tenant, channel) (increase(seatpilot_checkin_latency_ms_histogram_bucket{tenant=~\"$Tenant\",channel=~\"$Channel\"}[7d]))) - histogram_quantile(0.95, sum by (le, tenant, channel) (increase(seatpilot_checkin_latency_ms_histogram_bucket{tenant=~\"$Tenant\",channel=~\"$Channel\"}[7d] offset 7d)))) / clamp_min(histogram_quantile(0.95, sum by (le, tenant, channel) (increase(seatpilot_checkin_latency_ms_histogram_bucket{tenant=~\"$Tenant\",channel=~\"$Channel\"}[7d] offset 7d))), 0.001) * 100"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "percentunit",
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green"
+                },
+                {
+                  "value": 0,
+                  "color": "red"
+                }
+              ]
+            },
+            "mappings": []
+          },
+          "overrides": []
+        },
+        "options": {
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "orientation": "horizontal"
+        },
+        "gridPos": {
+          "h": 6,
+          "w": 6,
+          "x": 0,
+          "y": 15
+        }
+      },
+      {
+        "id": 8,
+        "type": "stat",
+        "title": "\u0394 Door\u2192Seat p95 vs prev 7d",
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${DS_PROMETHEUS}"
+        },
+        "targets": [
+          {
+            "refId": "A",
+            "expr": "(histogram_quantile(0.95, sum by (le, tenant) (rate(seatpilot_door_to_seat_seconds_bucket{tenant=~\"$Tenant\"}[7d]))) - histogram_quantile(0.95, sum by (le, tenant) (rate(seatpilot_door_to_seat_seconds_bucket{tenant=~\"$Tenant\"}[7d] offset 7d)))) / clamp_min(histogram_quantile(0.95, sum by (le, tenant) (rate(seatpilot_door_to_seat_seconds_bucket{tenant=~\"$Tenant\"}[7d] offset 7d))), 0.001) * 100"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "percentunit",
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green"
+                },
+                {
+                  "value": 0,
+                  "color": "red"
+                }
+              ]
+            },
+            "mappings": []
+          },
+          "overrides": []
+        },
+        "options": {
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "orientation": "horizontal"
+        },
+        "gridPos": {
+          "h": 6,
+          "w": 6,
+          "x": 6,
+          "y": 15
+        }
+      },
+      {
+        "id": 9,
+        "type": "stat",
+        "title": "\u0394 Rechazos vs prev 7d",
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${DS_PROMETHEUS}"
+        },
+        "targets": [
+          {
+            "refId": "A",
+            "expr": "((increase(seatpilot_ingest_rejected_total{tenant=~\"$Tenant\"}[7d]) / clamp_min(increase(seatpilot_ingest_total{tenant=~\"$Tenant\"}[7d]),1)) - (increase(seatpilot_ingest_rejected_total{tenant=~\"$Tenant\"}[7d] offset 7d) / clamp_min(increase(seatpilot_ingest_total{tenant=~\"$Tenant\"}[7d] offset 7d),1))) / clamp_min(increase(seatpilot_ingest_rejected_total{tenant=~\"$Tenant\"}[7d] offset 7d) / clamp_min(increase(seatpilot_ingest_total{tenant=~\"$Tenant\"}[7d] offset 7d),1), 0.001) * 100"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "percentunit",
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green"
+                },
+                {
+                  "value": 0,
+                  "color": "red"
+                }
+              ]
+            },
+            "mappings": []
+          },
+          "overrides": []
+        },
+        "options": {
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "orientation": "horizontal"
+        },
+        "gridPos": {
+          "h": 6,
+          "w": 6,
+          "x": 12,
+          "y": 15
+        }
+      },
+      {
+        "id": 10,
+        "type": "stat",
+        "title": "\u0394 MV Lag avg vs prev 7d",
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${DS_PROMETHEUS}"
+        },
+        "targets": [
+          {
+            "refId": "A",
+            "expr": "(avg_over_time(seatpilot_mv_lag_seconds{tenant=~\"$Tenant\"}[7d]) - avg_over_time(seatpilot_mv_lag_seconds{tenant=~\"$Tenant\"}[7d] offset 7d)) / clamp_min(avg_over_time(seatpilot_mv_lag_seconds{tenant=~\"$Tenant\"}[7d] offset 7d), 0.001) * 100"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "percentunit",
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green"
+                },
+                {
+                  "value": 0,
+                  "color": "red"
+                }
+              ]
+            },
+            "mappings": []
+          },
+          "overrides": []
+        },
+        "options": {
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "orientation": "horizontal"
+        },
+        "gridPos": {
+          "h": 6,
+          "w": 6,
+          "x": 18,
+          "y": 15
+        }
+      },
+      {
+        "id": 11,
+        "type": "timeseries",
+        "title": "Check-in Stage p95 (24h)",
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${DS_PROMETHEUS}"
+        },
+        "targets": [
+          {
+            "refId": "A",
+            "expr": "histogram_quantile(0.95, sum by (le, stage) (rate(seatpilot_checkin_stage_seconds_bucket{tenant=~\"$Tenant\",channel=~\"$Channel\"}[5m])))",
+            "legendFormat": "{{stage}}"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "s",
+            "min": 0
+          },
+          "overrides": []
+        },
+        "options": {
+          "legend": {
+            "displayMode": "list",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "multi"
+          }
+        },
+        "gridPos": {
+          "h": 9,
+          "w": 24,
+          "x": 0,
+          "y": 24
+        }
+      },
+      {
+        "id": 12,
+        "type": "table",
+        "title": "Time Breakdown UI (p95 5m)",
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${DS_PROMETHEUS}"
+        },
+        "targets": [
+          {
+            "refId": "A",
+            "expr": "histogram_quantile(0.95, sum by (le, stage, tenant, channel) (rate(seatpilot_checkin_stage_seconds_bucket{tenant=~\"$Tenant\",channel=~\"$Channel\"}[5m])))*1000"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "ms",
+            "decimals": 0,
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                { "value": null, "color": "green" },
+                { "value": 120, "color": "yellow" },
+                { "value": 180, "color": "red" }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "options": {
+          "showHeader": true
+        },
+        "transformations": [
+          {
+            "id": "reduce",
+            "options": {
+              "reducers": [
+                "lastNotNull"
+              ]
+            }
+          }
+        ],
+        "gridPos": {
+          "h": 7,
+          "w": 24,
+          "x": 0,
+          "y": 33
+        }
+      }
+    ]
+  }
+}

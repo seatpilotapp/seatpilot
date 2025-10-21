@@ -1,8 +1,10 @@
-// TODO: Replace with the actual database client used by the wayfinding service.
-export const db: {
-  oneOrNone: (query: string, values: unknown[]) => Promise<{ ts_checkin_success_ms: number } | null>;
-} = {
-  async oneOrNone() {
-    throw new Error('db.oneOrNone not implemented — connect to your database client');
-  }
-};
+import pgPromise from 'pg-promise';
+
+const pgp = pgPromise();
+const DATABASE_URL = process.env.DATABASE_URL;
+
+if (!DATABASE_URL) {
+  throw new Error('DATABASE_URL environment variable is required for @seatpilot/wayfinding');
+}
+
+export const db = pgp(DATABASE_URL);

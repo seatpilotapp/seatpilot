@@ -1,0 +1,98 @@
+{
+  "title": "SeatPilot – Trends (F2.0)",
+  "tags": ["seatpilot", "trends", "f2.0"],
+  "timezone": "browser",
+  "schemaVersion": 38,
+  "version": 1,
+  "refresh": "5m",
+  "time": { "from": "now-7d", "to": "now" },
+  "templating": {
+    "list": [
+      {
+        "name": "Tenant",
+        "type": "query",
+        "datasource": "Prometheus",
+        "query": "label_values(seatpilot_checkin_latency_ms_histogram_bucket, tenant)",
+        "includeAll": true,
+        "multi": true,
+        "current": { "text": "All", "value": "$__all" }
+      },
+      {
+        "name": "Channel",
+        "type": "query",
+        "datasource": "Prometheus",
+        "query": "label_values(seatpilot_checkin_latency_ms_histogram_bucket, channel)",
+        "includeAll": true,
+        "multi": true,
+        "current": { "text": "All", "value": "$__all" }
+      }
+    ]
+  },
+  "panels": [
+    {
+      "type": "timeseries",
+      "title": "Check-in p95 (promedio diario deslizante)",
+      "gridPos": { "x": 0, "y": 0, "w": 12, "h": 8 },
+      "datasource": "Prometheus",
+      "targets": [
+        {
+          "expr": "avg_over_time((histogram_quantile(0.95, sum by (le,tenant,channel) (rate(seatpilot_checkin_latency_ms_histogram_bucket{tenant=~\"$Tenant\",channel=~\"$Channel\"}[5m]))))[1d:5m])",
+          "legendFormat": "p95 check-in ({{tenant}}/{{channel}})"
+        }
+      ],
+      "fieldConfig": { "defaults": { "unit": "ms" } }
+    },
+    {
+      "type": "timeseries",
+      "title": "Door→Seat p95 (promedio diario deslizante)",
+      "gridPos": { "x": 12, "y": 0, "w": 12, "h": 8 },
+      "datasource": "Prometheus",
+      "targets": [
+        {
+          "expr": "avg_over_time((histogram_quantile(0.95, sum by (le,tenant,channel) (rate(seatpilot_door_to_seat_seconds_bucket{tenant=~\"$Tenant\",channel=~\"$Channel\"}[15m]))))[1d:15m])",
+          "legendFormat": "p95 door→seat ({{tenant}}/{{channel}})"
+        }
+      ],
+      "fieldConfig": { "defaults": { "unit": "s" } }
+    },
+    {
+      "type": "timeseries",
+      "title": "Rechazos % (ventana 1d) – fallback 0",
+      "gridPos": { "x": 0, "y": 8, "w": 12, "h": 8 },
+      "datasource": "Prometheus",
+      "targets": [
+        {
+          "expr": "(\n  sum by (tenant,channel) (rate(seatpilot_ingest_rejected_total{tenant=~\"$Tenant\",channel=~\"$Channel\"}[1d]))\n/\n  sum by (tenant,channel) (rate(seatpilot_ingest_accepted_total{tenant=~\"$Tenant\",channel=~\"$Channel\"}[1d]))\n) or on() vector(0)",
+          "legendFormat": "rechazos % ({{tenant}}/{{channel}})"
+        }
+      ],
+      "fieldConfig": { "defaults": { "unit": "percentunit", "min": 0, "max": 1 } }
+    },
+    {
+      "type": "timeseries",
+      "title": "MV Lag – promedio 1d",
+      "gridPos": { "x": 12, "y": 8, "w": 12, "h": 8 },
+      "datasource": "Prometheus",
+      "targets": [
+        {
+          "expr": "avg_over_time(seatpilot_mv_lag_seconds{tenant=~\"$Tenant\"}[1d])",
+          "legendFormat": "MV lag ({{tenant}})"
+        }
+      ],
+      "fieldConfig": { "defaults": { "unit": "s" } }
+    },
+    {
+      "type": "timeseries",
+      "title": "Check-in p95 por etapa (promedio 1d)",
+      "gridPos": { "x": 0, "y": 16, "w": 24, "h": 8 },
+      "datasource": "Prometheus",
+      "targets": [
+        {
+          "expr": "avg_over_time((histogram_quantile(0.95, sum by (le,stage,tenant,channel) (rate(seatpilot_checkin_stage_seconds_bucket{tenant=~\"$Tenant\",channel=~\"$Channel\"}[5m]))))[1d:5m])",
+          "legendFormat": "{{stage}} ({{tenant}}/{{channel}})"
+        }
+      ],
+      "fieldConfig": { "defaults": { "unit": "ms" } }
+    }
+  ]
+}

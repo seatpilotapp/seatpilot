@@ -1,4 +1,5 @@
 type IngestRejectionReason = 'signature' | 'schema' | 'replay' | 'ratelimit' | 'other';
+type CheckinStage = 'parse' | 'lookup' | 'persist' | 'total';
 
 interface FetchRequestInit {
   method?: string;
@@ -10,6 +11,7 @@ interface FetchRequestInit {
 type FetchImplementation = (input: string | URL, init?: FetchRequestInit) => Promise<Response>;
 
 const METRICS_BASE_URL = process.env.METRICS_API_BASE_URL;
+const METRICS_API_KEY = process.env.METRICS_API_KEY;
 let hasLoggedWarning = false;
 
 async function postMetrics(path: string, payload: unknown) {
@@ -30,9 +32,14 @@ async function postMetrics(path: string, payload: unknown) {
 
   const send = async () => {
     const url = new URL(path, METRICS_BASE_URL);
+    const headers: Record<string, string> = { 'content-type': 'application/json' };
+    if (METRICS_API_KEY) {
+      headers['x-metrics-key'] = METRICS_API_KEY;
+    }
+
     const response = await fetchImpl(url.toString(), {
       method: 'POST',
-      headers: { 'content-type': 'application/json' },
+      headers,
       body: JSON.stringify(payload),
       signal: controller.signal
     });
@@ -69,6 +76,15 @@ export function recordCheckinLatency(latencyMs: number, channel: 'kiosk' | 'ops'
   }
 }
 
+export function recordCheckinStageDuration(
+  stage: CheckinStage,
+  seconds: number,
+  channel: 'kiosk' | 'ops' | 'guest'
+) {
+  if (!Number.isFinite(seconds) || seconds < 0) return;
+  void postMetrics('/observe/checkin-stage', { stage, seconds, channel });
+}
+
 export function recordDoorToSeat(seconds: number) {
   if (Number.isFinite(seconds) && seconds >= 0) {
     void postMetrics('/observe/door-to-seat', { seconds });
@@ -77,6 +93,7 @@ export function recordDoorToSeat(seconds: number) {
 
 export function recordMvLag(view: string, lagSeconds: number) {
   if (view && Number.isFinite(lagSeconds) && lagSeconds >= 0) {
-    void postMetrics('/observe/mv-lag', { view, lagSeconds });
+    return postMetrics('/observe/mv-lag', { view, lagSeconds });
   }
+  return Promise.resolve();
 }

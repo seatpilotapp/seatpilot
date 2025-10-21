@@ -1,0 +1,11 @@
+{
+  "defaults": {
+    "chromeLaunchConfig": {
+      "args": ["--no-sandbox", "--disable-dev-shm-usage"]
+    },
+    "standard": "WCAG2AA",
+    "threshold": 0,
+    "timeout": 60000
+  },
+  "urls": ["http://localhost:3000"]
+}

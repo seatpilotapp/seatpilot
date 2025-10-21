@@ -1,0 +1,35 @@
+name: Backend Build & Tests
+
+on:
+  pull_request:
+    paths:
+      - 'services/**'
+      - 'apps/**'
+      - 'packages/**'
+      - 'pnpm-lock.yaml'
+      - 'package.json'
+  push:
+    branches: [ main ]
+    paths:
+      - 'services/**'
+      - 'apps/**'
+      - 'packages/**'
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v3
+        with: { version: 9 }
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+      - run: pnpm install --frozen-lockfile
+      - name: Typecheck
+        run: pnpm run -r typecheck || true
+      - name: Unit tests (seating-engine)
+        run: pnpm --filter @seatpilot/seating-engine test -- --reporters=default
+      - name: Build all packages
+        run: pnpm -r build

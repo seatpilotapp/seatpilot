@@ -1,5 +1,6 @@
 import express from 'express';
 import { ingestHandler } from './routes/events.js';
+import { billingRouter } from './routes/billing.js';
 import metricsRegister, { httpRequestsTotal, httpRequestDurationSeconds } from './lib/metrics.js';
 
 const app = express();
@@ -47,6 +48,7 @@ app.get('/metrics', async (req, res) => {
 });
 
 app.post('/v1/events', ingestHandler);
+app.use('/admin/billing', billingRouter);
 
 const port = process.env.PORT || 3001;
 const server = app.listen(port, () => {
@@ -59,11 +61,23 @@ server.on('error', (err) => {
 
 app.use((err: any, req: any, res: any, next: any) => {
   console.error('INGEST ERROR', err);
-  if (!res.headersSent) {
-    res.status(500).json({ error: 'server_error' });
-  } else {
+  if (res.headersSent) {
     next(err);
+    return;
   }
+
+  const accept: string = req.headers?.accept ?? '';
+  if (accept.includes('text/html')) {
+    res
+      .status(500)
+      .set('Content-Type', 'text/html; charset=utf-8')
+      .send(
+        '<!doctype html><html><body><h1>Error 500</h1><p>No fue posible cargar el reporte.</p></body></html>'
+      );
+    return;
+  }
+
+  res.status(500).json({ error: 'server_error' });
 });
 
 process.on('unhandledRejection', (reason) => {
