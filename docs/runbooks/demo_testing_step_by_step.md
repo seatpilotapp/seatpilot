@@ -92,11 +92,10 @@ make seed-db
 ## 📈 6. Ver dashboards y métricas
 
 ### Prometheus
-audita los targets:
 ```
 http://localhost:9090/targets
 ```
-Debes ver `metrics-api:9100` y `telemetry-ingest:8081` en **UP**.
+Debes ver `metrics-api:8080` y `telemetry-ingest:8081` en **UP**.
 
 ### Grafana
 ```
@@ -114,23 +113,17 @@ http://localhost:3300
 
 ```bash
 psql "$SUPABASE_DB_URL" -c "select id, display_name, price_cents from plans;"
-psql "$SUPABASE_DB_URL" -c "select * from v_tenant_billing_report order by period_key desc limit 5;"
-```
-
-✔️ verás planes Starter/Pro/Enterprise y consumo del mes (`events_used`, `checkins_used`).
-
-### Cron jobs
-```bash
 psql "$SUPABASE_DB_URL" -c "
-select jobid, jobname, schedule, active
-from cron.job
-where jobname in ('billing_close_month','ops_metering_seed_daily');"
+select * from v_tenant_billing_report
+where period_key = to_char(date_trunc('month', now()), 'YYYY-MM')
+order by tenant_id limit 10;"
 ```
-`active = t` indica que se ejecutan automáticamente.
+
+✔️ verás planes (Starter/Pro/Enterprise) y consumo del mes actual.
 
 ---
 
-## 📸 8. Captura evidencia
+## 🧹 8. Captura evidencia
 
 Checklist sugerido (Issue #8):
 - [ ] Captura Grafana (Ops Live v1 — Last 15 min)
@@ -138,15 +131,27 @@ Checklist sugerido (Issue #8):
 - [ ] Cron jobs listados
 - [ ] Comando `make release` con ✅ final
 
-Guarda tus capturas en `docs/history/` o súbelas al Issue.
+Guarda tus capturas en `docs/history/` o adjunta al Issue.
 
 ---
 
-## 🧹 9. Cuando termines
+## 🧠 9. Mantén datos “vivos” varias horas
+
+Opciones:
+1. **Loop directo**: `./scripts/demo-loop.sh` (usa `DEMO_CYCLE_SECONDS`, default 300s).
+2. `timeout 6h ./scripts/demo-loop.sh` (corta solo tras 6 horas).
+3. `tmux`/`screen`: deja el loop corriendo y reconéctate luego.
+4. `systemd --user`: ver snippet en handoff (`docs/handoff/SeatPilot_Master_v1.0.md`).
+5. **CI/cron**: usa `.github/workflows/demo-seed.yml` o `infra/demo-seed.cron` como plantilla.
+
+---
+
+## 🧹 10. Apaga todo al cerrar
 
 ```bash
 docker compose -f docker-compose.metrics.yml down
-rm .release.env
+systemctl --user disable --now seatpilot-demo.timer 2>/dev/null || true
+systemctl --user stop seatpilot-demo.service 2>/dev/null || true
 ```
 
 El template (`.release.env.example`) queda listo para la próxima sesión.🏁
@@ -156,12 +161,12 @@ El template (`.release.env.example`) queda listo para la próxima sesión.🏁
 ## ❓ FAQ Express
 
 **Q:** Prometheus dice DOWN.
-> Asegúrate de que `prometheus.yml` apunta a `metrics-api:9100` y `telemetry-ingest:8081`, luego `curl -X POST http://localhost:9090/-/reload`.
+> Revisa que `prometheus.yml` apunte a `metrics-api:8080` y `telemetry-ingest:3001`, luego `curl -X POST http://localhost:9090/-/reload`.
 
 **Q:** Grafana vacío.
 > Corre `make seed-ops-live` de nuevo y refresca. Comprueba el rango de tiempo.
 
 **Q:** ¿Dónde están los comandos completos?
-> Revisa `Makefile` (targets `deploy`, `cold-start`, `verify`, `seed-ops-live`, `seed-db`, `rollback`).
+> Revisa `docs/handoff/SeatPilot_Master_v1.0.md` (Operación, sección 5) y el `Makefile` (targets `release/deploy/seed/verify`).
 
 Happy shipping 🚀
