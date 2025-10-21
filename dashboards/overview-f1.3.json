@@ -595,9 +595,18 @@
             "thresholds": {
               "mode": "absolute",
               "steps": [
-                { "value": null, "color": "green" },
-                { "value": 120, "color": "yellow" },
-                { "value": 180, "color": "red" }
+                {
+                  "value": null,
+                  "color": "green"
+                },
+                {
+                  "value": 120,
+                  "color": "yellow"
+                },
+                {
+                  "value": 180,
+                  "color": "red"
+                }
               ]
             }
           },

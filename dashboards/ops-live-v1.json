@@ -34,8 +34,16 @@
       "type": "stat",
       "title": "Check\u2011in p95 ($WinShort)",
       "description": "Objetivo \u2264 300 ms (SLO UI/BE).",
-      "datasource": "${DS_PROMETHEUS}",
-      "gridPos": { "h": 5, "w": 4, "x": 0, "y": 0 },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 0,
+        "y": 0
+      },
       "targets": [
         {
           "expr": "histogram_quantile(0.95, sum by (le,tenant,channel) (rate(seatpilot_checkin_latency_ms_histogram_bucket{tenant=~\"$Tenant\",channel=~\"$Channel\"}[$WinShort])))",
@@ -43,7 +51,13 @@
         }
       ],
       "options": {
-        "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false },
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
         "orientation": "auto",
         "colorMode": "value",
         "graphMode": "none",
@@ -55,9 +69,17 @@
           "thresholds": {
             "mode": "absolute",
             "steps": [
-              { "color": "green" },
-              { "color": "yellow", "value": 300 },
-              { "color": "red", "value": 400 }
+              {
+                "color": "green"
+              },
+              {
+                "color": "yellow",
+                "value": 300
+              },
+              {
+                "color": "red",
+                "value": 400
+              }
             ]
           }
         },
@@ -68,8 +90,16 @@
       "type": "stat",
       "title": "Door\u2192Seat p95 ($WinLong) (Todas las zonas)",
       "description": "Objetivo \u2264 60 s (p95).",
-      "datasource": "${DS_PROMETHEUS}",
-      "gridPos": { "h": 5, "w": 4, "x": 4, "y": 0 },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 4,
+        "y": 0
+      },
       "targets": [
         {
           "expr": "histogram_quantile(0.95, sum by (le,tenant,channel,zone) (rate(seatpilot_door_to_seat_seconds_bucket{tenant=~\"$Tenant\",channel=~\"$Channel\",zone=~\"$Zone\"}[$WinLong])))",
@@ -77,7 +107,13 @@
         }
       ],
       "options": {
-        "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        }
       },
       "fieldConfig": {
         "defaults": {
@@ -85,9 +121,17 @@
           "thresholds": {
             "mode": "absolute",
             "steps": [
-              { "color": "green" },
-              { "color": "yellow", "value": 60 },
-              { "color": "red", "value": 90 }
+              {
+                "color": "green"
+              },
+              {
+                "color": "yellow",
+                "value": 60
+              },
+              {
+                "color": "red",
+                "value": 90
+              }
             ]
           }
         },
@@ -98,8 +142,16 @@
       "type": "stat",
       "title": "Rechazos (24 h) %",
       "description": "((rejected) / (accepted+rejected)) * 100. Fallback 0 si no hay datos.",
-      "datasource": "${DS_PROMETHEUS}",
-      "gridPos": { "h": 5, "w": 4, "x": 8, "y": 0 },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 8,
+        "y": 0
+      },
       "targets": [
         {
           "expr": "((sum by (tenant,channel) (increase(seatpilot_ingest_rejected_total{tenant=~\"$Tenant\",channel=~\"$Channel\"}[$Horizon]))) / (sum by (tenant,channel) (increase(seatpilot_ingest_accepted_total{tenant=~\"$Tenant\",channel=~\"$Channel\"}[$Horizon])) + sum by (tenant,channel) (increase(seatpilot_ingest_rejected_total{tenant=~\"$Tenant\",channel=~\"$Channel\"}[$Horizon])))) * 100 or on() vector(0)",
@@ -107,7 +159,13 @@
         }
       ],
       "options": {
-        "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        }
       },
       "fieldConfig": {
         "defaults": {
@@ -116,9 +174,17 @@
           "thresholds": {
             "mode": "absolute",
             "steps": [
-              { "color": "green" },
-              { "color": "yellow", "value": 1 },
-              { "color": "red", "value": 2 }
+              {
+                "color": "green"
+              },
+              {
+                "color": "yellow",
+                "value": 1
+              },
+              {
+                "color": "red",
+                "value": 2
+              }
             ]
           }
         },
@@ -129,8 +195,16 @@
       "type": "stat",
       "title": "MV Lag promedio (24 h)",
       "description": "Frescura de MVs. Objetivo \u2264 0.2 s.",
-      "datasource": "${DS_PROMETHEUS}",
-      "gridPos": { "h": 5, "w": 4, "x": 12, "y": 0 },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 12,
+        "y": 0
+      },
       "targets": [
         {
           "expr": "avg_over_time(seatpilot_mv_lag_seconds{tenant=~\"$Tenant\"}[$Horizon])",
@@ -138,7 +212,13 @@
         }
       ],
       "options": {
-        "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        }
       },
       "fieldConfig": {
         "defaults": {
@@ -147,9 +227,17 @@
           "thresholds": {
             "mode": "absolute",
             "steps": [
-              { "color": "green" },
-              { "color": "yellow", "value": 0.2 },
-              { "color": "red", "value": 0.5 }
+              {
+                "color": "green"
+              },
+              {
+                "color": "yellow",
+                "value": 0.2
+              },
+              {
+                "color": "red",
+                "value": 0.5
+              }
             ]
           }
         },
@@ -160,8 +248,16 @@
       "type": "stat",
       "title": "Assign p95 ($WinShort)",
       "description": "Aparece si el seating\u2011engine publica histogramas de duraci\u00f3n.",
-      "datasource": "${DS_PROMETHEUS}",
-      "gridPos": { "h": 5, "w": 4, "x": 16, "y": 0 },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 16,
+        "y": 0
+      },
       "targets": [
         {
           "expr": "histogram_quantile(0.95, sum by (le,tenant,channel) (rate(seatpilot_assign_duration_ms_histogram_bucket{tenant=~\"$Tenant\",channel=~\"$Channel\"}[$WinShort])))",
@@ -169,7 +265,13 @@
         }
       ],
       "options": {
-        "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        }
       },
       "fieldConfig": {
         "defaults": {
@@ -177,9 +279,17 @@
           "thresholds": {
             "mode": "absolute",
             "steps": [
-              { "color": "green" },
-              { "color": "yellow", "value": 300 },
-              { "color": "red", "value": 500 }
+              {
+                "color": "green"
+              },
+              {
+                "color": "yellow",
+                "value": 300
+              },
+              {
+                "color": "red",
+                "value": 500
+              }
             ]
           }
         },
@@ -190,8 +300,16 @@
       "type": "stat",
       "title": "Assign feasible % ($WinShort)",
       "description": "Aparece si se emite seatpilot_assign_feasible_ratio (0\u20131).",
-      "datasource": "${DS_PROMETHEUS}",
-      "gridPos": { "h": 5, "w": 4, "x": 20, "y": 0 },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 20,
+        "y": 0
+      },
       "targets": [
         {
           "expr": "avg_over_time(seatpilot_assign_feasible_ratio{tenant=~\"$Tenant\",channel=~\"$Channel\"}[$WinShort]) * 100",
@@ -199,7 +317,13 @@
         }
       ],
       "options": {
-        "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        }
       },
       "fieldConfig": {
         "defaults": {
@@ -208,9 +332,17 @@
           "thresholds": {
             "mode": "absolute",
             "steps": [
-              { "color": "red" },
-              { "color": "yellow", "value": 90 },
-              { "color": "green", "value": 95 }
+              {
+                "color": "red"
+              },
+              {
+                "color": "yellow",
+                "value": 90
+              },
+              {
+                "color": "green",
+                "value": 95
+              }
             ]
           }
         },
@@ -221,8 +353,16 @@
       "type": "bargauge",
       "title": "Check\u2011in stage p95 ($WinShort)",
       "description": "Breakdown parse / lookup / persist / total (p95).",
-      "datasource": "${DS_PROMETHEUS}",
-      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 5 },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 5
+      },
       "targets": [
         {
           "expr": "histogram_quantile(0.95, sum by (le,stage,tenant,channel) (rate(seatpilot_checkin_stage_seconds_bucket{tenant=~\"$Tenant\",channel=~\"$Channel\",stage=\"parse\"}[$WinShort])))",
@@ -251,22 +391,41 @@
           "thresholds": {
             "mode": "absolute",
             "steps": [
-              { "color": "green" },
-              { "color": "yellow", "value": 120 },
-              { "color": "red", "value": 180 }
+              {
+                "color": "green"
+              },
+              {
+                "color": "yellow",
+                "value": 120
+              },
+              {
+                "color": "red",
+                "value": 180
+              }
             ]
           }
         },
         "overrides": []
       },
-      "options": { "orientation": "horizontal", "displayMode": "basic" }
+      "options": {
+        "orientation": "horizontal",
+        "displayMode": "basic"
+      }
     },
     {
       "type": "bargauge",
       "title": "Top zonas por Door\u2192Seat p95 ($WinLong)",
       "description": "topk(5) por zona.",
-      "datasource": "${DS_PROMETHEUS}",
-      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 5 },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 5
+      },
       "targets": [
         {
           "expr": "topk(5, histogram_quantile(0.95, sum by (le,zone,tenant,channel) (rate(seatpilot_door_to_seat_seconds_bucket{tenant=~\"$Tenant\",channel=~\"$Channel\"}[$WinLong]))))",
@@ -280,24 +439,43 @@
           "thresholds": {
             "mode": "absolute",
             "steps": [
-              { "color": "green" },
-              { "color": "yellow", "value": 60 },
-              { "color": "red", "value": 90 }
+              {
+                "color": "green"
+              },
+              {
+                "color": "yellow",
+                "value": 60
+              },
+              {
+                "color": "red",
+                "value": 90
+              }
             ]
           }
         },
         "overrides": []
       },
-      "options": { "orientation": "horizontal", "displayMode": "basic" }
+      "options": {
+        "orientation": "horizontal",
+        "displayMode": "basic"
+      }
     },
     {
       "type": "stat",
       "title": "Zone: Door\u2192Seat p95 ($WinLong)",
       "description": "Tile por zona (repite).",
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
       "repeat": "Zone",
       "maxPerRow": 4,
-      "gridPos": { "h": 5, "w": 6, "x": 0, "y": 13 },
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 0,
+        "y": 13
+      },
       "targets": [
         {
           "expr": "histogram_quantile(0.95, sum by (le,tenant,channel,zone) (rate(seatpilot_door_to_seat_seconds_bucket{tenant=~\"$Tenant\",channel=~\"$Channel\",zone=~\"$__repeat\"}[$WinLong])))",
@@ -305,7 +483,13 @@
         }
       ],
       "options": {
-        "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        }
       },
       "fieldConfig": {
         "defaults": {
@@ -313,9 +497,17 @@
           "thresholds": {
             "mode": "absolute",
             "steps": [
-              { "color": "green" },
-              { "color": "yellow", "value": 60 },
-              { "color": "red", "value": 90 }
+              {
+                "color": "green"
+              },
+              {
+                "color": "yellow",
+                "value": 60
+              },
+              {
+                "color": "red",
+                "value": 90
+              }
             ]
           }
         },
@@ -325,10 +517,18 @@
     {
       "type": "stat",
       "title": "Zone: Door\u2192Seat p50 ($WinLong)",
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
       "repeat": "Zone",
       "maxPerRow": 4,
-      "gridPos": { "h": 5, "w": 6, "x": 6, "y": 13 },
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 6,
+        "y": 13
+      },
       "targets": [
         {
           "expr": "histogram_quantile(0.5, sum by (le,tenant,channel,zone) (rate(seatpilot_door_to_seat_seconds_bucket{tenant=~\"$Tenant\",channel=~\"$Channel\",zone=~\"$__repeat\"}[$WinLong])))",
@@ -336,7 +536,13 @@
         }
       ],
       "options": {
-        "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        }
       },
       "fieldConfig": {
         "defaults": {
@@ -344,9 +550,17 @@
           "thresholds": {
             "mode": "absolute",
             "steps": [
-              { "color": "green" },
-              { "color": "yellow", "value": 30 },
-              { "color": "red", "value": 45 }
+              {
+                "color": "green"
+              },
+              {
+                "color": "yellow",
+                "value": 30
+              },
+              {
+                "color": "red",
+                "value": 45
+              }
             ]
           }
         },
@@ -357,10 +571,18 @@
       "type": "stat",
       "title": "Zone: % > 60 s ($WinShort)",
       "description": "Share de observaciones > 60 s (5m).",
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
       "repeat": "Zone",
       "maxPerRow": 4,
-      "gridPos": { "h": 5, "w": 6, "x": 12, "y": 13 },
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 12,
+        "y": 13
+      },
       "targets": [
         {
           "expr": "(((sum by (zone,tenant,channel) (rate(seatpilot_door_to_seat_seconds_bucket{tenant=~\"$Tenant\",channel=~\"$Channel\",zone=~\"$__repeat\",le=\"+Inf\"}[$WinShort])) - sum by (zone,tenant,channel) (rate(seatpilot_door_to_seat_seconds_bucket{tenant=~\"$Tenant\",channel=~\"$Channel\",zone=~\"$__repeat\",le=\"60\"}[$WinShort]))) / sum by (zone,tenant,channel) (rate(seatpilot_door_to_seat_seconds_bucket{tenant=~\"$Tenant\",channel=~\"$Channel\",zone=~\"$__repeat\",le=\"+Inf\"}[$WinShort]))) * 100) or on() vector(0)",
@@ -368,7 +590,13 @@
         }
       ],
       "options": {
-        "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        }
       },
       "fieldConfig": {
         "defaults": {
@@ -377,9 +605,17 @@
           "thresholds": {
             "mode": "absolute",
             "steps": [
-              { "color": "green" },
-              { "color": "yellow", "value": 20 },
-              { "color": "red", "value": 35 }
+              {
+                "color": "green"
+              },
+              {
+                "color": "yellow",
+                "value": 20
+              },
+              {
+                "color": "red",
+                "value": 35
+              }
             ]
           }
         },
@@ -390,10 +626,18 @@
       "type": "stat",
       "title": "Zone: Arrivals rps ($WinShort)",
       "description": "rate(_count) por zona (invitados llegando).",
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
       "repeat": "Zone",
       "maxPerRow": 4,
-      "gridPos": { "h": 5, "w": 6, "x": 18, "y": 13 },
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 18,
+        "y": 13
+      },
       "targets": [
         {
           "expr": "sum by (zone,tenant,channel) (rate(seatpilot_door_to_seat_seconds_count{tenant=~\"$Tenant\",channel=~\"$Channel\",zone=~\"$__repeat\"}[$WinShort]))",
@@ -401,7 +645,13 @@
         }
       ],
       "options": {
-        "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        }
       },
       "fieldConfig": {
         "defaults": {
@@ -415,8 +665,16 @@
       "type": "timeseries",
       "title": "Door\u2192Seat p95 por zona ($WinShort)",
       "description": "Serie por zona (leyenda {{zone}}).",
-      "datasource": "${DS_PROMETHEUS}",
-      "gridPos": { "h": 9, "w": 24, "x": 0, "y": 18 },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 18
+      },
       "targets": [
         {
           "expr": "histogram_quantile(0.95, sum by (le,zone) (rate(seatpilot_door_to_seat_seconds_bucket{tenant=~\"$Tenant\",channel=~\"$Channel\"}[$WinShort])))",
@@ -425,11 +683,19 @@
         }
       ],
       "options": {
-        "tooltip": { "mode": "multi", "sort": "desc" },
-        "legend": { "displayMode": "table", "placement": "bottom" }
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        },
+        "legend": {
+          "displayMode": "table",
+          "placement": "bottom"
+        }
       },
       "fieldConfig": {
-        "defaults": { "unit": "s" },
+        "defaults": {
+          "unit": "s"
+        },
         "overrides": []
       }
     }
@@ -437,50 +703,117 @@
   "refresh": "30s",
   "schemaVersion": 38,
   "style": "dark",
-  "tags": ["seatpilot", "ops", "zones"],
+  "tags": [
+    "seatpilot",
+    "ops",
+    "zones"
+  ],
   "templating": {
     "list": [
       {
         "name": "Tenant",
         "type": "query",
-        "datasource": "${DS_PROMETHEUS}",
+        "datasource": {
+          "type": "prometheus",
+          "uid": "PBFA97CFB590B2093"
+        },
         "query": "label_values(seatpilot_checkin_latency_ms_histogram_bucket, tenant)",
         "includeAll": true,
         "multi": true,
         "allValue": ".*",
         "refresh": 1,
-        "current": { "text": "All", "value": [".*"], "selected": true }
+        "current": {
+          "text": "All",
+          "value": [
+            ".*"
+          ],
+          "selected": true
+        }
       },
       {
         "name": "Channel",
         "type": "query",
-        "datasource": "${DS_PROMETHEUS}",
+        "datasource": {
+          "type": "prometheus",
+          "uid": "PBFA97CFB590B2093"
+        },
         "query": "label_values(seatpilot_checkin_latency_ms_histogram_bucket, channel)",
         "includeAll": true,
         "multi": true,
         "allValue": ".*",
         "refresh": 1,
-        "current": { "text": "All", "value": [".*"], "selected": true }
+        "current": {
+          "text": "All",
+          "value": [
+            ".*"
+          ],
+          "selected": true
+        }
       },
       {
         "name": "Zone",
         "type": "query",
-        "datasource": "${DS_PROMETHEUS}",
+        "datasource": {
+          "type": "prometheus",
+          "uid": "PBFA97CFB590B2093"
+        },
         "query": "label_values(seatpilot_door_to_seat_seconds_bucket, zone)",
         "includeAll": true,
         "multi": true,
         "allValue": ".*",
         "refresh": 1,
-        "current": { "text": "All", "value": [".*"], "selected": true }
+        "current": {
+          "text": "All",
+          "value": [
+            ".*"
+          ],
+          "selected": true
+        }
       },
-      { "name": "WinShort", "type": "constant", "query": "5m", "current": { "text": "5m", "value": "5m" } },
-      { "name": "WinLong", "type": "constant", "query": "15m", "current": { "text": "15m", "value": "15m" } },
-      { "name": "Horizon", "type": "constant", "query": "24h", "current": { "text": "24h", "value": "24h" } }
+      {
+        "name": "WinShort",
+        "type": "constant",
+        "query": "5m",
+        "current": {
+          "text": "5m",
+          "value": "5m"
+        }
+      },
+      {
+        "name": "WinLong",
+        "type": "constant",
+        "query": "15m",
+        "current": {
+          "text": "15m",
+          "value": "15m"
+        }
+      },
+      {
+        "name": "Horizon",
+        "type": "constant",
+        "query": "24h",
+        "current": {
+          "text": "24h",
+          "value": "24h"
+        }
+      }
     ]
   },
-  "time": { "from": "now-6h", "to": "now" },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
   "timepicker": {
-    "refresh_intervals": ["5s", "10s", "30s", "1m", "5m", "15m", "30m", "1h"]
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h"
+    ]
   },
   "timezone": "",
   "title": "SeatPilot Ops Live v1 (Zones)",
