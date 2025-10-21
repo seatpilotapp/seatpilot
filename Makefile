@@ -1,6 +1,6 @@
 # ========= SeatPilot — Release Toolkit =========
 SHELL := /usr/bin/env bash
-.PHONY: help release deploy cold-start verify seed-db seed-ops-live tag rollback env
+.PHONY: help release deploy cold-start verify seed-db seed-ops-live tag rollback env preflight
 
 # Rutas / config (puedes override en CLI: make release PR_NUMBER=4 ...)
 COMPOSE           ?= docker-compose.prod.yml
@@ -32,6 +32,10 @@ env:
 	@echo "METRICS_API_BASE_URL=$(METRICS_API_BASE_URL)"
 	@echo "METRICS_API_KEY=$(METRICS_API_KEY)"
 	@echo "SEED_TENANT=$(SEED_TENANT) SEED_CHANNEL=$(SEED_CHANNEL)"
+
+preflight:
+	@test -x tools/check-release.sh || chmod +x tools/check-release.sh
+	tools/check-release.sh
 
 release: merge tag deploy cold-start verify
 	@echo "✅ Release completado: $(RELEASE_TAG)"
