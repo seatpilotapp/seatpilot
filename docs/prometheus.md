@@ -10,3 +10,7 @@ Use `scripts/run-prometheus.sh` to render `prometheus.yml` with secrets, verify 
    - Genera `.tmp/prometheus.generated.yml`, crea un archivo con el token para el header Bearer y arranca Prometheus con `--web.enable-lifecycle`.
 
 After the script starts Prometheus, open `http://localhost:9090/status/targets` to confirm both `prometheus` and `supabase-seatpilot` report `UP`.
+
+## Alternativa: stack local autocontenido
+
+Si prefieres una pila completa (Postgres + metrics-api + telemetry-ingest + Prometheus + Grafana), usa `docker-compose.metrics.local.yml`. El compose aplica automáticamente los SQL `001`–`003`, provisiona Grafana y deja métricas de ejemplo. El runbook `docs/runbooks/metrics_local_stack.md` detalla los pasos.
