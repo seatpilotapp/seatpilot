@@ -28,7 +28,11 @@ function readReport() {
   }
 
   const parsed = JSON.parse(raw);
-  return Array.isArray(parsed) ? parsed[0] : parsed;
+  const report = Array.isArray(parsed) ? parsed[0] : parsed;
+  if (report && report.lhr) {
+    return report.lhr;
+  }
+  return report;
 }
 
 function scoreToPercent(value) {
