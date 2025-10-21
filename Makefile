@@ -39,7 +39,7 @@ release: merge tag deploy cold-start verify
 merge:
 	@test -n "$(PR_NUMBER)" || (echo "❌ PR_NUMBER requerido"; exit 1)
 	gh pr view $(PR_NUMBER) --web || true
-	gh pr merge $(PR_NUMBER) --merge --delete-branch
+	gh pr merge $(PR_NUMBER) --auto --merge --delete-branch
 	@echo "✅ PR $(PR_NUMBER) mergeado"
 
 tag:
