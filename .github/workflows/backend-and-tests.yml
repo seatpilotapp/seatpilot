@@ -30,6 +30,6 @@ jobs:
       - name: Typecheck
         run: pnpm run -r typecheck || true
       - name: Unit tests (seating-engine)
-        run: pnpm --filter @seatpilot/seating-engine test -- --ci --reporters=default
+        run: pnpm --filter @seatpilot/seating-engine test -- --reporters=default
       - name: Build all packages
         run: pnpm -r build
