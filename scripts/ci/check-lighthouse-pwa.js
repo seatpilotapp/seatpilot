@@ -41,7 +41,7 @@ function scoreToPercent(value) {
 try {
   run(
     'npx lighthouse http://localhost:3000 --quiet ' +
-      '--only-categories=pwa,accessibility --chrome-flags="--no-sandbox --disable-dev-shm-usage" ' +
+      '--only-categories=pwa,accessibility --chrome-flags="--headless=new --no-sandbox --disable-dev-shm-usage" ' +
       '--output=json --output-path=./lighthouse.json'
   );
 
