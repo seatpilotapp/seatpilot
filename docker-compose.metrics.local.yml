@@ -112,14 +112,16 @@ services:
     depends_on:
       metrics-api:
         condition: service_started
-    entrypoint: ["/bin/sh","-c"]
-    command: >
-      sleep 5 &&
-      curl -s -X POST http://metrics-api:8080/observe/checkin -H 'content-type: application/json' -d '{"latencyMs":185,"channel":"kiosk"}' &&
-      curl -s -X POST http://metrics-api:8080/observe/checkin -H 'content-type: application/json' -d '{"latencyMs":420,"channel":"ops"}' &&
-      curl -s -X POST http://metrics-api:8080/observe/door-to-seat -H 'content-type: application/json' -d '{"seconds":42}' &&
-      curl -s -X POST http://metrics-api:8080/observe/ingest -H 'content-type: application/json' -d '{"outcome":"accepted"}' &&
-      echo "Seeded demo metrics" || true
+    command:
+      - /bin/sh
+      - -c
+      - |
+        sleep 5 && \
+        curl -s -X POST http://metrics-api:8080/observe/checkin -H 'content-type: application/json' -d '{"latencyMs":185,"channel":"kiosk"}' && \
+        curl -s -X POST http://metrics-api:8080/observe/checkin -H 'content-type: application/json' -d '{"latencyMs":420,"channel":"ops"}' && \
+        curl -s -X POST http://metrics-api:8080/observe/door-to-seat -H 'content-type: application/json' -d '{"seconds":42}' && \
+        curl -s -X POST http://metrics-api:8080/observe/ingest -H 'content-type: application/json' -d '{"outcome":"accepted"}' && \
+        echo "Seeded demo metrics" || true
     networks:
       - metricsnet
     restart: "no"
