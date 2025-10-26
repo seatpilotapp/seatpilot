@@ -1,13 +1,24 @@
-## 🎯 Objetivo
-Describe brevemente el cambio y su impacto (usuario, negocio, técnica).
+### Propósito
+- [ ] chore / [ ] docs / [ ] feat / [ ] fix / [ ] refactor
 
-## ✅ Checklist SeatPilot
-- [ ] **Brand**: `npm run brand:icons:lint` OK + previews adjuntos (si toca iconos/tokens)
-- [ ] **FE**: Pa11y/Lighthouse pasa en CI (AA/Offline) y capturas si hay UI
-- [ ] **SQL/Supabase**: scripts 100→105 en orden; cron verificado si aplica
-- [ ] **Observabilidad**: smoke / panel Grafana actualizado (si aplica)
-- [ ] **Docs/KB**: handoffs, ADRs, KB y CHANGELOG actualizados
-- [ ] **Riesgos y rollback**: definidos
+### ¿Qué cambió?
+- Archivos clave:
+- Endpoints/config afectada:
 
-## 🧪 Evidencia
-(pega logs de CI, capturas de /admin/billing, paneles, etc.)
+### Seguridad y privacidad
+- [ ] Sin secretos/.env en cambios
+- [ ] Headers/CSP/HSTS no debilitados
+- [ ] RLS/tenant_id intacto (si aplica)
+
+### Calidad
+- [ ] `pnpm build` / tests pasan
+- [ ] `make verify` OK
+- [ ] docs actualizados (handoff/runbooks/history)
+
+### Observabilidad
+- [ ] Métricas/alertas siguen reportando
+- [ ] Captura de evidencia adjunta
+
+### Go/No-Go
+- Riesgos:
+- Mitigación:
