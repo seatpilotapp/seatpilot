@@ -1,7 +1,31 @@
+# runtime / tooling
 .runtime/
 .tmp/
-*.log
 node_modules/
 prometheus-3.7.0-rc.0.darwin-amd64/
 prometheus-3.7.0-rc.0.darwin-amd64.tar.gz
+
+# builds / caches
+**/.next/**
+**/dist/**
+coverage/
+*.log
+*.cache
+*.tmp
+
+# envs
+**/.env
+**/.env.local
+**/.env.*.local
+
+# temp assets / exports
+**/public/tmp/**
+**/exports/**
+**/out/**
+**/*.zip
+
+# OS / IDE
 .DS_Store
+Thumbs.db
+.vscode/
+!.vscode/*.code-snippets
