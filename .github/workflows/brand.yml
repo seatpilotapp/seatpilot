@@ -2,12 +2,6 @@ name: Brand Icons & Tokens Lint
 
 on:
   pull_request:
-    paths:
-      - 'brand/icons/**'
-      - 'brand/tokens.json'
-      - 'brand/icons/sp-icons.manifest.json'
-      - 'brand/icons/README.md'
-      - 'brand/icons/QA_ICON_CHECKLIST.md'
   workflow_dispatch: {}
 
 jobs:
@@ -15,21 +9,34 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v3
+        id: changes
+        with:
+          filters: |
+            brand:
+              - 'brand/**'
+      - name: No-op (sin cambios en brand/)
+        if: ${{ steps.changes.outputs.brand != 'true' }}
+        run: echo "No brand changes; green by design."
       - uses: pnpm/action-setup@v3
+        if: ${{ steps.changes.outputs.brand == 'true' }}
         with: { version: 9 }
       - uses: actions/setup-node@v4
+        if: ${{ steps.changes.outputs.brand == 'true' }}
         with:
           node-version: '20'
           cache: 'pnpm'
       - run: pnpm install --frozen-lockfile
+        if: ${{ steps.changes.outputs.brand == 'true' }}
       - name: Lint icons/tokens
-        run: |
-          pnpm run brand:icons:lint
+        if: ${{ steps.changes.outputs.brand == 'true' }}
+        run: pnpm run brand:icons:lint
       - name: Build icon previews (si aplica)
+        if: ${{ steps.changes.outputs.brand == 'true' }}
         run: |
           if [ -f scripts/brand/build-previews.sh ]; then bash scripts/brand/build-previews.sh; fi
       - name: Upload previews
-        if: always()
+        if: ${{ always() && steps.changes.outputs.brand == 'true' }}
         uses: actions/upload-artifact@v4
         with:
           name: brand-previews

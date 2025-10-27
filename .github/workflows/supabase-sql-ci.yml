@@ -2,8 +2,6 @@ name: Supabase SQL CI (syntax & order)
 
 on:
   pull_request:
-    paths:
-      - 'supabase/sql/**'
   workflow_dispatch: {}
 
 jobs:
@@ -23,9 +21,20 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v3
+        id: changes
+        with:
+          filters: |
+            sql:
+              - 'supabase/sql/**'
+      - name: No-op (sin cambios en supabase/sql/**)
+        if: ${{ steps.changes.outputs.sql != 'true' }}
+        run: echo "No SQL changes; green by design."
       - name: Install psql client
+        if: ${{ steps.changes.outputs.sql == 'true' }}
         run: sudo apt-get update && sudo apt-get install -y postgresql-client
       - name: Apply SQL 100→105 in order (skip if missing)
+        if: ${{ steps.changes.outputs.sql == 'true' }}
         env:
           PGURL: postgresql://postgres:postgres@localhost:5432/postgres
         run: |
@@ -53,6 +62,7 @@ jobs:
           fi
           echo "SQL_MISSING=$missing" >> "$GITHUB_ENV"
       - name: Smoke SQL views
+        if: ${{ steps.changes.outputs.sql == 'true' }}
         env: { PGURL: postgresql://postgres:postgres@localhost:5432/postgres }
         run: |
           if [ "${SQL_MISSING:-0}" -ge 6 ]; then
