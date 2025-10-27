@@ -18,7 +18,7 @@ jobs:
       - name: No-op (sin cambios en brand/)
         if: ${{ steps.changes.outputs.brand != 'true' }}
         run: echo "No brand changes; green by design."
-      - uses: pnpm/action-setup@v3
+      - uses: pnpm/action-setup@v4
         if: ${{ steps.changes.outputs.brand == 'true' }}
         with: { version: 9 }
       - uses: actions/setup-node@v4
