@@ -14,7 +14,8 @@
     "smoke:f1.2": "bash scripts/smoke-f1.2.sh",
     "brand:icons:lint": "node scripts/brand/validate-icons.js",
     "ci:check-a11y": "pa11y-ci",
-    "release:notes": "bash scripts/changelog/generate-release.sh"
+    "release:notes": "bash scripts/changelog/generate-release.sh",
+    "demo:kiosk": "bash -lc 'PORT=${PORT:-3000}; npx http-server apps -p $PORT'"
   },
   "devDependencies": {
     "@types/node": "^20.11.30",

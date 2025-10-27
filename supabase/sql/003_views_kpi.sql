@@ -2,7 +2,7 @@
 
 set search_path to telemetry, public;
 
-create view if not exists v_mv_staleness as
+create or replace view v_mv_staleness as
 with refreshes as (
   select view_name, refreshed_at
   from telemetry.mv_refresh_log

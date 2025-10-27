@@ -2,12 +2,6 @@ name: Brand Icons & Tokens Lint
 
 on:
   pull_request:
-    paths:
-      - 'brand/icons/**'
-      - 'brand/tokens.json'
-      - 'brand/icons/sp-icons.manifest.json'
-      - 'brand/icons/README.md'
-      - 'brand/icons/QA_ICON_CHECKLIST.md'
   workflow_dispatch: {}
 
 jobs:

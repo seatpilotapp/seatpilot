@@ -86,9 +86,18 @@
             "thresholds": {
               "mode": "absolute",
               "steps": [
-                { "value": null, "color": "green" },
-                { "value": 300, "color": "yellow" },
-                { "value": 350, "color": "red" }
+                {
+                  "value": null,
+                  "color": "green"
+                },
+                {
+                  "value": 300,
+                  "color": "yellow"
+                },
+                {
+                  "value": 350,
+                  "color": "red"
+                }
               ]
             }
           },
@@ -96,18 +105,25 @@
         },
         "options": {
           "reduceOptions": {
-            "calcs": ["lastNotNull"],
+            "calcs": [
+              "lastNotNull"
+            ],
             "fields": "",
             "values": false
           },
           "orientation": "horizontal"
         },
-        "gridPos": { "h": 6, "w": 6, "x": 0, "y": 0 }
+        "gridPos": {
+          "h": 6,
+          "w": 6,
+          "x": 0,
+          "y": 0
+        }
       },
       {
         "id": 2,
         "type": "stat",
-        "title": "Door→Seat p95 (15m)",
+        "title": "Door\u2192Seat p95 (15m)",
         "datasource": {
           "type": "prometheus",
           "uid": "${DS_PROMETHEUS}"
@@ -124,9 +140,18 @@
             "thresholds": {
               "mode": "absolute",
               "steps": [
-                { "value": null, "color": "green" },
-                { "value": 45, "color": "yellow" },
-                { "value": 60, "color": "red" }
+                {
+                  "value": null,
+                  "color": "green"
+                },
+                {
+                  "value": 45,
+                  "color": "yellow"
+                },
+                {
+                  "value": 60,
+                  "color": "red"
+                }
               ]
             }
           },
@@ -134,13 +159,20 @@
         },
         "options": {
           "reduceOptions": {
-            "calcs": ["lastNotNull"],
+            "calcs": [
+              "lastNotNull"
+            ],
             "fields": "",
             "values": false
           },
           "orientation": "horizontal"
         },
-        "gridPos": { "h": 6, "w": 6, "x": 6, "y": 0 }
+        "gridPos": {
+          "h": 6,
+          "w": 6,
+          "x": 6,
+          "y": 0
+        }
       },
       {
         "id": 3,
@@ -162,8 +194,14 @@
             "thresholds": {
               "mode": "absolute",
               "steps": [
-                { "value": null, "color": "green" },
-                { "value": 0.01, "color": "red" }
+                {
+                  "value": null,
+                  "color": "green"
+                },
+                {
+                  "value": 0.01,
+                  "color": "red"
+                }
               ]
             }
           },
@@ -171,13 +209,20 @@
         },
         "options": {
           "reduceOptions": {
-            "calcs": ["lastNotNull"],
+            "calcs": [
+              "lastNotNull"
+            ],
             "fields": "",
             "values": false
           },
           "orientation": "horizontal"
         },
-        "gridPos": { "h": 6, "w": 6, "x": 12, "y": 0 }
+        "gridPos": {
+          "h": 6,
+          "w": 6,
+          "x": 12,
+          "y": 0
+        }
       },
       {
         "id": 4,
@@ -199,9 +244,18 @@
             "thresholds": {
               "mode": "absolute",
               "steps": [
-                { "value": null, "color": "green" },
-                { "value": 10, "color": "yellow" },
-                { "value": 20, "color": "red" }
+                {
+                  "value": null,
+                  "color": "green"
+                },
+                {
+                  "value": 10,
+                  "color": "yellow"
+                },
+                {
+                  "value": 20,
+                  "color": "red"
+                }
               ]
             }
           },
@@ -209,13 +263,20 @@
         },
         "options": {
           "reduceOptions": {
-            "calcs": ["lastNotNull"],
+            "calcs": [
+              "lastNotNull"
+            ],
             "fields": "",
             "values": false
           },
           "orientation": "horizontal"
         },
-        "gridPos": { "h": 6, "w": 6, "x": 18, "y": 0 }
+        "gridPos": {
+          "h": 6,
+          "w": 6,
+          "x": 18,
+          "y": 0
+        }
       },
       {
         "id": 5,
@@ -240,7 +301,10 @@
             "thresholds": {
               "mode": "absolute",
               "steps": [
-                { "value": null, "color": "green" }
+                {
+                  "value": null,
+                  "color": "green"
+                }
               ]
             }
           },
@@ -255,7 +319,12 @@
             "mode": "multi"
           }
         },
-        "gridPos": { "h": 9, "w": 24, "x": 0, "y": 6 }
+        "gridPos": {
+          "h": 9,
+          "w": 24,
+          "x": 0,
+          "y": 6
+        }
       },
       {
         "id": 6,
@@ -273,14 +342,27 @@
           }
         ],
         "fieldConfig": {
-          "defaults": { "unit": "s", "min": 0 },
+          "defaults": {
+            "unit": "s",
+            "min": 0
+          },
           "overrides": []
         },
         "options": {
-          "legend": { "displayMode": "list", "placement": "bottom" },
-          "tooltip": { "mode": "multi" }
+          "legend": {
+            "displayMode": "list",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "multi"
+          }
         },
-        "gridPos": { "h": 9, "w": 24, "x": 0, "y": 15 }
+        "gridPos": {
+          "h": 9,
+          "w": 24,
+          "x": 0,
+          "y": 15
+        }
       },
       {
         "id": 7,
@@ -303,9 +385,18 @@
             "thresholds": {
               "mode": "absolute",
               "steps": [
-                { "value": null, "color": "green" },
-                { "value": 120, "color": "yellow" },
-                { "value": 180, "color": "red" }
+                {
+                  "value": null,
+                  "color": "green"
+                },
+                {
+                  "value": 120,
+                  "color": "yellow"
+                },
+                {
+                  "value": 180,
+                  "color": "red"
+                }
               ]
             }
           },
@@ -318,11 +409,18 @@
           {
             "id": "reduce",
             "options": {
-              "reducers": ["lastNotNull"]
+              "reducers": [
+                "lastNotNull"
+              ]
             }
           }
         ],
-        "gridPos": { "h": 7, "w": 24, "x": 0, "y": 24 }
+        "gridPos": {
+          "h": 7,
+          "w": 24,
+          "x": 0,
+          "y": 24
+        }
       }
     ]
   }
