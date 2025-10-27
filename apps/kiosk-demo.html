@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>SeatPilot — Kiosk Demo (QR + Stages + Assign)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 16px; line-height: 1.35; }
+    video { width: 360px; border-radius: 8px; background:#000; margin: 8px 0; }
+    input, button { padding: 8px; margin: 6px 4px 6px 0; font-size: 15px; }
+    .ok { color: #0a0; }
+    .err { color: #a00; }
+    .log { font-size: 13px; white-space: pre-wrap; }
+    .row { margin: 8px 0; }
+  </style>
+</head>
+<body>
+  <h1>SeatPilot — Kiosk Demo</h1>
+
+  <div class="row">
+    <label>API base:</label>
+    <input id="base" value="http://localhost:8080" size="40" />
+  </div>
+  <div class="row">
+    <label>API key:</label>
+    <input id="key" value="dev-metrics-key" size="40" />
+  </div>
+  <div class="row">
+    <label>Tenant:</label>
+    <input id="tenant" value="demo" />
+    <label>Channel:</label>
+    <input id="channel" value="kiosk" />
+  </div>
+
+  <div class="row">
+    <button id="btnStart">Iniciar cámara</button>
+    <button id="btnStop" disabled>Detener</button>
+  </div>
+  <video id="preview" muted playsinline></video>
+
+  <h3>Entrada manual (sin cámara)</h3>
+  <div class="row">
+    <input id="manual" placeholder="TICKET-001" />
+    <button id="btnManual">Enviar</button>
+  </div>
+
+  <h3>Seeds avanzados (opcional)</h3>
+  <div class="row">
+    <button id="btnStages">Enviar etapas (parse/lookup/persist/total)</button>
+    <button id="btnAssign">Enviar assign (duration, score, feasible)</button>
+    <button id="btnDoorSeat">Enviar door→seat (80 s)</button>
+  </div>
+
+  <pre id="out" class="log"></pre>
+
+  <!-- ZXing (unpkg) -->
+  <script src="https://unpkg.com/@zxing/library@0.20.0/umd/index.min.js"></script>
+  <script>
+    const out = (msg, cls='') => {
+      const el = document.getElementById('out');
+      el.textContent = `[${new Date().toLocaleTimeString()}] ${msg}\n` + el.textContent;
+      el.className = cls || '';
+    };
+
+    const cfg = () => ({
+      base: document.getElementById('base').value.trim(),
+      key:  document.getElementById('key').value.trim(),
+      tenant: document.getElementById('tenant').value.trim(),
+      channel:document.getElementById('channel').value.trim(),
+      headers: () => ({
+        'content-type':'application/json',
+        'x-metrics-key': document.getElementById('key').value.trim()
+      })
+    });
+
+    const recentTickets = new Map();
+    const SCAN_COOLDOWN_MS = 1500;
+    const DUPLICATE_WINDOW_MS = 10000;
+
+    function shouldAccept(key) {
+      const now = Date.now();
+      const last = recentTickets.get(key);
+      if (last && now - last < DUPLICATE_WINDOW_MS) {
+        return false;
+      }
+      recentTickets.set(key, now);
+      return true;
+    }
+
+    let apiDetected = false;
+    let detectAttempts = 0;
+    async function detectApiBase(manual = false) {
+      if (apiDetected && !manual) return;
+      const input = document.getElementById('base');
+      const host = window.location.hostname || 'localhost';
+      const sameOrigin = window.location.origin && window.location.origin !== 'null'
+        ? window.location.origin.replace(/\/$/, '')
+        : null;
+      const candidates = [
+        input.value.trim(),
+        sameOrigin,
+        `http://${host}:8080`,
+        `http://${host}:8081`
+      ].filter((url, idx, arr) => url && arr.indexOf(url) === idx);
+
+      for (const base of candidates) {
+        try {
+          const res = await fetch(`${base}/healthz`, { method: 'GET', mode: 'cors', cache: 'no-store' });
+          if (res.ok) {
+            input.value = base;
+            out(`API detectada automáticamente en ${base}`);
+            apiDetected = true;
+            return;
+          }
+        } catch (_) {
+          // probar siguiente candidato
+        }
+      }
+      detectAttempts += 1;
+      out(`x No se detectó API activa en intentos=${detectAttempts}; revisa ${candidates.join(', ')} /healthz`, 'err');
+      input.dataset.detectAttempts = String(detectAttempts);
+    }
+
+    detectApiBase();
+    const detectTimer = setInterval(() => {
+      if (apiDetected) {
+        clearInterval(detectTimer);
+        return;
+      }
+      detectApiBase();
+    }, 5000);
+
+    document.getElementById('base').addEventListener('blur', () => {
+      apiDetected = false;
+      detectApiBase(true);
+    });
+
+    // ----- llamadas Básicas -----
+    async function postCheckin(ticket, force = false) {
+      const { base, tenant, channel, headers } = cfg();
+      const key = `${tenant}|${channel}|${ticket}`;
+      if (!force && !shouldAccept(key)) {
+        out(`(omitido) ${ticket} duplicado reciente`, 'err');
+        return;
+      }
+      const latency = Math.floor(Math.random() * 200) + 150; // 150-349 ms
+      const body = { tenant, channel, latencyMs: latency, ticket };
+      const r = await fetch(`${base}/observe/checkin`, { method: 'POST', headers: headers(), body: JSON.stringify(body) });
+      if (!r.ok) throw new Error(`check-in HTTP ${r.status}`);
+      out(`✓ check-in: ${ticket} (${latency} ms)`, 'ok');
+
+      // Simula door→seat a los ~1s (para efecto demo)
+      const doorToSeatSeconds = 45 + Math.floor(Math.random() * 45); // 45..89 s
+      setTimeout(() => postDoorToSeat(doorToSeatSeconds).catch(e => out('x door→seat: '+e.message,'err')), 1000);
+      // Envía etapas breves
+      setTimeout(() => postStages().catch(e => out('x stages: '+e.message,'err')), 300);
+      // Envía un assign rápido
+      setTimeout(() => postAssign().catch(e => out('x assign: '+e.message,'err')), 600);
+    }
+
+    async function postDoorToSeat(seconds=80) {
+      const { base, tenant, channel, headers } = cfg();
+      const r = await fetch(`${base}/observe/door-to-seat`, {
+        method: 'POST', headers: headers(),
+        body: JSON.stringify({ tenant, channel, seconds })
+      });
+      if (!r.ok) throw new Error(`door-to-seat HTTP ${r.status}`);
+      out(`→ door→seat: ${seconds}s`, 'ok');
+    }
+
+    async function postStages() {
+      const { base, tenant, channel, headers } = cfg();
+      const stages = ['parse','lookup','persist','total'];
+      for (const s of stages) {
+        const durationSeconds = Number((Math.random() * 0.4 + 0.1).toFixed(3)); // 0.1 .. 0.5 s
+        const r = await fetch(`${base}/observe/checkin-stage`, {
+          method: 'POST', headers: headers(),
+          body: JSON.stringify({ tenant, channel, stage: s, seconds: durationSeconds })
+        });
+        if (!r.ok) throw new Error(`stage ${s} HTTP ${r.status}`);
+        out(`✓ stage ${s}: ${durationSeconds}s`, 'ok');
+      }
+    }
+
+    async function postAssign() {
+      const { base, tenant, channel, headers } = cfg();
+      const durationMs = Math.round((Math.random() * 500) + 100); // 100 .. 600 ms
+      const score    = Number((Math.random() * 0.4 + 0.6).toFixed(2)); // 0.6 .. 1.0
+      const feasibleRatio = 1;
+      const r = await fetch(`${base}/observe/assign`, {
+        method: 'POST', headers: headers(),
+        body: JSON.stringify({
+          tenant,
+          channel,
+          duration_ms: durationMs,
+          score,
+          feasible_ratio: feasibleRatio,
+          violations_hard: 0,
+          violations_soft: 0
+        })
+      });
+      if (!r.ok) throw new Error(`assign HTTP ${r.status}`);
+      out(`✓ assign: ${durationMs}ms, score=${score}, feasible=${feasibleRatio}`, 'ok');
+    }
+
+    let codeReader, stream;
+    let scanGuard = false;
+    async function startCamera(){
+      try {
+        codeReader = new ZXing.BrowserQRCodeReader();
+        stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' }});
+        const video = document.getElementById('preview');
+        video.srcObject = stream; await video.play();
+        document.getElementById('btnStart').disabled = true;
+        document.getElementById('btnStop').disabled  = false;
+
+        codeReader.decodeFromVideoDevice(null, 'preview', (result, err) => {
+          if (result && !scanGuard) {
+            scanGuard = true;
+            const code = result.getText();
+            postCheckin(code)
+              .catch(e => out('x check-in: '+e.message,'err'))
+              .finally(() => setTimeout(() => { scanGuard = false; }, SCAN_COOLDOWN_MS));
+          }
+        });
+        out('Cámara iniciada…');
+      } catch (e) {
+        out('x cámara: ' + e.message, 'err');
+      }
+    }
+    function stopCamera(){
+      if (stream) stream.getTracks().forEach(t => t.stop());
+      if (codeReader) codeReader.reset();
+      document.getElementById('btnStart').disabled = false;
+      document.getElementById('btnStop').disabled  = true;
+      out('Cámara detenida.');
+    }
+
+    document.getElementById('btnStart').onclick  = startCamera;
+    document.getElementById('btnStop').onclick   = stopCamera;
+    document.getElementById('btnManual').onclick = () => {
+      const code = document.getElementById('manual').value.trim();
+      if (code) postCheckin(code, true).catch(e => out('x manual: '+e.message,'err'));
+    };
+    document.getElementById('btnStages').onclick = () => postStages().catch(e => out('x stages: '+e.message,'err'));
+    document.getElementById('btnAssign').onclick = () => postAssign().catch(e => out('x assign: '+e.message,'err'));
+    document.getElementById('btnDoorSeat').onclick = () => postDoorToSeat().catch(e => out('x door→seat: '+e.message,'err'));
+  </script>
+</body>
+</html>
