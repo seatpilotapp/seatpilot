@@ -37,7 +37,7 @@ jobs:
           if [ -f scripts/brand/build-previews.sh ]; then bash scripts/brand/build-previews.sh; fi
       - name: Upload previews
         if: ${{ always() && steps.changes.outputs.brand == 'true' }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: brand-previews
           path: brand/icons/previews/**
