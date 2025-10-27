@@ -1,13 +1,15 @@
 services:
   alertmanager:
     image: prom/alertmanager:latest
-    command:
-      - --config.file=/etc/alertmanager/alertmanager.yml
+    entrypoint:
+      - /bin/sh
+      - /etc/alertmanager/entrypoint.sh
     volumes:
-      - ./alertmanager.yml:/etc/alertmanager/alertmanager.yml:ro
+      - ./ops/alertmanager/alertmanager.yml:/etc/alertmanager/alertmanager.yml:ro
+      - ./ops/alertmanager/entrypoint.sh:/etc/alertmanager/entrypoint.sh:ro
     environment:
-      - ALERT_SLACK_WEBHOOK=${ALERT_SLACK_WEBHOOK:-http://alert-echo:8081/}
-      - ALERT_SLACK_CHANNEL=${ALERT_SLACK_CHANNEL:-#seatpilot-alerts}
+      - ALERTMANAGER_SLACK_WEBHOOK_URL=${ALERTMANAGER_SLACK_WEBHOOK_URL:-http://alert-echo:8081/}
+      - ALERTMANAGER_SLACK_CHANNEL=${ALERTMANAGER_SLACK_CHANNEL:-#seatpilot-alerts}
     networks:
       metricsnet:
         aliases:
@@ -162,6 +164,7 @@ services:
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
       - ./seatpilot.rules.yml:/etc/prometheus/seatpilot.rules.yml:ro
+      - ./ops/prometheus/rules/seatpilot_slo.rules.yml:/etc/prometheus/seatpilot_slo.rules.yml:ro
       - prometheus-data:/prometheus
     networks:
       metricsnet:
