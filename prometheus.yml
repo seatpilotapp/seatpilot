@@ -20,6 +20,7 @@ alerting:
 
 rule_files:
   - /etc/prometheus/seatpilot.rules.yml
+  - /etc/prometheus/seatpilot_slo.rules.yml
 
 scrape_configs:
   # Self-scrape so you can see Prometheus' own metrics.

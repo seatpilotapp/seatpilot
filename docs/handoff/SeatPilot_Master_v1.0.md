@@ -57,7 +57,7 @@ SeatPilot es un ecosistema end-to-end que cubre **RSVP → Seating → Check-in 
 
 ### Qué está operativo hoy
 - **Servicios core**: `services/checkin`, `services/wayfinding`, `services/telemetry-ingest`, `services/kpi-refresher`.
-- **Observabilidad**: `apps/metrics-api`, Prometheus (`prometheus.yml`), Alertmanager (`alertmanager.yml`), dashboards `dashboards/overview-f1.3.json` y `dashboards/seatpilot-trends-f2.0.json`.
+- **Observabilidad**: `apps/metrics-api`, Prometheus (`prometheus.yml` + reglas `seatpilot.rules.yml` y `ops/prometheus/rules/seatpilot_slo.rules.yml`), Alertmanager (`ops/alertmanager/alertmanager.yml`), dashboards `dashboards/overview-f1.3.json` y `dashboards/seatpilot-trends-f2.0.json`.
 - **Telemetría**: ingest HMAC + anti-replay (`services/telemetry-ingest/src/routes/events.ts`), RLS multi-tenant (`supabase/sql/002_policies_rls.sql`), materialized views KPI.
 - **Operación**: scripts de smoke (`scripts/smoke-f1.1.sh`, `scripts/smoke-f1.2.sh`), checklist `scripts/overview-check.sh`, runbook (`docs/runbooks/README.md`).
 
@@ -128,10 +128,11 @@ SeatPilot es un ecosistema end-to-end que cubre **RSVP → Seating → Check-in 
 | `apps/metrics-api` (`apps/metrics-api/server.ts`) | `GET /metrics`, `POST /observe/*`, `GET /healthz` | Exposición Prometheus y observabilidad de negocio (check-in, etapas, door→seat, ingest, MV lag) | Protegido vía `x-metrics-key`; `demo/*` en dev |
 
 ### 2.3 Observabilidad
-- **Prometheus** (`prometheus.yml`): scrape a `metrics-api:8080` y `telemetry-ingest:3001`.
-- **Alertmanager** (`alertmanager.yml`): envía a Slack (`ALERT_SLACK_WEBHOOK`, `ALERT_SLACK_CHANNEL`).
+- **Prometheus** (`prometheus.yml`): scrape a `metrics-api:8080` y `telemetry-ingest:3001`; reglas en `seatpilot.rules.yml` + `ops/prometheus/rules/seatpilot_slo.rules.yml`.
+- **Alertmanager** (`ops/alertmanager/alertmanager.yml`): envía a Slack (`ALERTMANAGER_SLACK_WEBHOOK_URL`, `ALERTMANAGER_SLACK_CHANNEL`).
 - **Grafana**: dashboards `overview-f1.3.json` (operación) y `seatpilot-trends-f2.0.json` (7 días).
 - **Scripts**: `scripts/smoke-f1.1.sh`, `scripts/smoke-f1.2.sh`, `scripts/overview-check.sh`, `scripts/trigger-stage-latency.sh`.
+- **Runbook smoke TLS/CSP/Slack**: `docs/runbooks/observability_smoke.md`.
 
 ### 2.4 Datos & Seguridad
 | Elemento | Archivo | Descripción |
@@ -149,7 +150,7 @@ SeatPilot es un ecosistema end-to-end que cubre **RSVP → Seating → Check-in 
 - **Variables** (`.env`, `.env.prod`): `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE`, `SUPABASE_DB_URL`, `DATABASE_URL`, `HMAC_TENANT_SECRET`, `METRICS_INGEST_KEY`, `CHECKIN_SCAN_CACHE_*`, `ALERT_SLACK_*`.
 - **Licenciamiento/Metering**: `supabase/sql/100_entitlements_metering.sql`–`107_cron_metering_seed.sql` crean catálogo de planes, entitlements, metering idempotente y vistas de billing; funciones `app.seed_metering_demo` + cron diario `ops_metering_seed_daily`; RLS basada en `app.current_tenant_id()` para aislar por tenant. `supabase/sql/metering_seed.sql` disponible para seed manual rápido.
 - **Admin consumo**: `services/telemetry-ingest` incluye `/admin/billing` (HTML) y `/admin/billing/csv` para visualizar `v_tenant_billing_report` (incluido/usado/overage) filtrado por periodo y tenant.
-- **CI/CD**: `.github/workflows/brand.yml`, `fe-a11y-offline.yml`, `backend-and-tests.yml`, `supabase-sql-ci.yml`, `release.yml`, `ops-metering-seed.yml`; `CODEOWNERS` alineado a squads. Secrets (`REGISTRY_*`, `ALERT_SLACK_WEBHOOK_URL`) y environment `production` (`PROD_DATABASE_URL`, reviewers `seatpilotapp` + `edwinsantiago`) ya configurados; proteger `main` cuando todos los checks estén en verde.
+- **CI/CD**: `.github/workflows/brand.yml`, `fe-a11y-offline.yml`, `backend-and-tests.yml`, `supabase-sql-ci.yml`, `release.yml`, `ops-metering-seed.yml`; `CODEOWNERS` alineado a squads. Secrets (`REGISTRY_*`, `ALERTMANAGER_SLACK_WEBHOOK_URL`) y environment `production` (`PROD_DATABASE_URL`, reviewers `seatpilotapp` + `edwinsantiago`) ya configurados; proteger `main` cuando todos los checks estén en verde.
 
 ### 2.6 Rutas y recursos clave
 - Servicios: `services/checkin`, `services/wayfinding`, `services/telemetry-ingest`, `services/kpi-refresher`.
@@ -157,7 +158,7 @@ SeatPilot es un ecosistema end-to-end que cubre **RSVP → Seating → Check-in 
 - Apps futuras (pendientes de crear): `apps/checkin`, `apps/desk`, `apps/seat-designer`.
 - Dashboards: `dashboards/overview-f1.3.json`, `dashboards/seatpilot-trends-f2.0.json`.
 - Dashboard zonas Ops: `dashboards/ops-live-v1.json` (tiles por zona, variables Tenant/Channel/Zone).
-- Infra: `docker-compose.metrics.yml`, `prometheus.yml`, `seatpilot.rules.yml`, `alertmanager.yml`.
+- Infra: `docker-compose.metrics.yml`, `prometheus.yml`, `seatpilot.rules.yml`, `ops/prometheus/rules/seatpilot_slo.rules.yml`, `ops/alertmanager/alertmanager.yml`.
 
 ---
 
@@ -223,7 +224,7 @@ Cargar mapa → Editar → Validadores (overlay) → Guardar/Publicar
 ## 4. Fases y Estado Actual
 | Fase | Objetivo | Estado | Artefactos / Rutas | Métricas/Alertas | Próximo hito |
 | --- | --- | --- | --- | --- | --- |
-| **F0** | Telemetría, dashboards, alertas | ✅ | `services/telemetry-ingest`, `supabase/sql`, `seatpilot.rules.yml`, `alertmanager.yml`, dashboards Overview/Trends | p95 check-in/door→seat, rechazos %, `mv_lag_seconds` | — |
+| **F0** | Telemetría, dashboards, alertas | ✅ | `services/telemetry-ingest`, `supabase/sql`, `seatpilot.rules.yml`, `ops/prometheus/rules/seatpilot_slo.rules.yml`, `ops/alertmanager/alertmanager.yml`, dashboards Overview/Trends | p95 check-in/door→seat, rechazos %, `mv_lag_seconds` | — |
 | **F1 (BE)** | Fast-path + métricas por etapa | ✅ | `services/checkin`, `scan-cache.ts`, `validation.ts`, `apps/metrics-api` `/observe/*`, `scripts/smoke-f1.2.sh` | `*_checkin_*`, `*_door_to_seat_*` | Warmup de cache en boot |
 | **F1 (FE)** | PWA/Desk/Seat-Designer v1 | ⏳ | `apps/checkin`, `apps/desk`, `apps/seat-designer` (estructura vacía), tokens en `Chat_resumen_projecto_6f6ca7ad209.md` | UI feedback ≤ 400 ms, AA ≥ 95, % auto-assign ≥ 95 (future) | Implementar flows, validadores, microcopys |
 | **F2.0** | Dashboard ejecutivo 7 d | ✅ | `dashboards/seatpilot-trends-f2.0.json` | Promedios 7 d, rej % 24 h | — |
@@ -417,7 +418,7 @@ histogram_quantile(0.95,
 - **Servicios**: `services/checkin`, `services/wayfinding`, `services/telemetry-ingest`, `services/kpi-refresher`.
 - **Apps**: `apps/admin`, `apps/metrics-api`, `apps/signage`, `apps/web`; futuros `apps/checkin`, `apps/desk`, `apps/seat-designer`.
 - **Dashboards**: `dashboards/overview-f1.3.json`, `dashboards/seatpilot-trends-f2.0.json`.
-- **Infra**: `docker-compose.metrics.yml`, `prometheus.yml`, `seatpilot.rules.yml`, `alertmanager.yml`.
+- **Infra**: `docker-compose.metrics.yml`, `prometheus.yml`, `seatpilot.rules.yml`, `ops/prometheus/rules/seatpilot_slo.rules.yml`, `ops/alertmanager/alertmanager.yml`.
 - **Runbooks/Scripts**: `docs/runbooks/README.md`, `scripts/smoke-f1.2.sh`, `scripts/overview-check.sh`.
 - **Estrategia/GTM**: `docs/strategy/SeatPilot_GTM_v1.0.md`.
 

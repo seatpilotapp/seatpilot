@@ -134,6 +134,7 @@ services:
     volumes:
       - "./prometheus.yml:/etc/prometheus/prometheus.yml:ro"
       - "./seatpilot.rules.yml:/etc/prometheus/seatpilot.rules.yml:ro"
+      - "./ops/prometheus/rules/seatpilot_slo.rules.yml:/etc/prometheus/seatpilot_slo.rules.yml:ro"
     command:
       - "--config.file=/etc/prometheus/prometheus.yml"
       - "--web.enable-lifecycle"
@@ -149,6 +150,9 @@ services:
     image: prom/alertmanager:latest
     env_file: .env.prod
     restart: unless-stopped
+    entrypoint:
+      - /bin/sh
+      - /etc/alertmanager/entrypoint.sh
     deploy:
       resources:
         limits:
@@ -160,7 +164,8 @@ services:
         max-size: "10m"
         max-file: "5"
     volumes:
-      - "./alertmanager.yml:/etc/alertmanager/alertmanager.yml:ro"
+      - "./ops/alertmanager/alertmanager.yml:/etc/alertmanager/alertmanager.yml:ro"
+      - "./ops/alertmanager/entrypoint.sh:/etc/alertmanager/entrypoint.sh:ro"
     ports:
       - "9093:9093"
     depends_on:

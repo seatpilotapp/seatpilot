@@ -10,7 +10,7 @@
 - `.env.prod` externaliza secretos; nuevo `.env.prod.template`.
 - `docker-compose.prod.yml` endurecido (restart policy, límites CPU/Mem, rotación de logs).
 - `scripts/cold-start.sh` calienta check-in antes de recargar Prometheus.
-- `alertmanager.yml` usa `${ALERT_SLACK_*}`.
+- `ops/alertmanager/alertmanager.yml` usa `${ALERTMANAGER_SLACK_*}`.
 
 ### Ops / Runbooks
 - `docs/runbooks/licensing_metering_release.md` (paso a paso para futuras iteraciones).

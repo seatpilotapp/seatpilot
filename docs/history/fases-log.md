@@ -13,7 +13,7 @@ Bitácora ligera para registrar cada verificación de avance sobre el plan maest
   - `.env.prod` externaliza secretos con `.env.prod.template`.  
   - `docker-compose.prod.yml` endurecido (restart policy, límites CPU/mem, logrotate).  
   - `scripts/cold-start.sh` ahora calienta check-in + reload Prometheus.  
-  - `alertmanager.yml` usa env vars (`ALERT_SLACK_*`).  
+  - `ops/alertmanager/alertmanager.yml` usa env vars (`ALERTMANAGER_SLACK_*`).  
   - UI `/admin/billing` (HTML/CSV) + panel Ops Live v1 con tiles Assign.  
   - Plantillas legales: `ToS_SeatPilot_v1.0.md`, `SLA_SeatPilot_v1.0.md`, `Order_Plan_SeatPilot_v1.0.md`.  
   - Runbook `docs/runbooks/licensing_metering_release.md` actualizado (seed manual `metering_seed.sql`, función `app.seed_metering_demo`, cron diario `107_cron_metering_seed.sql`, `scripts/seed-ops-live.sh`, `pnpm release:notes`).  

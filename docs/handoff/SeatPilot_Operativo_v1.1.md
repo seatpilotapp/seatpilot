@@ -65,19 +65,20 @@
 | `http_request_duration_seconds` | Histogram | telemetry-ingest | Latencia HTTP /v1/events. |
 
 ### 5.2 Reglas y alertas
-- **Archivo**: `seatpilot.rules.yml`.
+- **Archivos**: `seatpilot.rules.yml`, `ops/prometheus/rules/seatpilot_slo.rules.yml`.
 - **Alertas activas**:
   - `SeatPilotCheckinP95Fast` / `SeatPilotCheckinP95Slow`.
   - `SeatPilotDoorToSeatP95`.
+  - `DoorToSeatP95High` (SLO > 120 s por 10 min).
   - `SeatPilotMvLagHigh`.
   - `SeatPilotIngestRejectRateHigh`.
   - `SeatPilotCheckinStageP95High` (por etapa/tenant/channel).
 - **Recording nuevo**: `seatpilot:assign_p95_5m` (motor seating → p95 5 min, agrupa por tenant/channel).
-- **Alertmanager** (`alertmanager.yml`): envío configurable a Slack vía `ALERT_SLACK_WEBHOOK`.
+- **Alertmanager** (`ops/alertmanager/alertmanager.yml`): envío configurable a Slack vía `ALERTMANAGER_SLACK_WEBHOOK_URL`.
 
 ### 5.3 Dashboards y runbooks
 - **Dashboards**: `dashboards/overview-f1.2.json`, `dashboards/overview-f1.3.json`, `dashboards/ops-live-v1.json`.
-- **Runbook**: `docs/runbooks/README.md` (umbral, queries y pasos de recuperación).
+- **Runbook**: `docs/runbooks/README.md` (umbral, queries y pasos de recuperación) + `docs/runbooks/observability_smoke.md` (smoke TLS/CSP/Slack).
 - **Scripts operativos**:
   - `scripts/smoke-f1.1.sh` (check-in + arrive-table + verificación Prom/DB).
   - `scripts/smoke-f1.2.sh` (incluye rechazo controlado y refresco MV).
@@ -94,8 +95,8 @@
 | `checkin` | `seatpilot-checkin:latest` | 3100 | `DATABASE_URL`, `METRICS_API_*` |
 | `wayfinding` | `seatpilot-wayfinding:latest` | 3200 | `DATABASE_URL`, `METRICS_API_*` |
 | `metrics-proxy` | Nginx alpine | 8081 | `SUPABASE_HOST`, secreto `supabase_service_role.jwt` |
-| `prometheus` | `prom/prometheus:v2.54.1` | 9090 | `prometheus.yml`, `seatpilot.rules.yml` montados RO |
-| `alertmanager` | `prom/alertmanager:latest` | 9093 | `alertmanager.yml` montado RO |
+| `prometheus` | `prom/prometheus:v2.54.1` | 9090 | `prometheus.yml`, `seatpilot.rules.yml`, `ops/prometheus/rules/seatpilot_slo.rules.yml` montados RO |
+| `alertmanager` | `prom/alertmanager:latest` | 9093 | `ops/alertmanager/alertmanager.yml` montado RO |
 
 ## 7. Estado y Pendientes
 | Área | Estado | Siguientes pasos sugeridos |
