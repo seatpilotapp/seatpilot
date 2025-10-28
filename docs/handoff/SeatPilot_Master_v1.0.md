@@ -179,7 +179,7 @@ SeatPilot es un ecosistema end-to-end que cubre **RSVP → Seating → Check-in 
 | --- | --- | --- |
 | **PWA Check-in** | Escanear → Confirmar → Mostrar mesa (`OK`, `rechazo`, `lento`) | Feedback ≤ 400 ms, modo offline (cola outbox), `lookup_source` visible en dev. |
 | **Desk (Mostrador)** | Buscar invitado → Validar → Registrar → Reimprimir (opc.) | Doorlist 1-clic (PDF/CSV), historial y auditoría. |
-| **Seat-Designer v1** | Cargar mapa → Editar zonas/mesas → Overlay R/A/V → Publicar | Validadores (pasillos, aforo, PMR), bloquea publicación con rojo, warnings accionables. |
+| **Seat-Designer v1** | Cargar mapa → Editar zonas/mesas → Overlay R/A/V → Publicar | ✅ Validadores mínimos en `@seatpilot/seatdesigner-engine` (ring clearance, ADA, fix 0.8 m) con overlay y gate configurable (override opcional documentado en `docs/history/2025-10-28_seat_designer_validators.md`). |
 | **Wayfinding / Signage** | Pantalla de bienvenida → Ruta → Confirmación | Redundancia color + letra para daltonismo, CTA “Ver ruta”. |
 | **Ops Live** | Cards KPI + Breakdown + Trends | p95 check-in, door→seat, rechazos, MV lag, breakdown por etapa (semáforo). |
 
@@ -192,7 +192,7 @@ Scan QR → Validar payload → (OK) Mostrar mesa ▸ “Ver ruta”
 ```
 [Seat-Designer v1]
 Cargar mapa → Editar → Validadores (overlay) → Guardar/Publicar
-  ├─ rojo: bloquear + explicar regla
+  ├─ rojo: bloquear + explicar regla (o solicitar override aceptando responsabilidad)
   └─ ámbar/verde: permitir con warnings documentados
 ```
 

@@ -28,7 +28,7 @@
 | --- | --- | --- | --- |
 | P3.1 | Skeleton PWA check-in (Pa11y/Lighthouse en CI). | Frontend | Semana 2 |
 | P3.2 | TV/kiosk signage conectado a Ops Live v1. | Frontend | Semana 3 |
-| P3.3 | Validadores Seat Designer v1 (pasillos, PMR, lencería). | Backend/UX | Semana 3 |
+| P3.3 | ✅ Validadores Seat Designer v1 (ring clearance + ADA + fix 0.8 m) en `@seatpilot/seatdesigner-engine`; gate con override opcional documentado. | Backend/UX | Semana 3 |
 | P3.4 | Lote B iconografía lencería + wizard “Linen Pro”. | Brand / UX | Semana 4 |
 
 ## 4. Billing & Reportes

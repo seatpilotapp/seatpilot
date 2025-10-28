@@ -1,0 +1,21 @@
+{
+  "name": "@seatpilot/billing-worker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx src/worker.ts",
+    "start": "node dist/worker.js"
+  },
+  "dependencies": {
+    "pg": "^8.11.3",
+    "stripe": "^14.25.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "@types/pg": "^8.6.6",
+    "tsx": "^4.16.0",
+    "typescript": "^5.4.0"
+  }
+}
