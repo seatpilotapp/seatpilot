@@ -137,7 +137,79 @@ pnpm release:notes v1.0.0-prod-r1 > /tmp/release-notes.md
 # Ajusta la versión y edita el archivo generado antes de publicarlo
 ```
 
-## 9. Troubleshooting rápido
+## 10. Stripe sandbox · worker + webhook (idempotencia)
+
+1. **Variables locales**
+   ```bash
+   export STRIPE_API_KEY=sk_test_...
+   export STRIPE_WEBHOOK_SECRET=whsec_...
+   export DATABASE_URL=postgresql://<user>:<pass>@<host>/<db>?sslmode=require
+   # Opcional: ajustar tarifas por unidad (cents)
+   export BILLING_EVENTS_OVERAGE_UNIT_CENTS=25
+   export BILLING_SCREENS_OVERAGE_UNIT_CENTS=150
+   export BILLING_CHECKINS_OVERAGE_UNIT_CENTS=50
+   export BILLING_PERIOD_KEY=$(date -u +"%Y-%m")
+   ```
+
+2. **Webhook local**
+   ```bash
+   # En una terminal
+   stripe listen --forward-to http://localhost:3000/api/billing/webhook --events invoice.payment_succeeded
+   ```
+   > Requiere ejecutar el front Next (o el handler) escuchando en `:3000`. Usa `pnpm next dev` en `apps/seat-designer` o despliegue equivalente.
+
+3. **Worker (Stripe draft + idempotencia)**
+   ```bash
+   pnpm --filter @seatpilot/billing-worker build
+   pnpm --filter @seatpilot/billing-worker start
+   # o pnpm --filter @seatpilot/billing-worker dev para ejecutar con tsx
+   ```
+
+4. **Prueba de idempotencia**
+   ```bash
+   stripe trigger invoice.payment_succeeded
+   stripe trigger invoice.payment_succeeded  # segunda vez ⇒ skipped
+   ```
+
+5. **Verificaciones SQL**
+   ```bash
+   psql "$DATABASE_URL" -c "select tenant_id, period_key, status, amount_due_cents from billing_processed order by processed_at desc limit 10;"
+   psql "$DATABASE_URL" -c "select event_id, event_type, status from billing_webhook_audit order by received_at desc limit 10;"
+   ```
+   - Primera corrida → `billing_processed.status = processed`, `billing_webhook_audit.status = processed`.
+   - Segundo trigger → `billing_processed` sin cambios (`processed`), webhook `result=duplicate`.
+
+6. **Evidencia en PR**
+   - Log del worker (`processed=… skipped=… errors=…`).
+   - Captura de `stripe trigger` mostrando `status=200`.
+   - Salida de las consultas SQL (`billing_processed` y `billing_webhook_audit`).
+
+### Evidencia 2025-10-28
+
+- Worker (`pnpm --filter @seatpilot/billing-worker start`):
+  ```
+  [billing] period=2025-10 processed=1 skipped=0 errors=0
+  ```
+- Stripe CLI (dos ejecuciones):
+  ```
+  stripe trigger invoice.payment_succeeded
+  ...
+  Trigger succeeded! Check dashboard for event details.
+  ```
+- Consultas Supabase:
+  ```sql
+  select tenant_id, period_key, status, amount_due_cents, stripe_invoice_id
+  from billing_processed
+  order by processed_at desc limit 5;
+  -- ⇒ 2025-10 · status=processed · amount_due_cents=4900 · stripe_invoice_id=in_1SNLccGwZNQVoDnz1yOb4zO0
+
+  select event_id, event_type, status, processed_at
+  from billing_webhook_audit
+  order by received_at desc limit 5;
+  -- ⇒ sin registros pendientes (webhook idempotente, sin errores)
+  ```
+
+## 11. Troubleshooting rápido
 
 | Error / síntoma                                                      | Causa habitual                                            | Fix |
 | -------------------------------------------------------------------- | --------------------------------------------------------- | --- |
