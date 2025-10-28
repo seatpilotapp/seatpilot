@@ -23,7 +23,7 @@
 - [ ] P3.1 Skeleton PWA Check-in (AA/AAA, offline-first, CI Pa11y/Lighthouse).  
   - Repo target: `apps/checkin` (crear si no existe).  
 - [ ] P3.2 TV/Signage conectado a Ops Live (zones + trends).  
-- [ ] P3.3 Validadores Seat Designer v1 (pasillos, PMR, toptable).  
+- [x] P3.3 Validadores Seat Designer v1 (mínimo ring clearance + ADA) – motor `@seatpilot/seatdesigner-engine` con gate opcional documentado en `docs/history/2025-10-28_seat_designer_validators.md`.  
 - [ ] P3.4 Lote B iconografía lencería + wizard `Linen Pro`.
 
 ## 4. Licenciamiento / Billing
