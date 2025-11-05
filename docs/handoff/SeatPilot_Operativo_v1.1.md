@@ -48,7 +48,7 @@
 - **Vistas auxiliares** (`003_views_kpi.sql`): `v_mv_staleness`, `v_event_counts_last_hour`, `v_rejected_events_last_hour`.
 - **RLS** (`002_policies_rls.sql`): políticas `events_*_tenant_isolation_*` basadas en `telemetry.claim_tenant_id()`.
 - **Almacenamiento ingest** (`services/telemetry-ingest/src/lib/store.ts`): adapta según disponibilidad (Postgres pool, Supabase REST, fallback memoria).
-- **Secreto Supabase**: `metrics-proxy` monta `/run/secrets/supabase_service_role.jwt`, injerta header `apikey` a Supabase (`Dockerfile`, `entrypoint.sh`, `nginx.conf.template`).
+- **Secreto Supabase**: `metrics-proxy` monta `/run/secrets/supabase_service_role.jwt`, injerta header `apikey` a Supabase (`ops/metrics-proxy/Dockerfile`, `ops/metrics-proxy/entrypoint.sh`, `ops/metrics-proxy/nginx.conf.template`).
 
 ## 5. Observabilidad
 

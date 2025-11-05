@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.diagram-menu-control {
+    text-align: left;
+    }  
+  #diagram-menu {
+    float: left;
+    margin-right: 0px;
+    background-color: #046AE5;
+    color:#ffffff;
+  }
+  
+  #diagram-menu li {
+  transition: color 0.2s ease; /* Smooth transition for color change */
+  }
+
+  #diagram-menu li:hover {
+  color: #046AE5; /* Text turns blue when hovered over */
+  cursor: pointer; /* Changes cursor to hand pointer on hover */
+  }
+.e-menu-wrapper .e-menu{
+  margin-top: -5px!important;
+  color: white !important;
+  }
+  .e-menu-wrapper ul .e-menu-item .e-caret, .e-menu-container ul .e-menu-item .e-caret {
+  visibility: collapse !important;
+  }

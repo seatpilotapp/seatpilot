@@ -1,0 +1,2 @@
+docs/books/the-art-and-science-of-ux-design-a-step-by-step-guide-to_anthony-conta_2024.md filter=lfs diff=lfs merge=lfs -text
+*.pdf filter=lfs diff=lfs merge=lfs -text

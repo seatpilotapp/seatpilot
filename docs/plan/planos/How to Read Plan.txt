@@ -1,0 +1,255 @@
+
+--- Page 1 ---
+Floor Plan Knowledge Base
+
+
+--- Page 2 ---
+A floor plan is a 2d drawing to scale of the inside of a building. It is a horizontal cut of 
+the building at a height of 1 meter from the floor.
+The elements that can be shown in a floor plan are:
+•The Walls,
+•The Partitions, 
+•The Doors, 
+•The Windows, 
+•The Stairs, 
+•The Furniture, And More
+
+--- Page 3 ---
+Section AA
+Floor Plan
+Isometric
+ Side Elevation
+ Front ElevationDifferent views in architecture
+A plan view is only one of the different views of a building we see in 
+architecture. There are also elevation views, section views, and 3D 
+views. These are some example of different view we can have :
+
+--- Page 4 ---
+Plan view
+Aplan view isahorizontal 2D
+view ofabuilding .The most
+common plan view drawing is
+afloor plan, butthere arealso
+reflected ceiling plans, details
+plan view, etc.
+
+
+--- Page 5 ---
+Elevation view
+An elevation view is a 2D view 
+of one of the sides of a building.
+
+
+--- Page 6 ---
+Section view
+Asection view is'cutting' inthebuilding
+(vertically) andlooking attheinside .
+Even forafloor plan, itisuseful tothink
+about thesection view and theelevation
+view.Some elements arecutthrough, like
+insection, andsome elements areseen in
+2Dfrom anoutside point ofview, likein
+elevations .
+
+--- Page 7 ---
+Line Weight
+Inarchitecture floor plans, there aredifferent linethicknesses used fordifferent
+elements .This iscalled lineweights .
+This istomake theplan easier tounderstand andhelp them make thelinkbetween
+the2Dandthe3D.
+Every object drawn inafloor plan canbeseparated into3categories :
+Theobjects below 4feet
+Theobjects 'cut'at4feet
+Theobjects above 4feet
+
+--- Page 8 ---
+Depending onthecategory towhich theobjects belong, itwillnotberepresented
+withthesame lineweight .
+
+--- Page 9 ---
+Theobjects below 4feet
+Theobjects below 4feetoften include thefloor itself, front porches, decks, balconies,
+banisters, walls notreaching theceiling, stairs going down, thelower steps ofstairs
+going up,countertops, andother furniture .
+These objects areseen from above, sotheir representation isonly theway they look
+onthetop.Weusually usecontinuous fineormedium lines torepresent them .
+Sometimes, thecloser theobjects areto4feet, theheavier thelines canbe.
+
+
+--- Page 10 ---
+Theobjects 'cut' at4feet
+Theobjects 'cut'at4feetwillalways berepresented with heavier lines.They often
+include exterior walls, interior walls, theglazing andframe ofwindows, columns, etc.
+Toindicate thatthey arecuttrough, alotofthese objects willbepoached (shaded in
+black) .This includes themain elements offloorplans, liketheexterior walls, the
+partitions, andstructural elements .Doors andwindows willnotbepoached .
+
+--- Page 11 ---
+The objects above 4feet
+The object above 4feet often includes thehigher steps ofstairs going up,ceiling features
+(Ex:opening inthefloor above orcathedral ceilings), orupper cabinets .
+Those objects areconsidered "hidden" inthefloor plan because you would notseethem
+ifyou look down at4feet.So,todraw them, weusefine dashed lines .
+
+
+--- Page 12 ---
+Other uses oflineweights
+Also, different lineweights canbeused forgraphic reasons .Anobject thatasa
+lotofdetails inasmall amount ofspace willhave thinner lines tomake iteasier
+tounderstand .Itcanalso beused tohierarchize theelements .Forexample, less
+important ones, likefloor finishes ,willbeinthinner lines todraw attention tothe
+main elements .
+The dashed lineisalso used torepresent anyhidden object even ifitisnot
+above 4feet.Forexample, instairs ,theriser willbeindashed lines, because
+they arehidden bythetread andthenosing .Also, thepartofthedishwasher that
+isunder thecountertop willbeindashed lines.
+
+--- Page 13 ---
+Recap
+Large: cut through architectural elements, such as 
+interior and exterior walls
+Medium: doors, windows, stairs, floor limits, countertop 
+and other architectural elements seen from above
+Thin: furniture, appliances, and symbols
+Thin (dashed): hidden objects, ceiling features, risers 
+(stairs), and more.
+Extra thin: materials (floors) and other surface features
+Elements are filled with black when they are cut 
+through. In a floorplan, it is mostly walls or columns.
+
+
+--- Page 14 ---
+
+
+--- Page 15 ---
+Overall view
+This is an overall view of the use of weight line.
+Exceptions
+The 4 feet rule is almost always followed but does not apply all the time. For example:
+In a basement, we often see windows that are only on the upper part of the wall. However, if we follow 
+the 4 feet rule, those windows will not appear in any floor plan. Because they are a very important 
+element of the building, we can make the decision to still show them as if they were regular windows.
+Split levels. They are represented on the floor plan of the closest level. There is no distinction between 
+the way split levels and the rest of the level are drawn. The 4 feet rule is ignored because the 
+representation of the split level would be too hard to understand.
+Some furnitures are drawn as if they were seen from above even if they are cut through, like the 
+fridge, because representing the inside of a fridge would add not any helpful detail. However, we tend 
+to show the inside of custom or integrated furniture, like pantries.
+
+--- Page 16 ---
+
+
+--- Page 17 ---
+Exterior spaces
+•The exterior elements will only be drawn in the level they are in.
+•For example, on the ground floor, the deck and the front porch are drawn, as well 
+as the exterior stairs and the banisters. However, we do not see the pavement on 
+the ground because it is not considered to be at the same level.
+•For the second floor, we will not see the deck or the front porch because they are a 
+level below. However, if the second floor has a balcony, we will see it.
+•In the basement, nothing from the exterior is usually shown because it is only soil 
+all around the foundation walls .
+
+--- Page 18 ---
+
+
+--- Page 19 ---
+Walls not reaching the 
+ceiling
+Some partitions inside the house can 
+be at half their height.
+They are represented with the same 
+thickness as walls, but they aren't 
+filled with black because they are not 
+cut through.
+
+--- Page 20 ---
+Structural elements
+Afewstructural elements canbeseen inthefloor plan, such asbearing walls,
+columns, andbeams .
+They should bealigned with one another because thestructural elements ofa
+building arepositioned following thehorizontal andvertical axis.
+Thecolumns arerepresented thesame way aswalls (poached inblack), andthe
+beams likearchways ifthey arevisible .(columns and beams together create
+archways ).
+
+--- Page 21 ---
+Stairs
+Stairs areone ofthemost difficult elements to
+represent because itcan easily getconfusing for
+thepeople looking atthefloorplan tounderstand
+their direction .
+Inafloor plan, theparts ofthestairs and the
+dimensions weareable toseearethewidth ofthe
+stairway, thelanding, andthethread .
+Therisers areshown indashed lines, whereas the
+threads areinordinary lines.The handrail isalso
+often shown withtwolines.
+
+--- Page 22 ---
+Types of stairways
+U-Shaped stair
+Straight stair
+U-Shaped stair U-Shaped stair
+
+--- Page 23 ---
+Winder stair
+Angular steps can either be at 30 or 45 degrees
+U-Shaped and Winder stairL-Shaped stair
+
+--- Page 24 ---
+Spiral stair
+ Helical stair
+
+--- Page 25 ---
+Stairs Up Stairs Down
+
+
+--- Page 26 ---
+Opening in the floor Stairs Up and Down Combined
+
+
+--- Page 27 ---
+Standard Sizes 
+Doors
+•Standard Sizes -Interior Doors
+•Standard Sizes -Exterior Doors
+
+--- Page 28 ---
+Exterior Door Threshold
+ Interior Door Threshold
+Archway
+
+--- Page 29 ---
+Room Identification andDimensions
+1.Identification
+Alltherooms areusually identified with their dimensions, except closets andsmall
+storage spaces .Hallway andother circulating areas arealso identified .Sometimes,
+itcanbepurposeful toidentify thedeck ortheporch ifthere isalotofexterior living
+space .
+If there is not enough space to write the complete name of the room, we can use 
+abbreviations. For example, WASHROOM often becomes WC or BATHROOM only BATH. 
+Just make sure to write it the same way in all the plans of the same house so it is easily 
+understandable.
+
+--- Page 30 ---
+Common Room Names Examples
+•ENTRY
+•BATHROOM
+•WASHROOM (WC)
+•KITCHEN
+•DINING ROOM
+•HALLWAY
+•MASTER BEDROOM
+•GUEST BEDROOM•BEDROOM 1,2...
+•OFFICE
+•LAUNDRY ROOM
+•FAMILY ROOM
+•EXERCISE ROOM
+•GARAGE
+•SOLARIUM
+•WALK -IN CLOSETThere isn’t a conventional way to name the rooms, as long as it is logical and easily 
+understandable.
+
+--- Page 31 ---
+2. Dimensions

@@ -1,0 +1,112 @@
+{
+  "print": {
+    "pageCaption": "Impresión · Página {{current}} de {{total}}",
+    "sheetTitle": "Ficha técnica del plano",
+    "planData": "Datos del plano",
+    "title": "Título",
+    "planNumber": "Número de plano",
+    "scale": "Escala",
+    "northRef": "Referencia norte",
+    "prepChecklist": "Checklist de preparación",
+    "checks": {
+      "north": "Flecha de norte colocada",
+      "sections": "Marcadores de sección añadidos",
+      "dimensions": "Dimensiones verificadas",
+      "hatch": "Hatch/materiales listos",
+      "joists": "Joists y dirección de techo"
+    },
+    "generalSummary": "Resumen general",
+    "wallsTotal": "Longitud total de muros",
+    "doorsTotal": "Puertas",
+    "roomsTotal": "Salas",
+    "furnitureTotal": "Mobiliario",
+    "totalArea": "Área total",
+    "byRoom": "Detalle por sala",
+    "name": "Nombre",
+    "area": "Área",
+    "byCategory": "Mobiliario por categoría",
+    "category": "Categoría",
+    "count": "Cantidad",
+    "notes": "Notas del plano",
+    "noNotes": "Sin notas registradas.",
+    "validations": "Validaciones",
+    "noFurniture": "Sin mobiliario registrado",
+    "noRooms": "Sin salas definidas",
+    "noValidations": "Sin observaciones pendientes.",
+    "footerGenerated": "generado {{date}}",
+    "footerVersion": "versión {{label}}",
+    "footerPlan": "plan {{id}}",
+    "footerUpdated": "actualizado {{date}}"
+  },
+  "toolbar": {
+    "print": "Imprimir",
+    "savedAt": "Guardado {{time}}",
+    "language": "Idioma",
+    "library": "Planos guardados",
+    "returnEditor": "Volver al editor",
+    "newPlan": "Nuevo diseño",
+    "save": "Guardar",
+    "saving": "Guardando…",
+    "saveAs": "Guardar como…"
+  },
+  "status": {
+    "loadingEditor": "Cargando editor…",
+    "noVenue": "Sin venue"
+  },
+  "common": {
+    "close": "Cerrar"
+  },
+  "insert": {
+    "title": "Insertar",
+    "search": "Buscar",
+    "searchPlaceholder": "Buscar (⌘K)",
+    "recents": "Recientes",
+    "noResults": "Sin resultados",
+    "categories": "Categorías",
+    "done": "Insertado: {{name}}",
+    "empty": "No hay elementos disponibles en esta categoría."
+  },
+  "palette": {
+    "floorplans": "Planos",
+    "seating": "Seating",
+    "stage": "Escenario",
+    "safety": "Seguridad",
+    "utilities": "Utilidades",
+    "service": "Servicio",
+    "general": "General",
+    "basic": "Básico",
+    "meta": {
+      "foh": "Área pública (FOH)",
+      "boh": "Back of house (BOH)",
+      "shared": "Compartido"
+    },
+    "item": {
+      "chair_basic": "Silla",
+      "sofa_double": "Sofá doble",
+      "sofa_single": "Sofá individual",
+      "table_round": "Mesa redonda",
+      "table_rect": "Mesa rectangular",
+      "kitchen_island": "Isla de cocina",
+      "counter": "Mostrador",
+      "bed_queen": "Cama queen",
+      "bed_twin": "Cama twin",
+      "plant": "Planta",
+      "stage_rect_24x16": "Tarima 24'×16'",
+      "dancefloor_30x30": "Pista 30'×30'",
+      "av_booth": "Cabina AV",
+      "bar_fixed_12": "Bar fijo 12'",
+      "bar_mobile_8": "Bar móvil 8'",
+      "kitchen_prep_20x12": "Cocina caliente 20'×12'",
+      "kitchen_warming_10x8": "Plating/Warming 10'×8'",
+      "storage_backstage": "Storage / Backstage",
+      "service_corridor": "Pasillo servicio",
+      "floorbox_quad": "Floor Box",
+      "extinguisher_class_a": "Extintor Clase A",
+      "hydrant_cabinet": "Gabinete hidrante",
+      "exit_sign": "Letrero EXIT",
+      "bathroom_10x12": "Baño 10'×12'",
+      "janitor_closet_6x8": "Closet limpieza 6'×8'",
+      "shaft_mep_6x6": "Shaft MEP 6'×6'"
+    }
+  }
+}

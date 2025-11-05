@@ -1,0 +1,254 @@
+.canvas {
+  position: relative;
+  flex: 1;
+  background: #0b1722;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.canvas__svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: crosshair;
+  touch-action: none;
+  overscroll-behavior: contain;
+}
+
+.canvas__wall {
+  fill: none;
+  stroke: rgba(243, 249, 255, 0.9);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  cursor: pointer;
+}
+
+.canvas__wall--selected {
+  stroke: #5b9dff;
+}
+
+.canvas__draft {
+  fill: none;
+  stroke: rgba(91, 157, 255, 0.7);
+  stroke-width: 20;
+  stroke-linecap: round;
+  stroke-dasharray: 30 15;
+}
+
+.canvas__door {
+  fill: rgba(245, 166, 35, 0.4);
+  stroke: rgba(245, 166, 35, 0.9);
+  stroke-width: 6;
+  cursor: pointer;
+}
+
+.canvas__door--selected {
+  stroke: #ffd37f;
+  stroke-width: 8;
+  fill: rgba(255, 211, 127, 0.55);
+}
+
+.canvas__door-swing {
+  fill: none;
+  stroke: rgba(255, 211, 127, 0.6);
+  stroke-width: 3;
+  stroke-dasharray: 6 6;
+}
+
+.canvas__room {
+  fill: rgba(64, 182, 204, 0.18);
+  stroke: rgba(64, 182, 204, 0.6);
+  stroke-width: 4;
+  cursor: pointer;
+}
+
+.canvas__room--selected {
+  fill: rgba(64, 182, 204, 0.28);
+  stroke: rgba(121, 222, 238, 0.9);
+}
+
+.canvas__room-label {
+  font-size: 28px;
+  font-weight: 600;
+  fill: rgba(216, 240, 255, 0.9);
+  text-anchor: middle;
+  pointer-events: none;
+  paint-order: stroke;
+  stroke: rgba(9, 21, 32, 0.7);
+  stroke-width: 6;
+}
+
+.canvas__furniture {
+  fill: rgba(255, 189, 120, 0.35);
+  stroke: rgba(255, 189, 120, 0.8);
+  stroke-width: 4;
+  cursor: pointer;
+}
+
+.canvas__furniture--selected {
+  fill: rgba(255, 214, 170, 0.55);
+  stroke: rgba(255, 227, 191, 0.95);
+}
+
+.canvas__furniture-label {
+  font-size: 24px;
+  font-weight: 600;
+  fill: rgba(252, 231, 205, 0.95);
+  text-anchor: middle;
+  pointer-events: none;
+  paint-order: stroke;
+  stroke: rgba(20, 12, 0, 0.6);
+  stroke-width: 6;
+}
+
+.canvas__handle {
+  fill: rgba(255, 255, 255, 0.9);
+  stroke: rgba(15, 25, 40, 0.9);
+  stroke-width: 1;
+  cursor: nwse-resize;
+}
+
+.canvas__vertex {
+  fill: rgba(91, 157, 255, 0.85);
+  stroke: rgba(6, 16, 27, 0.85);
+  stroke-width: 2;
+  cursor: pointer;
+}
+
+.canvas__vertex:hover {
+  fill: #bcd8ff;
+}
+
+.canvas__vertex--curved {
+  fill: #f9c74f;
+  stroke: rgba(110, 68, 0, 0.9);
+}
+
+.canvas__rotate-link {
+  stroke: rgba(91, 157, 255, 0.4);
+  stroke-width: 4;
+  stroke-dasharray: 6 8;
+  pointer-events: none;
+}
+
+.canvas__rotate-handle {
+  cursor: grab;
+  user-select: none;
+}
+
+.canvas__rotate-handle circle {
+  fill: #f9c74f;
+  stroke: rgba(15, 25, 40, 0.9);
+  stroke-width: 2;
+}
+
+.canvas__rotate-handle text {
+  fill: rgba(15, 25, 40, 0.9);
+  font-family: "Inter", "Segoe UI", sans-serif;
+  pointer-events: none;
+}
+
+.canvas__rotate-preview {
+  fill: none;
+  stroke: rgba(91, 157, 255, 0.6);
+  stroke-width: 4;
+  stroke-dasharray: 8 6;
+  pointer-events: none;
+}
+
+.canvas__text-hitbox {
+  fill: rgba(255, 255, 255, 0.001);
+  stroke: none;
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.canvas__text-frame {
+  fill: rgba(12, 28, 44, 0.8);
+  stroke: rgba(255, 255, 255, 0.15);
+  stroke-width: 2;
+  pointer-events: none;
+}
+
+.canvas__text-frame--active {
+  stroke: rgba(91, 157, 255, 0.65);
+  stroke-width: 2;
+}
+
+.canvas__text-content {
+  width: 100%;
+  height: 100%;
+  color: #f1f6ff;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  pointer-events: none;
+  font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+.canvas__text-resize-handle {
+  cursor: se-resize;
+  user-select: none;
+}
+
+.canvas__text-resize-handle circle {
+  fill: #f9c74f;
+  stroke: rgba(15, 25, 40, 0.9);
+  stroke-width: 2;
+}
+
+.canvas__text-resize-icon {
+  stroke: rgba(15, 25, 40, 0.9);
+  stroke-width: 2;
+  pointer-events: none;
+}
+
+.canvas__text-editor {
+  width: 100%;
+  height: 100%;
+  resize: none;
+  border: none;
+  outline: none;
+  padding: 10px;
+  background: rgba(12, 28, 44, 0.92);
+  color: #f1f6ff;
+  line-height: 1.4;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  border-radius: 6px;
+}
+
+.canvas__text-link {
+  stroke: rgba(91, 157, 255, 0.4);
+  stroke-width: 3;
+  stroke-dasharray: 6 6;
+  pointer-events: none;
+}
+
+.canvas__preview {
+  stroke: rgba(91, 157, 255, 0.5);
+  stroke-width: 20;
+  stroke-linecap: round;
+  stroke-dasharray: 10 10;
+  pointer-events: none;
+}
+
+.canvas__measure {
+  font-size: 32px;
+  font-weight: 600;
+  fill: #f7fbff;
+  text-anchor: middle;
+  paint-order: stroke;
+  stroke: rgba(6, 16, 27, 0.7);
+  stroke-width: 8;
+  pointer-events: none;
+}
+
+.canvas__wall-label {
+  font-size: 26px;
+  font-weight: 600;
+  fill: rgba(241, 246, 255, 0.85);
+  text-anchor: middle;
+  paint-order: stroke;
+  stroke: rgba(6, 16, 27, 0.75);
+  stroke-width: 7;
+  pointer-events: none;
+}

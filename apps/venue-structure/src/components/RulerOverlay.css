@@ -1,0 +1,67 @@
+.ruler-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  font-size: 12px;
+  color: rgba(241, 246, 255, 0.75);
+}
+
+.ruler-overlay__horizontal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 36px;
+}
+
+.ruler-overlay__vertical {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 100%;
+}
+
+.ruler-overlay__bg {
+  fill: rgba(8, 18, 29, 0.88);
+}
+
+.ruler-overlay__tick {
+  stroke: rgba(188, 216, 255, 0.35);
+  stroke-width: 1;
+}
+
+.ruler-overlay__tick--major {
+  stroke: rgba(188, 216, 255, 0.7);
+  stroke-width: 2;
+}
+
+.ruler-overlay__label {
+  fill: rgba(241, 246, 255, 0.75);
+  font-weight: 600;
+  font-size: 12px;
+  text-anchor: start;
+}
+
+.ruler-overlay__label--vertical {
+  writing-mode: horizontal-tb;
+}
+
+.ruler-overlay__hover-line {
+  stroke: #5b9dff;
+  stroke-width: 2;
+  opacity: 0.6;
+}
+
+.ruler-overlay__hover-coords {
+  position: absolute;
+  bottom: 10px;
+  left: 52px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(91, 157, 255, 0.15);
+  border: 1px solid rgba(91, 157, 255, 0.4);
+  font-size: 12px;
+  font-weight: 600;
+  color: #bcd8ff;
+}

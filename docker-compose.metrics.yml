@@ -81,7 +81,7 @@ services:
   metrics-proxy:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: ops/metrics-proxy/Dockerfile
     environment:
       SUPABASE_HOST: ${SUPABASE_HOST:-qfwptupwrqdhxegxueuc.supabase.co}
     volumes:
