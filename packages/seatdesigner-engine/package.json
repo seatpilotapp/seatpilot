@@ -1,0 +1,24 @@
+{
+  "name": "@seatpilot/seatdesigner-engine",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "files": [
+    "pkg",
+    "types.ts",
+    "index.js"
+  ],
+  "scripts": {
+    "build": "wasm-pack build --target web --out-dir pkg",
+    "test": "cargo test --manifest-path Cargo.toml"
+  },
+  "main": "./index.js",
+  "module": "./index.js",
+  "types": "./types.ts",
+  "exports": {
+    ".": {
+      "import": "./index.js",
+      "types": "./types.ts"
+    }
+  }
+}

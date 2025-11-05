@@ -1,0 +1,382 @@
+import type { PaletteCategory, PaletteItem, PaletteCategoryId } from "../types/palette";
+
+export interface CatalogItem extends PaletteItem {
+  typeId: string;
+  widthInches: number;
+  depthInches: number;
+  classification?: "FOH" | "BOH" | "shared";
+  notes?: string;
+  fallbackName: string;
+  categoryLabel: string;
+}
+
+export const CATEGORIES: PaletteCategory[] = [
+  { id: "floorplans", labelKey: "palette.floorplans" },
+  { id: "seating", labelKey: "palette.seating" },
+  { id: "stage", labelKey: "palette.stage" },
+  { id: "safety", labelKey: "palette.safety" },
+  { id: "utilities", labelKey: "palette.utilities" },
+  { id: "service", labelKey: "palette.service" },
+  { id: "general", labelKey: "palette.general" },
+  { id: "basic", labelKey: "palette.basic" }
+];
+
+const CATEGORY_LABEL_FALLBACK: Record<PaletteCategoryId, string> = {
+  floorplans: "Floorplans",
+  seating: "Seating",
+  stage: "Stage & Floor",
+  safety: "Safety",
+  utilities: "Utilities",
+  service: "Service",
+  general: "General",
+  basic: "Basic"
+};
+
+export const CATALOG_ITEMS: CatalogItem[] = [
+  {
+    id: "chair-basic",
+    typeId: "chair-basic",
+    categoryId: "seating",
+    nameKey: "palette.item.chair_basic",
+    fallbackName: "Chair",
+    iconName: "sp-chair-row",
+    tags: ["chair", "seat"],
+    widthInches: 18,
+    depthInches: 18,
+    classification: "FOH",
+    categoryLabel: CATEGORY_LABEL_FALLBACK.seating
+  },
+  {
+    id: "sofa-2",
+    typeId: "sofa-2",
+    categoryId: "seating",
+    nameKey: "palette.item.sofa_double",
+    fallbackName: "Double Sofa",
+    iconName: "sp-chair-row",
+    tags: ["sofa", "double"],
+    widthInches: 72,
+    depthInches: 32,
+    classification: "FOH",
+    categoryLabel: CATEGORY_LABEL_FALLBACK.seating
+  },
+  {
+    id: "sofa-1",
+    typeId: "sofa-1",
+    categoryId: "seating",
+    nameKey: "palette.item.sofa_single",
+    fallbackName: "Single Sofa",
+    iconName: "sp-chair-row",
+    tags: ["sofa", "single"],
+    widthInches: 42,
+    depthInches: 32,
+    classification: "FOH",
+    categoryLabel: CATEGORY_LABEL_FALLBACK.seating
+  },
+  {
+    id: "table-round",
+    typeId: "table-round",
+    categoryId: "seating",
+    nameKey: "palette.item.table_round",
+    fallbackName: "Round Table",
+    iconName: "sp-dancefloor",
+    tags: ["round", "table"],
+    widthInches: 48,
+    depthInches: 48,
+    classification: "FOH",
+    categoryLabel: CATEGORY_LABEL_FALLBACK.seating
+  },
+  {
+    id: "table-rect",
+    typeId: "table-rect",
+    categoryId: "seating",
+    nameKey: "palette.item.table_rect",
+    fallbackName: "Dining Table",
+    iconName: "sp-dancefloor-panels",
+    tags: ["table", "rect"],
+    widthInches: 72,
+    depthInches: 30,
+    classification: "FOH",
+    categoryLabel: CATEGORY_LABEL_FALLBACK.seating
+  },
+  {
+    id: "kitchen-island",
+    typeId: "kitchen-island",
+    categoryId: "service",
+    nameKey: "palette.item.kitchen_island",
+    fallbackName: "Kitchen Island",
+    iconName: "sp-concrete-block",
+    tags: ["kitchen", "island"],
+    widthInches: 60,
+    depthInches: 30,
+    classification: "BOH",
+    categoryLabel: CATEGORY_LABEL_FALLBACK.service
+  },
+  {
+    id: "counter",
+    typeId: "counter",
+    categoryId: "service",
+    nameKey: "palette.item.counter",
+    fallbackName: "Counter",
+    iconName: "sp-concrete-block",
+    tags: ["counter"],
+    widthInches: 48,
+    depthInches: 24,
+    classification: "FOH",
+    categoryLabel: CATEGORY_LABEL_FALLBACK.service
+  },
+  {
+    id: "bed-queen",
+    typeId: "bed-queen",
+    categoryId: "general",
+    nameKey: "palette.item.bed_queen",
+    fallbackName: "Queen Bed",
+    iconName: "sp-stage",
+    tags: ["bed", "queen"],
+    widthInches: 60,
+    depthInches: 80,
+    classification: "FOH",
+    categoryLabel: CATEGORY_LABEL_FALLBACK.general
+  },
+  {
+    id: "bed-twin",
+    typeId: "bed-twin",
+    categoryId: "general",
+    nameKey: "palette.item.bed_twin",
+    fallbackName: "Twin Bed",
+    iconName: "sp-stage",
+    tags: ["bed", "twin"],
+    widthInches: 39,
+    depthInches: 75,
+    classification: "FOH",
+    categoryLabel: CATEGORY_LABEL_FALLBACK.general
+  },
+  {
+    id: "plant",
+    typeId: "plant",
+    categoryId: "general",
+    nameKey: "palette.item.plant",
+    fallbackName: "Plant",
+    iconName: "sp-cake-table",
+    tags: ["plant"],
+    widthInches: 18,
+    depthInches: 18,
+    classification: "FOH",
+    categoryLabel: CATEGORY_LABEL_FALLBACK.general
+  },
+  {
+    id: "stage-rect-24x16",
+    typeId: "stage-rect-24x16",
+    categoryId: "stage",
+    nameKey: "palette.item.stage_rect_24x16",
+    fallbackName: "Stage 24'×16'",
+    iconName: "sp-stage",
+    tags: ["stage", "24x16"],
+    widthInches: 24 * 12,
+    depthInches: 16 * 12,
+    classification: "FOH",
+    notes: "Standard riser • leave 1 m back aisle",
+    categoryLabel: CATEGORY_LABEL_FALLBACK.stage
+  },
+  {
+    id: "dancefloor-30x30",
+    typeId: "dancefloor-30x30",
+    categoryId: "stage",
+    nameKey: "palette.item.dancefloor_30x30",
+    fallbackName: "Dance Floor 30'×30'",
+    iconName: "sp-dancefloor",
+    tags: ["dancefloor", "30x30"],
+    widthInches: 30 * 12,
+    depthInches: 30 * 12,
+    classification: "FOH",
+    notes: "~0.3 m² per active guest",
+    categoryLabel: CATEGORY_LABEL_FALLBACK.stage
+  },
+  {
+    id: "av-control-booth",
+    typeId: "av-control-booth",
+    categoryId: "stage",
+    nameKey: "palette.item.av_booth",
+    fallbackName: "AV Booth",
+    iconName: "sp-dj",
+    tags: ["av", "booth"],
+    widthInches: 12 * 12,
+    depthInches: 8 * 12,
+    classification: "BOH",
+    notes: "Line-of-sight + dual 20A",
+    categoryLabel: CATEGORY_LABEL_FALLBACK.stage
+  },
+  {
+    id: "bar-fixed-12",
+    typeId: "bar-fixed-12",
+    categoryId: "service",
+    nameKey: "palette.item.bar_fixed_12",
+    fallbackName: "Fixed Bar 12'",
+    iconName: "sp-tent",
+    tags: ["bar", "fixed"],
+    widthInches: 12 * 12,
+    depthInches: 48,
+    classification: "FOH",
+    notes: "Requires water + drain",
+    categoryLabel: CATEGORY_LABEL_FALLBACK.service
+  },
+  {
+    id: "bar-mobile-8",
+    typeId: "bar-mobile-8",
+    categoryId: "service",
+    nameKey: "palette.item.bar_mobile_8",
+    fallbackName: "Mobile Bar 8'",
+    iconName: "sp-tent-hi-peak",
+    tags: ["bar", "mobile"],
+    widthInches: 8 * 12,
+    depthInches: 40,
+    classification: "FOH",
+    categoryLabel: CATEGORY_LABEL_FALLBACK.service
+  },
+  {
+    id: "kitchen-prep-20x12",
+    typeId: "kitchen-prep-20x12",
+    categoryId: "service",
+    nameKey: "palette.item.kitchen_prep_20x12",
+    fallbackName: "Hot Kitchen 20'×12'",
+    iconName: "sp-concrete-block",
+    tags: ["kitchen", "hot"],
+    widthInches: 20 * 12,
+    depthInches: 12 * 12,
+    classification: "BOH",
+    notes: "Ventilation + 3Φ equipment",
+    categoryLabel: CATEGORY_LABEL_FALLBACK.service
+  },
+  {
+    id: "kitchen-warming-10x8",
+    typeId: "kitchen-warming-10x8",
+    categoryId: "service",
+    nameKey: "palette.item.kitchen_warming_10x8",
+    fallbackName: "Plating/Warming 10'×8'",
+    iconName: "sp-concrete-block",
+    tags: ["kitchen", "warming"],
+    widthInches: 10 * 12,
+    depthInches: 8 * 12,
+    classification: "BOH",
+    categoryLabel: CATEGORY_LABEL_FALLBACK.service
+  },
+  {
+    id: "storage-backstage",
+    typeId: "storage-backstage",
+    categoryId: "service",
+    nameKey: "palette.item.storage_backstage",
+    fallbackName: "Storage / Backstage",
+    iconName: "sp-rain-gutter",
+    tags: ["storage", "backstage"],
+    widthInches: 12 * 12,
+    depthInches: 10 * 12,
+    classification: "BOH",
+    categoryLabel: CATEGORY_LABEL_FALLBACK.service
+  },
+  {
+    id: "service-corridor-6ft",
+    typeId: "service-corridor-6ft",
+    categoryId: "utilities",
+    nameKey: "palette.item.service_corridor",
+    fallbackName: "Service Corridor 6'",
+    iconName: "sp-tent-frame",
+    tags: ["corridor", "service"],
+    widthInches: 6 * 12,
+    depthInches: 25 * 12,
+    classification: "shared",
+    notes: "ADA clear width 1.22 m",
+    categoryLabel: CATEGORY_LABEL_FALLBACK.utilities
+  },
+  {
+    id: "floorbox-quad",
+    typeId: "floorbox-quad",
+    categoryId: "utilities",
+    nameKey: "palette.item.floorbox_quad",
+    fallbackName: "Floor Box (Power/AV)",
+    iconName: "sp-leg-drape",
+    tags: ["floorbox", "power"],
+    widthInches: 24,
+    depthInches: 24,
+    classification: "shared",
+    notes: "Identify circuit & kW",
+    categoryLabel: CATEGORY_LABEL_FALLBACK.utilities
+  },
+  {
+    id: "extinguisher-classa",
+    typeId: "extinguisher-classa",
+    categoryId: "safety",
+    nameKey: "palette.item.extinguisher_class_a",
+    fallbackName: "Extinguisher Class A",
+    iconName: "sp-tent-pole",
+    tags: ["extinguisher", "class a"],
+    widthInches: 18,
+    depthInches: 16,
+    classification: "shared",
+    notes: "Travel distance ≤ 75 ft",
+    categoryLabel: CATEGORY_LABEL_FALLBACK.safety
+  },
+  {
+    id: "hydrant-standpipe",
+    typeId: "hydrant-standpipe",
+    categoryId: "safety",
+    nameKey: "palette.item.hydrant_cabinet",
+    fallbackName: "Hydrant Cabinet",
+    iconName: "sp-tent-pole",
+    tags: ["hydrant", "cabinet"],
+    widthInches: 30,
+    depthInches: 12,
+    classification: "shared",
+    categoryLabel: CATEGORY_LABEL_FALLBACK.safety
+  },
+  {
+    id: "exit-sign-led",
+    typeId: "exit-sign-led",
+    categoryId: "safety",
+    nameKey: "palette.item.exit_sign",
+    fallbackName: "EXIT Sign",
+    iconName: "sp-leg-drape",
+    tags: ["exit", "sign"],
+    widthInches: 18,
+    depthInches: 6,
+    classification: "shared",
+    categoryLabel: CATEGORY_LABEL_FALLBACK.safety
+  },
+  {
+    id: "bathroom-10x12",
+    typeId: "bathroom-10x12",
+    categoryId: "service",
+    nameKey: "palette.item.bathroom_10x12",
+    fallbackName: "Bathroom 10'×12'",
+    iconName: "sp-tent",
+    tags: ["bathroom", "restroom"],
+    widthInches: 10 * 12,
+    depthInches: 12 * 12,
+    classification: "shared",
+    categoryLabel: CATEGORY_LABEL_FALLBACK.service
+  },
+  {
+    id: "closet-janitor-6x8",
+    typeId: "closet-janitor-6x8",
+    categoryId: "service",
+    nameKey: "palette.item.janitor_closet_6x8",
+    fallbackName: "Janitor Closet 6'×8'",
+    iconName: "sp-tent-frame",
+    tags: ["closet", "janitor"],
+    widthInches: 6 * 12,
+    depthInches: 8 * 12,
+    classification: "BOH",
+    categoryLabel: CATEGORY_LABEL_FALLBACK.service
+  },
+  {
+    id: "shaft-mep-6x6",
+    typeId: "shaft-mep-6x6",
+    categoryId: "utilities",
+    nameKey: "palette.item.shaft_mep_6x6",
+    fallbackName: "MEP Shaft 6'×6'",
+    iconName: "sp-rain-gutter",
+    tags: ["shaft", "mep"],
+    widthInches: 6 * 12,
+    depthInches: 6 * 12,
+    classification: "BOH",
+    categoryLabel: CATEGORY_LABEL_FALLBACK.utilities
+  }
+];

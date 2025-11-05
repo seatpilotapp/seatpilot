@@ -1,0 +1,12 @@
+groups:
+  - name: seatpilot.slo
+    rules:
+      - alert: DoorToSeatP95High
+        expr: histogram_quantile(0.95, sum by (le, tenant) (rate(seatpilot_door_to_seat_seconds_bucket[10m]))) > 120
+        for: 10m
+        labels:
+          severity: page
+        annotations:
+          summary: "Door→Seat p95 > 120 s (SLO)"
+          description: "El p95 de door→seat supera 120 s durante 10 minutos (tenant={{ $labels.tenant }})."
+          runbook_url: "https://github.com/seatpilotapp/seatpilot/blob/main/docs/runbooks/observability_smoke.md"

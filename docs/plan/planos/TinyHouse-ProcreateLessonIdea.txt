@@ -1,0 +1,240 @@
+
+--- Page 1 ---
+Learn withDesign a Tiny HomeLESSON IDEA
+ART & DESIGN MATHS
+
+--- Page 2 ---
+Lesson ideas
+Use these Lesson Ideas to spark your imagination for  
+using Procreate in the classroom. Feel free to take them further 
+and make them your own.
+
+--- Page 3 ---
+Design a Tiny Home
+Procreate
+Students design their own tiny 
+home and use geometry skills to 
+draw a floor plan to scale. 
+All you need is an iPad  
+and the following apps:
+Educational Value
+Students use measurement and 
+geometric principles to draw to scale  
+and calculate the area of their design.
+Students learn basic principles of 
+housing design.
+Students apply the design process 
+to real-world applications of 
+mathematical concepts.
+Safari
+Measurement
+Reality Composer
+
+--- Page 4 ---
+In this guide1 What is a tiny home?
+2 Brainstorm
+3 Blueprint
+4 Measure it up
+5 Drawing to scale
+8 Adding personality
+9 Calculate your footprint
+10 Take it further
+
+--- Page 5 ---
+Safari
+What is a tiny home?1.
+Research
+Tiny homes are houses that are generally 
+less than 400 square feet and designed 
+to have a low impact on the environment. 
+Spend some time researching different 
+examples of the design of tiny homes.
+Use the following questions to guide  
+your research:
+Why do some people choose to live in  
+tiny homes?
+What does it mean to have a  
+'carbon footprint'?
+What are some examples of small spaces  
+that have multiple uses?1.
+
+
+--- Page 6 ---
+Brainstorm2.
+What do you need?
+Make a list of the things that you need to 
+include in your home. This will include the 
+bare necessities, as well as a few of your 
+favourite belongings that you simply can't 
+live without.
+CONSIDER...
+What size bed will you sleep on?
+How will you stay warm?
+Of all your personal belongings, what are the 
+5 things that have the most meaning to you?
+ 2.
+
+
+--- Page 7 ---
+Blueprint3.
+Visualize your home
+On a new canvas, set the background to 
+blue and use a white brush to experiment 
+with a few different designs for your home.
+CONSIDER:
+Think about how you would like to move 
+through the space and how you can fit in all 
+the belongings you brainstormed. 
+Is there anything that you'll need to sacrifice 
+to keep the house under 400 square feet?3.
+
+
+--- Page 8 ---
+Measure it up4.
+Size of furniture
+Use the Measure  app to measure the size 
+of the furniture in your current house. This 
+will help you work out how much room to 
+allow for furniture in your design.
+Tap the Measure  app to open it.
+Move your iPad around so that the central 
+dot is over the starting point of your 
+measurement. Tap the Add (+)  button.
+Move your device so the centre dot is over the 
+end point of your measurement. Again, tap 
+the Add (+)  button.
+Once you've measured your object, make 
+note of its dimensions.4.
+
+
+--- Page 9 ---
+Drawing to scale5.
+Grid paper
+Create a new A4 canvas
+Tap the wrench icon to open the  
+Actions  menu.
+Tap Canvas, and toggle on Drawing Guide.
+EDIT YOUR DRAWING GUIDES
+To edit the size or color of your Drawing Guides,  
+tap Edit Drawing Guide  in the Actions menu.
+DRAWING STRAIGHT LINES
+Use QuickShape to help draw perfectly straight 
+lines. Hold for a second once you've drawn a line 
+and it will snap perfectly straight.5.
+
+
+--- Page 10 ---
+6.
+Set a scale
+Decide upon a scale for your drawing. 
+What does one square on your grid 
+represent as a real distance?
+Write this on your canvas somewhere  
+as a reminder.
+A bird's eye view
+Now draw your furniture and belongings to 
+scale in top view, using the measurements 
+you took earlier as a guide.
+Tap the + in the Layers Panel  to create a 
+new layer for each item. 
+REMEMBER
+Make sure to name your layers as you go. This will 
+make moving your furniture around much easier.6.
+
+
+--- Page 11 ---
+7.
+Put in place
+Once you've drawn all of your items, use 
+the Transform  tool to rearrange them into 
+position, based on your earlier blueprint.
+Walls and windows
+As you try out your belongings in different 
+places, draw in your walls and windows  
+around them on a new layer.
+REMEMBER...
+Walls take up room too. Find a door frame in your 
+house and use the Measurement  app again to see 
+how thick the walls in your house or school are.7.
+TRANSFORM
+
+
+--- Page 12 ---
+8.
+What makes a  
+house a home?
+Add a new layer and then add color 
+and texture to your floor plan, including 
+personal touches such as flooring styles 
+and fun rugs.
+CONSIDER
+What are the things about your own home  
+that make your space feel comfortable  
+and familiar?8.
+ Adding personality
+
+--- Page 13 ---
+9.
+How much room do 
+you have?
+Now your design is complete, calculate  
+the area of your tiny home.
+How does this compare to the place you 
+currently live in?
+What do you think you would enjoy about 
+living in a smaller space with less posessions?
+What do you think you would find 
+challenging?9.
+ Calculate your footprint
+
+
+--- Page 14 ---
+10.
+Resize your canvas
+Take it further by adding walls to your 
+creating a 3D model you can print, cut  
+and assemble.
+Tap the wrench icon to open the  
+Actions  menu.
+Tap Crop and Resize .
+Tap Settings , in the top right corner.
+Change your canvas size from A4 to A3  
+by typing in 297mm and 420mm in the  
+space provided.
+Tap Done .10. Take it further
+
+
+--- Page 15 ---
+11.
+Adding elevations
+Now that you have more room on  
+your canvas, you can add some  
+elevation drawings.
+Elevations are two-dimensional designs 
+that show a room or building in a flattened 
+side-view.
+Use your floor plan as a guide to help  
+draw each of your elevations. 11.
+
+
+--- Page 16 ---
+12.
+Becoming reality
+Open the Reality Composer  app and 
+set your black and white floor plan as an 
+anchor object.
+Then place furniture items over your design 
+to bring your plan into Augmented Reality.12.
+Reality Composer
+
+
+--- Page 17 ---
+Create
+Artistic expression helps make  
+education meaningful, memorable  
+and fun. Find more creative lesson  
+ideas at education.procreate.art
+To dive deeper into the full creative  
+potential of Procreate, see our  
+Handbook at procreate.art/handbook
+Learn with

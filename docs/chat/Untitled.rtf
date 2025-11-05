@@ -1,0 +1,2099 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2865
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 Times-Roman;\f1\fnil\fcharset0 HelveticaNeue-Bold;\f2\fnil\fcharset0 HelveticaNeue;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red193\green193\blue193;\red19\green19\blue19;
+\red193\green193\blue193;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c80000\c80000\c80000;\cssrgb\c9412\c9412\c9412;
+\cssrgb\c80000\c80000\c80000\c10196;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\fs24 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \'a1
+\f1\b\fs26 \cf3 \cb4 \strokec3 Pr\'f3ximos Pasos
+\f2\b0 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sa160\partightenfactor0
+\ls1\ilvl0\cf3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 PR-04 RSVP base: crear las tablas multi-tenant (\cb5 events\cb4 ,\'a0\cb5 guests\cb4 ,\'a0\cb5 invitations\cb4 ,\'a0\cb5 messages\cb4 ,\'a0\cb5 rsvps\cb4 ) con RLS y JWT helpers, orquestador outbox email/SMS, portal\'a0\cb5 /g/:event/:token\cb4 , dashboard\'a0\cb5 /ops/rsvp\cb4 , APIs\'a0\cb5 send|remind|stats\cb4 , y DoD con opt-out/documentaci\'f3n operativa (docs/chat/20251128.md:2206, docs/chat/20251128.md:408, docs/chat/20251128.md:580, docs/chat/20251128.md:599, docs/chat/20251128.md:631, docs/chat/20251128.md:2054).\cb1 \
+\ls1\ilvl0\cb4 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 PR-05 Venue Setup: implementar el wizard\'a0\cb5 /venue-setup\cb4 \'a0(subida de plano, calibraci\'f3n, contorno, zonas), tipado\'a0\cb5 VenuePack\cb4 , migraci\'f3n\'a0\cb5 venues\cb4 \'a0con RLS y validaciones UI (microcopy, Hick/Fitts, AA) m\'e1s gate de export (docs/chat/20251128.md:2216, docs/chat/20251128.md:1919, docs/chat/20251128.md:1934, docs/chat/20251128.md:1952, docs/chat/20251128.md:1972).\cb1 \
+\ls1\ilvl0\cb4 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 PR-06 SeatDesigner Engine + WASM: separar\'a0\cb5 seatpilot-geometry-core\cb4 ,\'a0\cb5 seatpilot-validate-core\cb4 ,\'a0\cb5 seatpilot-validate-wasm\cb4 , exponer\'a0\cb5 validate_layout_json\cb4 , empaquetar con\'a0\cb5 wasm-pack\cb4 , integrar en el canvas con medici\'f3n\'a0\cb5 performance.now()\cb4 , emitir histograma\'a0\cb5 seatdesigner_validate_duration_seconds\cb4 , y a\'f1adir regla/alerta\'a0\cb5 SeatDesignerValidateP95High\cb4 \'a0(docs/chat/20251128.md:2218, docs/chat/20251128.md:2462, docs/chat/20251128.md:3070, docs/chat/20251128.md:3093, docs/chat/20251128.md:3131, docs/chat/20251128.md:3170, docs/chat/20251128.md:3229, docs/chat/20251128.md:3241).\cb1 \
+\ls1\ilvl0\cb4 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 PR-07 Asset Library & Presets: poblar cat\'e1logo param\'e9trico (mesas, barras, pistas, tarimas) con metadata de ft\'b2/pp y linens, presets de carpas, y tooltips conectados al motor de reglas/export (docs/chat/20251128.md:2220, docs/chat/20251128.md:2388, docs/chat/20251128.md:2042).\cb1 \
+\ls1\ilvl0\cb4 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 PR-08 PWA Signage y Kiosk: consolidar\'a0\cb5 /kiosk\cb4 \'a0offline-first con cola idempotente,\'a0\cb5 /signage/:zone\cb4 \'a0con auto-refresh, Pa11y/Lighthouse \uc0\u8805 95 e integraci\'f3n con m\'e9tricas existentes (docs/chat/20251128.md:2222, docs/chat/20251128.md:2121, docs/chat/20251128.md:2132).\cb1 \
+\ls1\ilvl0\cb4 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 PR-09 Content Tests: habilitar\'a0\cb5 packages/content-tests\cb4 \'a0para pruebas A/B de microcopy (MIC) en wizard/RSVP y registrar resultados en\'a0\cb5 docs/history/\cb4 \'a0(docs/chat/20251128.md:2224, docs/chat/20251128.md:2201).\cb1 \
+\ls1\ilvl0\cb4 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Observabilidad y runbooks: actualizar\'a0\cb5 docs/runbooks\cb4 \'a0para RSVP, Venue Setup y validaci\'f3n WASM, a\'f1adir smoke script de 50 validaciones y evidencias Slack/Prometheus (docs/chat/20251128.md:2233, docs/chat/20251128.md:3310).\cb1 \
+\ls1\ilvl0\cb4 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Book docs y knowledge base: generar/organizar los\'a0\cb5 .md\cb4 \'a0de WASM/Rust en\'a0\cb5 docs/books/wasm-rust/\cb4 \'a0siguiendo la convenci\'f3n indicada (docs/chat/20251128.md:3540, docs/chat/20251128.md:3557, docs/chat/20251128.md:3642).\cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf3 \cb4 Cuando quieras empiezo con el primer bloque (PR-04) o preparo el scaffold WASM para integrarlo en la rama actual.\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\fs24 \cf0 \cb1 \strokec2 \
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+Perfecto! Hice una revisi\'f3n profunda de los **ocho libros** que subiste sobre **WebAssembly (WASM)** y **Rust** y los mape\'e9 a lo que realmente necesitamos en *SeatPilot* (motores geom\'e9tricos, validadores, optimizador de asientos, PWA/offline, seguridad y observabilidad). Abajo tienes:\
+\
+1. **qu\'e9 aporta cada libro (cap\'edtulos/\'edtems clave del \'edndice),**\
+2. **qu\'e9 partes aplicar\'edamos y c\'f3mo**, con **ejemplos pr\'e1cticos** y fragmentos de c\'f3digo listos para portar a nuestro repo (TypeScript + Rust/WASM), y\
+3. **una gu\'eda de implementaci\'f3n por fases**.\
+\
+Incluyo citas en l\'ednea a los \'edndices/cap\'edtulos de los libros para que puedas validarlo en C\'f3dex al instante.\
+\
+---\
+\
+## 1) Qu\'e9 aporta cada libro y c\'f3mo lo usamos\
+\
+### A. *Refactoring to Rust* \'97 Lily Mara & Joel Holmes (Manning, 2025)\
+\
+**Por qu\'e9 nos sirve:** es el manual para **migrar piezas de JS/TS a Rust** de forma **incre\uc0\u8209 mental**, con una secci\'f3n entera sobre **exponer Rust v\'eda WebAssembly/WASI** y sobre c\'f3mo seleccionar \'93candidatos\'94 a refactor (hot paths, CPU\u8209 bound) y mantener el build estable durante la transici\'f3n. Trae casos con **Nginx, Python, Node**, Web Workers y compatibilidad WASI.\
+\
+**Aplicaci\'f3n directa SeatPilot**\
+\
+* **Kernel geom\'e9trico** (c\'e1lculo de colisiones, distancias y \'e1reas) y **reglas** (pasillos m\'ednimos, anillos de seguridad): mover a un **crate Rust** y exponerlo a **TS** por WASM.\
+* **Optimizaci\'f3n de seating**: empezar con heur\'edsticas en TS y refactorizar el \'93inner loop\'94 (evaluaci\'f3n de coste) a Rust, manteniendo la UI en React.\
+\
+**Notas del \'edndice \'fatiles**\
+\
+* Cap\'edtulos de **WebAssembly + WASI** y **elecci\'f3n de interfaces de frontera** (FFI/wasm\uc0\u8209 bindgen) para refactor seguro, m\'e1s ejemplos con Web Workers y pipeline de build.\
+\
+---\
+\
+### B. *Practical WebAssembly* \'97 S. K. Nellaiyapen (Packt, 2022)\
+\
+**Por qu\'e9 nos sirve:** es el libro m\'e1s pragm\'e1tico sobre **toolchain WASM**: **wasm\uc0\u8209 bindgen, wasm\u8209 pack, webpack/Vite**, **modelo de memoria lineal**, **paso de strings/TypedArrays**, y **optimizaci\'f3n de tama\'f1o/perf** con **wasm\u8209 opt** y perfiles (Twiggy). El \'edndice incluye m\'f3dulos de formato, integraci\'f3n JS, empaquetado, \'93tu primer m\'f3dulo WASM\'94 y optimizaci\'f3n.\
+\
+**Aplicaci\'f3n directa SeatPilot**\
+\
+* \'93Recetas\'94 para **pasar Float64Array** (puntos/segmentos) **sin copias innecesarias** entre TS y Rust.\
+* **wasm\uc0\u8209 pack + wasm\u8209 opt -O3** en CI para reducir payload del PWA.\
+* **Patrones de strings** (evitar UTF\uc0\u8209 16\u8596 UTF\u8209 8 calientes).\
+\
+**Notas del \'edndice \'fatiles**\
+\
+* **Interoperabilidad JS/WASM, bundling y reducci\'f3n de tama\'f1o** (cap\'edtulos de integraci\'f3n, wasm\uc0\u8209 bindgen/pack, optimizaci\'f3n).\
+\
+---\
+\
+### C. *Programming with Rust* \'97 Donis Marshall (Addison\uc0\u8209 Wesley, 2024)\
+\
+**Por qu\'e9 nos sirve:** base s\'f3lida del lenguaje: **ownership/borrowing, lifetimes, generics, iteradores, concurrencia/async**. El \'edndice cubre precisamente estas \'e1reas.\
+\
+**Aplicaci\'f3n directa**\
+\
+* Implementar kernels **sin `unsafe`**; si hay hot\uc0\u8209 loops, encapsular **`unsafe` bien documentado**.\
+* Concurrencia para c\'f3mputos batch (p. ej., evaluaci\'f3n de miles de layouts candidatos).\
+\
+---\
+\
+### D. *Effective Rust: 35 Specific Ways to Improve Your Rust Code* \'97 David Drysdale (O\'92Reilly, 2024)\
+\
+**Por qu\'e9 nos sirve:** checklist de pr\'e1cticas concretas: **documentar crates**, **preferir iteradores**, **errores expl\'edcitos**, uso correcto de **Option/Result**. \'cdndice con \'edtems estilo \'93Item 24: Document your crates\'94, \'93Item 31: Use iterators\'85\'94.\
+\
+**Aplicaci\'f3n directa**\
+\
+* Est\'e1ndar de c\'f3digo para **`seatpilot-kernels`** (docs + ejemplos) y **errores estructurados** (thiserror).\
+\
+---\
+\
+### E. *Mastering Rust Programming* \'97 K. Hussain & F. Hussain (2024)\
+\
+**Por qu\'e9 nos sirve:** cap\'edtulos de **optimizaci\'f3n, profiling/bench**, **macros**, **concurrencia**, **criptograf\'eda** y **seguridad**. El \'edndice resalta optimizaci\'f3n (profiling, evitar allocs), `unsafe` responsable y networking/cripto.\
+\
+**Aplicaci\'f3n directa**\
+\
+* Gu\'eda para **perf tuning** del kernel geom\'e9trico y del evaluador de asignaciones.\
+* Si necesit\'e1ramos **firmar tickets/QR** o cifrar payloads, trae patrones de cripto en Rust.\
+\
+---\
+\
+### F. *Rust for Blockchain Application Development* \'97 Akhil Sharma (Packt, 2024)\
+\
+**Por qu\'e9 nos sirve:** aunque es de blockchain, concentra **conceptos avanzados de Rust** (ownership, crates, hashmaps, errores, etc.) y ecosistema (Foundry, Substrate). \'cdndice y cap\'edtulos muy claros; trae c\'f3digo completo de estructuras, nodos, CLI, y explica por qu\'e9 Rust se elige por **seguridad y performance**.\
+\
+**Aplicaci\'f3n directa**\
+\
+* Sirve de **cat\'e1logo de patrones** para **modelar dominios y CLI/daemons** (p. ej., un **validador offline** de layouts que corre como servicio).\
+* Reafirma por qu\'e9 **Rust \uc0\u8595  vulnerabilidades** y **coste de CPU**, que en nuestro caso se traduce en **P95 m\'e1s bajos** de validaci\'f3n/optimizaci\'f3n.\
+\
+---\
+\
+### G. *Learning Blazor* (O\'92Reilly, 2022) y **Blazor WebAssembly** (*Mastering* 2023; *Ultimate* 2024)\
+\
+**Por qu\'e9 nos sirven:** no haremos .NET, pero **s\'ed PWA+WASM**. Estos libros traen **patrones de SPA offline**, **service workers**, **caching y DI** que podemos replicar en nuestra PWA (con TS/React). \'cdndices y cap\'edtulos tratan SPA con WASM y PWA/offline.\
+\
+**Aplicaci\'f3n directa**\
+\
+* **Estrategias de cache** (assets + datos), **service worker** y \'93**app shell**\'94; integrar con nuestro CSP/HSTS endurecido.\
+\
+---\
+\
+## 2) Qu\'e9 piezas vamos a construir (y c\'f3mo)\
+\
+### 2.1 `crates/seatpilot-kernels` (Rust \uc0\u8594  WASM)\
+\
+**Objetivo:** agrupar los **motores internos** que hoy corren en JS y que son CPU\uc0\u8209 bound:\
+\
+* `geometry`: intersecciones (segmento/segmento, c\'edrculo/pol\'edgono), **SAT** para colisi\'f3n, \'e1reas, centroides.\
+* `rules`: **anillos de seguridad**, **aisles** m\'ednimos, **no\uc0\u8209 place (ADA)**, densidades.\
+* `seating`: funci\'f3n de **costo** (afinidad, VIP, familias) para heur\'edsticas/ILP.\
+* `graph`: rutas **door\uc0\u8594 seat** (Dijkstra/A* sobre malla).\
+\
+**Toolchain y frontera**\
+\
+* **wasm\uc0\u8209 bindgen / wasm\u8209 pack** para exponer funciones a TS (cap\'edtulos de interoperabilidad/packaging).\
+* Evitar copias: **TypedArrays \uc0\u8596  slices** (memoria lineal de WASM).\
+* Optimizaci\'f3n de tama\'f1o: **wasm\uc0\u8209 opt** y **profiling** (Twiggy), seg\'fan gu\'eda de \'93optimize & size\u8209 reduction\'94.\
+\
+**Plantilla m\'ednima (Rust)**\
+\
+```toml\
+# crates/seatpilot-kernels/Cargo.toml\
+[package]\
+name = "seatpilot_kernels"\
+version = "0.1.0"\
+edition = "2021"\
+\
+[lib]\
+crate-type = ["cdylib", "rlib"]\
+\
+[dependencies]\
+wasm-bindgen = "0.2"\
+# Opcional: jet apie for perf:\
+# wee_alloc = "0.4"\
+```\
+\
+```rust\
+// crates/seatpilot-kernels/src/lib.rs\
+use wasm_bindgen::prelude::*;\
+\
+#[wasm_bindgen]\
+pub fn sat_overlap(poly_a: &[f64], poly_b: &[f64]) -> bool \{\
+// poly_* = [x0,y0, x1,y1, ...] (TypedArray desde TS)\
+// ... implementaci\'f3n SAT 2D (ejes normales, proyecciones)\
+// (omito por brevedad la rutina completa)\
+false\
+\}\
+\
+#[wasm_bindgen]\
+pub fn aisle_ok(centerline: &[f64], min_clearance: f64) -> bool \{\
+// Verifica que la distancia m\'ednima a obst\'e1culos >= min_clearance\
+true\
+\}\
+```\
+\
+**Puente en TypeScript**\
+\
+```ts\
+// apps/web/src/wasm.ts\
+import init, \{ sat_overlap, aisle_ok \} from "@seatpilot/seatpilot_kernels";\
+\
+export async function loadWasm() \{\
+await init(); // wasm-pack build -> pkg\
+\}\
+\
+export function overlaps(a: Float64Array, b: Float64Array) \{\
+return sat_overlap(a, b);\
+\}\
+```\
+\
+> Por qu\'e9 as\'ed: **wasm\uc0\u8209 bindgen** permite pasar `Float64Array` como `&[f64]` sin copias (memoria lineal), que es exactamente el patr\'f3n recomendado en los cap\'edtulos de interoperabilidad y optimizaci\'f3n de tama\'f1o/performance.\
+\
+---\
+\
+### 2.2 `crates/seatpilot-solver` (Rust \uc0\u8594  WASM o WASI)\
+\
+**Objetivo:** encapsular la **funci\'f3n de coste** del seating y operadores de vecindad (Tabu, SA).\
+**Estrategia de refactor:** seguir el enfoque de *Refactoring to Rust* para mover primero la parte **pura y caliente** y mantener la orquestaci\'f3n en TS/React.\
+\
+* Modalidad **WASM** (en navegador) para *what\uc0\u8209 if* r\'e1pido.\
+* Modalidad **WASI** (en server) para trabajos pesados/cron (mismo crate, binario WASI seg\'fan el cap\'edtulo de \'93universal runtime\'94).\
+\
+---\
+\
+### 2.3 PWA/Offline (TS/React)\
+\
+**Objetivo:** PWA robusta con **service worker**, **app shell**, **cache versionado** y **modo offline** para kioskos y planners.\
+Los libros de **Blazor WebAssembly** traen patrones de **SPA offline y SW** aplicables aunque nosotros usemos TS/React (estructuras, lifecycle y DI adaptables).\
+\
+---\
+\
+### 2.4 Seguridad y estabilidad\
+\
+* **Errores tipados** y \'93**document your crates**\'94 como norma (Effective Rust).\
+* **Perf/bench** + evitar asignaciones en hot loops (Mastering Rust).\
+* Cripto/firmas (si firmamos **QR** o invitaciones): gu\'edas pr\'e1cticas de libs `ring`, `rustls`.\
+\
+---\
+\
+## 3) Ejemplos pr\'e1cticos orientados al proyecto\
+\
+### 3.1 Validaci\'f3n geom\'e9trica: colisi\'f3n y pasillo m\'ednimo\
+\
+**TS (UI)** recibe puntos como `Float64Array`; **Rust (WASM)** hace el c\'e1lculo:\
+\
+```ts\
+// Uso en React\
+const ok = aisle_ok(centerlineFloat64, 1.5); // 1.5 m o 5 ft (seg\'fan venue)\
+if (!ok) showOverlay("Aisle constraint violated");\
+```\
+\
+> Paso por **TypedArray** y c\'e1lculo en **Rust/WASM** = menor GC y mejor p95, siguiendo los patrones de paso de datos y optimizaci\'f3n del libro de WASM pr\'e1ctico.\
+\
+### 3.2 Funci\'f3n de coste para seating (CPU\uc0\u8209 bound)\
+\
+```rust\
+#[wasm_bindgen]\
+pub fn score_assignment(table_ids: &[u32], guest_ids: &[u32], weights: &[f32]) -> f32 \{\
+// Eval\'faa afinidades/conflictos, VIP, familias, etc.\
+// Devuelve un score; el loop externo (TS) aplica heur\'edsticas (Tabu/SA).\
+0.0\
+\}\
+```\
+\
+> **Refactor incremental**: empezamos con la evaluaci\'f3n de coste en Rust y mantenemos la b\'fasqueda en TS (cap. \'93elegir interfaces/frontera y minimizar superficie\'94).\
+\
+### 3.3 WASI para trabajos batch\
+\
+Compilamos el **mismo n\'facleo** con **target WASI** para ejecutar validaciones masivas/overnight:\
+\
+> La idea de **\'93universal runtime\'94** (WASI) permite correr binarios WASM fuera del navegador (CLI/cron), alineado con el cap\'edtulo de *Refactoring to Rust*.\
+\
+---\
+\
+## 4) Pipeline de build y calidad (resumen operativo)\
+\
+1. **Estructura**\
+\
+* `crates/seatpilot-kernels` (lib WASM)\
+* `crates/seatpilot-solver` (lib WASM + bin WASI)\
+* `apps/web` (React/TS, PWA + SW)\
+\
+2. **Build**\
+\
+* `wasm-pack build crates/seatpilot-kernels --release` \uc0\u8594  `pkg/`\
+* `wasm-opt -O3 pkg/*.wasm -o pkg/seatpilot_kernels_bg.wasm` (reducci\'f3n de tama\'f1o).\
+\
+3. **Tests & perf**\
+\
+* `wasm-bindgen-test` (navegador/headless).\
+* Bench nativo (`cargo bench`) y **profiling** (\'93avoid unnecessary allocations\'94, \'93hot loops\'94), seg\'fan *Mastering Rust*.\
+\
+4. **Calidad**\
+\
+* Reglas de **Effective Rust**: errores con `thiserror`, iteradores, docs/crate\uc0\u8209 level.\
+\
+---\
+\
+## 5) Se\'f1ales de \'93qu\'e9 mirar\'94 en los libros (\'edndices/c\'f3digos clave)\
+\
+* **Refactoring to Rust**: cap\'edtulos de **WebAssembly, WASI, Web Workers, fronteras FFI** \uc0\u8594  gu\'eda para elegir **qu\'e9** migrar y **c\'f3mo** sin romper el build.\
+* **Practical WebAssembly**: **wasm\uc0\u8209 bindgen / wasm\u8209 pack / bundlers / optimizaci\'f3n de tama\'f1o** + **modelo de memoria** (strings/TypedArrays).\
+* **Programming with Rust**: **ownership/borrowing, lifetimes, concurrencia/async, iteradores** (fundamento del kernel).\
+* **Effective Rust**: \'93**document your crates**\'94, \'93**use iterators**\'94, manejo de **Option/Result** (est\'e1ndar de ingenier\'eda).\
+* **Mastering Rust Programming**: **optimizaci\'f3n/profiling**, `unsafe` seguro, **macros** y **red**/cripto (hardening).\
+* **Rust for Blockchain**: cap\'edtulos con **estructuras, CLI, nodos** y ventajas de Rust (**seguridad/perf**); \'fatil como **patrones de arquitectura** y ejemplos completos.\
+* **Blazor WebAssembly** (*Learning/Mastering/Ultimate*): **PWA/offline y SW** que replicamos en TS/React.\
+\
+---\
+\
+## 6) Roadmap de adopci\'f3n (4 hitos)\
+\
+**H1. Kernel geom\'e9trico (WASM)**\
+\
+* SAT / intersecciones / clearance.\
+* *Perf gates*: < 4\uc0\u8239 ms/100 colisiones promedio (desktop).\
+* QA: tests `wasm-bindgen-test` + comparadores con la versi\'f3n TS.\
+\
+**H2. Reglas y overlay bloqueante**\
+\
+* `aisle_ok`, `ring_clearance`, `no_place_intersect`.\
+* Tooltips y explicaciones (origen de la regla/medida).\
+\
+**H3. Funci\'f3n de coste (seating)**\
+\
+* Portar evaluaci\'f3n de coste a Rust; heur\'edsticas en TS.\
+* *Perf gate*: 10k evaluaciones < 150\uc0\u8239 ms.\
+\
+**H4. WASI batch**\
+\
+* Binario `seatpilot-solver` (WASI) para recalcular layouts/RSVP por lotes nocturnos.\
+\
+---\
+\
+## 7) Riesgos y c\'f3mo mitigarlos (del material consultado)\
+\
+* **Fronteras de datos** (copias innecesarias de arrays/strings) \uc0\u8594  usar **TypedArrays & slices** y medir; gu\'edas de interoperabilidad y optimizaci\'f3n.\
+* **Divergencia entre WASM (browser) y WASI (server)** \uc0\u8594  planificar una **API m\'ednima com\'fan** (cap\'edtulo \'93universal runtime\'94).\
+* **Complejidad de Rust** \uc0\u8594  adoptar las **pr\'e1cticas de Effective Rust** y mantener crates **bien documentados**.\
+\
+---\
+\
+## 8) Bibliograf\'eda (APA 7)\
+\
+* Drysdale, D. (2024). *Effective Rust: 35 Specific Ways to Improve Your Rust Code*. O\'92Reilly.\
+* Hussain, K., & Hussain, F. (2024). *Mastering Rust Programming: From Foundations to Future*. Sonar Publishing.\
+* Marshall, D. (2024). *Programming with Rust*. Addison\uc0\u8209 Wesley.\
+* Mara, L., & Holmes, J. (2025). *Refactoring to Rust*. Manning.\
+* Nellaiyapen, S. K. (2022). *Practical WebAssembly: Explore the Fundamentals of WebAssembly*. Packt.\
+* Pine, D. (2022). *Learning Blazor: Build Single\uc0\u8209 Page Apps with WebAssembly and .NET*. O\'92Reilly.\
+* Mozaffar, A. (2023). *Mastering Blazor WebAssembly*. Packt.\
+* Prasad Sah, C. (2024). *Ultimate Blazor WebAssembly for Web Development*. Orange Education.\
+* Sharma, A. (2024). *Rust for Blockchain Application Development*. Packt.\
+\
+---\
+\
+## 9) Entregables inmediatos (si quieres que lo deje en el repo)\
+\
+1. **Esqueleto de `crates/seatpilot-kernels`** (SAT + `aisle_ok`) con tests `wasm-bindgen-test`.\
+2. **Script de build** en CI: `wasm-pack build` + `wasm-opt -O3`.\
+3. **M\'f3dulo TS** de puente (`apps/web/src/wasm.ts`) y ejemplo de uso en el validador del Seat\uc0\u8209 Designer.\
+4. **Gu\'eda de estilo Rust** basada en *Effective Rust* (documentaci\'f3n, errores, iteradores).\
+\
+Si te parece, preparo directamente el **scaffold de crates + wasm\uc0\u8209 pack** y lo integro con el **validador de reglas** del Seat\u8209 Designer para que puedas medir el **p95** en el dashboard de observabilidad que ya tenemos. \'a1Perfecto! Aqu\'ed tienes el **plan t\'e9cnico listo para codificar**: c\'f3mo scaffoldear los crates de Rust + WASM, integrarlos con el **validador del Seat\u8209 Designer**, y **medir p95** en el dashboard de observabilidad existente (Prometheus/Alertmanager/Slack). Al final incluyo **intenciones accionables para Codex** (tareas at\'f3micas con DoD) y **referencias** del libro clave de Rust/WASM que gu\'edan este enfoque.\
+\
+---\
+\
+## 0) Objetivo (en una frase)\
+\
+Crear un **motor de validaci\'f3n geom\'e9trica** en Rust publicado como **WASM npm package** (`@seatpilot/validator-wasm`) que el front (PWA/React) llama para validar layouts y **emitir m\'e9tricas de latencia** (histograma) que alimentan Prometheus para calcular **p95** y disparar el SLO de \'93Door\uc0\u8594 Seat\'94/\'93Validate Layout\'94.\
+\
+---\
+\
+## 1) Estructura de repositorio y crates\
+\
+**Nuevas carpetas** en `packages/`:\
+\
+```\
+packages/\
+seatpilot-geometry-core/ # crate Rust (no-WASM): geometr\'eda pura (pol\'edgonos, intersecciones, distancias)\
+seatpilot-validate-core/ # crate Rust (no-WASM): reglas (ADA/IBC/NFPA) sobre primitives de geometry-core\
+seatpilot-validate-wasm/ # crate Rust (WASM): capa wasm_bindgen + (de/serializaci\'f3n) \uc0\u8594  npm package\
+```\
+\
+**Motivo del split**\
+\
+* `geometry-core`: 100% determinista, sin I/O \uc0\u8594  testeable/benchmarkeable.\
+* `validate-core`: orquesta reglas (e.g., `corridor_min_in`, `ada_route_width_in`, `turning_diameter_in`, etc.).\
+* `validate-wasm`: solo expone funciones a JS/TS (sin l\'f3gica de dominio).\
+\
+> Patr\'f3n recomendado por literatura al refactorizar hacia Rust/WASM: **separar librer\'edas puras** y la **capa de interfaz** (FFI/WASM). Ver cap\'edtulos 9\'9610 (Wasm y WASI) y 5 (estructurar librer\'edas) en *Refactoring to Rust*.\
+\
+---\
+\
+## 2) API m\'ednima (contratos)\
+\
+### Entrada (TS/JSON)\
+\
+```ts\
+type LengthUnit = "in" | "ft" | "m";\
+type RuleSetRef = "ADA-2010" | "IBC-2018" | "NFPA10/OSHA-1910.157";\
+\
+interface InputLayout \{\
+units: LengthUnit; // p.ej. "in"\
+corridors: Array<\{ polyline: [number, number][] \}>;\
+routesAccessible: Array<\{ polyline: [number, number][] \}>;\
+doors: Array<\{ clearWidth_in: number \}>;\
+ramps: Array<\{ run_in: number; rise_in: number; landings_in: [number, number][] \}>;\
+extinguishers: Array<\{ x: number; y: number; class: "A" | "B" \}>;\
+obstacles: Array<\{ polygon: [number, number][] \}>;\
+meta?: \{ venueId?: string; ruleset?: RuleSetRef \};\
+\}\
+```\
+\
+### Salida (TS/JSON)\
+\
+```ts\
+interface ValidationIssue \{\
+id: string;\
+rule: string; // e.g. "ada.route.width" | "ibc.corridor.minWidth"\
+severity: "error" | "warning" | "info";\
+message: string;\
+at?: \{ x: number; y: number \}; // para overlays\
+\}\
+\
+interface ValidationResult \{\
+ok: boolean;\
+issues: ValidationIssue[];\
+timings_ms?: \{ total: number; phases: Record<string, number> \}; // para m\'e9tricas\
+\}\
+```\
+\
+---\
+\
+## 3) WASM: API exportada\
+\
+`packages/seatpilot-validate-wasm/src/lib.rs`\
+\
+```rust\
+use wasm_bindgen::prelude::*;\
+use serde::\{Deserialize, Serialize\};\
+use seatpilot_validate_core::\{validate_layout, ValidationResultCore\};\
+\
+#[wasm_bindgen]\
+pub fn validate_layout_json(input_json: &str) -> String \{\
+let input: seatpilot_validate_core::InputLayout =\
+serde_json::from_str(input_json).expect("invalid JSON");\
+let res: ValidationResultCore = validate_layout(&input);\
+serde_json::to_string(&res).expect("serialize result")\
+\}\
+```\
+\
+> **Clave**: exportar funciones **string\uc0\u8594 string** simplifica interoperabilidad y evita lidiar con memoria compartida; cuando haga falta alto rendimiento de intercambio binario, migramos a `wasm-bindgen` con `JsValue` y `Uint8Array`. Cap. 9 muestra c\'f3mo compilar Rust a Wasm y cargarlo en el browser/React; cap. 10 discute interfaces Wasm y gesti\'f3n de memoria.\
+\
+---\
+\
+## 4) Build & empaquetado (wasm\uc0\u8209 pack)\
+\
+En `packages/seatpilot-validate-wasm/`:\
+\
+* `Cargo.toml`:\
+\
+```toml\
+[lib]\
+crate-type = ["cdylib", "rlib"]\
+\
+[dependencies]\
+wasm-bindgen = "0.2"\
+serde = \{ version = "1", features = ["derive"] \}\
+serde_json = "1"\
+seatpilot-validate-core = \{ path = "../seatpilot-validate-core" \}\
+```\
+\
+* **Comandos**:\
+\
+```bash\
+# 1) Compilar para web bundlers\
+wasm-pack build --release --target bundler --scope seatpilot \\\
+--out-dir pkg --out-name validator\
+\
+# 2) Probar local en el proyecto frontend\
+cd pkg && npm pack # genera @seatpilot/validator-wasm-<ver>.tgz\
+```\
+\
+* **Consumo en Next/Vite (TS)**:\
+\
+```ts\
+// Front (React/Next.js)\
+import init, \{ validate_layout_json \} from '@seatpilot/validator-wasm';\
+\
+await init(); // carga el .wasm\
+const result = JSON.parse(validate_layout_json(JSON.stringify(layout)));\
+```\
+\
+> Si usas Next \uc0\u8805 13: activa `experiments: \{ asyncWebAssembly: true \}` o haz `dynamic import()` del paquete para evitar SSR. (Cap. 9 gu\'eda \'93Loading Wasm in the browser\'94 y crear componentes React).\
+\
+---\
+\
+## 5) Integraci\'f3n con Seat\uc0\u8209 Designer (UI)\
+\
+Hook en el **bot\'f3n Validate** y en **autosave debounced**:\
+\
+```ts\
+import \{ performance \} from './perf'; // wrapper window.performance\
+\
+async function runValidation(layout: InputLayout) \{\
+const t0 = performance.now();\
+const result = JSON.parse(validate_layout_json(JSON.stringify(layout)));\
+const t1 = performance.now();\
+\
+result.timings_ms = \{ total: t1 - t0 \};\
+renderOverlay(result.issues); // colores, c\'edrculos, tooltips\
+pushMetric('seatdesigner_validate_duration_seconds', (t1 - t0) / 1000, \{\
+tenant: currentTenant(),\
+ruleset: layout.meta?.ruleset ?? 'default',\
+\});\
+\
+return result;\
+\}\
+```\
+\
+---\
+\
+## 6) M\'e9tricas y SLO (p95 en tu dashboard)\
+\
+### Emisi\'f3n (front \uc0\u8594  ingest)\
+\
+* Reusa tu **metrics\uc0\u8209 proxy / telemetry\u8209 ingest** para recibir eventos.\
+* Env\'eda un **histograma** con buckets predefinidos, p. ej. `seconds: [0.02,0.05,0.1,0.2,0.5,1,2,5]`.\
+\
+```ts\
+function pushMetric(name: string, value: number, labels: Record<string,string>) \{\
+fetch('/metrics/ingest', \{\
+method: 'POST',\
+headers: \{ 'content-type': 'application/json' \},\
+body: JSON.stringify(\{ type: 'histogram', name, value, labels \})\
+\}).catch(()=>\{ /* no bloquea UI */\});\
+\}\
+```\
+\
+### Regla Prometheus\
+\
+```\
+histogram_quantile(\
+0.95,\
+sum(rate(seatdesigner_validate_duration_seconds_bucket[5m])) by (le)\
+)\
+```\
+\
+### Alerta SLO (ejemplo)\
+\
+* **Firing** si p95 > 250 ms por 10 min (ajusta a tu objetivo):\
+\
+```yaml\
+- alert: SeatDesignerValidateP95High\
+expr: histogram_quantile(0.95, sum(rate(seatdesigner_validate_duration_seconds_bucket[5m])) by (le)) > 0.25\
+for: 10m\
+labels: \{ severity: page \}\
+annotations:\
+summary: "Seat\uc0\u8209 Designer validate p95 alto"\
+description: "p95=\{\{ $value \}\}s por >10m (tenant=\{\{ $labels.tenant \}\})"\
+```\
+\
+> Cap. 7 del libro cubre **testing** e **instrumentaci\'f3n** alrededor de integraciones de Rust, \'fatil para validar que el comportamiento no cambia al mover l\'f3gica a Rust; cap. 9 muestra el ciclo **compilar a Wasm, cargar en navegador y refactorizar JS a Rust** progresivamente (tu caso exacto).\
+\
+---\
+\
+## 7) Reglas incluidas (v1)\
+\
+Implementar en `seatpilot-validate-core`:\
+\
+* `ada.route.width` \uc0\u8594  **\u8805  36"** continuo; si < 60", **passing space** cada \u8804 200 ft (warning).\
+* `ada.turning.radius` \uc0\u8594  **c\'edrculo 60"** en intersecciones/giros.\
+* `ada.ramp.slope` \uc0\u8804  **1:12**, `landing \u8805  60"\'d760"`.\
+* `ibc.corridor.minWidth` \uc0\u8594  **44"** si Occupant Load \u8805  50; si <50, **36"**.\
+* `fire.extinguisher.distance` \uc0\u8594  Clase A **\u8804 75 ft**; Clase B **\u8804 50 ft**.\
+\
+**Algoritmos base** (geometry\uc0\u8209 core):\
+\
+* Distancia punto\'96pol\'edgono/polil\'ednea; ancho local de corredor (medici\'f3n **medial axis** simplificado o muestreo ortogonal).\
+* Verificaci\'f3n de continuidad de rutas (grafo + BFS).\
+* Puntos de giro con buffer de 60".\
+\
+---\
+\
+## 8) Pruebas y validaci\'f3n\
+\
+### Rust (unit + property)\
+\
+* `cargo test -p seatpilot-geometry-core`\
+* `proptest` para invariantes: \'93si ensancho el corredor +\uc0\u948 , nunca debe producir error `ibc.corridor.minWidth`\'94.\
+\
+### Benchmarks\
+\
+* `criterion` en `seatpilot-validate-core` midiendo layouts sint\'e9ticos de 100/500/2k nodos.\
+\
+### E2E (Front)\
+\
+* Snapshot JSON de resultados en `/fixtures/*.json`.\
+* **Smoke observabilidad** (ya documentado en `docs/runbooks/observability_smoke.md`):\
+\
+1. levantar Prometheus/Alertmanager;\
+2. ejecutar 50 validaciones (script) \uc0\u8594  ver histograma en `/graph`;\
+3. forzar **FIRING/RESOLVED**.\
+\
+---\
+\
+## 9) Pasos de instalaci\'f3n / build\
+\
+```bash\
+# 0) toolchain\
+rustup default stable\
+cargo --version\
+wasm-pack --version\
+\
+# 1) Crear crates\
+cargo new --lib packages/seatpilot-geometry-core\
+cargo new --lib packages/seatpilot-validate-core\
+cargo new --lib packages/seatpilot-validate-wasm\
+\
+# 2) Dependencias & features\
+# (a\'f1adir tomls como arriba)\
+\
+# 3) Compilar wasm\
+cd packages/seatpilot-validate-wasm\
+wasm-pack build --release --target bundler --scope seatpilot\
+\
+# 4) Integraci\'f3n en front\
+pnpm add -w file:packages/seatpilot-validate-wasm/pkg\
+# o: pnpm add -w @seatpilot/validator-wasm@file:packages/.../pkg\
+\
+# 5) Hook en UI y m\'e9tricas\
+pnpm -w build && pnpm -w dev\
+```\
+\
+---\
+\
+## 10) **Intenciones para Codex** (tareas at\'f3micas con DoD)\
+\
+> Copia/pega cada intenci\'f3n para que Codex genere cambios autocontenidos.\
+\
+1. **Scaffold crates**\
+\
+* **Objetivo**: generar las 3 librer\'edas con `Cargo.toml` m\'ednimos y CI local.\
+* **Entradas**: estructura deseada, nombres.\
+* **Salida**: 3 crates compilan (`cargo build -p ...`).\
+* **DoD**: PR con \'e1rbol + `README.md` por crate.\
+\
+2. **Primitives geom\'e9tricas**\
+\
+* **Objetivo**: en `geometry-core`, implementar `Point`, `Polyline`, `Polygon`, `distance_to_*`, `min_corridor_width(polyline, obstacles)`.\
+* **DoD**: tests con casos simples y edge (segmentos colineales, agujeros).\
+\
+3. **Reglas v1 (validate-core)**\
+\
+* **Objetivo**: funciones `validate_corridors`, `validate_routes_accessible`, `validate_doors`, `validate_ramps`, `validate_extinguishers`.\
+* **DoD**: retorna `Vec<Issue>` consolidado; 5 fixtures \uc0\u8594  \'93pass/fail\'94 documentado.\
+\
+4. **Capa WASM**\
+\
+* **Objetivo**: `validate_layout_json` con `wasm-bindgen` y `serde_json`.\
+* **DoD**: `wasm-pack build` exitoso; `pkg/` con `.wasm` y bindings.\
+\
+5. **Empaquetado npm**\
+\
+* **Objetivo**: `package.json` dentro de `pkg/` con `"type":"module"`, `"sideEffects":false`.\
+* **DoD**: `npm pack` usable desde app front.\
+\
+6. **Integraci\'f3n front**\
+\
+* **Objetivo**: m\'f3dulo TS `validate.ts` que llama WASM, renderiza overlay, captura timing (`performance.now()`).\
+* **DoD**: comando \'93Validate\'94 muestra issues y timing.\
+\
+7. **M\'e9tricas**\
+\
+* **Objetivo**: `pushMetric` a `/metrics/ingest` con histograma `seatdesigner_validate_duration_seconds`.\
+* **DoD**: serie visible en Prometheus.\
+\
+8. **Regla Prometheus + Alerta**\
+\
+* **Objetivo**: a\'f1adir rule y alerta `SeatDesignerValidateP95High`.\
+* **DoD**: `curl -s http://localhost:9090/api/v1/rules` muestra grupo `seatpilot.slo`.\
+\
+9. **Smoke script**\
+\
+* **Objetivo**: `scripts/validate-smoke.ts` que ejecuta 100 validaciones con layouts sint\'e9ticos.\
+* **DoD**: histograma con datos y p95 > X cuando se inyecta delay.\
+\
+10. **Benchmarks Criterion**\
+\
+* **Objetivo**: `benches/validation.rs` con 3 tama\'f1os de layout.\
+* **DoD**: `cargo bench` produce reporte.\
+\
+11. **PropTest**\
+\
+* **Objetivo**: generador de corredores + obst\'e1culos aleatorios; nunca debe reportar ancho < esperado tras \'93widen(+\uc0\u949 )\'94.\
+* **DoD**: 1k pruebas pasan local.\
+\
+12. **Docs**\
+\
+* **Objetivo**: `docs/handoff/SeatDesigner_Validator_WASM.md` con build, consumo, m\'e9tricas y l\'edmites.\
+* **DoD**: capturas + tabla de reglas.\
+\
+---\
+\
+## 11) Validaci\'f3n funcional (checklist corto)\
+\
+* [ ] 5 layouts de prueba (OK, warnings, errores) \uc0\u8594  resultados coinciden con expectativas manuales.\
+* [ ] Tiempo total de `validate_layout_json` < 50 ms en laptop para layout mediano (~500 nodos).\
+* [ ] PromQL **p95** visible y estable durante 10 min de tr\'e1fico sint\'e9tico.\
+* [ ] **FIRING\uc0\u8594 RESOLVED** llega a Slack usando tu webhook (runbook actualizado).\
+* [ ] PWA funciona offline (carga wasm desde cache) y valida sin red (las m\'e9tricas se encolan y env\'edan al volver).\
+\
+---\
+\
+## 12) Riesgos y mitigaci\'f3n\
+\
+* **Tama\'f1o WASM**: mantener el binario < 1\'962\uc0\u8239 MB (usar `wasm-opt -O3` de Binaryen; evitar `serde` pesadas si no se usan).\
+* **Compatibilidad bundler**: usar `--target bundler` y probar en Next y Vite; si hay SSR, carga diferida.\
+* **Desincronizaci\'f3n reglas**: las constantes/umbrales viven en `validate-core` + versi\'f3n sem\'e1ntica; el front solo muestra.\
+\
+---\
+\
+## 13) D\'f3nde leer (cap\'edtulos \'fatiles)\
+\
+* **Estructurar librer\'edas y exponer interfaces** (m\'f3dulos, paths, librer\'edas reusables): cap. **5**.\
+* **Testing de integraciones** (comparar comportamiento antes/despu\'e9s, doc tests, harness): cap. **7**.\
+* **WASM para refactorizar JavaScript** (compilar, cargar en navegador, usar en React): cap. **9**.\
+* **Interfaces WASM y memoria** (WASI, layouts de memoria, consumo de Wasm desde host): cap. **10**.\
+\
+> Referencia: Mara, L., & Holmes, J. (2025). *Refactoring to Rust*. Manning. (v\'e9anse los cap\'edtulos citados).\
+\
+---\
+\
+### Con esto puedes:\
+\
+* **Codex**: ejecutar cada intenci\'f3n como PR peque\'f1o y validado; copiar el contrato de API, los comandos y la regla de Prometheus/Alerta.\
+* **T\'fa**: medir inmediatamente p95 de validaci\'f3n en el Dashboard y tener un motor Rust listo para crecer (nuevas reglas, m\'e1s performance).\
+\
+Si quieres, te dejo a continuaci\'f3n los **arcivos semilla** (Cargo.toml, lib.rs b\'e1sicos y package.json) para pegar tal cual en el repo. \'a1Perfecto! Te dejo **todo listo para copiar y pegar**:\
+\
+1. la **estructura de carpetas** recomendada,\
+2. los **8 archivos .md base** (car\'e1tula + \'edndice + \'93Aplicaci\'f3n a SeatPilot\'94), y\
+3. el **scaffold m\'ednimo de Rust + WASM** (workspace, crates y package.json con scripts de build).\
+\
+---\
+\
+## 0) Carpeta destino sugerida\
+\
+```\
+docs/books/wasm-rust/\
+```\
+\
+> Convenci\'f3n de nombres: `[\{\'e1rea\}]__\{t\'edtulo-kebab\}__\{autor-apellido\}_\{a\'f1o\}.md`\
+> Ej.: `rust__effective-rust__drysdale_2024.md`\
+\
+---\
+\
+## 1) OCHO .MD BASE (copiar/pegar tal cual)\
+\
+> Todos incluyen YAML front\uc0\u8209 matter, \'edndice semilla y una secci\'f3n **Aplicaci\'f3n a SeatPilot** con tareas accionables. Puedes ajustar el `source_pdf` si cambias de ubicaci\'f3n el archivo.\
+\
+---\
+\
+### 1. `docs/books/wasm-rust/wasm__practical-webassembly__nellaiyapen_2022.md`\
+\
+```md\
+---\
+title: "Practical WebAssembly"\
+subtitle: "Explore the Fundamentals of WebAssembly"\
+author: "Sendil Kumar Nellaiyapen"\
+year: 2022\
+area: "WASM"\
+slug: "practical-webassembly"\
+source_pdf: "Book docs/Practical WebAssembly (Packt, 2022).pdf"\
+status: "seed"\
+tags: ["wasm", "runtime", "toolchain", "performance"]\
+---\
+\
+# Practical WebAssembly \'97 Notas de estudio\
+\
+## Resumen corto\
+Gu\'eda pr\'e1ctica de WASM: formato binario, toolchain, interoperabilidad con JS, memoria lineal y casos de rendimiento. \'datil para portar n\'facleos cr\'edticos a navegador/Node.\
+\
+## \'cdndice de lectura (semilla)\
+1. WASM 101: m\'f3dulos, memoria, tabla, import/export\
+2. Toolchain (Emscripten, wasm-pack, wasm\uc0\u8209 bindgen)\
+3. Interoperabilidad con JS (host bindings)\
+4. Memoria, strings y arrays (view/offset)\
+5. Debug, performance y profiling\
+6. Casos de uso (algoritmos, multimedia, GIS)\
+\
+> *TODO:* completar p\'e1ginas y capturas clave al primer repaso.\
+\
+## Aplicaci\'f3n a SeatPilot\
+- **Motor geom\'e9trico en WASM:** portar validaciones de ancho/pasillos a WASM para bajar p95.\
+- **Puente JS\uc0\u8596 WASM:** usar `serde_wasm_bindgen` y dise\'f1ar DTOs planos (mm can\'f3nicos).\
+- **Presets de build:** `wasm-pack build --target bundler` para Next/Vite.\
+- **Perf runbook:** registrar p50/p95 por regla; comparar JS vs WASM con datasets sint\'e9ticos.\
+- **Telemetr\'eda:** reportar tiempos por regla (label `rule_id`) al dashboard de observabilidad.\
+\
+## Glosario m\'ednimo\
+- **Linear Memory**: buffer continuo accesible por WASM y JS.\
+- **Host bindings**: funciones del host (JS) importadas por el m\'f3dulo WASM.\
+```\
+\
+---\
+\
+### 2. `docs/books/wasm-rust/wasm_blazor__learning-blazor-webassembly__pine_2022.md`\
+\
+```md\
+---\
+title: "Learning Blazor: Build Single-Page Apps with WebAssembly"\
+author: "David Pine"\
+year: 2022\
+area: "WASM/Blazor"\
+slug: "learning-blazor-webassembly"\
+source_pdf: "Book docs/Learning Blazor (O'Reilly, 2022).pdf"\
+status: "seed"\
+tags: ["wasm", "blazor", "spa"]\
+---\
+\
+# Learning Blazor \'97 Notas de estudio\
+\
+## Resumen corto\
+Blazor como SPA sobre WASM con .NET. Aunque SeatPilot usa TS, el libro aporta patrones UX/WASM (routing, estado, componentes, offline) aplicables al PWA.\
+\
+## \'cdndice de lectura (semilla)\
+1. Arquitectura Blazor WASM\
+2. Componentes y ciclo de vida\
+3. Estado, inyecci\'f3n de dependencias\
+4. HTTP, auth y pol\'edticas\
+5. Publicaci\'f3n, PWA y offline\
+\
+## Aplicaci\'f3n a SeatPilot\
+- **PWA skeleton:** adoptar patrones de offline/rehidratar cach\'e9s.\
+- **Estados locales/compartidos:** analog\'eda con signals/contexts en TS.\
+- **Pol\'edticas de seguridad:** mapeo de roles y guards en rutas del PWA.\
+- **Estrategia de despliegue:** cache busting y rollback controlado.\
+```\
+\
+---\
+\
+### 3. `docs/books/wasm-rust/wasm_blazor__mastering-blazor-webassembly__mozaffar_2023.md`\
+\
+```md\
+---\
+title: "Mastering Blazor WebAssembly"\
+author: "Ahmad Mozaffar"\
+year: 2023\
+area: "WASM/Blazor"\
+slug: "mastering-blazor-webassembly"\
+source_pdf: "Book docs/Mastering Blazor WebAssembly (Packt, 2023).pdf"\
+status: "seed"\
+tags: ["wasm", "blazor", "architecture"]\
+---\
+\
+# Mastering Blazor WASM \'97 Notas\
+\
+## Resumen corto\
+Profundiza en arquitectura, rendimiento, seguridad, CI/CD para WASM.\
+\
+## \'cdndice (semilla)\
+1. Arquitectura de componentes\
+2. Rendimiento (AOT, trimming)\
+3. Seguridad (headers, CSP, auth flows)\
+4. Observabilidad y diagn\'f3sticos\
+5. CI/CD y versionado\
+\
+## Aplicaci\'f3n a SeatPilot\
+- **CSP/Headers:** trasladar recomendaciones a Nginx (ya aplicado en PR\uc0\u8209 03).\
+- **AOT mental model:** evitar \'93bloat\'94 de bundles TS con an\'e1lisis de dependencias.\
+- **Feature flags:** canary de reglas WASM en Seat\uc0\u8209 Designer.\
+```\
+\
+---\
+\
+### 4. `docs/books/wasm-rust/rust__effective-rust__drysdale_2024.md`\
+\
+```md\
+---\
+title: "Effective Rust: 35 Specific Ways to Improve Your Rust Code"\
+author: "David Drysdale"\
+year: 2024\
+area: "Rust"\
+slug: "effective-rust"\
+source_pdf: "Book docs/Effective Rust (O'Reilly, 2024).pdf"\
+status: "seed"\
+tags: ["rust", "idioms", "safety", "performance"]\
+---\
+\
+# Effective Rust \'97 Notas\
+\
+## Resumen corto\
+Colecci\'f3n de pr\'e1cticas para escribir Rust seguro, idiom\'e1tico y eficiente.\
+\
+## \'cdndice (semilla)\
+1. Propiedad y pr\'e9stamos (ownership/borrowing)\
+2. Errores: `Result`, `thiserror`, `anyhow`\
+3. Concurrencia segura (`Send/Sync`, `Rayon`)\
+4. FFI/WASM y l\'edmites de mutabilidad\
+5. Bench y perfiles\
+\
+## Aplicaci\'f3n a SeatPilot\
+- **API p\'fablica estable:** tipos `#[non_exhaustive]` en crates.\
+- **Errores trazables:** unificar errores del motor con `thiserror`.\
+- **No\uc0\u8209 alloc en hot path:** evitar clones/dereferencias en validaciones masivas.\
+- **Fuzzing:** proponer `cargo fuzz` en geometr\'edas complejas.\
+```\
+\
+---\
+\
+### 5. `docs/books/wasm-rust/rust__programming-with-rust__marshall_2024.md`\
+\
+```md\
+---\
+title: "Programming with Rust"\
+author: "Donis Marshall"\
+year: 2024\
+area: "Rust"\
+slug: "programming-with-rust"\
+source_pdf: "Book docs/Programming with Rust (Addison-Wesley, 2024).pdf"\
+status: "seed"\
+tags: ["rust", "foundations", "memory", "tooling"]\
+---\
+\
+# Programming with Rust \'97 Notas\
+\
+## Resumen corto\
+Fundamentos del lenguaje, patrones de memoria y tooling moderno.\
+\
+## \'cdndice (semilla)\
+1. Tipos, lifetimes y patrones\
+2. Colecciones y slices\
+3. Traits y gen\'e9ricos avanzados\
+4. Macros e integraci\'f3n de crates\
+5. Testing y benchmarking\
+\
+## Aplicaci\'f3n a SeatPilot\
+- **DTOs limpios:** `#[serde(rename_all = "camelCase")]` para alinear con TS.\
+- **Benchmarks:** `criterion` en reglas (corridor, rampas, egreso).\
+- **Macros de aserci\'f3n:** helpers para suites de validaci\'f3n.\
+```\
+\
+---\
+\
+### 6. `docs/books/wasm-rust/rust__mastering-rust-programming__hussain_2024.md`\
+\
+```md\
+---\
+title: "Mastering Rust Programming: From Foundations to Future"\
+author: "Kameron Hussain, Frahaan Hussain"\
+year: 2024\
+area: "Rust"\
+slug: "mastering-rust-programming"\
+source_pdf: "Book docs/Mastering Rust Programming (2024).pdf"\
+status: "seed"\
+tags: ["rust", "advanced", "async", "patterns"]\
+---\
+\
+# Mastering Rust Programming \'97 Notas\
+\
+## \'cdndice (semilla)\
+1. Arquitectura de crates/workspaces\
+2. Async/await, canales y concurrencia\
+3. Patrones (builder, newtype, state)\
+4. Integraci\'f3n con C/FFI y WASM\
+5. Seguridad y auditor\'edas\
+\
+## Aplicaci\'f3n a SeatPilot\
+- **Workspace estable:** `crates/seatpilot-*` con perfiles de release.\
+- **Async por lotes:** validaciones en paralelo sobre capas (venues grandes).\
+- **Newtypes m\'e9tricas:** `Mm(u32)` para evitar errores de unidad.\
+```\
+\
+---\
+\
+### 7. `docs/books/wasm-rust/rust__refactoring-to-rust__mara-holmes_2025.md`\
+\
+```md\
+---\
+title: "Refactoring to Rust"\
+author: "Lily Mara, Joel Holmes"\
+year: 2025\
+area: "Rust/Migraciones"\
+slug: "refactoring-to-rust"\
+source_pdf: "Book docs/Refactoring to Rust (Manning, 2025).pdf"\
+status: "seed"\
+tags: ["refactor", "interop", "gradual", "ffi", "wasm"]\
+---\
+\
+# Refactoring to Rust \'97 Notas\
+\
+## Resumen corto\
+Estrategias para migrar piezas cr\'edticas a Rust de forma incremental y segura.\
+\
+## \'cdndice (semilla)\
+1. Elegir candidatos (hot paths / CPU bound)\
+2. Dise\'f1ar l\'edmites: FFI/WASM y DTOs\
+3. Paridad de tests y contratos\
+4. Observabilidad y rollback\
+5. Rollout por feature flags\
+\
+## Aplicaci\'f3n a SeatPilot\
+- **Candidato inicial:** reglas de ancho/pendiente y \'93ringClearance\'94.\
+- **Guardrails:** contrato JSON estable y tests de snapshot.\
+- **Deploy gradual:** flag `rules_engine=wasm|js` con m\'e9tricas p95 comparativas.\
+```\
+\
+---\
+\
+### 8. `docs/books/wasm-rust/rust__rust-for-blockchain__akhil-sharma_2024.md`\
+\
+```md\
+---\
+title: "Rust for Blockchain Application Development"\
+author: "Akhil Sharma"\
+year: 2024\
+area: "Rust/Seguridad"\
+slug: "rust-for-blockchain"\
+source_pdf: "Book docs/Rust for Blockchain (Packt, 2024).pdf"\
+status: "seed"\
+tags: ["rust", "security", "auditing", "determinism"]\
+---\
+\
+# Rust for Blockchain \'97 Notas\
+\
+## Resumen corto\
+Aunque orientado a blockchain, el foco en **seguridad, determinismo y auditor\'eda** es directamente aplicable a motores cr\'edticos como el de reglas.\
+\
+## \'cdndice (semilla)\
+1. Seguridad de memoria y \'93no\uc0\u8209 panic\'94 en producci\'f3n\
+2. Determinismo y pureza de funciones\
+3. Auditor\'edas, trazabilidad y firmas\
+4. Testing diferencial y property\uc0\u8209 based\
+5. CI con `cargo deny` / `audit`\
+\
+## Aplicaci\'f3n a SeatPilot\
+- **`no_std`/no\uc0\u8209 panic:** evitar `panic!` en validaciones; usar `Result`.\
+- **SBOM:** generar Software Bill of Materials del workspace.\
+- **`cargo audit/deny`:** pipeline de seguridad obligatoria.\
+```\
+\
+---\
+\
+## 2) Scaffold m\'ednimo de **Rust + WASM** (workspaces y crates)\
+\
+> Pega estos archivos en tu repo respetando los paths. Son **semillas** funcionales y compilables (m\'ednimas).\
+\
+### A. Ra\'edz del workspace \'97 `Cargo.toml`\
+\
+```toml\
+[workspace]\
+members = [\
+"crates/seatpilot-geometry",\
+"crates/seatpilot-rules",\
+"crates/seatpilot-wasm"\
+]\
+resolver = "2"\
+\
+[profile.release]\
+lto = "thin"\
+codegen-units = 1\
+opt-level = "s"\
+\
+[workspace.package]\
+edition = "2021"\
+license = "MIT OR Apache-2.0"\
+authors = ["SeatPilot Team"]\
+```\
+\
+---\
+\
+### B. `crates/seatpilot-geometry/Cargo.toml`\
+\
+```toml\
+[package]\
+name = "seatpilot-geometry"\
+version = "0.1.0"\
+edition = "2021"\
+\
+[dependencies]\
+serde = \{ version = "1", features = ["derive"] \}\
+serde_json = "1"\
+```\
+\
+#### `crates/seatpilot-geometry/src/lib.rs`\
+\
+```rust\
+use serde::\{Deserialize, Serialize\};\
+\
+/// Unidad can\'f3nica: mil\'edmetros (mm)\
+#[derive(Debug, Clone, Copy, Serialize, Deserialize)]\
+pub struct Mm(pub f64);\
+\
+#[derive(Debug, Clone, Serialize, Deserialize)]\
+pub struct Corridor \{\
+/// Ancho libre en mm\
+pub width_mm: f64,\
+/// Longitud \'fatil en mm (opcional para reglas de passing space)\
+#[serde(default)]\
+pub length_mm: f64,\
+\}\
+\
+#[derive(Debug, Clone, Serialize, Deserialize)]\
+pub struct Ramp \{\
+pub rise_mm: f64,\
+pub run_mm: f64,\
+\}\
+\
+impl Ramp \{\
+pub fn slope_ratio(&self) -> Option<f64> \{\
+if self.run_mm == 0.0 \{ None \} else \{ Some(self.run_mm / self.rise_mm.max(1.0)) \}\
+\}\
+\}\
+\
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]\
+pub struct Layout \{\
+pub corridors: Vec<Corridor>,\
+pub ramps: Vec<Ramp>,\
+\}\
+```\
+\
+---\
+\
+### C. `crates/seatpilot-rules/Cargo.toml`\
+\
+```toml\
+[package]\
+name = "seatpilot-rules"\
+version = "0.1.0"\
+edition = "2021"\
+\
+[dependencies]\
+serde = \{ version = "1", features = ["derive"] \}\
+serde_json = "1"\
+thiserror = "1"\
+seatpilot-geometry = \{ path = "../seatpilot-geometry" \}\
+```\
+\
+#### `crates/seatpilot-rules/src/lib.rs`\
+\
+```rust\
+use serde::\{Deserialize, Serialize\};\
+use thiserror::Error;\
+\
+use seatpilot_geometry::\{Corridor, Layout, Ramp\};\
+\
+#[derive(Debug, Serialize, Deserialize, Clone, Copy)]\
+#[serde(rename_all = "lowercase")]\
+pub enum Severity \{ Info, Warning, Error \}\
+\
+#[derive(Debug, Serialize, Deserialize)]\
+pub struct RuleResult \{\
+pub id: String,\
+pub severity: Severity,\
+pub message: String,\
+#[serde(skip_serializing_if = "Option::is_none")]\
+pub meta: Option<serde_json::Value>,\
+\}\
+\
+#[derive(Debug, Error)]\
+pub enum RuleError \{\
+#[error("input json inv\'e1lido")]\
+BadInput,\
+\}\
+\
+pub fn validate_corridor_min_width(c: &Corridor, min_mm: f64) -> Option<RuleResult> \{\
+if c.width_mm + f64::EPSILON < min_mm \{\
+Some(RuleResult \{\
+id: "ibc.corridor.minWidth".into(),\
+severity: Severity::Error,\
+message: format!("Ancho \{\}mm < m\'ednimo \{\}mm", c.width_mm, min_mm),\
+meta: Some(serde_json::json!(\{ "width_mm": c.width_mm, "min_mm": min_mm \})),\
+\})\
+\} else \{ None \}\
+\}\
+\
+pub fn validate_ramp_slope(r: &Ramp, max_ratio: f64) -> Option<RuleResult> \{\
+// ratio 1:12 => max_ratio=12.0 (run/rise)\
+if let Some(ratio) = r.slope_ratio() \{\
+if ratio + f64::EPSILON < max_ratio \{\
+return Some(RuleResult \{\
+id: "ada.ramp.slope".into(),\
+severity: Severity::Error,\
+message: format!("Pendiente > 1:\{\}, actual \uc0\u8776  1:\{:.2\}", max_ratio, ratio),\
+meta: Some(serde_json::json!(\{ "ratio": ratio, "max_ratio": max_ratio \})),\
+\});\
+\}\
+\}\
+None\
+\}\
+\
+#[derive(Debug, Serialize, Deserialize)]\
+pub struct RuleConfig \{\
+/// p.ej. 44" => 1118mm; 36" ADA => 914mm\
+pub corridor_min_width_mm: f64,\
+/// ADA 1:12 => 12.0\
+pub ramp_max_ratio: f64,\
+\}\
+\
+impl Default for RuleConfig \{\
+fn default() -> Self \{\
+Self \{ corridor_min_width_mm: 1118.0, ramp_max_ratio: 12.0 \}\
+\}\
+\}\
+\
+pub fn validate(layout: &Layout, cfg: &RuleConfig) -> Vec<RuleResult> \{\
+let mut out = Vec::new();\
+for c in &layout.corridors \{\
+if let Some(r) = validate_corridor_min_width(c, cfg.corridor_min_width_mm) \{ out.push(r) \}\
+\}\
+for r in &layout.ramps \{\
+if let Some(rr) = validate_ramp_slope(r, cfg.ramp_max_ratio) \{ out.push(rr) \}\
+\}\
+out\
+\}\
+```\
+\
+---\
+\
+### D. `crates/seatpilot-wasm/Cargo.toml`\
+\
+```toml\
+[package]\
+name = "seatpilot-wasm"\
+version = "0.1.0"\
+edition = "2021"\
+\
+[lib]\
+crate-type = ["cdylib", "rlib"]\
+\
+[dependencies]\
+wasm-bindgen = "0.2"\
+serde = \{ version = "1", features = ["derive"] \}\
+serde_json = "1"\
+serde-wasm-bindgen = "0.6"\
+console_error_panic_hook = "0.1"\
+seatpilot-geometry = \{ path = "../seatpilot-geometry" \}\
+seatpilot-rules = \{ path = "../seatpilot-rules" \}\
+```\
+\
+#### `crates/seatpilot-wasm/src/lib.rs`\
+\
+```rust\
+use wasm_bindgen::prelude::*;\
+use seatpilot_geometry::Layout;\
+use seatpilot_rules::\{RuleConfig, validate\};\
+\
+#[wasm_bindgen(start)]\
+pub fn init() \{\
+// Mejor stacktrace en panics dentro de WASM (dev)\
+console_error_panic_hook::set_once();\
+\}\
+\
+#[wasm_bindgen]\
+pub fn validate_layout(layout_js: JsValue, config_js: JsValue) -> Result<JsValue, JsValue> \{\
+let layout: Layout = serde_wasm_bindgen::from_value(layout_js)\
+.map_err(|_| JsValue::from_str("Bad layout JSON"))?;\
+let cfg: RuleConfig = if config_js.is_undefined() || config_js.is_null() \{\
+RuleConfig::default()\
+\} else \{\
+serde_wasm_bindgen::from_value(config_js)\
+.map_err(|_| JsValue::from_str("Bad config JSON"))?\
+\};\
+\
+let results = validate(&layout, &cfg);\
+serde_wasm_bindgen::to_value(&results).map_err(|e| e.into())\
+\}\
+```\
+\
+---\
+\
+## 3) `package.json` (scripts para build e integraci\'f3n con Seat\uc0\u8209 Designer)\
+\
+> Col\'f3calo en el `package.json` del **workspace JS** (o a\'f1ade los scripts si ya existe). Ajusta rutas si tu monorepo usa otra disposici\'f3n.\
+\
+```json\
+\{\
+"name": "@seatpilot/workspace",\
+"private": true,\
+"type": "module",\
+"scripts": \{\
+"wasm:build": "wasm-pack build crates/seatpilot-wasm --target bundler --out-dir pkg --release",\
+"wasm:dev": "wasm-pack build crates/seatpilot-wasm --target bundler --out-dir pkg",\
+"wasm:clean": "rimraf crates/seatpilot-wasm/pkg",\
+"wasm:test": "node -e \\"import('./crates/seatpilot-wasm/pkg/seatpilot_wasm.js').then(m=>console.log('WASM ok', Object.keys(m)))\\"",\
+"designer:link-wasm": "pnpm -C apps/seat-designer add file:../../crates/seatpilot-wasm/pkg"\
+\},\
+"devDependencies": \{\
+"wasm-pack": "^0.12.1",\
+"rimraf": "^5.0.5"\
+\}\
+\}\
+```\
+\
+> **Uso r\'e1pido**\
+>\
+> 1. `pnpm wasm:dev` (o `wasm:build` en CI).\
+> 2. `pnpm designer:link-wasm` para referenciar la lib empaquetada desde `apps/seat-designer`.\
+> 3. En `apps/seat-designer`, cargar el m\'f3dulo y llamar a `validate_layout(layout, config)`.\
+\
+**Snippet TS opcional** (ponlo donde prefieras, p. ej. `apps/seat-designer/lib/wasm-rules.ts`):\
+\
+```ts\
+// Carga din\'e1mica para no bloquear SSR\
+export async function validateWithWasm(layout: any, config?: any) \{\
+const wasm = await import('../../crates/seatpilot-wasm/pkg/seatpilot_wasm.js');\
+return wasm.validate_layout(layout, config ?? \{\});\
+\}\
+```\
+\
+---\
+\
+## 4) Checklist de validaci\'f3n (local)\
+\
+1. **Compilar Rust**\
+\
+```bash\
+cargo check -p seatpilot-geometry -p seatpilot-rules -p seatpilot-wasm\
+```\
+\
+2. **Construir WASM**\
+\
+```bash\
+pnpm wasm:dev\
+# Verifica que se genere: crates/seatpilot-wasm/pkg/seatpilot_wasm.js\
+```\
+\
+3. **Prueba m\'ednima en Node**\
+\
+```bash\
+node -e "import('./crates/seatpilot-wasm/pkg/seatpilot_wasm.js').then(async m=>\{\
+const layout=\{ corridors:[\{width_mm:900,length_mm:10000\}], ramps:[\{rise_mm:100,run_mm:900\}] \};\
+const cfg=\{ corridor_min_width_mm:1118, ramp_max_ratio:12 \};\
+console.log(await m.validate_layout(layout,cfg));\
+\})"\
+```\
+\
+4. **Integraci\'f3n Seat\uc0\u8209 Designer**\
+\
+* A\'f1ade el bot\'f3n \'93Validar (WASM)\'94 que llama `validateWithWasm`.\
+* Loggea tiempos (p50/p95) y el conteo de *errors/warnings*.\
+* Compara contra el validador JS actual (flag conmutador).\
+\
+---\
+\
+## 5) Notas finales\
+\
+* **Contrato de datos**: el layout asumido es **mm can\'f3nicos**, ya alineado con tu Venue Setup.\
+* **Errores**: toda API devuelve `Result<_, JsValue>` \uc0\u8594  en UI mostrar mensajes amigables (sin stack interno).\
+* **Futuros crates**: podr\'e1s a\'f1adir (`seatpilot-pathfinding`, `seatpilot-aisles`) sin romper el workspace.\
+\
+Si te parece bien, en la siguiente iteraci\'f3n genero tambi\'e9n los **.md base** para \'93Supabase (2024)\'94 y \'93Cloud\uc0\u8209 Native Patterns (2021)\'94 y te dejo su mapeo directo a **multi\u8209 tenant + RLS + pipelines de eventos** dentro de SeatPilot. \'a1Perfecto! A continuaci\'f3n te dejo **ocho archivos `.md` base** (car\'e1tula + \'edndice \'fatil + \'93Aplicaci\'f3n a SeatPilot\'94 + cita APA) listos para pegar en el repo, y **los archivos semilla** para el primer crate Rust/WASM y el `package.json` con scripts de build/test/publish.\
+\
+> **Ruta sugerida en el repo**\
+>\
+> * Coloca estos archivos en: `docs/books/wasm-rust/`\
+> * Crate Rust/WASM: `crates/sd-geom-wasm/`\
+> * El `package.json` es para el **root** del monorepo (ajusta si usas workspaces).\
+\
+---\
+\
+## 1) `docs/books/wasm-rust/2024_Drysdale_Effective_Rust_SeatPilot.md`\
+\
+````md\
+# Effective Rust \'97 SeatPilot Notes\
+\
+**T\'edtulo completo:** Effective Rust: 35 Specific Ways to Improve Your Rust Code\
+**Autor:** David Drysdale\
+**Editorial / A\'f1o:** O\'92Reilly, 2024\
+**ISBN:** 978-1098151409\
+\
+## \'cdndice \'fatil (cap\'edtulos/temas clave para SeatPilot)\
+- Errores y Result: ergonom\'eda de `Result<T,E>`, conversi\'f3n y propagaci\'f3n de errores.\
+- Ownership y lifetimes pr\'e1cticos: minimizar copias, evitar aliasing mutable.\
+- API design idiom\'e1tico: m\'f3dulos, visibilidad, naming y semver.\
+- Concurrencia segura: `Send/Sync`, canales, atomics, \'93fearless concurrency\'94.\
+- Rendimiento predecible: evitar boxing innecesario, `#[inline]`, `no_std` (cuando proceda).\
+- Interoperabilidad: FFI y pautas para exponer superficies estables.\
+\
+## Aplicaci\'f3n a SeatPilot (directo al repo)\
+- **Crates internos \'93core/ffi/wasm\'94**: separar superficies p\'fablicas y m\'f3dulos internos.\
+- **Errores del validador**: unificar con `thiserror`/`anyhow`, c\'f3digos de error estables consumibles por UI.\
+- **Hot paths geom\'e9tricos**: evitar allocs temporales; usar slices y `SmallVec` cuando aplique.\
+- **Concurrencia**: validar lotes (p. ej., ring-clearance) con `rayon`/workers (nativo) y *web workers* (WASM) sin `unsafe`.\
+\
+## Fragmentos \'fatiles (plantillas)\
+```rust\
+// Conversi\'f3n de errores idiom\'e1tica\
+pub fn calibrate(...) -> Result<Scale, CalibError> \{\
+let px = distance(px1, py1, px2, py2).ok_or(CalibError::ZeroLength)?;\
+Ok(Scale::new(known_mm / px))\
+\}\
+````\
+\
+## Tareas backlog\
+\
+* [ ] Cat\'e1logo de errores unificado para reglas ADA/IBC.\
+* [ ] Benchmarks con `criterion` para hot paths (ring clearance, corridor width).\
+* [ ] \'93Public API surface audit\'94 antes del 0.1.0.\
+\
+## Cita (APA 7)\
+\
+Drysdale, D. (2024). *Effective Rust: 35 Specific Ways to Improve Your Rust Code*. O\'92Reilly Media.\
+\
+````\
+\
+---\
+\
+## 2) `docs/books/wasm-rust/2025_Mara-Holmes_Refactoring_to_Rust_SeatPilot.md`\
+\
+```md\
+# Refactoring to Rust \'97 SeatPilot Notes\
+\
+**T\'edtulo completo:** Refactoring to Rust\
+**Autores:** Lily Mara, Joel Holmes\
+**Editorial / A\'f1o:** Manning, 2025\
+**ISBN:** 978-1617299018\
+\
+## \'cdndice \'fatil\
+- Estrategias de migraci\'f3n incremental: librer\'edas \'93leaf\'94 primero.\
+- Fronteras FFI: aislar l\'edmites con C/JS y contratos de datos.\
+- Medici\'f3n antes/despu\'e9s: criterios, microbench y KPIs de latencia.\
+- Antipatrones al portar c\'f3digo OO/JS a Rust.\
+\
+## Aplicaci\'f3n a SeatPilot\
+- **Plan incremental**: portar primero *reglas geom\'e9tricas puras* (sin IO), luego paquetes m\'e1s complejos.\
+- **Contrato estable JS\uc0\u8596 WASM**: JSON compacto con `serde` + `serde-wasm-bindgen`.\
+- **Guard-rails de performance**: pruebas `criterion` y dashboards p95 ya conectados.\
+\
+## Snippet orientativo\
+```rust\
+#[wasm_bindgen]\
+pub fn validate_corridors(widths_mm: Vec<f64>, min_mm: f64) -> JsValue \{\
+// contrato de datos estable hacia JS\
+\}\
+````\
+\
+## Tareas\
+\
+* [ ] Mapa de \'93leaf modules\'94 aptos para Rust (ring/aisle/scale).\
+* [ ] Harness de compatibilidad: salida Rust \uc0\u8801  salida TS (Golden tests).\
+\
+## Cita (APA 7)\
+\
+Mara, L., & Holmes, J. (2025). *Refactoring to Rust*. Manning.\
+\
+````\
+\
+---\
+\
+## 3) `docs/books/wasm-rust/2024_Marshall_Programming_with_Rust_SeatPilot.md`\
+\
+```md\
+# Programming with Rust \'97 SeatPilot Notes\
+\
+**T\'edtulo completo:** Programming with Rust\
+**Autor:** Donis Marshall\
+**Editorial / A\'f1o:** Addison\uc0\u8209 Wesley, 2024\
+**ISBN:** 978-0137889655\
+\
+## \'cdndice \'fatil\
+- Fundamentos del lenguaje: ownership, lifetimes, borrowing.\
+- Tipos y colecciones eficientes.\
+- Concurrencia y sincronizaci\'f3n.\
+- Herramientas: `cargo`, workspaces, testing.\
+\
+## Aplicaci\'f3n a SeatPilot\
+- **Workspaces**: crates `sd-geom-wasm`, `sd-rules-core`, `sd-ffi-js`.\
+- **Pruebas**: `wasm-bindgen-test` en navegador + `cargo test` nativo.\
+- **Concurrencia**: algoritmo de colisiones en lotes; colas trabajo.\
+\
+## Cita (APA 7)\
+Marshall, D. (2024). *Programming with Rust*. Addison\uc0\u8209 Wesley.\
+````\
+\
+---\
+\
+## 4) `docs/books/wasm-rust/2024_Hussain_Mastering_Rust_Programming_SeatPilot.md`\
+\
+```md\
+# Mastering Rust Programming \'97 SeatPilot Notes\
+\
+**Autores:** Kameron Hussain, Frahaan Hussain\
+**Editorial / A\'f1o:** Sonar Publishing, 2024\
+**ISBN:** \'97\
+\
+## \'cdndice \'fatil\
+- Patrones avanzados, macros, traits y gen\'e9ricos.\
+- Dise\'f1o de APIs y crates reutilizables.\
+- Optimizaci\'f3n y profiling.\
+\
+## Aplicaci\'f3n a SeatPilot\
+- **Traits para reglas**: `Rule::check(ctx) -> Finding`.\
+- **Macros**: registrar reglas y telemetr\'eda sin repetici\'f3n.\
+- **Optimizaci\'f3n**: perfiles en ring\uc0\u8209 clearance y corridor\u8209 sweep.\
+\
+## Cita (APA 7)\
+Hussain, K., & Hussain, F. (2024). *Mastering Rust Programming*. Sonar Publishing.\
+```\
+\
+---\
+\
+## 5) `docs/books/wasm-rust/2022_Nellaiyapen_Practical_WebAssembly_SeatPilot.md`\
+\
+```md\
+# Practical WebAssembly \'97 SeatPilot Notes\
+\
+**Autor:** Sendil Kumar Nellaiyapen\
+**Editorial / A\'f1o:** Packt, 2022\
+**ISBN:** 978-1838827465\
+\
+## \'cdndice \'fatil\
+- WASM fundamentals: memoria lineal, imports/exports.\
+- wasm\uc0\u8209 bindgen / wasm\u8209 pack / targets (web/node/deno).\
+- Interoperabilidad, paso de datos, performance y debugging.\
+\
+## Aplicaci\'f3n a SeatPilot\
+- **Contratos de datos**: `serde-wasm-bindgen` para objetos JS\uc0\u8596 Rust.\
+- **Targets**: `--target web` para PWA y `--target bundler` si usamos Vite.\
+- **Debug**: `console_error_panic_hook` para stacktraces legibles.\
+\
+## Cita (APA 7)\
+Nellaiyapen, S. K. (2022). *Practical WebAssembly*. Packt Publishing.\
+```\
+\
+---\
+\
+## 6) `docs/books/wasm-rust/2023_Mozaffar_Mastering_Blazor_WASM_SeatPilot.md`\
+\
+```md\
+# Mastering Blazor WebAssembly \'97 SeatPilot Notes\
+\
+**Autor:** Ahmad Mozaffar\
+**Editorial / A\'f1o:** Packt, 2023\
+**ISBN:** 978-1803233161\
+\
+> Aunque SeatPilot no usa Blazor, el libro aporta buenas pr\'e1cticas para SPAs WASM (carga incremental, estados y perf).\
+\
+## \'cdndice \'fatil\
+- Estrategias de carga y modularizaci\'f3n.\
+- Serializaci\'f3n eficiente y manejo de estado.\
+- Seguridad en SPAs WASM.\
+\
+## Aplicaci\'f3n a SeatPilot\
+- **Carga diferida del m\'f3dulo WASM** (on\uc0\u8209 demand al abrir Seat\u8209 Designer).\
+- **Estado aislado**: snapshot inmutable para validaciones (evitar mutaciones cruzadas).\
+- **Seguridad**: CSP/COOP/COEP y aislamiento del m\'f3dulo.\
+\
+## Cita (APA 7)\
+Mozaffar, A. (2023). *Mastering Blazor WebAssembly*. Packt Publishing.\
+```\
+\
+---\
+\
+## 7) `docs/books/wasm-rust/2022_Pine_Learning_Blazor_WebAssembly_SeatPilot.md`\
+\
+```md\
+# Learning Blazor \'97 SeatPilot Notes\
+\
+**Autor:** David Pine\
+**Editorial / A\'f1o:** O\'92Reilly, 2022\
+**ISBN:** 978-1098113216\
+\
+## \'cdndice \'fatil\
+- Pipeline de compilaci\'f3n a WASM y empaquetado.\
+- Comunicaci\'f3n con JS, interoperabilidad y l\'edmites de sandbox.\
+- Pautas de DX y debugging en navegador.\
+\
+## Aplicaci\'f3n a SeatPilot\
+- **Interop JS/WASM**: dise\'f1ar la *facade* `@seatpilot/wasm` con API estable.\
+- **Sandbox**: evitar acceso global; exponer funciones puras.\
+- **DX**: `wasm-pack test --chrome --headless` en CI.\
+\
+## Cita (APA 7)\
+Pine, D. (2022). *Learning Blazor: Build Single\uc0\u8209 Page Apps with WebAssembly and C#*. O\'92Reilly Media.\
+```\
+\
+---\
+\
+## 8) `docs/books/wasm-rust/2024_Sah_Ultimate_Blazor_WASM_SeatPilot.md`\
+\
+```md\
+# Ultimate Blazor WebAssembly \'97 SeatPilot Notes\
+\
+**Autor:** Chandradev Prasad Sah\
+**Editorial / A\'f1o:** Orange Education, 2024\
+**ISBN:** 978-8196862060\
+\
+## \'cdndice \'fatil\
+- Buenas pr\'e1cticas de arquitectura cliente\uc0\u8209 pesada.\
+- Optimizaci\'f3n de arranque y *lazy loading*.\
+- Integraci\'f3n con autenticaci\'f3n y almacenamiento.\
+\
+## Aplicaci\'f3n a SeatPilot\
+- **Lazy\uc0\u8209 load del m\'f3dulo de validaciones** por \'93feature flag\'94.\
+- **Cacheado** del WASM con `workbox`/PWA (hash\uc0\u8209 busting por versi\'f3n).\
+- **Seguridad**: revisar l\'edmites con CSP `script-src 'self'` y `connect-src` acotado.\
+\
+## Cita (APA 7)\
+Sah, C. P. (2024). *Ultimate Blazor WebAssembly for Web Development*. Orange Education.\
+```\
+\
+> **Notas cruzadas (arquitectura del sistema):** para la orquestaci\'f3n de microservicios/observabilidad y patr\'f3n de reglas, ver *Design Patterns for Cloud\uc0\u8209 Native Applications* (Indrasiri & Suhothayan, 2021) y *Building Production\u8209 Grade Web Applications with Supabase* (Lorenz, 2024).\
+\
+---\
+\
+# Archivos semilla (Rust + WASM + NPM)\
+\
+> **Estructura m\'ednima:**\
+>\
+> ```\
+> crates/\
+> sd-geom-wasm/\
+> Cargo.toml\
+> src/lib.rs\
+> ```\
+\
+## `crates/sd-geom-wasm/Cargo.toml`\
+\
+```toml\
+[package]\
+name = "sd-geom-wasm"\
+version = "0.1.0"\
+edition = "2021"\
+license = "MIT"\
+description = "SeatPilot geometry & rules primitives compiled to WebAssembly"\
+repository = "https://github.com/seatpilotapp/seatpilot"\
+keywords = ["wasm", "geometry", "validation", "events"]\
+\
+[lib]\
+crate-type = ["cdylib", "rlib"]\
+\
+[features]\
+default = ["console_error_panic_hook"]\
+console_error_panic_hook = ["dep:console_error_panic_hook"]\
+\
+[dependencies]\
+wasm-bindgen = "0.2"\
+serde = \{ version = "1", features = ["derive"] \}\
+serde_json = "1"\
+serde-wasm-bindgen = "0.6"\
+console_error_panic_hook = \{ version = "0.1", optional = true \}\
+\
+# A\'f1ade nalgebra/smallvec si m\'e1s adelante se requiere\
+# nalgebra = \{ version = "0.32", default-features = false \}\
+# smallvec = "1.13"\
+\
+[dev-dependencies]\
+wasm-bindgen-test = "0.3"\
+\
+[package.metadata.wasm-pack.profile.release]\
+# tama\'f1os m\'e1s peque\'f1os\
+wasm-opt = ["-O3"]\
+```\
+\
+## `crates/sd-geom-wasm/src/lib.rs`\
+\
+```rust\
+use wasm_bindgen::prelude::*;\
+use serde::\{Deserialize, Serialize\};\
+\
+#[cfg(feature = "console_error_panic_hook")]\
+#[wasm_bindgen(start)]\
+pub fn start() \{\
+console_error_panic_hook::set_once();\
+\}\
+\
+/// Resultado de una calibraci\'f3n de escala mm/px.\
+#[derive(Serialize)]\
+pub struct CalibOut \{\
+pub mm_per_px: f64,\
+pub px_dist: f64,\
+\}\
+\
+/// Distancia eucl\'eddea entre dos puntos.\
+fn dist(px1: f64, py1: f64, px2: f64, py2: f64) -> Option<f64> \{\
+let dx = px2 - px1;\
+let dy = py2 - py1;\
+let d = (dx * dx + dy * dy).sqrt();\
+if d.is_finite() && d > 0.0 \{ Some(d) \} else \{ None \}\
+\}\
+\
+/// Calcula la escala (mm/px) a partir de dos puntos en pixeles y una longitud conocida en mm.\
+/// Devuelve \{ mm_per_px, px_dist \} como objeto JS.\
+#[wasm_bindgen]\
+pub fn calibrate_scale(px1: f64, py1: f64, px2: f64, py2: f64, known_len_mm: f64) -> JsValue \{\
+let px = dist(px1, py1, px2, py2).unwrap_or(0.0);\
+let mm_per_px = if px > 0.0 \{ known_len_mm / px \} else \{ f64::NAN \};\
+serde_wasm_bindgen::to_value(&CalibOut \{ mm_per_px, px_dist: px \}).unwrap()\
+\}\
+\
+/// Estado de ancho de corredor.\
+#[derive(Serialize)]\
+pub struct WidthStatus \{\
+pub width_mm: f64,\
+pub status: &'static str, // "ok" | "warn" | "error"\
+\}\
+\
+/// Valida anchos de corredores contra un m\'ednimo (mm).\
+/// Regla: error si < min; warn si [min, min+25.4); ok si >= min+25.4\
+#[wasm_bindgen]\
+pub fn validate_corridors(widths_mm: Vec<f64>, min_mm: f64) -> JsValue \{\
+let statuses: Vec<WidthStatus> = widths_mm\
+.into_iter()\
+.map(|w| \{\
+let status = if w < min_mm \{\
+"error"\
+\} else if w < (min_mm + 25.4) \{\
+"warn"\
+\} else \{\
+"ok"\
+\};\
+WidthStatus \{ width_mm: w, status \}\
+\})\
+.collect();\
+serde_wasm_bindgen::to_value(&statuses).unwrap()\
+\}\
+\
+/// Objeto circle para comprobaci\'f3n de "ring clearance".\
+#[derive(Deserialize)]\
+pub struct Circle \{\
+pub x: f64,\
+pub y: f64,\
+pub r_mm: f64,\
+\}\
+\
+#[derive(Serialize)]\
+pub struct ClearanceOut \{\
+pub ok: bool,\
+pub min_margin_mm: f64,\
+\}\
+\
+/// Comprueba si un anillo de radio `cr_mm` centrado en (cx, cy) est\'e1 libre de obst\'e1culos circulares.\
+/// `obstacles_js` debe ser un array de \{x,y,r_mm\}. Devuelve \{ ok, min_margin_mm \}.\
+#[wasm_bindgen]\
+pub fn ring_clearance(cx: f64, cy: f64, cr_mm: f64, obstacles_js: JsValue) -> JsValue \{\
+let obstacles: Vec<Circle> = serde_wasm_bindgen::from_value(obstacles_js).unwrap_or_default();\
+let mut min_margin = f64::INFINITY;\
+\
+for c in obstacles.iter() \{\
+let d = ((c.x - cx).powi(2) + (c.y - cy).powi(2)).sqrt();\
+let margin = d - (cr_mm + c.r_mm);\
+if margin < min_margin \{ min_margin = margin; \}\
+\}\
+\
+let ok = min_margin.is_finite() && min_margin >= 0.0;\
+serde_wasm_bindgen::to_value(&ClearanceOut \{ ok, min_margin_mm: min_margin \}).unwrap()\
+\}\
+\
+/// Conversi\'f3n mm \uc0\u8594  pies/pulgadas (objeto \{ ft, in \}).\
+#[wasm_bindgen]\
+pub fn mm_to_ft_in(mm: f64) -> JsValue \{\
+let inches = mm / 25.4;\
+let ft = (inches / 12.0).floor();\
+let inch = inches - ft * 12.0;\
+serde_wasm_bindgen::to_value(&serde_json::json!(\{\
+"ft": ft,\
+"in": (inch * 1000.0).round() / 1000.0 // tres decimales\
+\})).unwrap()\
+\}\
+\
+#[cfg(test)]\
+mod tests \{\
+use super::*;\
+use wasm_bindgen_test::*;\
+\
+wasm_bindgen_test_configure!(run_in_browser);\
+\
+#[wasm_bindgen_test]\
+fn scale_basic() \{\
+let out = calibrate_scale(0.0, 0.0, 10.0, 0.0, 254.0);\
+let v: CalibOut = serde_wasm_bindgen::from_value(out).unwrap();\
+assert!((v.mm_per_px - 25.4).abs() < 1e-6);\
+\}\
+\
+#[wasm_bindgen_test]\
+fn corridors() \{\
+let res = validate_corridors(vec![100.0, 90.0], 914.4); // 36"\
+let arr: Vec<WidthStatus> = serde_wasm_bindgen::from_value(res).unwrap();\
+assert_eq!(arr.len(), 2);\
+\}\
+\}\
+```\
+\
+## `package.json` (root del monorepo)\
+\
+> **Si ya tienes uno**, integra estos scripts. Si usas **pnpm**, no cambies `"packageManager"`.\
+\
+```json\
+\{\
+"name": "seatpilot",\
+"private": true,\
+"packageManager": "pnpm@9",\
+"scripts": \{\
+"wasm:build": "wasm-pack build crates/sd-geom-wasm --release --target web --out-dir pkg --scope seatpilot",\
+"wasm:dev": "wasm-pack build crates/sd-geom-wasm --dev --target web --out-dir pkg --scope seatpilot",\
+"wasm:test": "wasm-pack test --chrome --headless crates/sd-geom-wasm",\
+"wasm:publish": "cd crates/sd-geom-wasm/pkg && npm publish --access public",\
+"types:check": "tsc -p tsconfig.json --noEmit"\
+\},\
+"devDependencies": \{\
+"typescript": "^5.6.0"\
+\}\
+\}\
+```\
+\
+> **C\'f3mo usarlo (local)**\
+>\
+> 1. `pnpm wasm:dev` para compilar en modo dev.\
+> 2. Importa desde el front (PWA/Seat\uc0\u8209 Designer):\
+>\
+> ```ts\
+> import init, \{ calibrate_scale, validate_corridors, ring_clearance \} from '../../crates/sd-geom-wasm/pkg/sd-geom-wasm.js';\
+> await init(); // carga el .wasm\
+> ```\
+>\
+> 3. CI: a\'f1ade `pnpm wasm:test` para correr pruebas en Chrome headless.\
+\
+---\
+\
+## Checklist de integraci\'f3n r\'e1pida\
+\
+* [ ] Crear carpeta `docs/books/wasm-rust/` y pegar los 8 `.md` de arriba.\
+* [ ] A\'f1adir `crates/sd-geom-wasm/` con `Cargo.toml` y `src/lib.rs`.\
+* [ ] Ejecutar `pnpm wasm:dev` y probar desde el Seat\uc0\u8209 Designer (fixture simple).\
+* [ ] Medir latencia p95 en el dashboard existente (regla Door\uc0\u8594 Seat) tras activar el validador WASM.\
+* [ ] Documentar evidencias en `docs/history/` (smoke + capturas).\
+\
+---\
+\
+## Referencias cruzadas de arquitectura\
+\
+* Indrasiri, K., & Suhothayan, S. (2021). *Design Patterns for Cloud\uc0\u8209 Native Applications*. O\'92Reilly Media. (composici\'f3n de servicios, patrones de mensajer\'eda, observabilidad).\
+* Lorenz, D. (2024). *Building Production\uc0\u8209 Grade Web Applications with Supabase*. Packt. (RLS, multi\u8209 tenant, Auth, Realtime, Storage; muy alineado con nuestra base).\
+\
+---\
+\
+Si quieres, en una siguiente iteraci\'f3n te dejo: (a) `README.md` corto en `crates/sd-geom-wasm/` con API p\'fablica, (b) ejemplo TS para consumir el paquete desde la PWA, y (c) job de CI para `wasm:build` + `wasm:test` en cada PR.\
+\
+\
+\'a1Hecho! A continuaci\'f3n te dejo **los dos `.md` base** que pediste \'97con **car\'e1tula**, **\'edndice (extracto)** y, sobre todo, el **mapeo directo a SeatPilot** para **multi\uc0\u8209 tenant + RLS + pipelines de eventos**. Est\'e1n listos para copiar/pegar en tu repo bajo:\
+\
+```\
+docs/books/2024-Supabase_Prod-Grade-Lorenz_Varandas.md\
+docs/books/2021-Cloud-Native_Patterns-Indrasiri_Suhothayan.md\
+```\
+\
+> **Fuentes consultadas y citadas**\
+>\
+> * *Building Production\uc0\u8209 Grade Web Applications with Supabase* \'97 cap\'edtulos de multi\u8209 tenant, RLS, dominios por inquilino, auth (password, magic link, recovery) y patrones de cliente (.single).\
+> * *Design Patterns for Cloud\uc0\u8209 Native Applications* \'97 patrones EDA (Producer\u8209 Consumer, Pub/Sub, Fire\u8209 and\u8209 Forget, Request\u8209 Callback, Store\u8209 and\u8209 Forward), Event Sourcing, Saga, conectividad (API Gateway, Service Mesh/Envoy), stream processing y observabilidad.\
+\
+---\
+\
+## `docs/books/2024-Supabase_Prod-Grade-Lorenz_Varandas.md`\
+\
+````md\
+---\
+title: "Building Production\uc0\u8209 Grade Web Applications with Supabase (2024) \'97 Base Notes"\
+slug: books/supabase-2024\
+authors: "David Lorenz; Jorge Varandas"\
+source_pdf: "./Book docs/Building Production-Grade Web Applications with Supabase (2024).pdf"\
+status: "Base v1.0"\
+applies_to: ["Multi-tenant", "RLS", "Auth", "Next.js", "Pipelines (DB)"]\
+---\
+\
+# Car\'e1tula / Resumen ejecutivo\
+\
+El libro gu\'eda la construcci\'f3n de apps **multi\uc0\u8209 tenant** sobre **Supabase** (Postgres + Auth + Realtime) con **RLS** y **Next.js**. La Parte 2 convierte la app en \'93multi\u8209 tenant powerhouse\'94: auth segura, **RLS** por tenant, **dominios/slug** por inquilino y pruebas end\u8209 to\u8209 end.\
+\
+## \'cdndice (extracto relevante)\
+- Parte 2. \'93Adding Multi\uc0\u8209 Tenancy and Learning RLS\'94:\
+- Auth (password, **magic links**, recovery), server\uc0\u8209 side auth, middleware y route guards.\
+- Dise\'f1o multi\uc0\u8209 tenant (tablas, permisos, app \'93tenant\u8209 aware\'94).\
+- RLS y dominios por tenant (pol\'edticas, dominios/paths por inquilino, pruebas).\
+- Patrones de cliente: `.single()` / `.maybeSingle()` cuando esperas 1 fila tras RLS.\
+\
+---\
+\
+# Aplicaci\'f3n directa a SeatPilot (multi\uc0\u8209 tenant + RLS + pipelines)\
+\
+## 1) Modelo multi\uc0\u8209 tenant (DB + JWT)\
+\
+**Tablas n\'facleo**:\
+```sql\
+create table tenants (\
+id uuid primary key default gen_random_uuid(),\
+name text not null,\
+slug text unique\
+);\
+\
+create table tenant_users (\
+tenant_id uuid not null references tenants(id) on delete cascade,\
+user_id uuid not null references auth.users(id) on delete cascade,\
+role text not null check (role in ('owner','admin','editor','viewer')),\
+primary key (tenant_id, user_id)\
+);\
+````\
+\
+**JWT**: incluir `tenant_id` (o `tenants[]`) en `app_metadata`. La app Next.js resuelve el tenant por **dominio** (`acme.seatpilot.app`) o **slug** (`/acme/...`) y lo propaga al contexto.\
+\
+## 2) RLS por tenant (plantilla SeatPilot)\
+\
+```sql\
+-- Helper para leer tenant del JWT\
+create or replace function public.current_tenant_id() returns uuid\
+language sql stable as $$ select nullif(auth.jwt() ->> 'tenant_id','')::uuid; $$;\
+\
+alter table tenants enable row level security;\
+alter table venues enable row level security;\
+alter table layouts enable row level security;\
+\
+create policy tenants_isolation on tenants for select\
+using (id = public.current_tenant_id());\
+\
+create policy venues_isolation on venues for all\
+using (tenant_id = public.current_tenant_id())\
+with check (tenant_id = public.current_tenant_id());\
+\
+create policy layouts_isolation on layouts for all\
+using (tenant_id = public.current_tenant_id())\
+with check (tenant_id = public.current_tenant_id());\
+```\
+\
+## 3) Auth y flujos de alta (RSVP/Accesos)\
+\
+* Password + **Magic link** + recovery.\
+* **Invitaciones** con gate: s\'f3lo se crea usuario si el `tenant` existe y el email coincide con la lista blanca del tenant.\
+* **middleware.js** para refrescar sesi\'f3n y redirigir a `/login` o `/\{tenant\}/dashboard`.\
+\
+## 4) Tenants por dominio o slug\
+\
+* Resolver `tenant_id` por **host** o **ruta din\'e1mica**. Persistirlo en cookie/claim y en SSR/API usar el cliente server\uc0\u8209 side.\
+\
+## 5) Pipelines de eventos en Postgres (con RLS)\
+\
+```sql\
+create schema if not exists events;\
+\
+create table events.core(\
+id bigserial primary key,\
+tenant_id uuid not null,\
+event_name text not null,\
+ts_ms bigint not null,\
+app_channel text not null,\
+payload jsonb not null\
+);\
+\
+alter table events.core enable row level security;\
+\
+create policy p_core_tenant_select on events.core for select\
+using (tenant_id = public.current_tenant_id());\
+\
+create policy p_core_tenant_insert on events.core for insert\
+with check (tenant_id = public.current_tenant_id());\
+\
+create or replace function events.add_core_event(\
+p_name text, p_ts_ms bigint, p_channel text, p_payload jsonb\
+) returns bigint language plpgsql security definer as $$\
+declare v_tid uuid := public.current_tenant_id(); v_id bigint;\
+begin\
+if v_tid is null then raise exception 'missing tenant_id'; end if;\
+insert into events.core(tenant_id, event_name, ts_ms, app_channel, payload)\
+values (v_tid, p_name, p_ts_ms, p_channel, p_payload)\
+returning id into v_id;\
+return v_id;\
+end; $$;\
+```\
+\
+## 6) Patr\'f3n de uso en Next.js (cliente)\
+\
+```ts\
+const \{ data, error \} = await supabase\
+.from('tenants')\
+.select('name')\
+.eq('id', tenantId)\
+.single(); // 1 fila esperada\
+```\
+\
+---\
+\
+# PRs sugeridos (DoD)\
+\
+1. Migraciones + pruebas de RLS (tenants/venues/layouts/events.*).\
+2. Resoluci\'f3n de tenant por dominio/slug (middleware + SSR/API).\
+3. Funciones de evento `events.add_*` + vistas KPI (\'edndices por `(tenant_id, ts_ms)`).\
+\
+# Citas (APA 7)\
+\
+Lorenz, D., & Varandas, J. (2024). *Building Production\uc0\u8209 Grade Web Applications with Supabase*. Packt. (Multi\u8209 tenant, RLS, dominios por inquilino, auth, `.single()`).\
+\
+````\
+\
+---\
+\
+## `docs/books/2021-Cloud-Native_Patterns-Indrasiri_Suhothayan.md`\
+\
+```md\
+---\
+title: "Design Patterns for Cloud\uc0\u8209 Native Applications (2021) \'97 Base Notes"\
+slug: books/cloud-native-patterns-2021\
+authors: "Kasun Indrasiri; Sriskandarajah Suhothayan"\
+source_pdf: "./Book docs/Design patterns for cloud\uc0\u8209 native applications (2021).pdf"\
+status: "Base v1.0"\
+applies_to: ["Event\uc0\u8209 Driven", "Service Connectivity", "Streaming", "Observabilidad", "Seguridad"]\
+---\
+\
+# Car\'e1tula / Resumen ejecutivo\
+Compendio de patrones **cloud\uc0\u8209 native**: **EDA** (Producer\u8209 Consumer, Pub/Sub, Fire\u8209 and\u8209 Forget, Request\u8209 Callback, Store\u8209 and\u8209 Forward), **Event Sourcing**, **Saga**; conectividad (**API Gateway**, **service mesh/sidecar \'96 Envoy**), **stream processing** (ventanas/agua de marca) y **observabilidad**.\
+\
+## \'cdndice (extracto relevante)\
+- Entrega de eventos y estrategias de fiabilidad (al menos una vez / exactamente una vez).\
+- Gesti\'f3n de estado: **Event Sourcing** y proyecciones.\
+- Transacciones distribuidas: **Saga** (coreograf\'eda/orquestaci\'f3n).\
+- Conectividad: gateway, service discovery, **mesh** con **Envoy** (mTLS, retries, circuit\uc0\u8209 breaking).\
+- Procesamiento de streams: ventanas, agregaciones, **watermarks**.\
+- Observabilidad en EDA (correlationId, m\'e9tricas de lag).\
+\
+---\
+\
+# Mapeo directo a SeatPilot (multi\uc0\u8209 tenant + pipelines de eventos)\
+\
+## 1) Topolog\'eda (brokers y convenci\'f3n)\
+**Convenci\'f3n de tipos**: `sp.<dominio>.<evento>.v1` con **CloudEvents**.\
+\
+- `sp.core.checkin.v1` \'97 check\uc0\u8209 in en kiosko\
+- `sp.core.door_to_seat.v1` \'97 tiempos door\uc0\u8594 seat\
+- `sp.safety.alarm.v1` \'97 incidentes/evacuaci\'f3n\
+- `sp.nav.screen_heartbeat.v1` \'97 se\'f1alizaci\'f3n en TV\
+\
+**Patrones**:\
+- **Producer\uc0\u8209 Consumer** para ingesta de kiosko/TV \u8594  `ingest-svc`.\
+- **Pub/Sub** para fan\uc0\u8209 out a **Ops Live** y **Billing**.\
+- **Store\uc0\u8209 and\u8209 Forward** en borde (PWA offline de kiosko).\
+\
+## 2) Contratos (CloudEvents)\
+```json\
+\{\
+"specversion":"1.0",\
+"type":"sp.core.checkin.v1",\
+"id":"$\{uuid\}",\
+"source":"seatpilot/kiosk/$\{kioskId\}",\
+"subject":"tenant:$\{tenantId\}",\
+"time":"$\{iso\}",\
+"datacontenttype":"application/json",\
+"data":\{"guest_id":"g_123","door_id":"A","seat_id":null,"meta":\{"correlationId":"$\{corr\}"\}\}\
+\}\
+````\
+\
+## 3) Persistencia y KPIs (Postgres + RLS)\
+\
+* Tablas `events.core|safety|nav` con \'edndices `(tenant_id, event_name, ts_ms)`; **RLS** por `tenant_id`.\
+* Proyector **stateful** que calcule **p50/p95 door\uc0\u8594 seat** (ventanas de tiempo + checkpoint).\
+\
+## 4) Consistencia y recuperaci\'f3n\
+\
+* **Saga** para: \'93crear evento \uc0\u8594  reservar asiento \u8594  notificar\'94. Acciones de **compensaci\'f3n** si cualquier paso falla.\
+\
+## 5) Conectividad y seguridad\
+\
+* **API Gateway / BFF** para apps externas;\
+* **Service mesh (Envoy)** interno: **mTLS**, retries, timeouts y circuit\uc0\u8209 breaking.\
+\
+## 6) Observabilidad\
+\
+* M\'e9tricas SLI/SLO: p95 door\uc0\u8594 seat (alerta si >120 s), **lag del topic**, tasa de reintentos.\
+* Trazas: propagar **correlationId** desde CloudEvents.\
+\
+---\
+\
+# PRs sugeridos (DoD)\
+\
+1. **Cat\'e1logo de eventos** + **JSON Schema** (+ validadores).\
+2. **Broker** (Kafka/NATS) con TLS/ACL y **DLQ**; drivers de ingesta y publicaci\'f3n.\
+3. Proyector **stream processing** + **Saga b\'e1sica** (compensaciones) y tableros de lag/SLO.\
+\
+# Citas (APA 7)\
+\
+Indrasiri, K., & Suhothayan, S. (2021). *Design Patterns for Cloud\uc0\u8209 Native Applications*. O\'92Reilly Media. (EDA, entrega de eventos, Saga, Envoy, stream processing y observabilidad).\
+\
+```\
+\
+---\
+\
+### C\'f3mo usar estos `.md` en el proyecto\
+\
+- S\'fabelos a `docs/books/` con esos **nombres can\'f3nicos**.\
+- Cada archivo ya incluye **Acciones/PRs sugeridos (DoD)** para convertir la teor\'eda en **tareas t\'e9cnicas** directamente mapeadas a SeatPilot.\
+- Si quieres, en un siguiente paso te genero **migraciones SQL** y **tests de RLS** (con inyecci\'f3n de `tenant_id` en JWT) y el **esqueleto del proyector** de eventos (Node/TS + Rust/WASM) conforme a estos patrones.\
+\
+\'bfTe preparo tambi\'e9n los **JSON Schemas** de `sp.core.checkin.v1` y `sp.core.door_to_seat.v1` y las **migraciones** correspondientes?\
+```\
+}

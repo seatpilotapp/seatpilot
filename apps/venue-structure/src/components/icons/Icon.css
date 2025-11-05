@@ -1,0 +1,11 @@
+.icon {
+  display: inline-block;
+  object-fit: contain;
+}
+
+.icon--placeholder {
+  background: rgba(148, 192, 255, 0.2);
+  border: 1px dashed rgba(148, 192, 255, 0.4);
+  border-radius: 8px;
+}
+

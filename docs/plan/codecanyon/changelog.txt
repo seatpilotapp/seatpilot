@@ -1,0 +1,66 @@
+-------
+Version 1.2.0 - (October 3, 2024)
+This release focuses on adding new features to editor.
+
+Description
+
+1. Fit to view: When the plan initially loads, the view will automatically adjust to fit within the walls. The same "fit view" functionality can also be activated by clicking on the percentage value in the zoom controls.
+2. Measure Wall Segment: By drawing a wall, a new measurement line is created to display the length of the wall.
+3. Text Element: A new text element is available for labeling rooms or adding simple annotations.
+4. Unit Length: You can now change the unit of measurement. The available options are centimeters, inches, and feet.
+5. Library Expansion: Two new flower items have been added to the library.
+
+File Changes
+
+1.  components/FloorPlanEditor/ItemWrapper.jsx
+2.  components/FloorPlanEditor/Panel.jsx
+3.  components/FloorPlanEditor/PropertyPanel.jsx
+4.  components/FloorPlanEditor/TextEditing.jsx
+5.  components/FloorPlanEditor/WallDrawing.jsx
+6.  components/FloorPlanEditor/Walls.jsx
+7.  components/FloorPlanItems/Flower.jsx
+8.  components/FloorPlanItems/Flower2.jsx
+9.  components/FloorPlanItems/Text.jsx
+10. components/FloorPlanItems/index.js
+12. components/FloorPlanViewer/ItemsView.jsx
+13. components/Plans/PlanThumbnail/ListItems.jsx
+14. components/Shered/GridControls.jsx
+15. components/Shered/ScaleControls.jsx
+16. components/Shered/SVGViewport.jsx
+17. components/hooks/initialPlans.js
+18. pages/FloorPlanEditor.jsx
+19. pages/FloorPlanViewer.jsx
+20. pages/Landing.jsx
+21. store/app.js
+22. utils/helpers.js
+23. main.jsx
+24. pages/Documentation
+25. public/documentation
+
+
+-------
+
+Version 1.1.0 - (August 28, 2024)
+This release focuses on editing and removing wall segments.
+
+Description
+
+1. Editing walls Add control points to wall segments when they are active. Control points allow you to adjust the position of each segment.
+2. Remove Wall Segments and Furnishing: A new button has been added for delete action.
+3. Rotate icon: Add a rotate icon to the rotate button to enhance the user interface.
+
+File Changes
+
+1. components/FloorPlanEditor/ItemWrapper.jsx - added rotate icon for rotate button
+1. components/FloorPlanEditor/PropertyPanel.jsx - new file where all property of selected item will be placed. Right now only delete button.
+3. components/FloorPlanEditor/Wall.jsx - add control points to edit wall segments
+4. components/FloorPlanEditor/WallControlPoint.jsx - new file for wall control point component
+5. components/FloorPlanEditor/Walls.jsx - pass the updateWalls function
+6. hooks/usePlan.js - add new method updateWalls
+7. pages/FloorPlanEditor.jsx - add PropertyPanel and pass new updateWalls method 
+8. pages/Documentation - update documentation pages
+9. public/documentation - add and update documentation screens
+
+-------
+
+Version 1.0.0 - Initial Release (August 23, 2024)

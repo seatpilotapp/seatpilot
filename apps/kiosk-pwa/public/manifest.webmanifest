@@ -1,0 +1,15 @@
+{
+  "name": "SeatPilot Kiosk",
+  "short_name": "SeatPilot",
+  "start_url": "/kiosk",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#38bdf8",
+  "icons": [
+    {
+      "src": "/seatpilot.svg",
+      "sizes": "120x120",
+      "type": "image/svg+xml"
+    }
+  ]
+}

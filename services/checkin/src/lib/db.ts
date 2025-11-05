@@ -29,3 +29,4 @@ const connection = {
 export const db = pgp(connection);
 
 export const pgpInstance = pgp;
+

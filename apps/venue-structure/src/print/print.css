@@ -1,0 +1,127 @@
+@media screen {
+  .print-root {
+    display: none;
+  }
+}
+
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 1cm;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #111827 !important;
+    font-family: "Inter", system-ui, sans-serif;
+    margin: 0;
+  }
+
+  .app-root {
+    display: none !important;
+  }
+
+  .print-root {
+    display: block !important;
+    padding: 1.5cm 1.2cm;
+  }
+
+  .print-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 0.5cm;
+    gap: 0.6cm;
+  }
+
+  .print-header h1 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #0f172a;
+  }
+
+  .print-meta {
+    font-size: 12px;
+    color: #475569;
+    text-align: right;
+  }
+
+  .print-footer {
+    margin-top: 0.5cm;
+    font-size: 10px;
+    color: #64748b;
+  }
+
+  .print-plan {
+    page-break-after: always;
+  }
+
+  .print-svg {
+    width: 100% !important;
+    height: auto !important;
+    border: 1px solid #e5e7eb;
+    box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.04);
+    background: #ffffff;
+  }
+
+  .print-summary {
+    font-size: 12px;
+    line-height: 1.45;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.8cm;
+  }
+
+  .print-summary__section {
+    border-top: 2px solid #0f172a;
+    padding-top: 0.35cm;
+    break-inside: avoid;
+  }
+
+  .print-summary__section h2 {
+    margin: 0 0 0.25cm;
+    font-size: 14px;
+    font-weight: 600;
+    color: #0f172a;
+  }
+
+  .print-summary table {
+    width: 100%;
+    border-collapse: collapse;
+    break-inside: avoid;
+  }
+
+  .print-summary th,
+  .print-summary td {
+    text-align: left;
+    padding: 0.18cm 0;
+    border-bottom: 1px solid #e2e8f0;
+    vertical-align: top;
+    break-inside: avoid;
+  }
+
+  .print-summary th {
+    font-weight: 600;
+    color: #1f2937;
+  }
+
+  .print-summary__checklist,
+  .print-summary__validations {
+    margin: 0;
+    padding-left: 0.4cm;
+  }
+
+  .print-summary__checklist li,
+  .print-summary__validations li {
+    margin-bottom: 0.18cm;
+    break-inside: avoid;
+  }
+
+  .print-room-label {
+    font-size: 18px;
+    font-weight: 600;
+    fill: #0f172a;
+    opacity: 0.85;
+  }
+}

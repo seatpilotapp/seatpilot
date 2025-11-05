@@ -1,0 +1,112 @@
+{
+  "print": {
+    "pageCaption": "Print · Page {{current}} of {{total}}",
+    "sheetTitle": "Plan technical sheet",
+    "planData": "Plan data",
+    "title": "Title",
+    "planNumber": "Plan number",
+    "scale": "Scale",
+    "northRef": "North reference",
+    "prepChecklist": "Preparation checklist",
+    "checks": {
+      "north": "North arrow placed",
+      "sections": "Section markers added",
+      "dimensions": "Dimensions verified",
+      "hatch": "Hatch/materials ready",
+      "joists": "Joists & roof direction"
+    },
+    "generalSummary": "General summary",
+    "wallsTotal": "Total wall length",
+    "doorsTotal": "Doors",
+    "roomsTotal": "Rooms",
+    "furnitureTotal": "Furniture",
+    "totalArea": "Total area",
+    "byRoom": "Per-room detail",
+    "name": "Name",
+    "area": "Area",
+    "byCategory": "Furniture by category",
+    "category": "Category",
+    "count": "Count",
+    "notes": "Plan notes",
+    "noNotes": "No notes recorded.",
+    "validations": "Validations",
+    "noFurniture": "No furniture registered",
+    "noRooms": "No rooms defined",
+    "noValidations": "No pending observations.",
+    "footerGenerated": "generated {{date}}",
+    "footerVersion": "version {{label}}",
+    "footerPlan": "plan {{id}}",
+    "footerUpdated": "updated {{date}}"
+  },
+  "toolbar": {
+    "print": "Print",
+    "savedAt": "Saved {{time}}",
+    "language": "Language",
+    "library": "Saved plans",
+    "returnEditor": "Back to editor",
+    "newPlan": "New design",
+    "save": "Save",
+    "saving": "Saving…",
+    "saveAs": "Save as…"
+  },
+  "status": {
+    "loadingEditor": "Loading editor…",
+    "noVenue": "No venue"
+  },
+  "common": {
+    "close": "Close"
+  },
+  "insert": {
+    "title": "Insert",
+    "search": "Search",
+    "searchPlaceholder": "Search (⌘K)",
+    "recents": "Recents",
+    "noResults": "No matches found",
+    "categories": "Categories",
+    "done": "Inserted: {{name}}",
+    "empty": "No items available in this category."
+  },
+  "palette": {
+    "floorplans": "Floorplans",
+    "seating": "Seating",
+    "stage": "Stage & Floor",
+    "safety": "Safety",
+    "utilities": "Utilities",
+    "service": "Service",
+    "general": "General",
+    "basic": "Basic",
+    "meta": {
+      "foh": "Front of house",
+      "boh": "Back of house",
+      "shared": "Shared"
+    },
+    "item": {
+      "chair_basic": "Chair",
+      "sofa_double": "Double Sofa",
+      "sofa_single": "Single Sofa",
+      "table_round": "Round Table",
+      "table_rect": "Dining Table",
+      "stage_rect_24x16": "Stage 24'×16'",
+      "dancefloor_30x30": "Dance Floor 30'×30'",
+      "av_booth": "AV Booth",
+      "bar_fixed_12": "Fixed Bar 12'",
+      "bar_mobile_8": "Mobile Bar 8'",
+      "kitchen_prep_20x12": "Hot Kitchen 20'×12'",
+      "kitchen_warming_10x8": "Plating/Warming 10'×8'",
+      "storage_backstage": "Storage / Backstage",
+      "service_corridor": "Service Corridor",
+      "floorbox_quad": "Floor Box",
+      "extinguisher_class_a": "Extinguisher Class A",
+      "hydrant_cabinet": "Hydrant Cabinet",
+      "exit_sign": "EXIT Sign",
+      "bathroom_10x12": "Bathroom 10'×12'",
+      "janitor_closet_6x8": "Janitor Closet 6'×8'",
+      "shaft_mep_6x6": "MEP Shaft 6'×6'",
+      "kitchen_island": "Kitchen Island",
+      "counter": "Counter",
+      "bed_queen": "Queen Bed",
+      "bed_twin": "Twin Bed",
+      "plant": "Plant"
+    }
+  }
+}

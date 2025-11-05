@@ -1,0 +1,1351 @@
+
+--- Page 1 ---
+
+
+--- Page 2 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 1FloorPlanSymbol
+CONTENT
+1.WhatAretheFloorPlanSymbols...................................................................................................2
+2.TheTypesofFloorPlanSymbols....................................................................................................3
+2.1WallShellandStructureSymbols.........................................................................................4
+2.2DoorsandWindowsSymbols...............................................................................................5
+2.3ApplianceSymbols................................................................................................................6
+2.4AthleticGroundSymbols......................................................................................................8
+2.5BathroomSymbols................................................................................................................8
+2.6BedroomSymbols...............................................................................................................11
+2.7BuildingCoreSymbols........................................................................................................14
+2.8CabinetandBookcasesSymbols........................................................................................16
+2.9CarpetSymbols...................................................................................................................19
+2.10DimensioningSymbols.....................................................................................................19
+2.11FireandEmergencySymbols............................................................................................21
+2.12GardenSymbols................................................................................................................25
+2.13HVACSymbols...................................................................................................................33
+2.14KitchenandDinningRoomSymbols.................................................................................40
+2.15OfficeSymbols..................................................................................................................45
+2.16PlumbingandPipingSymbols..........................................................................................50
+2.17ReflectedCeilingPlanSymbols.........................................................................................58
+2.18SeatingChartSymbols......................................................................................................64
+2.19SecurityPlanSymbols.......................................................................................................71
+2.20ElevationSymbols.............................................................................................................74
+3.WheretoFindFloorPlanSymbols...............................................................................................82
+4.HowtoUseFloorPlanSymbols....................................................................................................82
+4.1HowtoUseFloorPlanSymbolsinEdrawMax....................................................................82
+4.2HowtoCreateMoreFloorPlanSymbolsinEdrawMax.....................................................84
+5.FreeFloorPlanCreator.................................................................................................................87
+6.FinalThoughts...............................................................................................................................88
+YouMayAlsoLike:............................................................................................................................88
+
+--- Page 3 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 2Anycivilengineerneedstodraftafloorplan1firsttoimplementtheconstructionprocess.A
+FloorPlanshowstheviewofabuildinginteriorfromabove.Itdemonstratesthestructureof
+ahouse'smap,rooms,space,andarrangementsofotherelementsusedforbuilding
+construction.Thisplanillustratesthelayoutofahomeorabuilding.Afloorplanisembodied
+withfloorplansymbols.
+Theplacementofelementsisdoneprofessionally,andallthesymbolsareusedaccordingto
+therequirementsandneedsofanarchitect.Thesesymbolscoveralltheelementsusedto
+completeafloormap.Itincludessymbolsofdoors,windows,walls,plumbing,stairs,
+electricityconnections,appliances,interiordesign,cabinets,bookshelves,tubs,andstoves.
+Inthisarticle,youcanlearneverythingaboutfloorplansymbols.
+1.WhatAretheFloorPlanSymbols
+Afloorplangivesaclearanddetailedviewofabuildingorpropertytogivethebuyerand
+constructionteamanideaaboutconstructionanddesigndetails.Floorplansymbolsdenote
+alltheconstructionelementsinafloorplan.Designingafloorplanhasbecomeeasyand
+1Floorplan:https://www.edrawsoft.com/what-is-floor-plan.htmlDoYouWanttoMakeYourFloorPlan?
+EdrawMaxspecializesindiagrammingandvisualizing.Learnfromthisarticletoknow
+everythingaboutfloorplansymbols,andhowtouseorcreatefloorplansymbols.Justtryit
+freenow!
+DownloadEdrawMax:https://www.edrawsoft.com/download-edrawmax.html
+
+--- Page 4 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 3convenientbecauseofEdrawMax.Itenablesmanyarchitectstomapfloorplansviaexisting
+layoutsandprovidesthousandsofsymbolstoaddtoafloorplan.
+Thefloorplanisascalediagramofabuildinganditsdivisionintoroomsandsectionsviewed
+fromabove.Itisusedtoplanandarrangethefurnishingsintoarequiredspaceusingsuitable
+floorplansymbols.Afloorplanismadeforeverystoryandsectionofabuildingtovisually
+representhowadooropensandwhereallthepassagesgo.
+2.TheTypesofFloorPlanSymbols
+Floorplanisusedtoplanandarrangethefurnishingsintoarequiredspaceusingsuitable
+FloorPlanSymbols.Inaplan,dimensionsaredrawnandmentionedbetweenwallsto
+elaborateroomsizeandwalllengthsonafloor.Ithelpsprepareconstructionsites,interior
+arrangements,estimatebudget,andcreateabuildingschedule.Itrepresentsyourworking
+spaces,location,andsetupofabedroom,hallways,kitchen,livingroom,bedrooms,garden,
+basement,andgarage.
+WallShellandStructureSymbols
+DoorsandWindowsSymbols
+ApplianceSymbols
+AthleticGroundSymbols
+BathroomSymbols
+BedroomSymbols
+BuildingCoreSymbols
+CabinetandBookcasesSymbols
+CarpetSymbols
+DimensioningSymbols
+FireandEmergencySymbols
+GardenSymbols
+HVACSymbols
+KitchenandDinningRoomSymbols
+OfficeSymbols
+Plumbing&PipingSymbols
+ReflectedCeilingPlanSymbols
+SeatingChartSymbols
+SecurityPlanSymbols
+ElevationSymbolsFloorPlanSymbols:
+Floorplansymbolsdenotealltheconstructionelementsinafloorplan.Designingafloor
+planhasbecomeeasyandconvenientbecauseoffloorplansymbols.
+
+--- Page 5 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 42.1WallShellandStructureSymbols
+Wallisthemostcommonandbasicandbasicelementofabuilding;itisbuilttoprotectan
+areaorspace.Itisusedtodividetheconstructionbuildingtoformroomsandsections.Walls
+varybysize,style,anddesign.Therearethreetypesofwalls;BuildingWalls,Exterior
+BoundaryWalls,andRetainingWalls.Learnmoredetailsfromwallshellsymbols2guide
+here.
+Wall VerticalWall CurvedWall
+CurtainWall Space L-Space
+T-Space Room1 Room2
+Room3 Pilaster RectangularColumn
+CircularColumn Beam GridOrigin
+GridLine
+2Wallshellsymbols:https://www.edrawsoft.com/walldoor.html
+
+--- Page 6 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 5
+Source:EdrawMax
+2.2DoorsandWindowsSymbols
+Adoorisapassagewayortransitionfromoneplacetoanother.Itisahinged,sliding,
+revolvingbarriertoenterorexittheroom,building,hall,vehicle,orcupboardframework.
+Therearedifferenttypesofdoorsavailableforvariety:hingeddoor,Dutchdoor,Pocketdoor,
+andFrenchdoor.
+Awindowisanopeninginawallorroofmadefortheadmissionofairandlight.Theseare
+oftenarrangedfordecorationpurposes.Therearenumeroustypesofwindows:fixed
+window,slidingwindow,singlehungwindow,double-hungwindow,bowwindow,and
+casementwindows.Learnmoredetailsaboutdoor&windowsymbols3guidehere.
+Window OpenWindow OpenWindow2
+OpenWindow3 GliderWindow CasementWindow
+BayWindow DoubleCasementWindow Opening
+Door DoubleHungDoor DoubleDoor
+3Door&windowsymbols:https://www.edrawsoft.com/walldoor.html
+
+--- Page 7 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 6UnevenDoor OpposingDoor RevolvingDoor
+FoldingDoor SlidingDoor DoubleSlidingDoor
+ByPassDoor
+Source:EdrawMax
+2.3ApplianceSymbols
+Appliancesaredevicesorequipmentmanufacturedanddesignedtoperformanyparticular
+task.Theseappliancesrunonelectricityorgas,andafloorplanshowsalltheappliances
+usedinabuildingsectionorroom.Theseappliancesaremanufacturedforhouseholdsand
+officesgenerally.
+Householdapplicance
+Workplaceappliance
+PendantLamp LED FloorLamp
+WallLamp Spotlight TubeLight
+LEDDownlight ShowerLamp Fan
+
+--- Page 8 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 7
+AirExhaustFan GasStove1 GasStove2
+Refrg1 Refrg2 ChestFreezer
+Cooker Range Microwave
+Dishwasher WashingMachine WaterCooler
+Oven TumbleDryer CoffeeMaker
+DisinfectionCabinet Flat-PanelTV Keyboard
+VideoGame FoodCooler VendingMachine
+
+--- Page 9 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 8
+WaterHeater
+Source:EdrawMax
+2.4AthleticGroundSymbols
+Theathleticgroundisapieceoflandusedfordifferentsportssuchascricket,basketball,
+football,volleyball,baseball,etc.Differentsportsrequiredifferentstyles,shapes,andsizesof
+theground.
+ThatiswhyaSportsgroundneedstobemappedonaFloorPlan.Sportsgroundsarebuilt
+outsidemanybuildings,malls,andsocieties.Theseareillustratedinbuildingplansbecause
+theseareapartofthewholeproject.Therearedifferentsymbolsusedtorepresentathletic
+grounds.
+AthleticGround1 AthleticGround2 AthleticGround3
+AthleticGround4
+Source:EdrawMax
+2.5BathroomSymbols
+Abathroomsymbols4aretheroomthathasatoilet,shower,washbasin,andbathtub.Many
+homeownersconsiderthebathroomaplacetogetawayfromstressandanxiety.Itisaplace
+4Bathroomsymbols:https://www.edrawsoft.com/symbols/bathroom-vector-icons.html
+
+--- Page 10 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 9whereyoucanrelax,takeasoothingshower,batheinhottubwaterandbealone.Itserves
+basichygieneandcleaningfunctionsandisalsousedtorelax,wash,andchangeclothes.
+Sink1 Sink2 Sink3
+Sink4 Sink5 Sink6
+Sink7 Sink8 Sink9
+Sink10 Sink11 Sink12
+CountertopSink PedestalSink Toilet1
+Toilet2 Toilet3 Toilet4
+Toilet5 Toilet6 SquareWC
+
+--- Page 11 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 10
+Shower CornerShower CornerBath
+Bathroom Bathtub1 Bathtub2
+Bathtub3 Bathtub4 Bathtub5
+Bathtub6 Bathtub7 Bathtub8
+Bathtub9 Bathtub10 Bathtub11
+Bathtub12 ShowerDrain ShowerDrain2
+WaterTap1 WaterTap2 WaterTap3
+
+--- Page 12 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 11
+WaterTap4 WaterTap5 Dustbin
+ToiletPaper TowelRack TowelRack2
+Light1 Light2 Light3
+Light4 ShowerLamp1 ShowerLamp2
+ShowerLamp3 ShowerLamp4 ShowerLamp5
+Cabinet1 Cabinet2 Cabinet3
+Source:EdrawMax
+2.6BedroomSymbols
+
+--- Page 13 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 12Abedroomiswheretheresidentslive,rest,andsleep.Thatiswhyabedroomshouldbe
+pleasantlydecoratedforyourcomfortandhealthysleeping.Bedroomsymbols5usually
+matchedthethemeandstyle.Numerouselementsareincludedinbeddingcategorysymbols
+suchasbedset,sidedrawers,plants,windows,curtains,cabinets,dressingtable,carpet,
+pillow,chest,flatpanel.
+SingleBed1 SingleBed2 SingleBed3
+SingleBed4 SingleBed5 SingleBed6
+SingleBed7 SingleBed8 DoubleBed1
+DoubleBed2 DoubleBed3 DoubleBed4
+DoubleBed5 DoubleBed6 DoubleBed7
+DoubleBed8 SingleTrundleBed BunkBed
+5Bedroomsymbols:https://www.edrawsoft.com/bedroom.html
+
+--- Page 14 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 13
+BunkBed2 Crib Bassinet
+VanityTable NightStand CircularBed
+CircularBed2 CircularBed3 CircularBed4
+CircularCarpet Carpet Carpet2
+BedsideCabinet RectangleTable HousePlant1
+HousePlant2 HousePlant3 HousePlant4
+HousePlant5 Flat-PanelTV SpinetPiano
+
+--- Page 15 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 14
+Bookcase Pillow Chest
+DoubleDresser TripperDresser Cabinet1
+Cabinet2 Wardrobe1 Wardrobe2
+ShoeCabinet1 ShoeCabinet2
+Source:EdrawMax
+2.7BuildingCoreSymbols
+Manydesignsandlayoutsareconsideredwhileplanningforbuildingconstruction.These
+constructionstylescarrysomecommonelementsusedinalmosteverybusinessplan.Every
+companyhasitsowndesignedfloorplansymbols.Butsomebuildingcoresymbols6are
+slightlyredesignedbutservethesamepurpose.Theycanbealteredaccordingtoshapes,
+size,dimensions,anduses.
+North Direction Arrow
+6Buildingcoresymbols:https://www.edrawsoft.com/building-core.html
+
+--- Page 16 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 15
+Air-ConditionedLocation SolidWalls Step
+OrnamentalStair ScissorStaircase StraightStaircase
+CurvedStaircase1 CurvedStaircase2 WindingStaircase
+Z-ShapeStaircase DividedStaircase PocketDoor
+DoublePocketDoor LeftSpiralStaircase RightSpiralStaircase
+CornerLanding StairLanding Escalator
+Ramp Handrail CornerHandrail
+
+--- Page 17 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 16
+Toilet MulitSink MulitUrinal
+MulitStall CountertopSink ToiletStall
+Elevator FreightElevator Chute
+Source:EdrawMax
+2.8CabinetandBookcasesSymbols
+Thecabinetsareinstalledinmanyroomstostoreandkeepclothing,valuables,andother
+stuff.Itisthemaincomponentofawardrobe.Alltheclothesandaccessoriesarestoredand
+usuallyhunginacabinet.Therearenumeroussymbolsforawardrobeaccordingtoitstypes,
+size,dimension,andstyles.Therearethreetypesofcabinets:partialoverlay,fulloverlay,and
+inset.
+Abookcaseisapieceoffurniturewithshelvesusedtokeepanddisplaybooks.Usually,its
+designiscustomizedaccordingtothenumberofbooksandroomspace.Accordingtoits
+placementandstructure,bookcasesymbolsareusedinafloorplan.Therearemany
+bookcasetypes,i.e.,standard,cube,modular,leaning,corner,andbarrister.Learnmore
+detailsaboutcabinetsymbols7guidehere.
+WorkSurface CornerSurface CornerSurface2
+7Cabinetsymbols:https://www.edrawsoft.com/home-plan-symbols.html
+
+--- Page 18 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 17
+CornerSurface3 CornerSurface4 Island
+CornerCounter PlatterCounter BevelCounter
+BentCounter WorkPeninsula Base
+Base2 Base3 Base4
+Base5 Base6 Drawer
+Drawer2 Drawer3 Drawer4
+Cabinet Cabinet2 Cabinet3
+
+--- Page 19 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 18
+Cabinet4 PeninsulaEnd-Shelf BasePeninsula
+BasePeninsula2 WallEnd-Shelf WallCorner
+WallAngleCabinet TrackEnd-Bevel Track45Deg
+TrackCorner TrayTrack Locker
+Handle Handle2 Handle3
+Handle4 Handle5
+Source:EdrawMax
+
+--- Page 20 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 192.9CarpetSymbols
+Carpetisafloorcoveringmadeofthickwovenfabric,anditcomplementstheroom’slookby
+itscolor,print,anddesign.Itisusedformanyreasons,suchaspreventingfeetfromgetting
+cold,makingtheroomcozy,andgettingaplacetositonthefloor.Followingsymbolsare
+usedforcarpetrepresentationinafloorplan.
+Carpet1 Carpet2 Carpet3
+Carpet4 Carpet5 Carpet6
+Carpet7 Carpet8 Carpet9
+Carpet10 Carpet11 Carpet12
+Carpet13 Carpet14
+Source:EdrawMax
+2.10DimensioningSymbols
+Dimensionsymbolsprovidetheconstructionteamandmanagementwithallthetrue
+andexactdimensions,sizes,measurements,andcalculationsofthetasksand
+
+--- Page 21 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 20building.Thesesymbolsaddsizeinformationinadrawingtohelptheconstruction
+teamunderstandthebuildingproceduresanddiagram.
+Thedimensionsonaplanarementionedtotellifthedoors,windows,stairs,pillars,
+walls,columns,andsectionsarelocatedcorrectly.Thedimensionlinesarelighter
+thanwalllinesandaregenerallydenotedasacontinuousgrouporstringofnumbers
+alongaline.Dimensionsgivedefinitedirectionstotheconstructionpersonnelfrom
+beginningtoend.
+Dimension1 Dimension2 Dimension3
+Dimension4 Dimension5 Dimension6
+Dimension7 Dimension8 Dimension9
+Dimension10 Dimension11 Dimension12
+Dimension13 Dimension14 Dimension15
+Dimension16 Dimension17 Dimension18
+
+--- Page 22 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 21
+Dimension19 Dimension20 Dimension21
+Source:EdrawMax
+2.11FireandEmergencySymbols
+Thiscategoryincludesequipmentusedincaseofafireemergency.Symbolselaborateall
+theseequipment.Fireandemergencysymbolsprovidehealthandsafetyinformationand
+warnabouthazards.Fireevacuationsymbols,firehose,fireextinguisher,emergencyexit,
+elevator,andfirehydrant.Thesesymbolsareasfollows:
+•AccessandExitIcons
+Duringanemergency,theaccessandexiticons8graphicallyindicatesaferoutes,safetyexits,
+andaccesspointsthateveryonecanuse.Theseevacuationplaniconsarequiteuseful
+becausetheycanbeusedtoindicatealloftheentryandexitpointsinthehouseorbuilding,
+aswellashowtoopenvariousdoors,shatterwindowsandglassduringcrises,andwhere
+disabledpersonsshoulddepart.Peoplecanidentifymultipleescaperoutesinanemergency
+usingthesesymbols.Hereareseveraliconsforaccessandexit.
+SlideDoorLeft SlideDoorRight FireBreakGlass
+EmergencyAmbulance EmergencyAccess EmergencyAccess2
+EmergencyExit EmergencyExit2 UseStairsinFire
+8Accessandexiticons:https://www.edrawsoft.com/symbols/fire-evacuation-icons.html
+
+--- Page 23 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 22
+UseStairs FireLadder HandicapAccessible
+Arrow IndicatingArrow IndicatingArrow2
+IndicatingArrow3 AssemblyPoint RefugeArea
+Source:EdrawMax
+•FireEvacuationIcons
+Fireevacuationicons9areidealforcreatingafireescapestrategyforyourbuildingorhome.
+Afireescapeplanusuallycomprisesiconsthatshowatleasttwoemergencyexitsinaroom,
+asafedepartureroute,andfireextinguisherlocations.Thesealsoprovideinformationonthe
+firealarmandsmokedetectionsystemsinstalledinthebuildingorhome.Anyonemay
+determinethelocationoftheemergencyphone,sprinklers,andfirehoseusingafire
+evacuationplan.Thefollowingaresomefrequentfire-evacuationicons.
+YouareHere FireEmergencyExit FireEmergencyExit2
+FireExtinguisher FireHydrant FireHydrant2
+9Fireevacuationicons:https://www.edrawsoft.com/symbols/fire-evacuation-icons.html
+
+--- Page 24 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 23
+EmergencyPhone EmergencyPhone2 Call911
+FireExtinguisher2 FireAlarmCallPoint FireHose
+FireHose2 GasShutoffValve SprinklerControlValve
+SprinklerConnection SingleSprinklerConnectionCombinedAutomatic
+Sprinkler
+StandpipeConnection FireAxe FireFightingEquipment
+Alarm FireAlarm ManualActivatingDevice
+ElectricPanelShutoff ChildCareCenter SmokeDetector
+
+--- Page 25 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 24
+FireSprinkler FireSprinkler2 AirConditioningVent
+Vent
+Source:EdrawMax
+•EmergencyWarningIcons
+Inanevacuationplan,warningsymbols10describedangerousthings,locations,behaviors,
+andmaterials.Weutilizetheseevacuationplaniconstoalertindividualstodangerssuchas
+radiation,firehazard,nosmoking,andelectriccurrentintheirenvironment.Becausethelaw
+primarilyregulateswarningsymbols,andeachsymbolhasafixedmeaningthatyoucannot
+change,theyareuniversalforallorganizations.Theseiconsadviseindividualsaboutthe
+activitiestheycan'tdoandtheobjectstheycan'ttouchinanevacuationplan.Herearesome
+cautionarysigns.
+NotanExit Don'tGoBack Don'tUsetheElevator
+NoFire NoSmoking NoCooking
+RadiationHazard Non-ionisingRadiation Explosives
+10Warningsymbols:https://www.edrawsoft.com/symbols/fire-evacuation-icons.html
+
+--- Page 26 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 25
+ToxicGas MedicalWaste FlammableMaterial
+Comburent DangerousChemical CorrosiveMaterial
+Noise BeCarefulSuffocation HarmfulGoods
+ChemicalWeapon WarningSign HighVoltageSign
+LaserHazzardSign RadiationDanger
+Source:EdrawMax
+2.12GardenSymbols
+Agardeninahouseorabuildingisaplacethatismostconnectedtonatureandbeauty.A
+gardeninabuildingplanisdrawnwiththehelpofseveralgardensymbols.Thesesymbols
+denoteplants,pools,fountains,tables,chairs,benches,pavilions,rocks,ponds,etc.Garden
+Symbolscoveralltypesofplansaswell.
+
+--- Page 27 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 26Gardensymbols11denoteplants,pools,fountains,tables,chairs,benches,pavilions,rocks,
+ponds,etc.Butplantsamongthislistcarrythemostimportance.Thatiswhyallsortsof
+plantsaresymbolizedinagardenplan.
+•GardenPlantSymbols
+Plantsarethemainelementofagarden.Theyallowapersontobreatheinthecleanand
+freshair,blocksunrays,decreasenoisepollution,provideapeacefulenvironment,andlower
+stress.Thatiswhyagarden'sideawasfirstintroduced.
+EvergreenTree1 EvergreenTree2 EvergreenTree3
+EvergreenTree4 EvergreenTree5 EvergreenTree6
+EvergreenTree7 EvergreenTree8 EvergreenTree9
+EvergreenTree10 DeciduousTree1 DeciduousTree2
+DeciduousTree3 DeciduousTree4 DeciduousTree5
+DeciduousTree6 DeciduousTree7 DeciduousTree8
+11Gardensymbols:https://www.edrawsoft.com/garden-design-symbols.html
+
+--- Page 28 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 27
+DeciduousTree9 DeciduousTree10 Shrub1
+Shrub2 Shrub3 Shrub4
+Shrub5 Shrub6 Shrub7
+Shrub8 Flower1 Flower2
+Flower3 Flower4 Flower5
+Flower6 Flower7 Flower8
+Flower9 Flower10 Flower11
+
+--- Page 29 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 28
+Flower12 Flower13 Flower14
+Flower15 Flower16 Flower17
+Flower18 Flower19 Flower20
+Flower21 Flower22 Flower23
+Flower24 OrnamentalGrass1 OrnamentalGrass2
+OrnamentalGrass3 OrnamentalGrass4 OrnamentalGrass5
+OrnamentalGrass6 OrnamentalGrass7 OrnamentalGrass8
+
+--- Page 30 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 29
+OrnamentalGrass9 OrnamentalGrass10
+Source:EdrawMax
+•GardenEquipmentSymbols
+Agardennotonlyneedsplantstofulfillitswholelook,butitalsoneedssomeadd-onsto
+makeitlookaesthetic.Theseadditionstothegardencompletethewholeideabyadding
+minorandmajordetails.Gardensymbolsrepresentalltheseequipmentandelementsina
+map.Itmaybeabridgeinstalledoverapondorabenchplacedonanycorner.The
+infrastructureelementsofagardenarebench,chair,pathwayandsoon.
+StoneTable&Chair1 StoneTable&Chair2 StoneTable&Chair3
+WoodTable&Chair SwingBench ReclinerBench1
+ReclinerBench2 WoodBench1 LongBench
+WoodBench2 WoodBench3 SevenGlyphBench1
+
+--- Page 31 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 30
+SevenGlyphBench2 U-ShapedBench StoneBridge1
+StoneBridge2 TimberBridge1 TimberBridge2
+TimberBridge3 WoodenBridge Bridge
+RiverBridge GardenLamp1 GardenLamp2
+GardenLamp3 GardenLamp4 StoneRoad
+CobbledRoadway RockGarden RoadPath1
+RoadPath2 RoadPath3 GardenStone1
+
+--- Page 32 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 31
+GardenStone2 GardenStone3 RoundStone
+SquareStone Flagstone HexagonStone
+StoneDriveway BrickPathway PatioPathway
+SwimmingPool1 SwimmingPool2 SwimmingPool3
+FountainPool1 FountainPool2 FountainPool3
+FountainPool4 FountainPool5 FountainPool6
+FountainPool7 FountainPool8 Pond1
+
+--- Page 33 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 32
+Pond2 Pond3 Pond4
+Pond5 SwimmingRing1 SwimmingRing2
+Umbrella1 Umbrella2 DutyRoom
+WoodPost Pavilion GarbageCan1
+GarbageCan2 PlayGround FlowerBed
+FitnessEquipment1 FitnessEquipment2 FitnessEquipment3
+FitnessEquipment4 ChildrenPlayArea
+
+--- Page 34 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 33
+Source:EdrawMax
+2.13HVACSymbols
+WeusevariousHVACsymbols12todesignschematicwiringandcircuitdiagramstodepict
+thelayoutandworkingmechanismofHVACsystems.Selectingthesymbolstouseinthe
+HVACplandependsonthebuildingorhouseconfigurationsandtheowner'sdesire.Someof
+theuniversalsymbolsusedinallHVACplansaretheducts,sir-filters,supplyfans,electrical
+devices,andcontrols.WecategorizeHVACsymbolsintofourtypesbasedontheirpurpose,
+designs,andtypeofbuilding.HerearethefourtypesofHVACsymbols.
+•HVACControlsSymbols
+Temperature Humidity Enthalpy
+Pressure Flow Velocity
+Voltage Current Rotation
+Light Vibration Timer
+12HVACsymbols:https://www.edrawsoft.com/hvac-plan-symbols.html
+
+--- Page 35 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 34Current Power Airquality
+Level Endswitch Smoke
+Powerconnection I/Opoint Actuator
+Connectorline Label
+Source:EdrawMax
+•HVACEquipmentSymbols
+TheHVACequipmentsymbolsdepicttheelectricalproducts,devices,andequipmentused
+toconnectthemwiththeHVACsystem.WeusetheseHVACsymbolstovisuallyrepresentall
+themajorandminorcomponentsandproductsinanHVACplan.Theequipmentincludes
+commondevices,suchasfansandairfiltersforbetterqualityairflow.Italsoincludesouter
+productssuchasDXunitsanddriers.Youneedabasicknowledgeofthesesymbolsbefore
+creatinganHVACplan.HerearesomeHVACequipmentsymbols.
+Pump Rotarypump Centrifugalpump
+Reciprocatingpump Screwpump Fan
+
+--- Page 36 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 35
+Centrifugalfan Fanblades Moistureeliminator
+Silencer Silencer2 Condenser
+Airfilter Drier Pipecoil
+Exhausthood Muffler Airvolumecontrolvalve
+Filter Regulator Heater
+Surfaceaircooler Humidifier Highefficiencyfilter
+Ozonegenerator Primaryfilter Aircompressor
+
+--- Page 37 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 36
+Oxygen-enrichedfilter Ozonegenerator Membraneclearbox
+Vacuumpump Valve VacuumGauge
+Steamseparator Pressurizersystem Dehumidifyingsystem
+Boosterfan Preheatingsystem Nozzle
+Boiler Coldwaterpump Flowvalve
+Watertower Supplyairgrill Pipenetwork
+Coolingcoil Returnairgrill Pipeline
+
+--- Page 38 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 37
+Zonedamper Outsideairduct Ventilator
+Refrigerantreceiver Chiller Axiafan
+Accessdoor
+Source:EdrawMax
+•HVACDuctworkSymbols
+TheHVACductworkisanessentialpartofcentralHVACsystems.Weuseductworksymbols
+toillustratetheductsandVavboxesinanHVACplan.Mostductworksymbolsaremainly
+representedbyoneortwolinesinarectangularshape.Weuseductsforthermaland
+acousticreasonsforincreasinganddecreasingheatorcold.
+Straightduct Miterbend Miterbend2
+Miterbend3 Miterbend4 Variablebend
+
+--- Page 39 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 38
+Variablebend2 Branchduct Branchduct2
+Junctionbottom Junctionup 3wayjunction
+Yjunction Beveledjunction Transition
+Offsettransition Supply Return
+Flexibleconnection1 Flexibleconnector Verticalduct
+VAVbox Slidingdamper Damper
+Source:EdrawMax
+
+--- Page 40 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 39•HVACControlsandEquipmentSymbols
+HVACcontrolandequipmentsymbolsdepictthedevicesandsystemswithcontrolfeatures
+suchasapropellerfanwithaspeedregulator.Thesearethecommonsymbolsusedinall
+typesofHVACplans.Mostofthesesymbolsrepresentproductswithfansandcontrollers.
+Duct ReturnDuct ReturnDuct2
+SupplyDuct SupplyDuct2 2-FanSections
+3-FanSections 4-FanSections VAVBox
+DDVAVBox FainCoilHousing UnitHeater
+CentrifugalFan PropellerFan VaneAxialFan
+Damper Filter AirFlowStation
+Humidifier Htg/ClgCoil Pump
+
+--- Page 41 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 40
+Valve GateValve WaterFlowMeter
+Chiller CoolingTower Boiler
+Equipment VSD Start
+SidetoSidePipe ToptoBottomPipe SidetoBottomPipe
+PipeFlowArrow
+Source:EdrawMax
+2.14KitchenandDinningRoomSymbols
+Akitchenisaroomorapartofaroomusedtoprepareandcookfood,anditispartofa
+buildingthatgetsmostoftheattentionfromthebuyeroranarchitect.Kitchensymbols
+representrefrigerators,crockery,microwaveoven,stove,ventilators,dishwashers,steamers,
+teapots,gas-cookers,etc.Thekitchenelevationplanshowshowbeautifulandmanageable
+
+--- Page 42 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 41yourkitchenlooksattheend.Todaykitchendesigninghasbecomeaseparatedisciplinein
+thedesigningworld.
+Thediningroomiswhereallthemealsareservedandeaten.Adiningroomcontainsmany
+itemswhicharerelatedtomealtimes.Thekitchenfloorplansymbols13includewindow
+symbols,bottlessymbols,Glasssymbols,barrelsymbols,diningtablesymbols,Tableand
+chairsetsymbols.
+Closet1 Closet2 Closet3
+Closet4 Closet5 Closet6
+Closet7 Island Island2
+SquareDiningTable SquareDiningTable2 RoundDiningTable
+RectangleDiningTable RectangleDiningTable2 GasStove
+GasStove2 GasStove3 GasStove4
+13Kitchenfloorplansymbols:https://www.edrawsoft.com/symbols/kitchen.html
+
+--- Page 43 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 42
+GasStove5 GasStove6 RangewithGrill
+Four-ElementGasRange Six-ElementGasRange GasRange
+CookerwithLowOven Cooker Range
+FlatElectricRange Slide-inElectricRange WallOven
+Microwave Dishwasher WashingMachine
+TrashCompator FoodCooler Sink
+Juicer BreadMachine BreadMachine2
+
+--- Page 44 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 43
+VendingMachine Sink2 Sink3
+Sink4 Sink5 Sink6
+Sink7 Sink8 Sink9
+Sink10 Basin DoubleBasin
+PedestalBasin CountertopSink Dispenser
+TowelRack CircularDiningTable CircleTable
+DiningTable OblongDiningTable OvalDiningTable
+
+--- Page 45 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 44
+SquareTable Ref Ref2
+Cabinet Cabinet2 Cabinet3
+Toaster Toaster2 Oven
+ElectricBarbecue SaucePan SaucePan2
+SlowCooker SlowCooker2 InductionCooker
+Pan Dish Dish2
+FruitPlate FruitPlate2 ChoppingBoard
+
+--- Page 46 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 45
+SmokeMachine DisinfectionCabinet Refrigerator
+Refrigerator2 Flue Placement
+ChestFreezer Built-inRefrigerator WaterCooler
+CoffeeMaker WaterHeater
+Source:EdrawMax
+2.15OfficeSymbols
+Itisaroomorbuildingusedasaplaceforcommercial,professional,orbureaucraticwork.It
+providesaworkplacetodoadministrativeandmanagerialwork.Workersandemployees
+workinanoffice,andtheyaregiventheirdesk,PC,chair,andotherofficeappliances.An
+officefloorplanisdesignedbyusingthefollowingsymbols,andlearnmoredetailsfrom
+thisofficesymbols14guide.
+•OfficeEquipmentSymbols
+Electronicgoodsthatemployeesuseintheofficeforcommunication,work,recording,
+suppliesstorage,anddataareincludedintheofficeequipmentsymbols.Computers,
+14Officesymbols:https://www.edrawsoft.com/office-layout-symbols.html
+
+--- Page 47 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 46monitors,laptops,faxmachines,printers,scanners,telephones,airconditioners,andany
+otherofficeitemsarerepresentedbyofficeequipmentsymbols.
+DesktopPC PC Phone
+MobilePhone Fax PCMonitor
+Keyboard TowerPC Mouse
+Modem Scanner Printer
+Xerox Plotter DocumentShredder
+Router Switch WirelessHub
+Hub OfficeLamp Projector
+
+--- Page 48 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 47
+OverheadProjector ProjectorScreen MarkerBoard
+PlasmaPanel CashRegister POS-Terminal
+PaperTray CoatRack WasteCan
+Source:EdrawMax
+•OfficeFurnitureSymbols
+Electronicgoodsthatemployeesuseintheofficeforcommunication,work,recording,
+suppliesstorage,anddataareincludedintheofficeequipmentsymbols.Computers,
+monitors,laptops,faxmachines,printers,scanners,telephones,airconditioners,andany
+otherofficeitemsarerepresentedbyofficeequipmentsymbols.
+SingleCubicle 2SeatsCubicle 2SeatsCubicle2
+2SeatsCubicle3 Cubicle1 Cubicle2
+
+--- Page 49 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 48
+Cubicle3 Cubicle4 Cubicle5
+Cubicle6 Cubicle7 StraightWorkstation
+CouncilWorkstation LWorkstation Table
+RoundTable Desk RacetrackTable
+BoatTable 4SeatsTable 6SeatsTable
+8SeatsTable 10SeatsTable 10SeatsTable2
+10SeatsTable3 12SeatsTable 16SeatsTable
+
+--- Page 50 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 49
+Multi-chairRoundTable CornerTable RoundCorner
+WorkSurface ConnerSurface ConnerSurface2
+ConnerSurface3 ConnerSurface4 WorkPeninsula
+BookShelf Credenza Pedestal
+Cabinet Cabinet2 Cabinet3
+StorageUnit SuspCoatBar SuspOpenShelf
+SuspendedLateralFile File LateralFile
+
+--- Page 51 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 50
+FlatFile SwivelTiltChair 2SeatSofa
+3SeatSofa 4SeatSofa 90DegTable
+Chair1 Chair2 Chair3
+30DegSeat DeskChair HighStool
+Stool Panel 2Panel
+3Panel 4Panel CrossPanel
+Source:EdrawMax
+2.16PlumbingandPipingSymbols
+
+--- Page 52 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 51Plumbingisasystemthatcoveysanddirectionswater/gasthroughpipelinesinstalledina
+houseorabuilding.Itinvolvesusingpipes,valves,plumbingfixtures,tanks,andother
+equipment.Pipingandconnectionsymbolsdenoteallthepipelinetypesandconnectors.
+Pipingortubingisusuallyinsertedintofittingstoformconnections.Pipeconnectorsare
+usedtoattachonepipetoanothertoincreasethelengthofthepipeortochangethe
+directionofflowofaplumbingsystem.Learnmoredetailsfromthisplumbing&piping
+symbols15guide.
+•PlumbingSymbols
+Therearelistedsomecommonplumbingsymbolswithrelativeexplanations:
+Boiler:isafuel-burningapparatusorcontainerforheatingwater.
+Heatexchanges:usedtotransferheatefficientlyfromonemediumtoanother.
+Heatingcoil:aspecialheatingdevicethatisshapedinaspiraldesign.
+Pump:amechanicaldeviceusingsuctionorpressuretoraiseormoveliquids,
+compressgases,orforceairintoinflatableobjectssuchastyres.
+Heater:adeviceforwarmingtheairorwater.
+Bolier Bolier2 HeatExchanges
+Heating/CoolingCoil Heating/CoolingCoil Pump
+Pump2 Heater/Cooler Heater/CoolerHorizontal
+Radiator Convector RadiantPanel
+15Plumbing&pipingsymbols:https://www.edrawsoft.com/plumbing-piping-plan-symbols.html
+
+--- Page 53 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 52RadiantPanel2 OpenTank ClosedTank
+WaterSurface PipeCoil Sink
+Basin Toilet Bath
+Basin(Side) Toilet(Side) Bath(Side)
+EndView ShowerHead TowelRail
+Source:EdrawMax
+•PipingSymbols
+Therearelistedsomecommonplumbingsymbolswithrelativeexplanations:
+Majorpipeline:alongmajorpipe,typicallyunderground,forconveyingfluidorgas
+overlongdistances.
+Batterylimitline:thelinewhichshowsthebatterylimit.
+Electronicserial:theserialfortheelectronicdevices.
+Heattrace:akindofsystemusedtomaintainorraisethetemperatureofpipesand
+vessels.
+Electricsignal:anelectriccurrentorelectromagneticfieldusedtoconveydatafrom
+oneplacetoanother.
+
+--- Page 54 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 53MajorPipeline ConnectPipeline MajorStraightPipeline
+StraightLinePipe ProcessConnection FutureLine
+BatteryLimitLine SidebySide Top-Bottom
+One-to-Many TracedLine Multi-Lines
+MidArrow Multi-LinesElbow ToptoTop
+ElectricalSignal SonicSignal Nuclear
+PneumaticControlPneumaticBinarySignal
+LineElectricSignalLine
+ElectricBinarySignalLine ElectricBinarySignalLine2 HydraulicSignalLine
+
+--- Page 55 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 54
+SleeveJoint GeneralJoint ButtWeld
+WeldedConnection MecanicalLink Soldered/Solvent
+DoubleContainment Flange EndCaps
+EndCaps2 Breather DripPanElbow
+Flange Union SockedWeld
+ScrewedConnection OrificePlate FlangedDummyCover
+ElectricalBounded SlopeRequirementLine Reducer
+
+--- Page 56 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 55
+ElectricallyInsulated In-LineMixer Seperator
+BurstingDisc FlameArrester DrainSilencer
+ExhaustSilencer Strainer ExhaustHead
+TriangleSeperator TriangleSeperator2 Tundish
+OpenVent SyphonDrain Hyrant
+SwivelJoint ExpansionJoint Hose
+FlexibleHose FlowIndicator BellMouse
+
+--- Page 57 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 56
+RemovableSpool BasketStrainer Breather
+Damper Breakthrough Orifice
+ClampedFlangeCoupling Compensate Coupling
+Y-TypeStrainer Y-Strainer DiverterValve
+BlindDisc SpectacleBlind InterchangeableBlind
+OpenDisc OrificePlate PulsationDampener
+DuplexStrainer VentSilencer BasketStrainer
+
+--- Page 58 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 57
+ConeStrainer DetonationArrestor FlameArrestor
+In-lineSilencer StreamTrap Desupherheater
+Eductor ExhaustHead RotaryValve
+ExpansionJoint2 BurstingDisc ElectricalInsulated
+FlameArrestorExplosion-ProfeFlame
+ArrestorDetonation-ProfeFlame
+Arrestor
+Fire-ResistantFlame
+ArrestorFire-ResistantFlame
+Arrestor2PilotOperatedRelief
+ValveManifold
+
+--- Page 59 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 58
+Source:EdrawMax
+2.17ReflectedCeilingPlanSymbols
+Agoodlightingdesigncreatesdepthandheight,highlightscozyspots,anddivertsattention
+toyourdesiredareas.Lightingsymbolsareusedwherelightinglampsandappliancesare
+installed,suchas;thelivingroom,drawingroom,bedroom,kitchen,etc.
+•ReflectedLightingSymbols
+InanRCP,RCPlightingsymbolsrepresentthepositionofceilinglights.Emergencylight,
+basiclight,modularflorescent,downlight,lightbar,multi-lightbar,andmoreRCPlighting
+symbolsareincluded.Beforedraftingareflectedceilingplan,youmustfirstestablishthe
+componentsoftheceiling.
+LuminaireCeilingMount EndCeilingLum WallLight
+Downlight OutdoorLighting Multi-LightBar
+BattenFluores ModularFluores EmergLight
+EmergSign Light CeilingLightOutlet
+
+--- Page 60 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 59
+RecessedCeilingLight CeilingFan CeilingFan
+WeatherproofLight CeilingLight2 EmergencyBatteryUnit
+Spotlight ExitSign Light
+RoadwayLight TwinLights Light2
+Lights IntegratedLight NightLight
+Louvers
+Source:EdrawMax
+•Electrical&TelecomSymbols
+
+--- Page 61 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 60Electrical&telecomsymbolsarealsoincludedinanRCP.Thesesymbolsrepresentthe
+ceilingfanoutlets,receptacleoutlets,andpullswitches.Theelectricalswitchsymbolsinthe
+ceilinggoverntheonandoffstatesofstationarydevices.
+ElectricalSwitchbox SinglePoleSwitch Three-WaySwitch
+1PSwitch 2PSwitch 4PSwitch
+10PSwitch 20PSwitch WaterTap
+Lum.CeilingMount EndCeilingLum WallLight
+CircuitBreaker Multi-LightBar LightBar
+Downlight OutdoorLighting SingleaplexReceptacle
+DuplexReceptacle DishwasherOutlet TriplexReceptacleOutlet
+
+--- Page 62 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 61
+FourlexReceptacle RangeOutlet DryerOutlet
+WaterproofReceptacle
+OutletSwitchandConvenience
+OutletSplitWiredDuplexOutlet
+SplitWiredTriplexOutletDuplexSpecialPurpose
+OutletDishwasherOutlet
+DropCord FanOutlet JunctionBox
+LampHolder LampHolder2 PullSwitch
+VaporDischarge ExitLightOutlet ClockOutlet
+BlankedOutlet TVOutlet ExhaustFan
+
+--- Page 63 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 62
+WaterHeater TelephoneJack ElectricalPanel
+Battery BattenFluores DistributionBox
+ModularFluores OfficeFluores Pull-CordSwitch
+Emerg.Light Emerg.Sign Switches
+DimmerSwitch SocketOutlet SocketOutlet2
+TelephoneOutlet StereoOutlet CeilingFan
+CeilingFan2 CombinationFan ServicePanels
+
+--- Page 64 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 63
+Thermostat AirConditioning OpenHoldUnit
+Detector FireAlarm Monitor
+Alarm Doorbell SmokeDetector
+HouseholdCircuitBreaker
+BoxCall Tel
+MainControl Ground Line
+Wire CutLine CutLine2
+Source:EdrawMax
+
+--- Page 65 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 642.18SeatingChartSymbols
+Seatingchairsandteatablesarethemostcommonlyusedfurnitureinanyseatingchart.
+Bothofthesearesmallandcomfortableforallguests.Inasocialevent,youcanarrange
+multiplechairsaroundasmalltablewhereyoucanserveteaanddesserttotheguests.
+Withtheseseatingchairicons16,youcancreateaschematicrepresentationofhowthe
+afternoonteaandfoodareservedatapartyorgathering.Teachersusetheseiconsto
+determinetheseatingplanoftheirstudentsinaclass.Theyuseslingchairswithasimple
+designtodepictthestudents'seatsanduseothersymbolstorepresentwindowsandwalls
+intheroom.Hereareafewseatingchairsandtableicons.\
+•Table&ChairSymbols
+Atableisapieceoffurniturewithaflattoppartsupportingoneormorelegs.Itisusedtowrite,eat,
+placethings,ordoofficework.Asofaisalong,foamedseatwithabackandarms.Usually,twoor
+threepeoplecansitonasofa.Achairisaseparateseatforonlyoneperson,anditusuallyhasa
+backandfourlegs.Achairismanufacturedinmanymaterialssuchaswood,iron,andplastic.You
+canlearnmoredetailsfromtable&chairsymbols17guidehere.
+Chair1 Chair2 Chair3
+Chair4 Chair5 Chair6
+Chair7 Chair8 Chair9
+Chair10 Chair11 Chair12
+16Seatingchairicons:https://www.edrawsoft.com/seating-plan-symbols.html
+17Table&chairsymbols:https://www.edrawsoft.com/table-chairs.html
+
+--- Page 66 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 65
+Chair13 Chair14 Chair15
+Chair16 Chair17 Chair18
+Chair19 Chair20 Recliner
+SlingChair LoungeChair TablewithChairs
+StyleStation1 StyleStation2 StyleStation3
+StyleStation4 StyleStation5 StyleStation6
+StyleStation7 LongueChair1 LongueChair2
+
+--- Page 67 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 66
+LongueChair3 LongueChair4 LongueChair5
+BarCounter1 BarCounter2 BarCounter3
+BarCounter4 BarCounter5 BarCounter6
+TheChair&Table1 TheChair&Table2 Sofa&SofaTable1
+Sofa&SofaTable2 DiningTable1 DiningTable2
+DiningTable3 DiningTable4 DiningTable5
+DiningTable6 DiningTable7 DiningTable8
+
+--- Page 68 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 67
+DiningTable9 DiningTable10 CicleTable&Chair1
+CicleTable&Chair2 CicleTable&Chair3 CicleTable&Chair4
+CicleTable&Chair5 CicleTable&Chair6 CicleTable&Chair7
+CicleTable OvalTable ConferenceTable1
+ConferenceTable2 ConferenceTable3 RectangleTable
+DiamondTable1 DiamondTable2 CornerTable
+SemicircleTable FanTable PingPongTable
+
+--- Page 69 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 68
+DeskTable1 DeskTable2 DeskTable3
+DeskTable4 DressingTable
+Source:EdrawMax
+•SofaSymbols
+Sofasymbols18aremainlyusedtocreateseatingchartsforin-houseeventsandlivingroom
+furniturearrangements.Youcanmaximizethespaceinyourlivingroombyusingvarious
+typesofsofaarrangementswithsmallcoffeetables.Yougetanendlessfurniture
+arrangementideaforyourlivingroomandoutdooreventsusingseatingsofas.Whenyou
+arrangesofas,makesuretheyfacethemostprominentfeatureofyourroom,whichcanbea
+flat-screen.
+Sofa1 Sofa2 Sofa3
+Sofa4 Sofa5 Sofa6
+Sofa7 Sofa8 Sofa9
+18Sofasymbols:https://www.edrawsoft.com/table-chairs.html
+
+--- Page 70 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 69
+Sofa10 Sofa11 Sofa12
+Sofa13 Sofa14 Sofa15
+Sofa16 Sofa17 Sofa18
+Sofa19 Sofa20 Sofa21
+Sofa22 Sofa23 Sofa24
+Sofa25 Sofa26 Sofa27
+Sofa28 Sofa29 Sofa30
+
+--- Page 71 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 70
+Sofa31 Sofa32 Sofa33
+Sofa34 Sofa35 Sofa36
+Sofa37 Sofa38 Sofa39
+TeaTable1 TeaTable2 TeaTable3
+TeaTable4 TeaTable5 TeaTable6
+TeaTable7 TeaTable8 TeaTable9
+TeaTable10 TeaTable11 TeaTable12
+
+--- Page 72 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 71
+SofaTable1 SofaTable2 SofaTable3
+SofaTable4 SofaTable5
+Source:EdrawMax
+2.19SecurityPlanSymbols
+Agoodlightingdesigncreatesdepthandheight,highlightscozyspots,anddivertsattention
+toyourdesiredareas.Lightingsymbolsareusedwherelightinglampsandappliancesare
+installed,suchas;thelivingroom,drawingroom,bedroom,kitchen,etc.
+•SecurityCameraSymbols
+SecuritymanagersandITexpertscanusethesecuritycamerasymbolstodesignaprecise
+layoutandwiringdiagramforallsecuritycamerasinabusinessorhome.Bulletcameras,
+CCTVcameras,anddomecamerasareamongtheicons.Thesesymbolsareintendedtoassist
+usersindeterminingwhichsecuritycamerahastheleastamountofblindsight.Ownersmay
+connectthesecamerastotheirphonesandmonitorsecurityfootagewhileworking.Itassists
+theownerandsecuritystaffinkeepinganeyeonthepropertyorbuildingforsafety.
+CardAccess BiometricAccess KeypadDevice
+CardReaderwithKeypad CardReaderwithTime SmokeDetector
+
+--- Page 73 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 72
+GasDetector HeatDetector Turnstile
+RevolvingDoor TrafficArm VehicleLoopDetector
+ElectronicLock ExitDevice CamerawithKeypad
+CamerawithIntercom CamerawithCardReader SecurityWindowScreen
+DomeCamera DomeCamera2 DomeCamera3
+BulletCamera BulletCamera2 BulletCamera3
+BulletCamera4 BulletCamera5 CCTVCamera1
+
+--- Page 74 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 73
+CCTVCamera2 CCTVCamera3 CCTVCamera4
+CCTVCamera5 CCTVCamera6 CCTVCamera7
+CCTVCamera8 EmergencyBattery Strobe
+Source:EdrawMax
+•VideoSurveillanceSymbols
+Thevideosurveillancesymbolsarethebasicelementsfordrawingthesecurityplan,there
+arelistedsomerepresentativesymbols:
+Motiondetector:isadevicethatdetectsmovingobjects,particularlypeople.
+Glassbreaksensor:isusedinelectronicburglaralarmsthatdetectsifapaneofglass
+isshatteredorbroken.
+Screeningdevice:isaportablemeasuringinstrumentthatapoliceofficercanuseto
+gatherevidencerelatedtobloodalcoholcontent.
+Monitor:isadeviceusedforobserving,checking,orkeepingacontinuousrecordof
+something.
+Recorder:isanapparatusforrecordingsound,pictures,ordata.
+Camera MotionDetector GlassBreakSensor
+
+--- Page 75 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 74
+ScreeningDevice Monitor CameraP/T/Z
+VideoMultiplexer PushButton Recorder
+SwitchManual SwitchAutomatic VideoKeyboard
+Bi-staticBeamSensor SecurityWindowScreen VideoMotionDetector
+WireConnector
+Source:EdrawMax
+2.20ElevationSymbols
+Afrontandclearviewofastructureorahouseisdepictedinanelevationplan,whichshows
+howaconstructionplanwilllookafterallthedetailsarecompleted.Elevationplanscontain
+
+--- Page 76 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 75avarietyofelevationsymbols19thataresimpletograspandreadbyanyonewhoholdsthem.
+Theabilitytodemonstratetheinteriorandexteriorelementsofastructureiscriticalbecause
+itallowsadesignertoadjustandchangeconceptsbeforetheprojectisdone.
+•BasicElevationSymbols
+Frame:arigidstructurethatsurroundssomethingsuchasapicture,door,or
+windowpane.
+Divider:somethingthatdividesawholeintoparts.
+Drawer:abox-likestoragecompartmentwithoutalid,madetoslidehorizontallyin
+andoutofadesk,chest,orotherpieceoffurniture.
+Lattice:astructureconsistingofstripsofwoodormetalcrossedandfastened
+togetherwithsquareordiamond-shapedspacesleftbetween,usedasascreenor
+fenceorasasupportforclimbingplants.
+Hooks:piecesofmetalorotherhardmaterialscurvedorbentbackatanangle,for
+catchingholdoforhangingthingson.
+Frame Frame2 Divider-H
+Divider-V Divider-H2 Divider-v2
+Divider2 Rect DoorLeft
+DoorRight DoorDouble BedsideCabinet
+Sofa Washbasin Plant
+19Elevationsymbols:https://www.edrawsoft.com/elevations-symbols.html
+
+--- Page 77 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 76
+Fireplace Painting Wall
+Flue TableFacet LTableFacet
+DrainagePipe Outlet Intake
+Source:EdrawMax
+•KitchenElevationSymbols
+Refrigerator:alargecontainerwhichiskeptcoolinside,usuallybyelectricity,sothat
+thefoodanddrinkinitstaysfresh.
+Rangehood:adevicecontainingamechanicalfanthathangsabovethestoveor
+cooktopinthekitchen.
+Gascooker:arangewithgasringsandanovenforcookingwithgas.
+Refrigerator1 Refrigerator2 Refrigerator3
+Refrigerator4 Refrigerator5 Refrigerator6
+
+--- Page 78 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 77
+Refrigerator7 Refrigerator8 Two-DoorRefrigerator
+KitchenVentilator1 KitchenVentilator2 KitchenVentilator3
+KitchenVentilator4 MicrowaveOven1 MicrowaveOven2
+Turner1 Turner2 SoupLadle
+KitchenWare Teapot Teacup1
+Teacup2 Teacup3 Kettle
+Steamer FryingPan ChafingDish
+
+--- Page 79 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 78
+SaucePan GasCooker DisinfectionMachine
+DisinfectionMachine2 RangeHood Washer1
+Washer2 Detergent1 Detergent2
+Detergent3 Shampoo ShowerCream
+Source:EdrawMax
+•WardrobeElevationSymbols
+Awardrobeisacabinetwhereclothesarestored.It'sabigcabinetwhereyoumaykeepyour
+clothingandotherfashionitems.Itisawell-organizedareainaroomthatresemblesa
+systemizedcabinetorseriesofcabinetsforhangingclothing,storingshoes,make-up,
+beddingenhancements,andotherfashionaccessories.
+Inthecontextoffashion,awardrobeisacollectionofclothes,handbags,shoes,and
+accessoriesdesignedtomeetallofone'sfashionandstylerequirements.Thatiswhy
+wardrobeenhancementissocrucialtoday.Drawers,chests,towels,hangers,boxes,jackets,
+
+--- Page 80 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 79caps,andquiltsareallrepresentedbyvarioussymbols.Learnmoredetailsfrom
+thiswardrobeplansymbols20guidehere.
+CabinetDimension Chest HorizontalBoard
+VerticalBoard ClapboardwithSize HorizontalClapboard
+VerticalClapboard TopBox TopBox(Right)
+Drawer1 Drawer2 Drawer3
+Drawer4 Drawer5 Drawer6
+Drawer7 Basket Suitcase
+Suitcase2 Lattice ClothesHanger
+20Wardrobeplansymbols:https://www.edrawsoft.com/wardrobe-plan-symbols.html
+
+--- Page 81 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 80
+TrouserHanger Suitcase3 Box
+Towel Towel2 Pillow
+Quilt1 Quilt2 Quilt3
+Hat Hanger PhotoFrame
+Clothes Pants Hooks
+ClosetFramework HorizontalClapboard2 VerticalClapboard2
+ClothesHanger Drawer4 Drawer5
+
+--- Page 82 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 81
+Suitcase2 Hanger2 Towel3
+Towel4 Towel5 Quilt2
+Pillow2 Hat2 BlueDress
+RedDress T-Shirt Shirt
+Toy PhotoFrame2 CabinetLight
+Droplight CeilingLight DeskLamp
+Source:EdrawMax
+
+--- Page 83 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 823.WheretoFindFloorPlanSymbols
+Itwouldhelpifyouhadproperfloorplansymbolstocreateanaccuratefloorplanwithdetailsand
+aclearrepresentationofeachcomponent.Youcaneasilyfindfloorplansymbolsinthesymbol
+libraryofEdrawMax.
+YoucaneasilyfindfloorplansymbolsinthesymbollibraryofEdrawMax21.EdrawMaxgivesyou
+morethan26000symbolsthatyoucanusetocreateafloorplanoranyotherdiagram.Youcango
+andsearchforthesymbolsyouwantinEdrawMaxandclickonthefloorplan.Gotothefloorplan
+categoryanduseasimpledraganddroptoaddanysymbolyouwant.
+4.HowtoUseFloorPlanSymbols
+Followtheseinstructionstolearnhowtousefloorplansymbolsandeasilycreatemorefloor
+plansymbolswithEdrawMax.
+4.1HowtoUseFloorPlanSymbolsinEdrawMax
+Insteadofwastingtimedrawingthefloorplansymbolsoriconsonpaper,youshouldlookfor
+awaytodesignafloorplaneasily.EdrawMaxiswellequippedtodesignafloorplan.
+Step1:LoginEdrawMax
+Ifyouarenewhere,youshoulduseyourEmailtoregisterEdrawMax,butifyou'realready
+theEdrawMax'suser,youjustneedtologinEdrawMaxforfree.OpenEdrawMaxselect
+"Engineering",andfind"BuildingPlan",andclick"FloorPlan",thenopenanewcanvasor
+justopenabuilt-intemplate.
+21EdrawMax:https://www.edrawsoft.com/edraw-max/EdrawMaxFloorPlanSymbols:
+EdrawMaxisthebestresourcesforfloorplansymbols,youcanfindhundredsoffloorplan
+symbolshere.Justdraganddrop,youcancreatefloorplaneasily.
+
+--- Page 84 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 83
+Step2:SelectOfficeLayoutSymbols
+Unlikephysicaldrawing,EdrawMaxhelpstocreateafloorplaneasily.Inthesymbolsection
+ofEdrawMax,youwillfindover260,000vector-basedsymbolsthatyoucanuseinyour
+designs.InEdrawMax,youcanfindfloorplansymbolsinSymbolLibrariesonthelefttoolbar.
+Youcanclickonthe"+"optiontoopenanewcanvastomakeyourfloorplan.Ontheleft
+sideofthecanvas,youwillseeasymbollibrarywithmanyfloorplansymbols.Youcansearch
+forspecificsymbolsinthesearchbar.
+
+
+--- Page 85 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 84Step3:DragandDrop
+Onceyoufindtheproperfloorplansymbolsyouwant,justdraganddropthesymbolstothe
+canvaseasily.Keepcustomizingbychoosingtherightsymbols,properscaleordimensions,
+andaddingmoredetails,likecolor,font,andetc.Whencompletedyourfloorplan,youcan
+exportyourfileorshareyourdesigneffortlessly.Learnmorefloorplanguide22hereif
+necessary.
+4.2HowtoCreateMoreFloorPlanSymbolsinEdrawMax
+EdrawMaxprovidesyouwiththousandsofsymbolstocreateyourdiagram.Sometimesyou
+wanttouseuniqueorpersonalizedsymbolsinyourdiagramthatarenotinthelibrary.
+EdrawMaxgivesyouasimplesolutiontothisproblem.Followthesestepswhenyoudon't
+findthefloorplansymbolsyouwantoryouwishtocreateyoursymbolstomakeyour
+diagram.
+Step1:FindSymbolTool
+Ifyoucan'tfindanysymbolsimilartotheoneyouwant,youcanusethepenciltool,pentool,
+andanchortooltodrawyourpersonalizedfloorplansymbols.Itismucheasiertodrawthe
+symbolyouwantonEdrawMaxinsteadofsearchingfortheonethatsuitsyourrequirements.
+Youcanalsosaveyoursymbolinthelibraryforlateruse.
+Select"Symbols"ontheupperToolbar;
+22Floorplanguide:https://www.edrawsoft.com/design-your-floorplans.html
+
+--- Page 86 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 85Use"PencilTool","PenTool","AnchorTool"tocreategardensymbolfromvery
+beginning;
+Choose"Union","Combine","Subtract","Fragment","Intersect","SmartShape"to
+makeyoursymbols.
+Step2:CreateFloorPlanSymbols
+Whenyoucreateafloorplan,makesurethatthesize,design,andotherattributesofyour
+icongoalongwithotherfloorplansymbols.Followthesestepstodrawperfectfloorplan
+symbols.
+Drawarectangle.
+Usingtherulertodrawadiagonallinemovinginwardstothedoor.
+Startfromcornerontherightsideoftheframe.
+Addmoredetailstomakeitmorelikeadooricon.
+
+--- Page 87 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 86
+Step3:ImportFloorPlanSymbols
+ExceptforcreatingnewfloorplansymbolsinEdrawMax,youcanimportfloorplansymbols
+fromyourend.Find"Insert"onthetopnavigatetoolbar,andimportimagestoturninto
+symbols.Orclickthethridoptionoftherighttoolbartoinsertimagesfaster.
+Step4:SavetoYourSymbolLibraries
+Onceyoucompletedyourfloorplansymbolsdesignorimportyoursymbolimages,you
+shouldstillclick"Symbols"ontop,andchoose"SaveSymbol"toyoursymbolLibraries.Or
+youcanclick"+"inMyLibraryonthelefttoolbar.Learnmoreabouthowtodrawafloorplan
+
+--- Page 88 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 87ordesignafloorplanfromthisfloorplanguidehere.
+5.FreeFloorPlanCreator
+Creatingafloorplanismucheasierwithfreefloorplansoftware,suchasEdrawMax,instead
+ofdrawingitfromscratch.WithEdrawMax,yougetacomprehensivesymbollibrarywith
+thousandsoffloorplansymbolsthatyoucanusetomakeyourdiagram.Italsogivesyou
+freeeditabletemplatesthatyoucancustomizeinafewminutesandcompleteyourdiagram.
+EdrawMaxisanexcellenttoolforteamcollaboration,anditseasy-to-useinterfacemakesit
+thefirstchoiceforeveryone.ThesefeaturesmakeEdrawMaxthebestfreefloorplan
+creator23.
+keyFeaturesofEdrawMax:
+EdrawMaxcomeswithfreefloorplanexamples&templates24thatare100percent
+customizable;
+Thebuilt-invectorsymbolsletyoueasilyaddfloorplancomponentstoyourdesign;
+Youcaneasilysharethefloorplanswithyourteamandseetheliverevisionsmade
+byyourteam;
+EdrawMaxletsyouexportthefileinmultipleformats,includingMSDocs,PPTX,JPEG,
+PNG,PDF,andmore;
+EdrawMaxhasastrongcommunityof25millionuserswhoupdatethetemplate
+communitywiththeircreativeprojects;
+EdrawMaxisconsideredthebesttoolforbeginnersandprofessionalsbecauseofthe
+user-friendlydashboardandeasydrag-and-dropfeature.
+23Freefloorplancreator:https://www.edrawsoft.com/floor-plan-maker/
+24Floorplanexamples&templates:https://www.edrawsoft.com/free-floorplan-templates.html
+
+--- Page 89 ---
+FloorPlanSymbols&Meanings|EdrawMax
+https://www.edrawsoft.com/floor-plan-symbols.html 88
+6.FinalThoughts
+AnengineeroranarchitectdesignsaFloorPlantohaveadetailedandelaboratedviewofa
+roomorsectionsofabuildingfromabove.Inthisprocess,afloorplanispreparedusingfloor
+plansymbolswhichcoveralltheelementsandequipmentusedandarrangedinabuilding.It
+enablesaPropertyownertoexplainallthedetails,budget,scale,andplacementsfor
+construction.Afloorplanmakesiteasyforthedesignertounderstandiftheplaceissuitable
+forworkornot.
+EdrawMaxisthebestfloorplansoftwarewithfreetemplatesandalargecollectionof
+symbolsandicons.ProfessionalsandbeginnerspreferEdrawMaxbecauseofitssimple
+interfaceandfastdiagrammingtools.Youcanalsoimportsymbolsfromtheweband
+downloadorshareyourdiagraminanyformatyouwantusingEdrawMax.
+YouMayAlsoLike:
+-25BuildingPlanSymbols:
+-26WardrobeFloorPlanSymbols:
+-27Table&ChairSymbols:
+-28ElevationSymbols:
+-29ReflectedCeilingPlanSymbol
+25BuildingPlanSymbols:https://www.edrawsoft.com/building-core.html
+26WardrobeFloorPlanSymbols:https://www.edrawsoft.com/wardrobe-plan-symbols.html
+27Table&ChairSymbols:https://www.edrawsoft.com/table-chairs.html
+28ElevationSymbols:https://www.edrawsoft.com/elevations-symbols.html
+29ReflectedCeilingPlanSymbol:https://www.edrawsoft.com/reflectedceiling-plan-symbols.html
+
+--- Page 90 ---
+Visualize, innovate, and collaborate with 
+EdrawMaxW o n d e r s h a r e  E d r a w M a x
+www.edrawsoft.comsupport@edrawsoft.com 
+www.instagram.com/wondershare_edrawsoft  www.pinterest.com/edrawsoft/_createdwww.facebook.com/edrawsoft
+www.youtube.com/c/cutedrawedwin/videoswww.twitter.com/edrawsoftwww.linkedin.com/company/edrawsoft

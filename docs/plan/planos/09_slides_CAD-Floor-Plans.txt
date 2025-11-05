@@ -1,0 +1,182 @@
+
+--- Page 1 ---
+Working Drawings:
+Floor Plans
+CMCE 1110 Construction Drawings
+Professor Anderson
+
+--- Page 2 ---
+Plans  Horizontal section at 
+around 4’ AFF (above finish floor) drawn at 
+a scale that enables one to see the whole plan.The most important drawing.  
+•Typically at the beginning of the 
+drawing set 
+•Refers you to other drawings in the 
+set‐Symbols
+•Dimensions and Notes to indicate 
+quantity and location of an item or feature
+Types of Plans (all drawn at same scale):
+•Floor/Roof Plans
+•Structural
+•MEP
+•Code Analysis
+
+
+--- Page 3 ---
+Symbols
+Symbols and reference markers are necessary for navigating the  drawing set.  They tell whoever 
+is looking at a drawings where to go to find more information a bout certain elements.
+
+--- Page 4 ---
+EscherickHouse
+Louis Kahn, 1959‐1961
+204 Sunrise Lane, Philadelphia, PA
+SECOND FLOOR PLAN
+FIRST FLOOR PLAN
+
+--- Page 5 ---
+
+
+--- Page 6 ---
+SECOND FLOOR PLAN
+FIRST FLOOR PLAN
+
+--- Page 7 ---
+•Arc
+•Ellipse
+•Blocks
+•DimensioningCAD 
+Techniques
+Tools we have learned:
+•Line and X‐Lines
+•Offset
+•Extend/Trim
+•Circle
+•Copy/Paste•Ortho Mode and Polar 
+Tracking
+•Object Snap
+•Layers and Color Styles
+•Line‐types
+•Text Styles•Paper Space vs Model Space
+•Viewports
+
+
+--- Page 8 ---
+Arc
+To create createan arc, you can specify 
+combinations of center, endpoint, start point, radius, angle, chord length, and directional values.  Arcs are drawn in counterclockwise direction by default.
+Access: Home tab or type “arc”Resources:  Autodesk Support: Arc Command
+Ex: 3‐Point Arc
+1
+2
+
+--- Page 9 ---
+Arc –Drawing a Door Swing
+Arcs can be used to draw window or door swings.
+3
+2 1
+
+
+--- Page 10 ---
+Ellipse
+For “axis, end” option, the first 2 
+points determine the location and length of the first axis.  The 3
+rd
+point determines the distance between the center of the ellipse and the end point of the second axis.
+Access: Home tab or type “el”
+Resources:  Autodesk Support: 
+Ellipse Command
+
+
+--- Page 11 ---
+Blocks
+A block is a named group of objects that act as a single 2D or 3D objec t.  Use 
+them to create repeated content (symbols, components) such as d oors, 
+windows, appliances, fixtures.
+Acess: Home tab or “b” to define a block and “i” to insert a bl ock
+Resourses:
+Autodesk Support: Block Command
+Autodesk: What is a Block?
+
+
+--- Page 12 ---
+Blocks
+To define a block, type “b”.  Name the block (ex: “door”). Sele ct base point 
+(this is the insertion point for the block) and the objects you  want to use to 
+create a block.  Check your setting units are inches.
+
+
+--- Page 13 ---
+Edit Blocks
+By redefining a block, you 
+automatically update all references to that block.
+Tip: If the actual lineworkwithin 
+your block is on the “0” layer, the lineworkwill display as whichever layer you place the block.  This allows for the same block to appear as different line weights.
+
+
+--- Page 14 ---
+Dimensions
+Use standard dimension techniques as discussed in 
+regards to analog drafting.  Autocadwill help with the formatting.
+
+
+--- Page 15 ---
+Adding Dimension 
+Styles
+You will need to create dimension styles for based on 
+the scale of the drawing in your viewport.  For example: I draft my floor plan at 1:1 in model space and I want the drawing to print at a scale of 1/4”=1’‐0”.  I will create a dimension style with a scale factor of 48 (Refer to chart).
+21 3
+
+
+--- Page 16 ---
+Adding Dimension Styles
+
+--- Page 17 ---
+Process: Floor Plans
+1.Regulating Lines
+a)Building Control Linesb)Overall Dimensionsc)Structural Lines
+2.Walls
+a)Wallsb)Doorsc)Windowsd)Interior Partitions and details
+3.Annotation
+a)Symbolsb)Dimensionsc)Notes
+4.Sheet
+a)Viewportb)Titlesc)Titleblock
+
+--- Page 18 ---
+Process: Floor Plans1.Regulating Lines
+a)Building Control Linesb)Overall Dimensionsc)Structural Lines
+
+--- Page 19 ---
+Process: Floor Plans2. Walls
+a)Wallsb)Doorsc)Windowsd)Interior Partitions and details
+
+--- Page 20 ---
+Process: Floor Plans2. Walls
+a)Wallsb)Doorsc)Windowsd)Interior Partitions and details
+
+--- Page 21 ---
+Process: Floor Plans2. Walls
+a)Wallsb)Doorsc)Windowsd)Interior Partitions and details
+
+--- Page 22 ---
+Process: Floor Plans2. Walls
+a)Wallsb)Doorsc)Windowsd)Interior Partitions and details
+
+
+--- Page 23 ---
+Process: Floor Plans3. Annotation
+a)Symbolsb)Dimensionsc)Notes
+
+
+--- Page 24 ---
+Process: Floor Plans4. Sheet
+a)Viewportb)Titlesc)Titleblock
+
+
+--- Page 25 ---
+Assignment Specifications:
+•Create a Dropbox folder “A‐004”
+•Upload your progress drawing at the end of this class to your D ropbox folder. 
+Name files: Last Name First Name –Assignment Title.  
+•Upload final submission *BEFORE THE START OF THE NEXT CLASS*
+•Submit 8.5”x11” plot of each drawing *AT THE START OF THE NEXT  CLASS*

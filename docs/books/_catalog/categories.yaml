@@ -1,0 +1,69 @@
+# SeatPilot · Taxonomías de Biblioteca
+
+version: 0.1
+updated_at: "2025-10-29"
+
+categories:
+  ux_experience:
+    label: "UX & Experiencia"
+    owners:
+      - Edwin Santiago
+    default_priority: "critical"
+    description: >
+      Diseño de interacción, accesibilidad, service design, microcopy y brand.
+
+  frontend_engineering:
+    label: "Frontend & Performance"
+    owners:
+      - FE Tech Lead
+    default_priority: "standard"
+    description: >
+      Layout, CSS, frameworks SPA, PWA, WebAssembly y visualización.
+
+  backend_architecture:
+    label: "Backend, Microservicios & Lenguajes"
+    owners:
+      - BE Tech Lead
+    default_priority: "standard"
+    description: >
+      Arquitectura distribuida, patrones de integración, lenguajes (TS, Rust, Go, Java, Python).
+
+  observability_security:
+    label: "Observabilidad, SRE & Seguridad"
+    owners:
+      - SRE Team
+    default_priority: "critical"
+    description: >
+      SLOs, metrics, incident response, threat modeling y DevSecOps.
+
+  data_ai:
+    label: "Datos, Analytics & IA"
+    owners:
+      - Data Team
+    default_priority: "standard"
+    description: >
+      Visualización, análisis, IA generativa, optimización y pricing.
+
+  events_ops:
+    label: "Eventos, Venue Ops & Wayfinding"
+    owners:
+      - Product Enablement
+    default_priority: "critical"
+    description: >
+      Normativas (IBC, ADA), logística de eventos, seguridad, wayfinding y experiencia onsite.
+
+  business_strategy:
+    label: "Estrategia de Producto & Cultura"
+    owners:
+      - Product Leadership
+    default_priority: "standard"
+    description: >
+      Lean, discovery continuo, gestión de producto, liderazgo y cultura.
+
+priority_levels:
+  critical:
+    description: "Debe tener resumen y estar indexado en la primera iteración."
+  standard:
+    description: "Se indexa después de cerrar los críticos; resumen recomendado."
+  legacy:
+    description: "Recurso histórico; mantener registro pero no priorizar resumen."

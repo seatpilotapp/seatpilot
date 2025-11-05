@@ -1,0 +1,1 @@
+/Volumes/Edwin\ Santiago/1_base/Seatpilot/packages/seatdesigner-engine/target/wasm32-unknown-unknown/release/libseatdesigner_engine.rlib: /Volumes/Edwin\ Santiago/1_base/Seatpilot/packages/seatdesigner-engine/src/lib.rs
