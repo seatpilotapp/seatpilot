@@ -2,11 +2,6 @@ name: FE Accessibility & Offline
 
 on:
   pull_request:
-    paths:
-      - 'apps/**'
-      - 'packages/**'
-      - 'docs/brand/**'
-      - 'brand/**'
   workflow_dispatch: {}
 
 jobs:
