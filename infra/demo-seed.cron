@@ -1,0 +1,2 @@
+# Ejecutar cada 5 minutos en un host Linux local; requiere .release.env con credenciales.
+*/5 * * * * cd /path/to/Seatpilot && /usr/bin/env bash -lc 'source .release.env && DEMO_CYCLE_SECONDS=300 ./scripts/demo-loop.sh >> logs/demo-loop.log 2>&1'

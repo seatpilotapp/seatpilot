@@ -1,0 +1,27 @@
+name: Demo Seed Loop (staging)
+
+on:
+  schedule:
+    - cron: "*/10 * * * *" # cada 10 minutos
+  workflow_dispatch:
+
+jobs:
+  seed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+
+      - name: Seed metrics and billing
+        env:
+          METRICS_API_BASE_URL: ${{ secrets.STAGING_METRICS_API_BASE_URL }}
+          METRICS_API_KEY: ${{ secrets.STAGING_METRICS_API_KEY }}
+          SUPABASE_DB_URL: ${{ secrets.STAGING_SUPABASE_DB_URL }}
+        run: |
+          pnpm install --filter seatpilot-metrics-api --prod
+          make seed-ops-live
+          make seed-db
